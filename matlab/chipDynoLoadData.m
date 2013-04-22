@@ -1,11 +1,18 @@
 function [data,X,annotation,TransNames]=chipDynoLoadData();
 
 % CHIPDYNOLOADDATA loads Spellman Data with Lee et al ChIP data.
-%
-%	Description:
-%	[data,X,annotation,TransNames]=chipDynoLoadData();
-%% 	chipDynoLoadData.m version 1.5
-
+% CHIPDYNO toolbox
+% chipDynoLoadData.m version 1.5
+% FORMAT [data,X,annotation,TransNames]=chipDynoLoadData();
+% DESC loads Spellman Data with Lee et al ChIP data.
+% RETURN data : point estimate of the expression level
+% RETURN X : connectivity measurement between genes and transcription factors
+% RETURN annotation : gene names
+% RETURN TransNames : transcription factors
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : 
 
 [probeName, data] = chipTextRead('./data/SpellmanMicro.txt');
 [probeName2, annotation, dataChip] = chipChipTextRead(['./data/' ...
