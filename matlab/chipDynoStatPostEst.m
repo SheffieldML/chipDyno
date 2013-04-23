@@ -1,12 +1,21 @@
 function expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
 
 % CHIPDYNOSTATPOSTEST computes posterior expectations
-%
-%	Description:
-%	expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
-%% 	chipDynoStatPostEst.m version 1.4
-
-
+% CHIPDYNO toolbox
+% chipDynoStatPostEst.m version 1.4
+% FORMAT expectations=chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
+% DESC computes posterior expectations
+% ARG data : point estimate of the expression level
+% ARG x : connectivity measurement between genes and transcription factors
+% ARG Sigma : prior covariance matrix of TFA
+% ARG beta :
+% ARG gamma : degree of temporal continuity
+% ARG mu : mean value of the transcription factor activity
+% RETURN expectations: computes posterior expectations
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : chipDynoStatPostEstNoise
 
 npts=size(data,2);
 nTrans=size(x,1);
