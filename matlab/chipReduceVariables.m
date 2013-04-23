@@ -1,11 +1,19 @@
 function [R,C,V,nEffectGenes]=chipReduceVariables(X);
 
 % CHIPREDUCEVARIABLES reduce  number of variables in chipDyno model
-%
-%	Description:
-%	[R,C,V,nEffectGenes]=chipReduceVariables(X);
-%% 	chipReduceVariables.m version 1.4
-
+% CHIPDYNO toolbox
+% chipReduceVariables.m version 1.4
+% FORMAT [R,C,V,nEffectGenes]=chipReduceVariables(X);
+% DESC reduce  number of variables in chipDyno model
+% ARG X : connectivity measurement between genes and transcription factors
+% RETURN R, C : same length integer vectors specifying the row and column 
+% indices of the non-zero entries of the sparce matrix
+% RETURN V : same length integer vectors with R and C specifying the
+% values of the non-zero entries of the sparce matrix
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : 
 
 nGenes=size(X,1);
 preSigma1=X(1,:);

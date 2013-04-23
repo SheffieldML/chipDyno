@@ -1,11 +1,19 @@
 function [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
 
 % CHIPDYNOTULOADDATA loads Tu Data with Lee et al ChIP data.
-%
-%	Description:
-%	[data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
-%% 	chipDynoTuLoadData.m version 1.5
-
+% CHIPDYNO toolbox
+% chipDynoTuLoadData.m version 1.5
+% FORMAT [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
+% DESC loads Tu Data with Lee et al ChIP data.
+% RETURN data : point estimate of the expression level
+% RETURN vars : uncertainty of the expression level
+% RETURN X : connectivity measurement between genes and transcription factors
+% RETURN annotation : Gene names
+% RETURN TransNames : transcription factors
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : 
 
 [probeName, data, vars] = chipTuTextRead;
 data=data(find(sum(vars,2)),:);

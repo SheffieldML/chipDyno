@@ -1,10 +1,17 @@
 function [ORF, data, vars]=chipTuTextRead()
 
 % CHIPTUTEXTREAD assigns common names to probe IDs
-%
-%	Description:
-%	[ORF, data, vars]=chipTuTextRead()
-%% 	chipTuTextRead.m version 1.5
+% CHIPDYNO toolbox
+% chipTuTextRead.m version 1.5
+% FORMAT [ORF, data, vars]=chipTuTextRead()
+% DESC assigns common names to probe IDs
+% RETURN ORF : Gene names
+% RETURN data : point estimate of the expression level
+% RETURN vars : uncertainty of the expression level
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : 
 
 
 [IDs,crap,ORF,geneCN]=textread('./data/MetabolData/dictionary.txt','%q%q%q%q');
