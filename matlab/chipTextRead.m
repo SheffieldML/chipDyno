@@ -1,10 +1,17 @@
 function [geneName, data] = chipTextRead(file)
 
 % CHIPTEXTREAD reads TXT file for the Spellman data files.
-%
-%	Description:
-%	[geneName, data] = chipTextRead(file)
-%% 	chipTextRead.m version 1.5
+% CHIPDYNO toolbox
+% chipTextRead.m version 1.5
+% FORMAT [geneName, data] = chipTextRead(file)
+% DESC reads TXT file for the Spellman data files.
+% ARG file : the Spellman data file
+% RETURN geneNames : Gene names
+% RETURN data : point estimate of the expression level
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : chipTuTextRead
 
 
 % file ia a string containing the file name and the extension.

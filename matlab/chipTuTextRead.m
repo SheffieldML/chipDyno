@@ -11,7 +11,7 @@ function [ORF, data, vars]=chipTuTextRead()
 % COPYRIGHT : Neil D. Lawrence, 2006
 % COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
-% SEEALSO : 
+% SEEALSO : chipTextRead
 
 
 [IDs,crap,ORF,geneCN]=textread('./data/MetabolData/dictionary.txt','%q%q%q%q');
