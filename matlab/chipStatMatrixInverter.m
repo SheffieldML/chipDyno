@@ -1,11 +1,20 @@
 function f=chipStatMatrixInverter(Sigma, gamma, beta, x, npts);
 
 % CHIPSTATMATRIXINVERTER inverts block tridiagonal matrices for chipChip
-%
-%	Description:
-%	f=chipStatMatrixInverter(Sigma, gamma, beta, x, npts);
-%% 	chipStatMatrixInverter.m version 1.4
-
+% CHIPDYNO toolbox
+% chipStatMatrixInverter.m version 1.4
+% FORMAT f=chipStatMatrixInverter(Sigma, gamma, beta, x, npts);
+% DESC inverts block tridiagonal matrices for chipChip
+% ARG Sigma : prior covariance matrix of TFA
+% ARG gamma : degree of temporal continuity
+% ARG beta :
+% ARG x : connectivity measurement between genes and transcription factors
+% ARG npts : number of transcription factors
+% RETURN f : inverted block tridiagonal matrices 
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : chipStatMatrixInverterNoise
   
 lambda=x'*Sigma*x;
 nTrans=size(x,1);
@@ -84,13 +93,5 @@ for i=1:npts
 end
 
 f=invC;
-%f=[];
 
-%for i=1:npts
-%    row=[];
-%    for j=1:npts
-%        row=[row,invC.Sigma(i,j)*Sigma+invC.YYT(i,j)*Y*Y'];
-%    end
-%    f=[f;row];
-%    row=[];
-%end 
+

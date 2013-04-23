@@ -11,7 +11,7 @@ function [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, 
 % ARG X : connectivity measurement between genes and transcription factors
 % ARG Sigma : prior covariance matrix
 % ARG beta :
-% ARG gamma :
+% ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
 % ARG TransNames : Transcription factors
 % ARG annotation : Gene names
