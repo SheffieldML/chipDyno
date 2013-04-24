@@ -2,6 +2,7 @@ function [geneName, annotation, data] = chipChipTextRead(file1, file2)
 
 % CHIPCHIPTEXTREAD reads TXT file for the Lee ChIP data files.
 % CHIPDYNO toolbox
+% chipChipTextRead.m version 1.5
 % FORMAT function [geneName, annotation, data] = chipChipTextRead(file1, file2)
 % DESC reads TXT file for the Lee ChIP data files.
 % ARG file1 : the geneName and annotation file
@@ -13,8 +14,6 @@ function [geneName, annotation, data] = chipChipTextRead(file1, file2)
 % COPYRIGHT : Guido Sanguinetti, 2005
 % MODIFICATIONS : Muhammad A. Rahman, 2013
 % SEEALSO : chipTextRead, chipTuTextRead
-% chipChipTextRead.m version 1.5
-
 
 [geneName,annotation] = ...
     textread(file1,'%q %q %*[^\n]',...
