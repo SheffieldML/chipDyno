@@ -8,8 +8,8 @@
 #% RETURN f[[1]]: geneNames
 #% RETURN f[[2]]: annotation of the geneNames
 #% RETURN f[[3]] : TFA at different experimental point
-#% COPYRIGHT : Neil D. Lawrence, 2005
-#% COPYRIGHT : Guido Sanguinetti, 2005
+#% COPYRIGHT : Neil D. Lawrence, 2006
+#% COPYRIGHT : Guido Sanguinetti, 2006
 #% MODIFICATIONS : Muhammad A. Rahman, 2013
 #% SEEALSO : chipTextRead, chipTuTextRead
 

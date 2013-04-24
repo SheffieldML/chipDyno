@@ -1,20 +1,30 @@
-#function [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, TransNames, annotation,sigLev);
-#
-#% CHIPDYNOACTTRANSFACT identifies significantly varying TFs.
-#%
-#%	Description:
-#%	[list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, ...
-#%                                         TransNames, annotation,sigLev);
-#%% 	chipDynoActTransFact.R version 0.1.0
+# CHIPDYNOACTTRANSFACT identifies significantly varying TFs.
+# CHIPDYNO toolbox
+# chipDynoActTransFact.m version 1.1
+# FORMAT [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, ...
+#                                         TransNames, annotation,sigLev);
+# DESC identifies significantly varying TFs.
+# ARG data : point estimate of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG Sigma : prior covariance matrix
+# ARG beta :
+# ARG gamma : degree of temporal continuity
+# ARG mu : mean value of the transcription factor activity
+# ARG TransNames : Transcription factors
+# ARG annotation : Gene names
+# ARG sigLev : threshold value
+# RETURN f[[1]] : (list) list of regulators for a specific gene
+# RETURN f[[2]] : (newX) 
+# RETURN f[[1]] : (newXVals)
+# COPYRIGHT : Neil D. Lawrence, 2006
+# COPYRIGHT : Guido Sanguinetti, 2006
+# MODIFICATIONS : Muhammad A. Rahman, 2013
+# SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFactNoise
 
 chipDynoActTransFact=function (data,X,Sigma,beta,gamma,mu, TransNames, annotation, sigLev) {
 
 # sigLev= 10; # For Tu data Set! unknown!! just for development!!!
 # sigLev= 10; # Spellman data Set unknown! just for development!!!
-
-#load("ResultsTu_New_500Ita.RData")
-#load("ResultsSpellman_200Ita.RData")
-#load("/home/muhammad/H-drive/CElegans/Results_cElegans_100Ita.RData")
 
 nTrans=nrow(TransNames);
 lst=list();

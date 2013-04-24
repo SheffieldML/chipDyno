@@ -19,11 +19,10 @@ function [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, 
 % RETURN list: list of regulators for a specific gene
 % RETURN newX: 
 % RETURN newXVals : 
-% COPYRIGHT : Neil D. Lawrence, 2005
-% COPYRIGHT : Guido Sanguinetti, 2005
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
 % SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFactNoise
-
 
 nTrans=size(TransNames,1);
 list=[];
@@ -31,8 +30,7 @@ newX=zeros(size(X));
 newXVals=zeros(size(X));
 for i=1:nTrans
     [TF,TFError,TFErrorDiff]=chipDynoTransFact(data,X,Sigma,beta,gamma,mu, ...
-                                         TransNames, annotation, ...
-                                        TransNames(i));
+                                         TransNames, annotation, TransNames(i));
     %vars=max(abs((TF-mu(i)*ones(size(TF)))'./TFError'));
     maxVars=chipDynoMaxDiff(TF,TFErrorDiff);
     sigVars=maxVars(find(maxVars>sigLev));
