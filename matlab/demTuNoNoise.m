@@ -1,8 +1,12 @@
-
 % DEMTUNONOISE demonstrates dynamical chipCHIP on Tu data.
-%
-%	Description:
-%	% 	demTuNoNoise.m version 1.2
+% CHIPDYNO toolbox
+% demTuNoNoise.m version 1.2
+% FORMAT 
+% DESC demonstrates dynamical chipCHIP on Tu data.
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : demTu, demSpellmanDynoStat
 
 
 clear all

@@ -1,9 +1,12 @@
-
 % DEMTU demonstrates dynamical chipCHIP on Tu data.
-%
-%	Description:
-%	% 	demTu.m version 1.4
-
+% CHIPDYNO toolbox
+% demTu.m version 1.4
+% FORMAT 
+% DESC demonstrates dynamical chipCHIP on Tu data.
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : demSpellmanDynoStat
 
 clear all
 [data,vars,X,annotation,TransNames]=chipDynoTuLoadData();

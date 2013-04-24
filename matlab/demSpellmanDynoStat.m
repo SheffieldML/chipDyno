@@ -1,8 +1,12 @@
-
 % DEMSPELLMANDYNOSTAT demonstrates dynamical chipCHIP on Spellman data.
-%
-%	Description:
-%	% 	demSpellmanDynoStat.m version 1.4
+% CHIPDYNO toolbox
+% demSpellmanDynoStat.m version 1.4
+% FORMAT 
+% DESC demonstrates dynamical chipCHIP on Spellman data.
+% COPYRIGHT : Neil D. Lawrence, 2006
+% COPYRIGHT : Guido Sanguinetti, 2006
+% MODIFICATIONS : Muhammad A. Rahman, 2013
+% SEEALSO : demTu
 
 clear all
 randn('seed',39)
