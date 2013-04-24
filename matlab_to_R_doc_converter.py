@@ -7,11 +7,8 @@ keywords = ['DESC', 'ARG', 'FORMAT', 'RETURN', 'SEEALSO', 'COPYRIGHT', 'MODIFICA
 
 #BASEPATH = os.path.expanduser('~/mlprojects/.')
 #MANPATH = os.path.expanduser('~/mlprojects/./gpsim/R/man')
-BASEPATH = os.path.expanduser('~/SVN/mlprojects/chipDyno/matlab/')
-MANPATH = os.path.expanduser('~/SVN/mlprojects/chipDyno/R/man/')
-
-#BASEPATH = os.path.expanduser('/home/muhammad/SVN/mlprojects/chipDyno/matlab/')
-#MANPATH = os.path.expanduser('/home/muhammad/SVN/mlprojects/chipDyno/R/man/')
+BASEPATH = os.path.expanduser('~/Git/mlprojects/chipDyno/matlab/')
+MANPATH = os.path.expanduser('~/Git/mlprojects/chipDyno/R/man/')
 
 R_FUNC_RE = re.compile(r"(\w+) <- function")
 
