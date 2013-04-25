@@ -1,9 +1,9 @@
 # CHIPDYNOACTTRANSFACTNOISE identifies significantly varying TFs with uncertainty of
 # expression level.
 # CHIPDYNO toolbox
-# chipDynoActTransFactNoise.m version 1.4
-# FORMAT [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta, precs, gamma,mu, ...
-#                                         TransNames, annotation,sigLev);
+# chipDynoActTransFactNoise.R version 1.1
+# FORMAT chipDynoActTransFactNoise <- function (data,X,Sigma,beta, precs, gamma,mu,
+#                                         TransNames, annotation,sigLev)
 # DESC identifies significantly varying TFs.
 # ARG data : point estimate of the expression level
 # ARG X : connectivity measurement between genes and transcription factors
@@ -15,15 +15,14 @@
 # ARG TransNames : Transcription factors
 # ARG annotation : Gene names
 # ARG sigLev : threshold value
-# RETURN f[[1]] : (list) list of regulators for a specific gene
-# RETURN f[[2]] : (newX) 
-# RETURN f[[3]] : (newXVals) 
+# RETURN f : concatenated dataframe of list of regulators for a specific gene,
+# its index and values
 # COPYRIGHT : Neil D. Lawrence, 2006
 # COPYRIGHT : Guido Sanguinetti, 2006
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFact
 
-chipDynoActTransFactNoise=function (data,X,Sigma,beta, precs, gamma,mu, TransNames, annotation) {
+chipDynoActTransFactNoise <- function (data,X,Sigma,beta, precs, gamma,mu, TransNames, annotation) {
 
 nTrans=nrow(TransNames);
 lst=list();

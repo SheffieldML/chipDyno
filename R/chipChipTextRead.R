@@ -1,17 +1,16 @@
-#% CHIPCHIPTEXTREAD reads TXT file for the Lee ChIP data files.
-#% CHIPDYNO toolbox
-#% chipChipTextRead.m version 1.5
-#% FORMAT function [geneName, annotation, data] = chipChipTextRead(file1, file2)
-#% DESC reads TXT file for the Lee ChIP data files.
-#% ARG geneName_annotation_file : the geneName and annotation file
-#% ARG connectivity_file : the data file
-#% RETURN f[[1]]: geneNames
-#% RETURN f[[2]]: annotation of the geneNames
-#% RETURN f[[3]] : TFA at different experimental point
-#% COPYRIGHT : Neil D. Lawrence, 2006
-#% COPYRIGHT : Guido Sanguinetti, 2006
-#% MODIFICATIONS : Muhammad A. Rahman, 2013
-#% SEEALSO : chipTextRead, chipTuTextRead
+# CHIPCHIPTEXTREAD reads TXT file for the Lee ChIP data files.
+# CHIPDYNO toolbox
+# chipChipTextRead.m version 1.5
+# FORMAT function [geneName, annotation, data] = chipChipTextRead(file1, file2)
+# DESC reads TXT file for the Lee ChIP data files.
+# ARG geneName_annotation_file : the geneName and annotation file
+# ARG connectivity_file : the data file
+# RETURN f : concatenated dataframe of geneNames, annotation of the geneNames
+# and TFA at different experimental point
+# COPYRIGHT : Neil D. Lawrence, 2006
+# COPYRIGHT : Guido Sanguinetti, 2006
+# MODIFICATIONS : Muhammad A. Rahman, 2013
+# SEEALSO : chipTextRead, chipTuTextRead
 
 chipChipTextRead <- function(geneName_annotation_file, connectivity_file){
 
