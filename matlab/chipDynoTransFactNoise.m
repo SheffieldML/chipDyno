@@ -4,9 +4,9 @@ function [TF,TFError,TFErrorDiff]=chipDynoTransFactNoise(data,X,Sigma,beta,precs
 % CHIPDYNOTRANSFACTNOISE given a transcription factor, provides TFAs.
 % CHIPDYNO toolbox
 % chipDynoTransFactNoise.m version 1.4
-% FORMAT [TF,TFError,TFErrorDiff]=chipDynoTransFactNoise(data,X,Sigma,beta,precs, gamma, ...
-%                                         mu, transNames, annotations, name);
-% DESC given a gene, provides gene-specific TFAs with errorbars.
+% FORMAT [TF,TFError,TFErrorDiff]=chipDynoTransFactNoise(data,X, ...
+%                  Sigma,beta,precs, gamma, mu, transNames, annotations, name);
+% DESC given a transcription factor, provides gene-specific TFAs with errorbars.
 % ARG data : point estimate of the expression level
 % ARG X : connectivity measurement between genes and transcription factors
 % ARG Sigma : prior covariance matrix of TFA
@@ -16,7 +16,7 @@ function [TF,TFError,TFErrorDiff]=chipDynoTransFactNoise(data,X,Sigma,beta,precs
 % ARG mu : mean value of the transcription factor activity
 % ARG transNames : Transcription factors
 % ARG annotations : Gene names
-% ARG name : given gene name
+% ARG name : given transcription factor name
 % RETURN TF : transcription factor activity
 % RETURN TFError : error in transcription factor activity
 % RETURN TFErrorDiff :

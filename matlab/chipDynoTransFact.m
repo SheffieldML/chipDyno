@@ -15,7 +15,7 @@ function [TF,TFError,TFErrorDiff]=chipDynoTransFact(data,X,Sigma,beta,gamma,mu, 
 % ARG mu : mean value of the transcription factor activity
 % ARG transNames : Transcription factors
 % ARG annotations : Gene names
-% ARG name : given gene name
+% ARG name : given transcription factor name
 % RETURN TF : transcription factor activity
 % RETURN TFError : error in transcription factor activity
 % RETURN TFErrorDiff :

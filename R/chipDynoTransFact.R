@@ -12,10 +12,9 @@
 # ARG mu : mean value of the transcription factor activity
 # ARG transNames : Transcription factors
 # ARG annotations : Gene names
-# ARG name : given gene name
-# RETURN TF : transcription factor activity
-# RETURN TFError : error in transcription factor activity
-# RETURN TFErrorDiff :
+# ARG name : given transcription factor name
+# RETURN expectations : concatenated dataframe of transcription factor 
+# activity and its error
 # COPYRIGHT : Neil D. Lawrence, 2006
 # COPYRIGHT : Guido Sanguinetti, 2006
 # MODIFICATIONS : Muhammad A. Rahman, 2013
