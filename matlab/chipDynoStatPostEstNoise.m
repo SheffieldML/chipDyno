@@ -2,7 +2,7 @@ function expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu)
 
 % CHIPDYNOSTATPOSTESTNOISE computes posterior expectations.
 % CHIPDYNO toolbox
-% chipDynoStatPostEst.m version 1.4
+% chipDynoStatPostEstNoise.m version 1.4
 % FORMAT expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu);
 % DESC computes posterior expectations
 % ARG data : point estimate of the expression level
@@ -12,7 +12,7 @@ function expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu)
 % ARG precs : uncertainty of the expression level
 % ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
-% RETURN expectations: computes posterior expectations
+% RETURN expectations: concatanated dataframe of posterior expectations with error
 % COPYRIGHT : Neil D. Lawrence, 2006
 % COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
@@ -63,5 +63,3 @@ for i=1:sum(x)
     end
     expectations.tfErrorDiffs(:,:,i)=preDiffs+preDiffs'+eye(npts);
 end
-     
-     
