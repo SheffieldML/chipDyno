@@ -1,7 +1,7 @@
 function list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
                                          TransNames, annotation);
 
-% CHIPDYNONEWTRANSFACTNOISE tfs active for us and not for Tu et al.
+% CHIPDYNONEWTRANSFACTNOISE transcription factors active for us and not for Tu et al.
 % CHIPDYNO toolbox
 % chipDynoNewTransFactNoise.m version 1.4
 % FORMAT list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
@@ -16,7 +16,7 @@ function list=chipDynoNewTransFactNoise(data,X,Sigma,beta,precs,gamma,mu, ...
 % ARG mu : mean value of the transcription factor activity
 % ARG TransNames : Transcription factors
 % ARG annotations : Gene names
-% RETURN list: tfs active for us and not for Tu et al
+% RETURN list: transcription factors active for us and not for Tu et al
 % COPYRIGHT : Neil D. Lawrence, 2006
 % COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
