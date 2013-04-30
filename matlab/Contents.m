@@ -2,8 +2,7 @@
 % Version 0.121		14-Mar-2008
 % Copyright (c) 2008, Guido Sanguinetti
 
-% 
-, Guido Sanguinetti
+% Guido Sanguinetti
 
 % DEMSPELLMANP1 demonstrates dynamical chipCHIP on Spellman data.
 % CHIPDYNOTOOLBOXES The toolboxes needed for CHIPDYNO software.
