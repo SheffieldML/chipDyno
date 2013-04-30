@@ -1,18 +1,3 @@
-####
-SCGoptimTU = function(x, options, data, precs, X, nEffectGenes, R, C) {
-##
-
-# 'params' assigned to x, rest others variables are same.
-
-##Temp
-
-#f = chipDynoLikeStatNoise
-#x = params
-#options = options
-#gradf = chipDynoLikeStatNoiseGrad
-#varargin = data, X, nEffectGenes, R, C
-##############
-
 #function [x, options, flog, pointlog, scalelog] = scg(f, x, options, gradf, varargin)
 #%SCG	Scaled conjugate gradient optimization.
 #%
@@ -65,16 +50,25 @@ SCGoptimTU = function(x, options, data, precs, X, nEffectGenes, R, C) {
 
 #%	Copyright (c) Ian T Nabney (1996-2001)
 
-### test
-#options = array(0, dim=c(1,18))
-#options[1]=1;
-#options[2]=0.0001
-#options[3]=0.0001
-#options[14]=10 # No of iteration
-#options[17]=0.1
-eps= 2.2204e-16
-##
+#% COPYRIGHT : Ian T Nabney, 1996-2001, (the matlab version)
+#% MODIFICATIONS : Muhammad A. Rahman, 2013, (the R version)
 
+SCGoptimTU <- function(x, options, data, precs, X, nEffectGenes, R, C) {
+
+# 'params' assigned to x, rest others variables are same.
+# f = chipDynoLikeStatNoise
+# x = params
+# options = options
+# gradf = chipDynoLikeStatNoiseGrad
+# varargin = data, X, nEffectGenes, R, C
+
+# options = array(0, dim=c(1,18))
+# options[1]=1;
+# options[2]=0.0001
+# options[3]=0.0001
+# options[14]=10 # No of iteration
+# options[17]=0.1
+eps= 2.2204e-16
 
 #  Set up the options.
 if (length(options) < 18){
@@ -91,7 +85,6 @@ if(options[14]!=0){
 } else {
 	niters = 10;
 }
-
 
 #if(options(14))
 #  niters = options(14);
@@ -269,7 +262,6 @@ while (j <= niters){
 #  options(10) = options(10) + 1;
 #  Delta = 2*(fnew - fold)/(alpha*mu);
 
-
 	if (Delta  >= 0){
 		success = 1;
 		nsuccess = nsuccess + 1;
@@ -279,7 +271,6 @@ while (j <= niters){
 		success = 0;
 		fnow = fold;
 	}
-
 
 #  if (Delta  >= 0)
 #    success = 1;
@@ -311,7 +302,6 @@ while (j <= niters){
 		#sprintf("Cycle %4d  Error %11.6f  Scale %e", j, fnow, beta);
 		cat("Cycle :", j, "\tError= ",  fnow, "\tScale= ", beta, "\n");
 	}
-
     
 #  if display > 0
 #    fprintf(1, 'Cycle %4d  Error %11.6f  Scale %e\n', j, fnow, beta);
@@ -410,7 +400,6 @@ while (j <= niters){
 #  end
 #  j = j + 1;
 #end
-
 
 #% If we get here, then we haven't terminated in the given number of 
 #% iterations.
