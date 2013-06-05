@@ -27,10 +27,11 @@
 chipDynoExpectationsFastNoise <- function(data,X,Sigma,beta, precs, gamma,mu, transNames, annotations, transName, geneName){
 
 ## Only for test purpose
-#annotations = annotation
-#transNames=TransNames
-#transName= "ACE2"
-#geneName="YHR143W"
+# annotations = annotation
+# transNames=TransNames
+# transName= "ACE2"
+# transName=activeNames[i]
+# geneName="YHR143W"
 ####
 
 npts=ncol(data);

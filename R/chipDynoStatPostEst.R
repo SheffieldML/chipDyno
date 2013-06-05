@@ -76,3 +76,4 @@ expectations = list(expectations.b, expectations.tfError, expectations.tfErrorDi
 
 return(expectations)
 }
+}

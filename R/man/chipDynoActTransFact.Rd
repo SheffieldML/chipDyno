@@ -14,7 +14,7 @@ values <- chipDynoActTransFact(data, X, Sigma, beta, gamma, mu,
   \item{X}{connectivity measurement between genes and transcription factors}
   \item{Sigma}{prior covariance matrix}
   \item{beta}{}
-  \item{gamma}{}
+  \item{gamma}{degree of temporal continuity}
   \item{mu}{mean value of the transcription factor activity}
   \item{TransNames}{Transcription factors}
   \item{annotation}{Gene names}
@@ -26,7 +26,7 @@ values <- chipDynoActTransFact(data, X, Sigma, beta, gamma, mu,
   \item{newXVals}{}
 }
 \seealso{
-\code{\link{chipDynoActTransFact}}.
+\code{\link{chipDynoTransFact}, \link{chipDynoTransFactNoise}, \link{chipDynoActTransFactNoise}}.
 }
 \examples{
 ## missing

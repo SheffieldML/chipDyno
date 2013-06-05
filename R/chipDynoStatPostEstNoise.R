@@ -34,7 +34,7 @@ coeff=coeff[1,1]
 Mean = list()
 
 for (i in 1:npts){
-	tempMean=sum((beta^-2*array(1,dim<-c(1,npts))+precs^-1)^-1*data*(invC.Sigma[i,]+lambda*invC.YYT[i,]))*t(Y)+
+	tempMean=sum((beta^-2*array(1,dim<-c(1,npts))+precs^-1)^-1%*%data*(invC.Sigma[i,]+lambda*invC.YYT[i,]))*t(Y)+
 	(1+factor)^-1*(invC.Sigma[i,1]*mu+coeff*invC.YYT[i,1]%*%t(Y))+
 	(1-factor)*(1+factor)^-1*(sum(invC.Sigma[i,2:(ncol(invC.Sigma)-1)])*mu+coeff* sum(invC.YYT[i,2:(ncol(invC.YYT)-1)])%*%t(Y))+
 	(1+factor)^-1*(invC.Sigma[i,ncol(invC.Sigma)]*mu+coeff*invC.YYT[i,ncol(invC.YYT)]*t(Y));

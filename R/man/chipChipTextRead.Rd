@@ -18,7 +18,7 @@ values <- chipChipTextRead(file1, file2)
   \item{data}{TFA at different experimental point}
 }
 \seealso{
-\code{\link{chipTextRead}, \link{chipTuTextRead chipChipTextRead.m version 1.5}}.
+\code{\link{chipTextRead}, \link{chipTuTextRead}}.
 }
 \examples{
 ## missing

@@ -28,7 +28,7 @@ options = array(0, dim=c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]=5000 # No of iteration
+options[14]=50 # No of iteration
 options[17]=0.1
 
 source('chipReduceVariables.R') 

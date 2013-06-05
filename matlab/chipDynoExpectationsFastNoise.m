@@ -4,12 +4,11 @@ function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data, X, Sigm
 
 % CHIPDYNOEXPECTATIONSFASTNOISE computes posterior expectations TFA
 % considering uncertainty of the expression level
-% CHIPDYNO toolbox
-% chipDynoExpectationsFastNoise.m version 1.4
 % FORMAT [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data,X,Sigma, ...
 %					beta, precs, gamma, mu, TransNames, ...
 %					annotations, transName,geneName);
 % DESC computes posterior expectations of TFA considering uncertainty of the expression level.
+%
 % ARG data : point estimate of the expression level
 % ARG X : connectivity measurement between genes and transcription factors
 % ARG Sigma : prior covariance matrix of TFA
@@ -24,10 +23,15 @@ function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data, X, Sigm
 % RETURN tf: gene specific transcription factor activity
 % RETURN tfErrors: error in gene specific transcription factor activity
 % RETURN tfErrorsDiffs : 
+%
 % COPYRIGHT : Neil D. Lawrence, 2006
 % COPYRIGHT : Guido Sanguinetti, 2006
 % MODIFICATIONS : Muhammad A. Rahman, 2013
+%
 % SEEALSO : chipDynoExpectationsFast
+
+% CHIPDYNO toolbox
+% chipDynoExpectationsFastNoise.m version 1.4
 
 npts=size(data,2);
 nTrans=size(X,2);
