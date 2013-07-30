@@ -204,11 +204,7 @@ while (j <= niters){
 	# eps= 2.2204e-16
 		if (kappa < eps){
 			options[8] = fnow;
-<<<<<<< HEAD
-			return(x)
-=======
-			return() ##??
->>>>>>> parent of 355c632... Bug fix in SCG Optim
+			return(x) ##??
 		}
 #  % Calculate first and second directional derivatives.
 #  if (success == 1)
@@ -326,7 +322,7 @@ while (j <= niters){
 
 		if (max(abs(alpha%*%d)) < options[2] & max(abs(fnew-fold)) < options[3]){
 			options[8] = fnew;
-			return();
+			return(x);
 
 #    if (max(abs(alpha*d)) < options(2) & max(abs(fnew-fold)) < options(3))
 #      options(8) = fnew;
@@ -350,7 +346,7 @@ while (j <= niters){
 			#      % If the gradient is zero then we are done.
 			if (gradnew %*% t(gradnew) == 0){
 				options[8] = fnew;
-				return();
+				return(x);
 			}
 		}
 	}

@@ -1,20 +1,24 @@
-#function f=chipDynoLikeStatNoise(params,data,precs,X,nEffectGenes,R,C);
+# CHIPDYNOLIKESTATNOISE marginal likelihood for chipChip dynamical model
+# CHIPDYNO toolbox
+# chipDynoLikeStatNoise.R version 1.0.1
+# FORMAT chipDynoLikeStatNoise <- function(params,data,precs,X,nEffectGenes,R,C)
+# DESC compute the marginal likelihood for chipChip dynamical model
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : effectice gene name
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN likelihood : marginal likelihood
+# COPYRIGHT : Neil D. Lawrence, 2006
+# COPYRIGHT : Guido Sanguinetti, 2006
+# MODIFICATIONS : Muhammad A. Rahman, 2013
+# SEEALSO : chipDynoLikeStatNoise
 
-#% rCHIPDYNOLIKESTATNOISE marginal likelihood for chipChip dynamical model
-#%
-#%	Description:
-#%	f=chipDynoLikeStatNoise(params,data,precs,X,nEffectGenes,R,C);
-#%% 	rchipDynoLikeStatNoise.R version 0.01
-
-
-## Test: Likestate Nose (Objective Function to minimize)
-chipDynoLikeStatNoise=function(params,data,precs,X,nEffectGenes,R,C){
-##
-
-#### For Test purpose only #####
-#rm(list=ls())
-#load("130212_dem_LSNG_2.RData")
-#####
+chipDynoLikeStatNoise <- function(params,data,precs,X,nEffectGenes,R,C){
 
 nGenes=nrow(data)
 nTrans=ncol(X)
@@ -29,7 +33,6 @@ library(Matrix)
 preSigma <- as.matrix(sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans)))
 
 diagonal = params[(ncol(params)-nTrans+1):ncol(params)]
-
 Sigma=t(preSigma)%*%preSigma+diag(diagonal*diagonal); 
 factor=cos(gamma)^2
 preLike= mat.or.vec(1, nGenes)
@@ -44,8 +47,7 @@ for (i in 1: nGenes){
 	sigma=(beta^2+precs[i,npts-1])^-1+(alpha[1]^-1+coeff)/factor^2;
 	#update=0.5*log(sigma)+ 0.5*((k[1]-data[i,npts-1])^2)/(sigma); 
 	preLike[i]=preLike[i]+ 0.5*log(sigma)+ 0.5*((k[1]-data[i,npts-1])^2)/(sigma)
-	# Have to check the preLike...
-
+	
 	for (j in 2: (npts-1)){
     		alpha[j]= beta^2+precs[i,npts-j+1]+factor^2*(alpha[j-1]^-1+coeff)^-1;
 		k[j] = alpha[j]^-1*(data[i,npts-j+1]*
@@ -63,8 +65,7 @@ for (i in 1: nGenes){
 		0.5*((k[length(k)]-number)^2)/(alpha[length(alpha)]^-1+X[i,]%*%Sigma%*%X[i,]);
 }
 
-f=rowSums(preLike);
+likelihood=rowSums(preLike);
 
-return(f)
+return(likelihood)
 }
-
