@@ -9333,7 +9333,3 @@ AFFX-YER148wM_at <https://www.netaffx.com/LinkServlet?array=YEAST&probeset=AFFX-
 AFFX-YFL039C3_at <https://www.netaffx.com/LinkServlet?array=YEAST&probeset=AFFX-YFL039C3_at>		ACT1
 AFFX-YFL039C5_at <https://www.netaffx.com/LinkServlet?array=YEAST&probeset=AFFX-YFL039C5_at>		ACT1
 AFFX-YFL039CM_at <https://www.netaffx.com/LinkServlet?array=YEAST&probeset=AFFX-YFL039CM_at>		ACT1
-
-
-
-              		

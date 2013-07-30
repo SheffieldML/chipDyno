@@ -64,7 +64,7 @@ options = array(0, dim <- c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]=10 # No of iteration
+options[14]=2 # No of iteration
 options[17]=0.1
 ##
 
