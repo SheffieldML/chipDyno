@@ -12,8 +12,25 @@ rm(list = ls())
 
 library(Matrix);
 
+#### load the data files
+cat("DEMTU demonstrates dynamical chipCHIP on Tu data. \n");
+cat("Loading and pre-prosessing data files ...\n ");
+
+file_dictionary <- "./data/MetabolData/dictionary.txt";
+file_probeIDTu <- "./data/MetabolData/probeIDTu.txt";
+file_data <- "./data/MetabolData/YeastMetabolism_exprs.txt";
+file_vars <- "./data/MetabolData/YeastMetabolism_se.txt";
+
+file_dataChip <- "./data/Connectivity2.txt";
+file_annotation <- "./data/annotations2.txt"
+file_transNames <- "./data/Trans_Names2.txt"
+#####
+
 source("chipDynoTuLoadData.R");
-data_vars_X_annotation_TransNames = chipDynoTuLoadData();
+data_vars_X_annotation_TransNames = chipDynoTuLoadData(file_dictionary, 
+	file_probeIDTu, file_data, file_vars, file_dataChip, 
+	file_annotation, file_transNames);
+
 data = data_vars_X_annotation_TransNames[[1]]
 vars = data_vars_X_annotation_TransNames[[2]]
 X = data_vars_X_annotation_TransNames[[3]]
@@ -24,6 +41,8 @@ nGenes= nrow(data)
 npts= ncol(data)
 nTrans = ncol(X)
 muIn = array(0, dim <-c(nTrans,1)); 
+
+cat("Creating a sparse matrix for gene vs TF connectivity  ...\n");
 
 source('chipReduceVariables.R') 
 R_C_V_nEffectGenes = chipReduceVariables(X);
@@ -44,12 +63,14 @@ options = array(0, dim <- c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]=10 # No of iteration
+options[14]= 5  # No of iteration
 options[17]=0.1
 
 source("chipDynoLikeStatNoise.R")
 source("chipDynoLikeStatNoiseGrad.R")
 source("SCGoptimTU.R")
+
+cat("Optimizing parameters... \n");
 
 params = SCGoptimTU(params, options, data, precs, X, nEffectGenes, R, C)
 

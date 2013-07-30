@@ -3,6 +3,13 @@
 # chipDynoTuLoadData.R version 1.0.1
 # FORMAT chipDynoTuLoadData <- function()
 # DESC loads Tu Data with Lee et al ChIP data.
+# ARG file_dictionary : List of gene names
+# ARG file_probeIDTu : List of gesn's id
+# ARG file_data : Point estimate for the expression level
+# ARG file_vars : uncertainty of the expression level
+# ARG file_dataChip : connectivity matrix between genes and transcription factors
+# ARG file_annotation : Gene annotation
+# ARG file_transNames : List of transcription factors.
 # RETURN data_vars_X_annotation_TransNames : concatenated dataframe of 
 # (1) point estimate of the expression level, 
 # (2) uncertainty of the expression level,
@@ -13,16 +20,18 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : 
 
-chipDynoTuLoadData <- function() {
+chipDynoTuLoadData <- function(file_dictionary, 
+	file_probeIDTu, file_data, file_vars, file_dataChip, 
+	file_annotation, file_transNames) {
 
-file_dictionary <- "./data/MetabolData/dictionary.txt";
-file_probeIDTu <- "./data/MetabolData/probeIDTu.txt";
-file_data <- "./data/MetabolData/YeastMetabolism_exprs.txt";
-file_vars <- "./data/MetabolData/YeastMetabolism_se.txt";
+#file_dictionary <- "./data/MetabolData/dictionary.txt";
+#file_probeIDTu <- "./data/MetabolData/probeIDTu.txt";
+#file_data <- "./data/MetabolData/YeastMetabolism_exprs.txt";
+#file_vars <- "./data/MetabolData/YeastMetabolism_se.txt";
 
-file_dataChip <- "./data/Connectivity2.txt";
-file_annotation <- "./data/annotations2.txt"
-file_transNames <- "./data/Trans_Names2.txt"
+#file_dataChip <- "./data/Connectivity2.txt";
+#file_annotation <- "./data/annotations2.txt"
+#file_transNames <- "./data/Trans_Names2.txt"
 
 source("chipTuTextRead.R")  # This will collect the values of variable
 							# "ORF", "data", "vars" form "ChipTuTextRead.R" file.
