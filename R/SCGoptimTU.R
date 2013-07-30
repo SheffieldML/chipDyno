@@ -157,7 +157,7 @@ j = 1;					# j counts number of iterations.
 #betamax = 1.0e100;			% Upper bound on scale.
 #j = 1;					% j counts number of iterations.
 
-## for test save.image("test2.RData")
+## for test
 flog = array(0, dim=c(niters,1))
 pointlog = array(0, dim=c(niters,length(params)))
 scalelog = array(0, dim=c(niters,1))
@@ -200,7 +200,7 @@ while (j <= niters){
 	# eps= 2.2204e-16
 		if (kappa < eps){
 			options[8] = fnow;
-			return(x) ##?? gradnew?
+			return() ##??
 		}
 #  % Calculate first and second directional derivatives.
 #  if (success == 1)
@@ -315,9 +315,7 @@ while (j <= niters){
 
 		if (max(abs(alpha%*%d)) < options[2] & max(abs(fnew-fold)) < options[3]){
 			options[8] = fnew;
-			#cat("Test point 1");
-			return(x);
-			#cat("Test point 2");
+			return();
 
 #    if (max(abs(alpha*d)) < options(2) & max(abs(fnew-fold)) < options(3))
 #      options(8) = fnew;
@@ -341,9 +339,7 @@ while (j <= niters){
 			#      % If the gradient is zero then we are done.
 			if (gradnew %*% t(gradnew) == 0){
 				options[8] = fnew;
-				#cat("Test point 3");
-				return(x);
-				#cat("Test point 4");
+				return();
 			}
 		}
 	}
@@ -377,15 +373,15 @@ while (j <= niters){
 
 	#  % Update search direction using Polak-Ribiere formula, or re-start 
 	#  % in direction of negative gradient after nparams steps.
-		if (nsuccess == nparams){
-			d = -gradnew;
-			nsuccess = 0;
-		} else {
-			if (success == 1){
-				gamma = (gradold - gradnew)%*%t(gradnew)/(mu);
-				d = gamma %*% d - gradnew;
-				}
-			}	
+	if (nsuccess == nparams){
+		d = -gradnew;
+		nsuccess = 0;
+	} else {
+		if (success == 1){
+			gamma = (gradold - gradnew)%*%t(gradnew)/(mu);
+			d = gamma %*% d - gradnew;
+		}
+	}	
 
 	j = j + 1;
 }
@@ -423,6 +419,5 @@ if (options[1] >= 0){
 #end
 
 ## TODO
-#cat("Test point 5");
 return(x)
 }
