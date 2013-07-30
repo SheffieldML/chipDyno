@@ -204,7 +204,7 @@ while (j <= niters){
 	# eps= 2.2204e-16
 		if (kappa < eps){
 			options[8] = fnow;
-			return(x) ##??
+			return(x)
 		}
 #  % Calculate first and second directional derivatives.
 #  if (success == 1)

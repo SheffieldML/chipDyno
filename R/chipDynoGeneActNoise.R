@@ -13,18 +13,20 @@
 #%% 	chipDynoGeneAct.R version 0.1.0
 #
 
-chipDynoGeneAct = function(data, X, Sigma,beta,gamma,mu, transNames, annotation, geneName) {
+chipDynoGeneActNoise = function(data, X, Sigma, beta, precs, gamma,mu, transNames, annotation, geneName) {
 
 ## Only for test purpose
+# source("test_chipDynoGeneActNoise.R")
 # load("/home/muhammad/H-drive/CElegans/Results_cElegans_Optim_Sample1.RData")
 # annotations = annotation
 # transNames=TransNames
 # geneName="YHR143W"
 # geneName="AGA1"
 # geneName = "W02D7.4" # from Wormnet
-# geneName = "C27D8.4"
+# geneName = annotation[i]
 ####
 
+require("Matrix")
 I=which(geneName==annotation);
 activeNames=transNames[which(X[I,]!=0)];
 nTransFact=sum(X[I,]);
@@ -37,10 +39,10 @@ maxActivityError=list();
 #maxActivity=[];
 #maxActivityError=[];
 
-source("chipDynoExpectationsFast.R")
+source("chipDynoExpectationsFastNoise.R")
 
 for (i in 1: nTransFact) {
-	expectations=chipDynoExpectationsFast(data,X,Sigma,beta,gamma,mu, transNames, annotation,  activeNames[i], geneName);
+	expectations=chipDynoExpectationsFastNoise(data,X,Sigma,beta,precs,gamma,mu, transNames, annotation,  activeNames[i], geneName);
 	tf = expectations[[1]]
 	tfError = expectations[[2]]
 	tfErrorDiffs = expectations[[3]]
@@ -76,5 +78,4 @@ list=activeNames[index];
 
 name_value_error = list(list,maxActivity,maxActivityError)
 return(name_value_error)
-
 }
