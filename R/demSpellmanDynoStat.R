@@ -8,14 +8,16 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : demTu
 
-rm(list=ls())
+#rm(list=ls())
 
 source("chipDynoLoadData.R")
 data_X_annotation_TransNames=chipDynoLoadData()
 data = data_X_annotation_TransNames[[1]]
 X = data_X_annotation_TransNames [[2]]
-annotation = data_X_annotation_TransNames[[3]]
-TransNames = data_X_annotation_TransNames[[4]]
+#annotation = data_X_annotation_TransNames[[3]]
+#TransNames = data_X_annotation_TransNames[[4]]
+annotations = data_X_annotation_TransNames[[3]]
+transNames = data_X_annotation_TransNames[[4]]
 
 nGenes=nrow(data);
 npts=ncol(data);
@@ -28,8 +30,10 @@ options = array(0, dim=c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]=50 # No of iteration
+options[14]=2 # No of iteration
 options[17]=0.1
+
+cat("Creating a sparse matrix for gene vs TF connectivity  ...\n");
 
 source('chipReduceVariables.R') 
 R_C_V_nEffectGenes = chipReduceVariables(X);
@@ -41,6 +45,8 @@ nEffectGenes = R_C_V_nEffectGenes[[4]]
 diagonal=(t(rnorm(nTrans)))^2;
 beta=3;
 gamma=pi/4;
+
+cat("Optimizing parameters... \n");
 
 params=matrix(c(beta,gamma,t(muIn),rnorm(length(V))*V, diagonal),1,);
 
