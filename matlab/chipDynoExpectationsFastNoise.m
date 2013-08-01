@@ -1,11 +1,11 @@
 function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data, X, Sigma, ...
-					beta, precs, gamma, mu, TransNames, ...
-					annotation, transName,geneName);
+					beta, precs, gamma, mu, transNames, ...
+					annotations, transName,geneName);
 
 % CHIPDYNOEXPECTATIONSFASTNOISE computes posterior expectations TFA
 % considering uncertainty of the expression level
 % FORMAT [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data,X,Sigma, ...
-%					beta, precs, gamma, mu, TransNames, ...
+%					beta, precs, gamma, mu, transNames, ...
 %					annotations, transName,geneName);
 % DESC computes posterior expectations of TFA considering uncertainty of the expression level.
 %
@@ -16,7 +16,7 @@ function [tf,tfErrors,tfErrorsDiffs]=chipDynoExpectationsFastNoise(data, X, Sigm
 % ARG precs : uncertainty of the expression level
 % ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
-% ARG TransNames : Transcription factors
+% ARG transNames : Transcription factors
 % ARG annotations : Gene names
 % ARG transName : specific transcription factor
 % ARG geneName : specific gene name

@@ -15,8 +15,8 @@ function [list,newX, newXVals]=chipDynoActTransFactNoise(data,X,Sigma,beta,precs
 % ARG precs : uncertainty of the expression level 
 % ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
-% ARG TransNames : Transcription factors
-% ARG annotation : Gene names
+% ARG transNames : Transcription factors
+% ARG annotations : Gene names
 % ARG sigLev : threshold value
 % RETURN list: list of regulators for a specific gene
 % RETURN newX: 

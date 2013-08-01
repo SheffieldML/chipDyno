@@ -8,7 +8,10 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : demTu
 
-#rm(list=ls())
+rm(list=ls())
+
+cat("demSpellmanDynoStat.R demonstrates dynamical chipCHIP on Spellman data. \n");
+cat("Loading and pre-prosessing data files ...\n ");
 
 source("chipDynoLoadData.R")
 data_X_annotation_TransNames=chipDynoLoadData()

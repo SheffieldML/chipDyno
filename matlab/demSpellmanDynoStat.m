@@ -10,7 +10,8 @@
 
 clear all
 randn('seed',39)
-[data,X,annotation,TransNames]=chipDynoLoadData();
+#[data,X,annotation,TransNames]=chipDynoLoadData();
+[data,X,annotations,transNames]=chipDynoLoadData();
 nGenes=size(data,1);
 npts=size(data,2);
 nTrans=size(X,2);
