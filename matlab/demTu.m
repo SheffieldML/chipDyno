@@ -9,8 +9,7 @@
 % SEEALSO : demSpellmanDynoStat
 
 clear all
-#[data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
-[data,vars,X,annotations,transNames]=chipDynoTuLoadData();
+[data,vars,X,annotation,TransNames]=chipDynoTuLoadData();
 nGenes=size(data,1);
 npts=size(data,2);
 nTrans=size(X,2);

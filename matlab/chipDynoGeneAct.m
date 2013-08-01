@@ -1,14 +1,14 @@
 function [list,maxActivity,maxActivityError]=chipDynoGeneAct(data, ...
                                                   X,Sigma,beta,gamma,mu, ...
                                                   transNames, ...
-                                                  annotations,geneName);
+                                                  annotation,geneName);
 
 % CHIPDYNOGENEACT given a gene, lists activators in decreasing order
 % CHIPDYNO toolbox
 % chipDynoGeneAct.m version 1.4
 % FORMAT [list,maxActivity,maxActivityError]=chipDynoExpectationsFastNoise(data,X,Sigma, ...
 %					beta, gamma, mu, transNames, ...
-%					annotations, geneName);
+%					annotation, geneName);
 % DESC given a gene, lists activators in decreasing order
 % ARG data : point estimate of the expression level
 % ARG X : connectivity measurement between genes and transcription factors
@@ -17,7 +17,7 @@ function [list,maxActivity,maxActivityError]=chipDynoGeneAct(data, ...
 % ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
 % ARG transNames : Transcription factors
-% ARG annotations : Gene names
+% ARG annotation : Gene names
 % ARG geneName : specific gene name
 % RETURN list : lists activators for a given gene in decreasing order
 % RETURN maxActivity : 

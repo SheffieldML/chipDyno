@@ -13,8 +13,8 @@ function [list,newX, newXVals]=chipDynoActTransFact(data,X,Sigma,beta,gamma,mu, 
 % ARG beta :
 % ARG gamma : degree of temporal continuity
 % ARG mu : mean value of the transcription factor activity
-% ARG transNames : Transcription factors
-% ARG annotations : Gene names
+% ARG TransNames : Transcription factors
+% ARG annotation : Gene names
 % ARG sigLev : threshold value
 % RETURN list: list of regulators for a specific gene
 % RETURN newX: 
