@@ -3,7 +3,8 @@ rm(list=ls())
 
 require("Matrix")
 
-tfId=19
+tfId=8
+#tfId=19
 #tfId=8
 #tfId=33 # To examin the activity of TransNames[tfId,]
 
@@ -11,7 +12,12 @@ source("chipDynoTransFactNoise.R")
 source("chipDynoMaxDiff.R")
 
 #load("/home/muhammad/H-drive/CElegans/Results_cElegans_Optim_Sample19.RData")
-load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample19.RData")
+#load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample19.RData")
+#load("/home/muhammad/Dropbox/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample19.RData")
+load("/home/muhammad/Dropbox/CElegans/3exp_9dpHS_LC/Results_cElegans_Optim_Sample19.RData")
+
+
+
 
 nTrans=nrow(TransNames);
 lst=list();
@@ -28,7 +34,9 @@ S1_TFErrorDiff = expectations [[3]]
 
 #Sample#2
 #load("/home/muhammad/H-drive/CElegans/Results_cElegans_Optim_Sample29.RData")
-load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample29.RData")
+#load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample29.RData")
+#load("/home/muhammad/Dropbox/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample29.RData")
+load("/home/muhammad/Dropbox/CElegans/3exp_9dpHS_LC/Results_cElegans_Optim_Sample29.RData")
 
 nTrans=nrow(TransNames);
 lst=list();
@@ -45,7 +53,9 @@ S2_TFErrorDiff = expectations [[3]]
 
 #Sample#3
 #load("/home/muhammad/H-drive/CElegans/Results_cElegans_Optim_Sample39.RData")
-load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample39.RData")
+#load("/home/muhammad/H-drive/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample39.RData")
+#load("/home/muhammad/Dropbox/CElegans/3exp_9dpCE_YH/Results_cElegans_Optim_CE_YH_Sample39.RData")
+load("/home/muhammad/Dropbox/CElegans/3exp_9dpHS_LC/Results_cElegans_Optim_Sample39.RData")
 
 nTrans=nrow(TransNames);
 lst=list();
@@ -117,6 +127,8 @@ plotErrorBar(S1_TF[i,],S1_TFError[i,],S2_TF[i,],S2_TFError[i,],S3_TF[i,],S3_TFEr
 }
 #dev.off()
 # setEPS()
-# postscript("T20B12_8_1.eps")
+# postscript("T20B12_8_3dp_CE_YH.eps")
+# postscript("F55D12_4_3dp_HS_LC.eps")
+# source("plotErrorBar_for3Samples9dp.R")
 # source("plotErrorBar_Multiple.R")
 # dev.off()

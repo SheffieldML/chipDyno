@@ -17,10 +17,10 @@ source("chipDynoLoadData.R")
 data_X_annotation_TransNames=chipDynoLoadData()
 data = data_X_annotation_TransNames[[1]]
 X = data_X_annotation_TransNames [[2]]
-#annotation = data_X_annotation_TransNames[[3]]
-#TransNames = data_X_annotation_TransNames[[4]]
-annotations = data_X_annotation_TransNames[[3]]
-transNames = data_X_annotation_TransNames[[4]]
+annotation = data_X_annotation_TransNames[[3]]
+TransNames = data_X_annotation_TransNames[[4]]
+annotations = annotation # Both of the variavle contain the same data
+transNames = TransNames # Both of the variavle contain the same data
 
 nGenes=nrow(data);
 npts=ncol(data);

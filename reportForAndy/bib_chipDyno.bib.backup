@@ -1,0 +1,86 @@
+@article{puma,
+  author = {R. Pearson and X. Liu and G. Sanguinetti and M. Milo and N.D. Lawrence and M. Rattray},
+  title = {puma: a Bioconductor package for Propagating Uncertainty in Microarray Analysis},
+  journal = {BMC Bioinformatics},
+  year = {2009},
+  note = {10:211}
+}
+
+
+@misc{wormnet:url,
+  author = {Insuk Lee and Ben Lehner and Catriona Crombie and Wendy Wang and Andrew G. Fraser and Edward M. Marcotte},
+  title = {Probabilistic functional gene network of Caenorhabditis elegans},
+  howpublished = "\url{http://www.functionalnet.org/wormnet/about.html}",
+  year = {2013}, 
+  note = "[Online; accessed 05-September-2013]"
+}
+
+
+@article{wormnet:01,
+  author = {Insuk Lee and Ben Lehner and Catriona Crombie and Wendy Wang and Andrew G. Fraser and Edward M. Marcotte},
+  title = {A single network comprising the majority of genes accurately predicts the phenotypic effects of gene perturbation in C. elegans},
+  journal = {Nature Genetics},
+  year = {2008},
+  volume = {40},
+  pages = {181-188},
+  
+}
+
+@article{wormnet:02,
+  author = {Insuk Lee and Ben Lehner and Tanya Vavouri and Junha Shin and Andrew G. Fraser and Edward M. Marcotte},
+  title = {Predicting genetic modifier loci using functional gene networks},
+  journal = {Genome Research},
+  year = {2010},
+  note = {20(8)},
+  pages = {1143-1153},
+    
+}
+
+@article{edgedb:01,
+  author = {M Inmaculada Barrasa† and Philippe Vaglio† and Fabien Cavasino and Laurent Jacotot and Albertha JM Walhout},
+  title = {EDGEdb: a transcription factor-DNA Interaction database for the analysis of C. elegans differential gene expression},
+  journal = {BMC Genomics},
+  year = {2007},
+  note = {8:21, doi:10.1186/1471-2164-8-21}
+}
+
+
+@article{hope,
+  author = {Hope IA},
+  title = {Background on Caenorhabditis elegans},
+  journal = {Hope IA, editor. C. elegans: A Practical Approach. NY: Oxford University Press},
+  year = {1999},
+  volume = {55},
+  number = {1},
+  pages = {1-15}
+}
+
+.   2006;5:387–398
+
+@article{kalitta,
+  author = {Kaletta T and Hengartner MO},
+  title = {Finding function in novel targets: C-elegans as a model organism.},
+  journal = {Nat. Rev. Drug Discovery},
+  year = {2012},
+  volume = {55},
+  number = {1},
+  pages = {16-22},
+  month = {October},
+  note = {Published by Foundation of Computer Science, New York, USA}
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%% TEST  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+@article{mar:01,
+  author = {Muhammad Arifur Rahman},
+  title = {Article: Translation Shared Task on Statistical Machine Translation: A Comparison of the Systems Output},
+  journal = {International Journal of Computer Applications},
+  year = {2012},
+  volume = {55},
+  number = {1},
+  pages = {16-22},
+  month = {October},
+  note = {Published by Foundation of Computer Science, New York, USA}
+}

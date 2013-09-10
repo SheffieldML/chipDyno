@@ -33,10 +33,10 @@ data_vars_X_annotation_TransNames = chipDynoTuLoadData(file_dictionary,
 data = data_vars_X_annotation_TransNames[[1]]
 vars = data_vars_X_annotation_TransNames[[2]]
 X = data_vars_X_annotation_TransNames[[3]]
-#annotation = data_vars_X_annotation_TransNames[[4]]
-#TransNames = data_vars_X_annotation_TransNames[[5]]
-annotations = data_vars_X_annotation_TransNames[[4]]
-transNames = data_vars_X_annotation_TransNames[[5]]
+annotation = data_vars_X_annotation_TransNames[[4]]
+TransNames = data_vars_X_annotation_TransNames[[5]]
+annotations = annotation # Both of the variavle contain the same data
+transNames = TransNames # Both of the variavle contain the same data
 
 nGenes= nrow(data)
 npts= ncol(data)

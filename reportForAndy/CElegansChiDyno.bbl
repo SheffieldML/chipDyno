@@ -1,0 +1,68 @@
+\begin{thebibliography}{}
+
+\bibitem[Barrasa† et~al., 2007]{edgedb:01}
+Barrasa†, M.~I., Vaglio†, P., Cavasino, F., Jacotot, L., and Walhout, A.~J.
+  (2007).
+\newblock Edgedb: a transcription factor-dna interaction database for the
+  analysis of c. elegans differential gene expression.
+\newblock {\em BMC Genomics}.
+\newblock 8:21, doi:10.1186/1471-2164-8-21.
+
+\bibitem[Brenner, 1974]{brenner}
+Brenner, S. (1974).
+\newblock The genetics of caenorhabditis elegans.
+\newblock {\em Genetics.}, 77:71--94.
+
+\bibitem[Carlson, ]{celegans:db}
+Carlson, M.
+\newblock {\em celegans.db: Affymetrix celegans annotation data (chip
+  celegans)}.
+\newblock R package version 2.9.0.
+
+\bibitem[Hope, 1999]{hope}
+Hope, I.~A. (1999).
+\newblock Background on caenorhabditis elegans.
+\newblock {\em C. elegans: A Practical Approach. NY: Oxford University Press},
+  55(1):1--15.
+
+\bibitem[Kaletta and Hengartner, 2006]{kaletta}
+Kaletta, T. and Hengartner, M.~O. (2006).
+\newblock Finding function in novel targets: C-elegans as a model organism.
+\newblock {\em Nat. Rev. Drug Discovery}, 5:387–398.
+
+\bibitem[Lee et~al., 2008]{wormnet:01}
+Lee, I., Lehner, B., Crombie, C., Wang, W., Fraser, A.~G., and Marcotte, E.~M.
+  (2008).
+\newblock A single network comprising the majority of genes accurately predicts
+  the phenotypic effects of gene perturbation in c. elegans.
+\newblock {\em Nature Genetics}, 40:181--188.
+
+\bibitem[Lee et~al., 2013]{wormnet:url}
+Lee, I., Lehner, B., Crombie, C., Wang, W., Fraser, A.~G., and Marcotte, E.~M.
+  (2013).
+\newblock Probabilistic functional gene network of caenorhabditis elegans.
+\newblock \url{http://www.functionalnet.org/wormnet/about.html}.
+\newblock [Online; accessed 05-September-2013].
+
+\bibitem[Lee et~al., 2010]{wormnet:02}
+Lee, I., Lehner, B., Vavouri, T., Shin, J., Fraser, A.~G., and Marcotte, E.~M.
+  (2010).
+\newblock Predicting genetic modifier loci using functional gene networks.
+\newblock {\em Genome Research}, pages 1143--1153.
+\newblock 20(8).
+
+\bibitem[Pearson et~al., 2009]{puma}
+Pearson, R., Liu, X., Sanguinetti, G., Milo, M., Lawrence, N., and Rattray, M.
+  (2009).
+\newblock puma: a bioconductor package for propagating uncertainty in
+  microarray analysis.
+\newblock {\em BMC Bioinformatics}.
+\newblock 10:211.
+
+\bibitem[Sanguinetti et~al., 2006]{sanguinetti:01}
+Sanguinetti, G., Rattray, M., and Lawrence, N.~D. (2006).
+\newblock A probabilistic dynamical model for quantitative inference of the
+  regulatory mechanism of transcription.
+\newblock {\em Bioinformatics, Oxford University Press}, 22(14):1753--1759.
+
+\end{thebibliography}
