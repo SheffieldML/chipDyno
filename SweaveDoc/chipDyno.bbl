@@ -1,0 +1,11 @@
+\begin{thebibliography}{}
+
+\bibitem[Pearson et~al., 2009]{puma}
+Pearson, R., Liu, X., Sanguinetti, G., Milo, M., Lawrence, N., and Rattray, M.
+  (2009).
+\newblock puma: a bioconductor package for propagating uncertainty in
+  microarray analysis.
+\newblock {\em BMC Bioinformatics}.
+\newblock 10:211.
+
+\end{thebibliography}
