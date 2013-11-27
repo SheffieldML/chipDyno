@@ -89,21 +89,21 @@ In our experimental data set there was 3 replication of the same experiment with
 > data_sample2 <- cbind(data[,11],data[,2],data[,5],data[,8],data[,14])
 > data_sample3 <- cbind(data[,12],data[,3],data[,6],data[,9],data[,15])
 > data = data_sample2
-> data_sample1[1:7, 1:5]
+> data_sample2[1:7, 1:5]
 \end{Sinput}
 \begin{Soutput}
           [,1]      [,2]      [,3]      [,4]      [,5]
-[1,]  7.538062  8.335555  8.171527  7.874888  7.784602
-[2,]  9.985015 10.186255 10.390509 10.329048  9.536829
-[3,]  9.138663 10.718470 11.301698 10.594997  9.836753
-[4,] 13.793286 14.250379 14.365042 14.088584 13.461373
-[5,]  9.929965 10.710961 10.794212 10.714703 10.011631
-[6,] 13.052323 14.345205 14.552540 14.175887 13.203751
-[7,]  5.356036  6.658377  6.501826  5.939661  5.797593
+[1,]  8.485440  8.204751  7.733341  7.506436  7.654018
+[2,] 10.458571  9.760224 10.237954 10.091678  9.138865
+[3,]  9.866583 10.550956 10.569795 10.338855  9.695247
+[4,] 14.022295 14.192518 14.114323 13.805791 13.372240
+[5,] 10.827920 10.555282 10.269124 10.432771  9.820395
+[6,] 13.728474 14.342469 14.197267 13.929742 12.964248
+[7,]  5.981650  6.386036  5.598624  5.505857  5.542097
 \end{Soutput}
 \end{Schunk}
 
-Load the the standard errors-
+Load the the standard errors. The ~\cite{puma} package creates many files with different percentile of posterior destribution we can choose anyone based on our requirement. Here as well we are considering the second experiment
 
 \begin{Schunk}
 \begin{Sinput}
@@ -120,11 +120,22 @@ Load the the standard errors-
 > vars_sample2 <- cbind(vars[,11],vars[,2],vars[,5],vars[,8],vars[,14])
 > vars_sample3 <- cbind(vars[,12],vars[,3],vars[,6],vars[,9],vars[,15])
 > vars = vars_sample2 # Choose the sample
+> vars_sample2[1:7, 1:5]
 \end{Sinput}
+\begin{Soutput}
+          [,1]      [,2]      [,3]      [,4]      [,5]
+[1,] 0.1056184 0.1242523 0.1536280 0.1670771 0.1517485
+[2,] 0.1499116 0.1990787 0.1652076 0.1722417 0.2492719
+[3,] 0.1335496 0.1035425 0.1021652 0.1110768 0.1406269
+[4,] 0.1139111 0.1038009 0.1044545 0.1171636 0.1376497
+[5,] 0.1121100 0.1239257 0.1370347 0.1285520 0.1611539
+[6,] 0.1476996 0.1264172 0.1261040 0.1390692 0.1899627
+[7,] 0.4956338 0.4208474 0.6133670 0.6341569 0.5885441
+\end{Soutput}
 \end{Schunk}
 
+Load the annotation file. From this annotation file we can find the gene names for corresponding probe Set ID. For annotation we used ~\cite{celegans:db}.
 
-Load the annotation file. From this annotation file we can find the gene names for corresponding probe Set ID
 \begin{Schunk}
 \begin{Sinput}
 > annotation_file = "/home/muhammad/Dropbox/CElegans/annotation.txt"
@@ -160,6 +171,7 @@ Remove the genes which expression level data at any time point is missing-
 \end{Sinput}
 \end{Schunk}
 
+For gene specific transcription factor activity we have consider the probablistic functional gene network Wormnet ~\cite{wormnet:01} and ~\cite{wormnet:02}. We have constructed a connectivity matrix where the columns represents the transcription factors and rows are the genes. For any element $(i,j)$ of the connectivity matrix, if any transcription factor $j$ can bind any specific gene $i$ the value will be one, zero otherwise.
 
 \begin{Schunk}
 \begin{Sinput}
@@ -206,7 +218,7 @@ Collect the common gene expression on dataChip-
 \end{Sinput}
 \end{Schunk}
 
-avoid the duplicate entry
+Avoid the duplicate entry
 \begin{Schunk}
 \begin{Sinput}
 > tempIndex= duplicated(geneName)
@@ -220,8 +232,7 @@ avoid the duplicate entry
 > probeId=as.matrix(probeId[which(index!=0)]);
 > geneName=as.matrix(geneName[which(index!=0)],,1);
 > vars=vars[which(index!=0),];
-> ##### Rearrange the dataChip data based on data entry
-> 
+> # Rearrange the dataChip data based on data entry
 > dataChipNew = list()
 > geneName2 = list()
 > for (i in 1 : length(geneName)){
@@ -230,19 +241,167 @@ avoid the duplicate entry
 + 	geneName2 = rbind(geneName2,probeId3[id,])
 + }
 > #Create the binary matrix
-> 
-> #save.image("test20130501.RData")
-> 
-> #X= mat.or.vec(nrow(dataChip),ncol(dataChip))
 > X= array(0, dim=c(nrow(dataChip),ncol(dataChip)))
-> I <- c(which(dataChip>0)) ### ???????????????/ #TODO
+> I <- c(which(dataChip>0))
 > X[I] = 1
-> ####
+\end{Sinput}
+\end{Schunk}
+
+\begin{Schunk}
+\begin{Sinput}
+> file="/home/muhammad/Dropbox/CElegans/Connectivity/wTF2.1_test.txt"
+> dictionaryTF <- read.table(file, header = TRUE, sep = "\t", quote = "", dec = ".", 
++                 na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
++                 check.names = TRUE, fill = TRUE, strip.white = FALSE, 
++                 blank.lines.skip = TRUE, comment.char = "#", allowEscapes = FALSE, 
++                 flush = FALSE)
+> TransNames = as.matrix(dictionaryTF[,1],,1)
+\end{Sinput}
+\end{Schunk}
+
+Remove the transcription factors (if there any!) which has no evidence to transcribe genes and update the data.
+\begin{Schunk}
+\begin{Sinput}
+> fakeX = rowSums(X)
+> X=X[which(fakeX!=0),]
+> annotation=geneName[which(fakeX!=0),] ### geneName has been renamed.
+> annotation = matrix(annotation,,1)
+> data= data[which(fakeX!=0),]
+> vars= vars[which(fakeX!=0),]
 \end{Sinput}
 \end{Schunk}
 
 
-\section{??????????}
+Remove the genes which has no evidance to be transcribed by the given transcription factors and update the connectivity matrix.
+\begin{Schunk}
+\begin{Sinput}
+> effectX=colSums(X)
+> TransNames=TransNames[which(effectX!=0),]
+> TransNames=matrix(TransNames,,1)
+> X=X[,which(effectX!=0)]
+\end{Sinput}
+\end{Schunk}
+
+
+Collect the number of active genes, transcription factors and assign a variable for the mean value of the transcription factor.
+\begin{Schunk}
+\begin{Sinput}
+> nGenes= nrow(data)
+> npts= ncol(data)
+> nTrans = ncol(X)
+> muIn = mat.or.vec(nTrans,1)
+> muIn = matrix(muIn,,1)
+\end{Sinput}
+\end{Schunk}
+
+\section{Reduce the variables}
+The connectivity matrix is a huge sparse matrix. \Rfunction{chipReduceVariables} reduce  number of variables in chipDyno model and return the same length integer vectors specifying the row, column 
+indices of the non-zero entries and the corresponding value of the of the sparce matrix.
+\begin{Schunk}
+\begin{Sinput}
+> source('/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipReduceVariables.R')
+> R_C_V_nEffectGenes = chipReduceVariables(X);
+> R = R_C_V_nEffectGenes[[1]]
+> C = R_C_V_nEffectGenes[[2]]
+> V = R_C_V_nEffectGenes[[3]]
+> nEffectGenes = R_C_V_nEffectGenes[[4]]
+> diagonal=matrix(mat.or.vec(1,nTrans),1,)
+> diagonal[,]=0.5
+> precs_mat=mat.or.vec(nrow(vars),ncol(vars))
+> precs_mat[,]=1
+> precs = precs_mat/(vars^2)
+> beta=3;
+> gamma=pi/4; # Initialize the degree of temporal continuity
+> params=matrix(c(beta,gamma,t(muIn),0.1*t(V), diagonal),1,) # Rearran the parameters.
+\end{Sinput}
+\end{Schunk}
+
+Setup the option variables for the Scaled Conjugate gradient optimization. \Rcode{Options[1]} is set to 1 to display error values; If \Rcode{Options[1]} is set to 0, then only warning messages are displayed. \Rcode{Options[2]} is a measure of the absolute precision required for the value of X at the solution.  The condition is satisfied when the absolute difference between the values of X between two successive steps is less than \Rcode{Options[2]}.  \Rcode{Options[3]} is a measure of the precision required of the objective function at the solution.  This condition is satisfied when the absolute difference between the objective function values between two successive steps is less than \Rcode{Options[3]}. Both this and the condition for \Rcode{Options[2]} must be satisfied for termination. \Rcode{Options[14]} is the maximum number of iterations; default value is 100.
+
+\begin{Schunk}
+\begin{Sinput}
+> options = array(0, dim=c(1,18))
+> options[1]=1;
+> options[2]=0.0001
+> options[3]=0.0001
+> options[14]=1500 # No of iteration
+> options[17]=0.1
+\end{Sinput}
+\end{Schunk}
+
+
+\begin{Schunk}
+\begin{Sinput}
+> #% Temporary load functions
+> source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoise.R")
+> source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoiseGrad.R")
+> source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/SCGoptimTU.R")
+\end{Sinput}
+\end{Schunk}
+
+
+\section{Optimization of Likelihood}
+
+\Rcode{chipDynoLikeStat} and \Rcode{chipDynoLikeStatNoise} find out the marginal likelihood for chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+\begin{Schunk}
+\begin{Sinput}
+> options[14]=1000
+> # CHIPDYNOLIKESTATNOISE marginal likelihood for chipChip dynamical model
+> # FORMAT chipDynoLikeStatNoise <- function(params,data,precs,X,nEffectGenes,R,C)
+> # DESC compute the marginal likelihood for chipChip dynamical model
+> # ARG params: concatenated vector of multiple parameters(beta, gamma, 
+> # initial mean of the transcription factors, and 
+> # a vector to create diagonal matrix used to reduce the sparsity of covariance)
+> # ARG data : point estimate of the expression level
+> # ARG precs : uncertainty of the expression level
+> # ARG X : connectivity measurement between genes and transcription factors
+> # ARG nEffectGenes : effectice gene name
+> # ARG R, C : same length integer vectors specifying the row and column 
+> # indices of the non-zero entries of the sparce matrix
+> # RETURN likelihood : marginal likelihood
+\end{Sinput}
+\end{Schunk}
+
+
+\section{Gradiant Optimization}
+
+\Rcode{chipDynoLikeStatGrad} and \Rcode{chipDynoLikeStatNoiseGrad} calculate the gradient of  chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+\begin{Schunk}
+\begin{Sinput}
+> options[14]=5
+> # FORMAT chipDynoLikeStatNoiseGrad <- function(params, data, precs, X, nEffectGenes, R, C)
+> # DESC compute the gradient of chipDynoLikeStatNoise for chipChip dynamical model
+> # ARG params: concatenated vector of multiple parameters(beta, gamma, 
+> # initial mean of the transcription factors, and 
+> # a vector to create diagonal matrix used to reduce the sparsity of covariance)
+> # ARG data : point estimate of the expression level
+> # ARG precs : uncertainty of the expression level
+> # ARG X : connectivity measurement between genes and transcription factors
+> # ARG nEffectGenes : effectice gene name
+> # ARG R, C : same length integer vectors specifying the row and column 
+> # indices of the non-zero entries of the sparce matrix
+> # RETURN f : list of beta,gamma, mu, Sigma, diagonal
+\end{Sinput}
+\end{Schunk}
+
+
+\section{Parameter Optimization}
+
+\begin{Schunk}
+\begin{Soutput}
+Cycle : 1 	Error=  4769.431 	Scale=  1 
+Cycle : 2 	Error=  3435.412 	Scale=  0.5 
+Cycle : 3 	Error=  3040.608 	Scale=  0.25 
+Cycle : 4 	Error=  2395.916 	Scale=  0.125 
+Cycle : 5 	Error=  2004.683 	Scale=  0.0625 
+[1] "Warning: Maximum number of iterations has been exceeded"
+\end{Soutput}
+\end{Schunk}
+
 
 Add the following to your package \file{DESCRIPTION} file:
 \begin{verbatim}
@@ -374,7 +533,9 @@ this document was compiled:
   \item Locale: \verb|LC_CTYPE=en_GB.UTF-8|, \verb|LC_NUMERIC=C|, \verb|LC_TIME=en_GB.UTF-8|, \verb|LC_COLLATE=en_GB.UTF-8|, \verb|LC_MONETARY=en_GB.UTF-8|, \verb|LC_MESSAGES=en_GB.UTF-8|, \verb|LC_PAPER=en_GB.UTF-8|, \verb|LC_NAME=C|, \verb|LC_ADDRESS=C|, \verb|LC_TELEPHONE=C|, \verb|LC_MEASUREMENT=en_GB.UTF-8|, \verb|LC_IDENTIFICATION=C|
   \item Base packages: base, datasets, graphics, grDevices, methods, stats,
     utils
-  \item Loaded via a namespace (and not attached): BiocStyle~0.0.19, tools~3.0.2
+  \item Other packages: Matrix~1.1-0
+  \item Loaded via a namespace (and not attached): BiocStyle~0.0.19, grid~3.0.2,
+    lattice~0.20-24, tools~3.0.2
 \end{itemize}\end{Schunk}
 
 

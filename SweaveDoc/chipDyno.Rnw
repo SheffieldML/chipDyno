@@ -73,10 +73,10 @@ data_sample1 <- cbind(data[,10],data[,1],data[,4],data[,7],data[,13])
 data_sample2 <- cbind(data[,11],data[,2],data[,5],data[,8],data[,14])
 data_sample3 <- cbind(data[,12],data[,3],data[,6],data[,9],data[,15])
 data = data_sample2
-data_sample1[1:7, 1:5]
+data_sample2[1:7, 1:5]
 @
 
-Load the the standard errors-
+Load the the standard errors. The ~\cite{puma} package creates many files with different percentile of posterior destribution we can choose anyone based on our requirement. Here as well we are considering the second experiment
 
 <<echo=TRUE>>=
 vars_file = 
@@ -93,13 +93,13 @@ vars_sample1 <- cbind(vars[,10],vars[,1],vars[,4],vars[,7],vars[,13])
 vars_sample2 <- cbind(vars[,11],vars[,2],vars[,5],vars[,8],vars[,14])
 vars_sample3 <- cbind(vars[,12],vars[,3],vars[,6],vars[,9],vars[,15])
 vars = vars_sample2 # Choose the sample
+vars_sample2[1:7, 1:5]
 @
 
+Load the annotation file. From this annotation file we can find the gene names for corresponding probe Set ID. For annotation we used ~\cite{celegans:db}.
 
-Load the annotation file. From this annotation file we can find the gene names for corresponding probe Set ID
 <<echo=TRUE>>=
 annotation_file = "/home/muhammad/Dropbox/CElegans/annotation.txt"
-
 anno_dictionary <- read.table(annotation_file, header = FALSE, sep = "\t", quote = "", 
                   dec = ".", , na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
                   check.names = TRUE, fill = TRUE, strip.white = FALSE, 
@@ -126,6 +126,7 @@ data=data[which(index!=0),];
 vars=vars[which(index!=0),];
 @
 
+For gene specific transcription factor activity we have consider the probablistic functional gene network Wormnet ~\cite{wormnet:01} and ~\cite{wormnet:02}. We have constructed a connectivity matrix where the columns represents the transcription factors and rows are the genes. For any element $(i,j)$ of the connectivity matrix, if any transcription factor $j$ can bind any specific gene $i$ the value will be one, zero otherwise.
 
 <<echo=TRUE>>=
 connectivity_file = 
@@ -170,7 +171,7 @@ dataChip=dataChip[which(index!=0),];
 probeId3=as.matrix(probeId3[which(index!=0)],,1);
 @
 
-avoid the duplicate entry
+Avoid the duplicate entry
 <<echo=TRUE>>=
 tempIndex= duplicated(geneName)
 index=array(0, dim<-c(length(tempIndex),1))
@@ -180,14 +181,12 @@ for (i in 1 : length(tempIndex)){
 		index[i]=1
 	}
 }
-
 data=data[which(index!=0),];
 probeId=as.matrix(probeId[which(index!=0)]);
 geneName=as.matrix(geneName[which(index!=0)],,1);
 vars=vars[which(index!=0),];
 
-##### Rearrange the dataChip data based on data entry
-
+# Rearrange the dataChip data based on data entry
 dataChipNew = list()
 geneName2 = list()
 for (i in 1 : length(geneName)){
@@ -197,18 +196,142 @@ for (i in 1 : length(geneName)){
 }
 
 #Create the binary matrix
-
-#save.image("test20130501.RData")
-
-#X= mat.or.vec(nrow(dataChip),ncol(dataChip))
 X= array(0, dim=c(nrow(dataChip),ncol(dataChip)))
-I <- c(which(dataChip>0)) ### ???????????????/ #TODO
+I <- c(which(dataChip>0))
 X[I] = 1
-####
+@
+
+<<echo=TRUE>>=
+file="/home/muhammad/Dropbox/CElegans/Connectivity/wTF2.1_test.txt"
+dictionaryTF <- read.table(file, header = TRUE, sep = "\t", quote = "", dec = ".", 
+                na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                check.names = TRUE, fill = TRUE, strip.white = FALSE, 
+                blank.lines.skip = TRUE, comment.char = "#", allowEscapes = FALSE, 
+                flush = FALSE)
+TransNames = as.matrix(dictionaryTF[,1],,1)
+@
+
+Remove the transcription factors (if there any!) which has no evidence to transcribe genes and update the data.
+<<echo=TRUE>>=
+fakeX = rowSums(X)
+X=X[which(fakeX!=0),]
+annotation=geneName[which(fakeX!=0),] ### geneName has been renamed.
+annotation = matrix(annotation,,1)
+data= data[which(fakeX!=0),]
+vars= vars[which(fakeX!=0),]
 @
 
 
-\section{??????????}
+Remove the genes which has no evidance to be transcribed by the given transcription factors and update the connectivity matrix.
+<<echo=TRUE>>==
+effectX=colSums(X)
+TransNames=TransNames[which(effectX!=0),]
+TransNames=matrix(TransNames,,1)
+X=X[,which(effectX!=0)]
+@
+
+
+Collect the number of active genes, transcription factors and assign a variable for the mean value of the transcription factor.
+<<echo=TRUE>>=
+nGenes= nrow(data)
+npts= ncol(data)
+nTrans = ncol(X)
+muIn = mat.or.vec(nTrans,1)
+muIn = matrix(muIn,,1)
+@
+
+\section{Reduce the variables}
+The connectivity matrix is a huge sparse matrix. \Rfunction{chipReduceVariables} reduce  number of variables in chipDyno model and return the same length integer vectors specifying the row, column 
+indices of the non-zero entries and the corresponding value of the of the sparce matrix.
+<<echo=TRUE>>=
+source('/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipReduceVariables.R')
+R_C_V_nEffectGenes = chipReduceVariables(X);
+R = R_C_V_nEffectGenes[[1]]
+C = R_C_V_nEffectGenes[[2]]
+V = R_C_V_nEffectGenes[[3]]
+nEffectGenes = R_C_V_nEffectGenes[[4]]
+
+diagonal=matrix(mat.or.vec(1,nTrans),1,)
+diagonal[,]=0.5
+precs_mat=mat.or.vec(nrow(vars),ncol(vars))
+precs_mat[,]=1
+precs = precs_mat/(vars^2)
+beta=3;
+gamma=pi/4; # Initialize the degree of temporal continuity
+params=matrix(c(beta,gamma,t(muIn),0.1*t(V), diagonal),1,) # Rearran the parameters.
+@
+
+Setup the option variables for the Scaled Conjugate gradient optimization. \Rcode{Options[1]} is set to 1 to display error values; If \Rcode{Options[1]} is set to 0, then only warning messages are displayed. \Rcode{Options[2]} is a measure of the absolute precision required for the value of X at the solution.  The condition is satisfied when the absolute difference between the values of X between two successive steps is less than \Rcode{Options[2]}.  \Rcode{Options[3]} is a measure of the precision required of the objective function at the solution.  This condition is satisfied when the absolute difference between the objective function values between two successive steps is less than \Rcode{Options[3]}. Both this and the condition for \Rcode{Options[2]} must be satisfied for termination. \Rcode{Options[14]} is the maximum number of iterations; default value is 100.
+
+<<echo=TRUE>>=
+options = array(0, dim=c(1,18))
+options[1]=1;
+options[2]=0.0001
+options[3]=0.0001
+options[14]=1500 # No of iteration
+options[17]=0.1
+@
+
+
+<<echo=TRUE>>=
+#% Temporary load functions
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoise.R")
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoiseGrad.R")
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/SCGoptimTU.R")
+@
+
+
+\section{Optimization of Likelihood}
+
+\Rcode{chipDynoLikeStat} and \Rcode{chipDynoLikeStatNoise} find out the marginal likelihood for chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+<<echo=TRUE>>=
+options[14]=1000
+# CHIPDYNOLIKESTATNOISE marginal likelihood for chipChip dynamical model
+# FORMAT chipDynoLikeStatNoise <- function(params,data,precs,X,nEffectGenes,R,C)
+# DESC compute the marginal likelihood for chipChip dynamical model
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : effectice gene name
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN likelihood : marginal likelihood
+@
+
+
+\section{Gradiant Optimization}
+
+\Rcode{chipDynoLikeStatGrad} and \Rcode{chipDynoLikeStatNoiseGrad} calculate the gradient of  chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+<<echo=TRUE>>=
+options[14]=5
+# FORMAT chipDynoLikeStatNoiseGrad <- function(params, data, precs, X, nEffectGenes, R, C)
+# DESC compute the gradient of chipDynoLikeStatNoise for chipChip dynamical model
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : effectice gene name
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN f : list of beta,gamma, mu, Sigma, diagonal
+@
+
+
+\section{Parameter Optimization}
+
+<<echo=FALSE>>=
+params = SCGoptimNoise(params, options, data, precs, X, nEffectGenes, R, C)
+@
+
 
 Add the following to your package \file{DESCRIPTION} file:
 \begin{verbatim}

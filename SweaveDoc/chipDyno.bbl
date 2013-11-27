@@ -1,5 +1,25 @@
 \begin{thebibliography}{}
 
+\bibitem[Carlson, ]{celegans:db}
+Carlson, M.
+\newblock {\em celegans.db: Affymetrix celegans annotation data (chip
+  celegans)}.
+\newblock R package version 2.9.0.
+
+\bibitem[Lee et~al., 2008]{wormnet:01}
+Lee, I., Lehner, B., Crombie, C., Wang, W., Fraser, A.~G., and Marcotte, E.~M.
+  (2008).
+\newblock A single network comprising the majority of genes accurately predicts
+  the phenotypic effects of gene perturbation in c. elegans.
+\newblock {\em Nature Genetics}, 40:181--188.
+
+\bibitem[Lee et~al., 2010]{wormnet:02}
+Lee, I., Lehner, B., Vavouri, T., Shin, J., Fraser, A.~G., and Marcotte, E.~M.
+  (2010).
+\newblock Predicting genetic modifier loci using functional gene networks.
+\newblock {\em Genome Research}, pages 1143--1153.
+\newblock 20(8).
+
 \bibitem[Pearson et~al., 2009]{puma}
 Pearson, R., Liu, X., Sanguinetti, G., Milo, M., Lawrence, N., and Rattray, M.
   (2009).

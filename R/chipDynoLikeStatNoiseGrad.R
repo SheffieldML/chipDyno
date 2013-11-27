@@ -12,7 +12,7 @@
 # ARG nEffectGenes : effectice gene name
 # ARG R, C : same length integer vectors specifying the row and column 
 # indices of the non-zero entries of the sparce matrix
-# RETURN f : gradient of concatenated parameters (beta,gamma, mu, Sigma, diagonal)
+# RETURN f : a list of beta,gamma, mu, Sigma, diagonal
 # COPYRIGHT : Neil D. Lawrence, 2006
 # COPYRIGHT : Guido Sanguinetti, 2006
 # MODIFICATIONS : Muhammad A. Rahman, 2013
