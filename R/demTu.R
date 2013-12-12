@@ -64,16 +64,16 @@ options = array(0, dim <- c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]= 5  # No of iteration
+options[14]= 3  # No of iteration
 options[17]=0.1
 
 source("chipDynoLikeStatNoise.R")
 source("chipDynoLikeStatNoiseGrad.R")
-source("SCGoptimTU.R")
+source("SCGoptimNoise.R")
 
 cat("Optimizing parameters... \n");
 
-params = SCGoptimTU(params, options, data, precs, X, nEffectGenes, R, C)
+params = SCGoptimNoise(params, options, data, precs, X, nEffectGenes, R, C)
 
 V=params[(3+nTrans):(length(params)-nTrans)]
 #preSigma <- sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans))
@@ -88,4 +88,4 @@ mu = params[3:(2+nTrans)]
 # plot(mu,type="l",col="#22AAC6")
 # plot(mu,type="l",col="red")
 
-save.image("ResultsTu.RData")
+save.image("ResultsTu_test.RData")

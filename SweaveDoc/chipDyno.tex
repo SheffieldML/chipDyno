@@ -335,7 +335,7 @@ Setup the option variables for the Scaled Conjugate gradient optimization. \Rcod
 > #% Temporary load functions
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoise.R")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoiseGrad.R")
-> source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/SCGoptimTU.R")
+> source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/SCGoptimNoise.R")
 \end{Sinput}
 \end{Schunk}
 
@@ -390,6 +390,7 @@ The format of the function is-
 
 
 \section{Parameter Optimization}
+For marameter optimization we have used Scaled conjugate gradient optimization technique. This was done by Nabney et. al. for the matlab tool box Netlab. Here we have created the \Rcode{R} version of SCG optimization.
 
 \begin{Schunk}
 \begin{Soutput}
@@ -401,123 +402,94 @@ Cycle : 5 	Error=  2004.683 	Scale=  0.0625
 [1] "Warning: Maximum number of iterations has been exceeded"
 \end{Soutput}
 \end{Schunk}
+Collect the optimized values of mean, degree of temporal continuity, gradient and construct the optimized sparse matrix.
 
-
-Add the following to your package \file{DESCRIPTION} file:
-\begin{verbatim}
-    Suggests: BiocStyle
-\end{verbatim}
-and this code chunk to the preamble of each vignette:
-\begin{verbatim}
-    <<style, eval=TRUE, echo=FALSE, results=tex>>=
-    BiocStyle::latex()
-    @ 
-\end{verbatim}
-Arguments to \Rfunction{latex} are passed to \Rcode{options}. The default sets \Rcode{width=90}, which is optimal for the default font size 11pt; for smaller/larger font size please consider increasing/decreasing this value.
-
-The style features headers containing the title of the vignette as defined by \verb+\title+. If you wish to override it, e.g.~in the case of long titles, add the following line to the preamble of your vignette:
-\begin{verbatim}
-    \renewcommand{\thetitle}{Short header title}
-\end{verbatim}
-
-\Biocpkg{BiocStyle} automatically attaches the following \LaTeX{} packages: \texttt{color}, \texttt{fancyhdr}, \texttt{geometry}, \texttt{helvet}, \texttt{hyperref}, \texttt{sectsty}, \texttt{Sweave} and \texttt{titling}, so there is no need to reload them with \verb+\usepackage+.
-
-\section{Markup commands}
-\Biocpkg{BiocStyle} introduces the following additional markup styling commands useful in typical \Bioconductor{} vignettes.\\\\
-%%
-Software:
-\begin{itemize}
-  \item \verb+\R{}+ and \verb+\Bioconductor{}+ to reference \R{} software and the \Bioconductor{} project.
-  \exitem{software}{GATK}{to reference third-party software, e.g.,}
-\end{itemize}
-\vspace{1em}
-%%
-Packages:
-\begin{itemize}
-  \exitem{Biocpkg}{IRanges}{for \Bioconductor{} software packages, including a link to the release version landing page,}
-  \exitem{Biocannopkg}{org.Hs.eg.db}{for \Bioconductor{} annotation packages, including a link to the release version landing page,}
-  \exitem{Biocexptpkg}{parathyroidSE}{for \Bioconductor{} experiment data packages, including a link to the release version landing page,}
-  \exitem{CRANpkg}{data.table}{for \R{} packages available on CRAN, including a link to the FHCRC CRAN mirror landing page,}
-  \exitem{Rpackage}{MyPkg}{for \R{} packages that are \emph{not} available on \Bioconductor{} or CRAN,}
-\end{itemize}
-\vspace{1em}
-%%
-Code:
-\begin{itemize}
-  \exitem{Rfunction}{findOverlaps}{for functions}
-  \exitem{Robject}{olaps}{for variables}
-  \exitem{Rclass}{GRanges}{when refering to a formal class}
-  \exitem{Rcode}{log(x)}{for \R{} code,}
-\end{itemize}
-\vspace{1em}
-%%
-Communication:
-\begin{itemize}
-  \exitem{comment}{comment to the user}{communicates a}
-  \exitem{warning}{common pitfalls}{signals}
-  \exitem{fixme}{incomplete functionality}{provides an indication of}
-\end{itemize}
-\vspace{1em}
-%%
-General:
-\begin{itemize}
-  \exitem{email}{user@domain.com}{to provide a linked email address,}
-  \exitem{file}{script.R}{for file names and file paths}
-\end{itemize}
-
-%---------------------------------------------------------
-\section{Sectioning: this is a section}
-%---------------------------------------------------------
-
-Use \verb+\tableofcontents+ for a hyperlinked table of contents,
-\verb+\section+, \verb+\subsection+, \verb+\subsubsection+ for structuring your vignette.
-
-\subsection{This is a subsection}
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-\subsubsection{This is a subsubsection}
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
- 
-%---------------------------------------------------------
-\section{Including a figure}
-%---------------------------------------------------------
-
-Besides the usual \LaTeX{} capabilities (\verb+figure+ environment and
-\verb+includegraphics+ command), \file{Bioconductor.sty} defines a
-shortcut \verb+\incfig{filename}{width}{shorttitle}{extendedcaption}+,
-which expects four arguments:
-\begin{description}
-\item[filename] The name of the figure file, also used as the label by
-  which the float can be refered to by \verb+\ref{}+. Some
-  \software{Sweave} and \CRANpkg{knitr} options place figures in a
-  sub-folder; the sub-folder should be included in the file name.
-\item[width] Figure width.
-\item[shorttitle] A short description, used in the list of figures and
-  printed in bold as the first part of the caption.
-\item[extendedcaption] Continuation of the figure caption.
-\end{description}
-Thus
-\begin{verbatim}
-    <<figureexample,fig=TRUE,include=FALSE,width=4.2,height=4.6>>=
-    v = seq(0, 60i, length=1000)
-    plot(abs(v)*exp(v), type="l", col="Royalblue")
-    @ 
-    \incfig{LatexStyle-figureexample}{0.25\textwidth}{A curve.}
-        {The code that creates this figure is shown in the code chunk.}
-    as shown in Figure~\ref{LatexStyle-figureexample}.
-\end{verbatim}
-results in 
 \begin{Schunk}
 \begin{Sinput}
-> v = seq(0, 60i, length=1000)
-> plot(abs(v)*exp(v), type="l", col="Royalblue")
+> library(Matrix)
+> V=params[(3+nTrans):(length(params)-nTrans)]
+> preSigma <- sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans))
+> diagonal = params[(length(params)-nTrans+1) :(length(params))];
+> Sigma = t(preSigma)%*%preSigma + diag(diagonal*diagonal)
+> beta = params[1]
+> gamma = params[2]
+> mu = params[3:(2+nTrans)]
 \end{Sinput}
 \end{Schunk}
-%% 
-\incfig{figure/LatexStyle-figureexample.pdf}{0.25\textwidth}{A curve.}{The code
-  that creates this figure is shown in the code chunk.}  as shown in
-Figure~\ref{LatexStyle-figureexample}. (Use
-\verb+\ref{figure/figureexample}+ with \CRANpkg{knitr}).
+
+Save the data for the further analysis.
+\begin{Schunk}
+\begin{Sinput}
+> save.image("OptimizedResults_chipDyno2.RData")
+\end{Sinput}
+\end{Schunk}
+
+
+
+\begin{Schunk}
+\begin{Sinput}
+> library(Matrix)
+> V=params[(3+nTrans):(length(params)-nTrans)]
+> preSigma <- sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans))
+> diagonal = params[(length(params)-nTrans+1) :(length(params))];
+> Sigma = t(preSigma)%*%preSigma + diag(diagonal*diagonal)
+> Sigma[1,7:1,7]
+\end{Sinput}
+\begin{Soutput}
+[1] 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.0000000 0.2855354
+\end{Soutput}
+\begin{Sinput}
+> beta = params[1]
+> beta
+\end{Sinput}
+\begin{Soutput}
+[1] 2.956656
+\end{Soutput}
+\begin{Sinput}
+> gamma = params[2]
+> gamma
+\end{Sinput}
+\begin{Soutput}
+[1] 1.002117
+\end{Soutput}
+\begin{Sinput}
+> mu = params[3:(2+nTrans)]
+> mu
+\end{Sinput}
+\begin{Soutput}
+ [1]  0.0061301293  0.0140728862  0.0122150177  0.0135938941  0.0004971842  0.0120905132
+ [7]  0.0440501921  0.0376756092  0.0315684362  0.0025020464  0.0004971842  0.0127967696
+[13]  0.0298659677  0.0036280829  0.0137589917  0.0324063555  0.0111784321  0.0133022331
+[19]  0.0004971842  0.0170766473  0.0036280829  0.0086353393  0.0071787549 -0.0133753124
+[25]  0.0014286937  0.0714498366  0.0001107559  0.0143491183  0.0176310382  0.0001107559
+[31]  0.0034806406  0.0036280829  0.1326625095  0.0065212583  0.0018202303
+\end{Soutput}
+\end{Schunk}
+
+
+%---------------------------------------------------------
+\section{Plot mean}
+%---------------------------------------------------------
+The following figure represent the mean value of genes.
+\begin{figure}
+%<<test3, fig=TRUE, height=4, width=6>>=
+\begin{Schunk}
+\begin{Sinput}
+> par(mfrow=c(2,1))
+> plot(mu, col="green", type="l")
+> #barplot(height=sample(1:10,5), names=LETTERS[1:5], col=1:5)
+> barplot(mu,  col=c("blue"))
+\end{Sinput}
+\end{Schunk}
+\includegraphics{chipDyno-test3}
+
+\caption{Plot mean value}
+\label{Plot_mu}
+
+\end{figure}
+
+
+
 
 %---------------------------------------------------------
 \section{Session info}

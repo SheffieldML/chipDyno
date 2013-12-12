@@ -37,7 +37,7 @@ nTransFact=sum(X[I,]);
 maxActivity=list();
 maxActivityError=list();
 
-source("chipDynoExpectationsFast.R")
+#source("chipDynoExpectationsFast.R")
 
 for (i in 1: nTransFact) {
 	expectations=chipDynoExpectationsFast(data, X,Sigma , beta, gamma, mu, 

@@ -19,7 +19,7 @@ chipDynoStatPostEst <- function(data,x,Sigma,beta,gamma,mu) {
 
 npts=length(data);
 nTrans=length(x);
-source("chipStatMatrixInverter.R")
+#source("chipStatMatrixInverter.R")
 invC=chipStatMatrixInverter(Sigma, gamma, beta, x, npts); 
 invC.Sigma=invC[[1]]
 invC.YYT=invC[[2]]

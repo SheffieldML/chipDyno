@@ -30,8 +30,8 @@ lst=list();
 newX=array(0, dim <-c(dim(X)));
 newXVals=array(0, dim <-c(dim(X)));
 
-source("chipDynoTransFact.R")
-source("chipDynoMaxDiff.R")
+#source("chipDynoTransFact.R")
+#source("chipDynoMaxDiff.R")
 
 for (i in 1: nTrans) {
 	expectations =chipDynoTransFact(data,X,Sigma,beta,gamma,mu, TransNames, annotation, TransNames[i,]);

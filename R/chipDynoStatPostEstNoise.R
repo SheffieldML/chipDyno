@@ -11,7 +11,7 @@
 # ARG precs : uncertainty of the expression level
 # ARG gamma : degree of temporal continuity
 # ARG mu : mean value of the transcription factor activity
-# RETURN expectations: concatanated dataframe of posterior expectations with error
+# RETURN expectations: A list of posterior expected mean, error and error difference
 # COPYRIGHT : Neil D. Lawrence, 2006
 # COPYRIGHT : Guido Sanguinetti, 2006
 # MODIFICATIONS : Muhammad A. Rahman, 2013
@@ -21,7 +21,7 @@ chipDynoStatPostEstNoise <- function(data,x,Sigma,beta,precs,gamma,mu) {
 
 npts=length(data);
 nTrans=nrow(x);
-source("chipStatMatrixInverterNoise.R")
+#source("chipStatMatrixInverterNoise.R")
 invC=chipStatMatrixInverterNoise(Sigma, gamma, beta, precs, x,npts);
 invC.Sigma=invC[[1]]
 invC.YYT=invC[[2]]

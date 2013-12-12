@@ -55,7 +55,7 @@ if (c == 'character'){
 	print('Error: Genes can be identified either by number or name')
 }
 
-source("chipDynoStatPostEst.R")
+#source("chipDynoStatPostEst.R")
 expectations= chipDynoStatPostEst(data,x,Sigma,beta,gamma,mu);
 
 expectations.b=expectations[[1]] 

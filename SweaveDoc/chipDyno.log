@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  21 NOV 2013 13:47
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  28 NOV 2013 15:07
 entering extended mode
  %&-line parsing enabled.
 **chipDyno.tex
@@ -454,10 +454,6 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Warning: Font shape `T1/aess/bx/sl' undefined
 (Font)              using `T1/aess/bx/n' instead on input line 1.
 
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 10.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 10.
 )
 \tf@toc=\write5
 \openout5 = `chipDyno.toc'.
@@ -467,7 +463,12 @@ LaTeX Font Info:    Try loading font information for T1+aett on input line 24.
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 174.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 174.
+ [4]
 LaTeX Font Info:    Try loading font information for TS1+aett on input line 302
 .
 
@@ -483,47 +484,35 @@ File: ts1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `TS1/aett/m/sl' in size <10> not available
 (Font)              Font shape `TS1/cmtt/m/sl' tried instead on input line 302.
 
- [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 426--430
-
- []
-
-LaTeX Font Info:    Try loading font information for TS1+aess on input line 430
+ [5] [6] [7]
+<chipDyno-test3.pdf, id=106, 433.62pt x 433.62pt>
+File: chipDyno-test3.pdf Graphic file (type pdf)
+ <use chipDyno-test3.pdf>
+LaTeX Font Info:    Try loading font information for TS1+aess on input line 504
 .
-LaTeX Font Info:    No file TS1aess.fd. on input line 430.
+LaTeX Font Info:    No file TS1aess.fd. on input line 504.
+
 
 LaTeX Font Warning: Font shape `TS1/aess/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
-(Font)              for symbol `textbullet' on input line 430.
+(Font)              for symbol `textbullet' on input line 504.
 
-[7]
+(./chipDyno.bbl
 LaTeX Font Info:    Font shape `T1/aess/m/it' in size <10> not available
-(Font)              Font shape `T1/aess/m/sl' tried instead on input line 441.
- [8]
-<figure/LatexStyle-figureexample.pdf, id=140, 303.1325pt x 332.24126pt>
-File: figure/LatexStyle-figureexample.pdf Graphic file (type pdf)
-
-<use figure/LatexStyle-figureexample.pdf>
-
-LaTeX Warning: Reference `LatexStyle-figureexample' on page 9 undefined on inpu
-t line 519.
-
-(./chipDyno.bbl) [9 <./figure/LatexStyle-figureexample.pdf>] (./chipDyno.aux)
+(Font)              Font shape `T1/aess/m/sl' tried instead on input line 5.
+) [8] [9 <./chipDyno-test3.pdf>] (./chipDyno.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 6625 strings out of 495061
- 96914 string characters out of 1182622
- 172106 words of memory out of 3000000
- 9603 multiletter control sequences out of 15000+50000
- 36148 words of font info for 76 fonts, out of 3000000 for 9000
+ 6602 strings out of 495061
+ 96521 string characters out of 1182622
+ 170115 words of memory out of 3000000
+ 9593 multiletter control sequences out of 15000+50000
+ 30894 words of font info for 66 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 45i,11n,45p,908b,447s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 45i,11n,45p,908b,461s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/muhammad/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </hom
 e/muhammad/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcst1000.600pk></usr/share/te
 xmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive
@@ -531,14 +520,13 @@ xmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive
 /public/amsfonts/cm/cmsltt10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
 cmss12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss17.pfb>
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/
-texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texmf-texliv
-e/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts/type1/publi
-c/amsfonts/cm/cmtt10.pfb>
-Output written on chipDyno.pdf (9 pages, 198327 bytes).
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss9.pfb></usr/share/
+texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-texlive/fonts
+/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on chipDyno.pdf (9 pages, 172316 bytes).
 PDF statistics:
- 204 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 114 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 171 PDF objects out of 1000 (max. 8388607)
+ 26 named destinations out of 1000 (max. 500000)
+ 82 words of extra memory for PDF output out of 10000 (max. 10000000)
 

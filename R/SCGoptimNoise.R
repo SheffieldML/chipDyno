@@ -1,17 +1,14 @@
 # SCGOPTIMNOISE perform Scaled conjugate gradient optimization with noise parameter
 # CHIPDYNO toolbox
-# SCGoptimNoise.R version 1.0.1
+# SCGoptimNoise.R version 0.0.1
 # FORMAT SCGoptimNoise <- SCGoptimNoise(params, options, data, precs, X, nEffectGenes, R, C)
 # DESC Optimize the gradient based on Scaled conjugate gradient described as in Netlab 
 # ARG params: concatenated vector of multiple parameters(beta, gamma, 
 # initial mean of the transcription factors, and 
 # a vector to create diagonal matrix used to reduce the sparsity of covariance)
-# ARG options : 
-#	options[1] is set to 1 to display error values; also logs error
-#	values in the return argument ERRLOG, and the points visited in the
-#	return argument POINTSLOG.  If options[1] is set to 0, then only
-#	warning messages are displayed.  If options[1] is -1, then nothing is
-#	displayed.
+# ARG options : options[1] is set to 1 to display error values; If options[1] is set to 0, 
+#   then only warning messages are displayed.  If options[1] is -1, then nothing
+#	is displayed.
 #	options[2] is a measure of the absolute precision required for the
 #	value of X at the solution.  If the absolute difference between the
 #	values of X between two successive steps is less than options[2],
@@ -23,7 +20,6 @@
 #	previous condition must be satisfied for termination.
 #	options[9] is set to 1 to check the user defined gradient function.
 #	options[10] returns the total number of function evaluations
-#	(including those in any line searches).
 #	options[11] returns the total number of gradient evaluations.
 #	options[14] is the maximum number of iterations; default 100.
 # ARG data : point estimate of the expression level
@@ -33,13 +29,8 @@
 # ARG R, C : same length integer vectors specifying the row and column 
 # indices of the non-zero entries of the sparce matrix
 # RETURN x : Optimized value of the parameter 'params'
-# COPYRIGHT : Neil D. Lawrence, 2006
-# COPYRIGHT : Guido Sanguinetti, 2006
-# MODIFICATIONS : Muhammad A. Rahman, 2013
-# SEEALSO : SCGoptim
-#
-# Copyright (c) Ian T Nabney (1996-2001)
 # COPYRIGHT : Ian T Nabney, 1996-2001, (the matlab version)
+# SEEALSO : SCGoptim
 # MODIFICATIONS : Muhammad A. Rahman, 2013, (the R version)
 
 SCGoptimNoise <- function(x, options, data, precs, X, nEffectGenes, R, C) {
@@ -49,7 +40,6 @@ eps= 2.2204e-16
 if (length(options) < 18){
   stop('Options vector too short')
 }
-
 
 if(options[14]!=0){
 	niters = options[14];
@@ -76,10 +66,10 @@ options[11] = options[11] + 1;		# Increment gradient evaluation counter.
 d = -gradnew;				# Initial search direction.
 success = 1;				# Force calculation of directional derivs.
 nsuccess = 0;				# nsuccess counts number of successes.
-beta = 1.0;				# Initial scale parameter.
+beta = 1.0;					# Initial scale parameter.
 betamin = 1.0e-15; 			# Lower bound on scale.
 betamax = 1.0e100;			# Upper bound on scale.
-j = 1;					# j counts number of iterations.
+j = 1;						# j counts number of iterations.
 
 flog = array(0, dim=c(niters,1))
 pointlog = array(0, dim=c(niters,length(params)))
@@ -99,7 +89,7 @@ while (j <= niters){
 
 		if (kappa < eps){
 			options[8] = fnow;
-			return(x) ##?? gradnew?
+			return(x) 
 		}
 
 	sigma = sigma0/sqrt(kappa)
@@ -159,7 +149,6 @@ while (j <= niters){
 		} else {
 			fold = fnew;
 			gradold = gradnew;
-
 			gradnew = chipDynoLikeStatNoiseGrad(x, data, precs, X, nEffectGenes, R, C)
 
 			options[11] = options[11] + 1
@@ -169,7 +158,6 @@ while (j <= niters){
 			#      % If the gradient is zero then we are done.
 			if (gradnew %*% t(gradnew) == 0){
 				options[8] = fnew;
-
 				return(x);
 			}
 		}
@@ -196,7 +184,6 @@ while (j <= niters){
 				d = gamma %*% d - gradnew;
 				}
 			}	
-
 	j = j + 1;
 }
 

@@ -22,18 +22,20 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : chipDynoTransFact, chipDynoTransFactNoise, chipDynoActTransFact
 
-chipDynoActTransFactNoise <- function (data,X,Sigma,beta, precs, gamma,mu, TransNames, annotation) {
+chipDynoActTransFactNoise <- function (data,X,Sigma,beta, precs, gamma,mu, 
+										TransNames, annotation) {
 
 nTrans=nrow(TransNames);
 lst=list();
 newX=array(0, dim <-c(dim(X)));
 newXVals=array(0, dim <-c(dim(X)));
 
-source("chipDynoTransFactNoise.R")
-source("chipDynoMaxDiff.R")
+#source("chipDynoTransFactNoise.R")
+#source("chipDynoMaxDiff.R")
 
 for (i in 1: nTrans) {
-	expectations =chipDynoTransFactNoise(data,X,Sigma,beta,precs, gamma,mu, TransNames, annotation, TransNames[i,]);
+	expectations =chipDynoTransFactNoise(data,X,Sigma,beta,precs, gamma, mu, 
+						TransNames, annotation, TransNames[i,]);
 	TF = expectations[[1]]
 	TFError = expectations [[2]]
 	TFErrorDiff = expectations [[3]]

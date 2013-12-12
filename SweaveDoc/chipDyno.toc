@@ -5,9 +5,5 @@
 \contentsline {section}{\numberline {5}Optimization of Likelihood}{6}{section.5}
 \contentsline {section}{\numberline {6}Gradiant Optimization}{7}{section.6}
 \contentsline {section}{\numberline {7}Parameter Optimization}{7}{section.7}
-\contentsline {section}{\numberline {8}Markup commands}{7}{section.8}
-\contentsline {section}{\numberline {9}Sectioning: this is a section}{8}{section.9}
-\contentsline {subsection}{\numberline {9.1}This is a subsection}{8}{subsection.9.1}
-\contentsline {subsubsection}{\numberline {9.1.1}This is a subsubsection}{8}{subsubsection.9.1.1}
-\contentsline {section}{\numberline {10}Including a figure}{8}{section.10}
-\contentsline {section}{\numberline {11}Session info}{9}{section.11}
+\contentsline {section}{\numberline {8}Plot mean}{8}{section.8}
+\contentsline {section}{\numberline {9}Session info}{8}{section.9}

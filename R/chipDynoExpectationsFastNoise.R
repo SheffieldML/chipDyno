@@ -24,7 +24,8 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : chipDynoExpectationsFast
 
-chipDynoExpectationsFastNoise <- function(data,X,Sigma,beta, precs, gamma,mu, transNames, annotations, transName, geneName){
+chipDynoExpectationsFastNoise <- function(data,X,Sigma,beta, precs, gamma,mu, transNames, 
+											annotations, transName, geneName){
 
 ## Only for test purpose
 # annotations = annotation
@@ -57,7 +58,7 @@ if (c == 'character'){
 	print('Error: Genes can be identified either by number or name')
 }
 
-source("chipDynoStatPostEstNoise.R")
+#source("chipDynoStatPostEstNoise.R")
 expectations=chipDynoStatPostEstNoise(data,x,Sigma,beta,precs,gamma,mu);
 
 expectations.b=expectations[[1]]

@@ -43,7 +43,7 @@ TF=array(0, dim=c(nTargets,npts))
 TFError=array(0, dim=c(nTargets,npts))
 TFErrorDiff=array(0, dim=c(npts,npts,nTargets))
 
-source("chipDynoExpectationsFast.R")
+#source("chipDynoExpectationsFast.R")
 
 for (i in 1 : nTargets) {
 	expectations = chipDynoExpectationsFast(data,X,Sigma,beta,gamma,mu, 
