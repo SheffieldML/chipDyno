@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: CElegansChipDyno.aux
+The style file: apalike.bst
+Database file #1: bib_chipDyno.bib
+Warning--empty year in celegans:db
+You've used 10 entries,
+            1935 wiz_defined-function locations,
+            534 strings with 5490 characters,
+and the built_in function-call counts, 4202 in all, are:
+= -- 398
+> -- 212
+< -- 5
++ -- 80
+- -- 74
+* -- 355
+:= -- 752
+add.period$ -- 34
+call.type$ -- 10
+change.case$ -- 86
+chr.to.int$ -- 10
+cite$ -- 11
+duplicate$ -- 144
+empty$ -- 260
+format.name$ -- 86
+if$ -- 807
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 8
+newline$ -- 57
+num.names$ -- 30
+pop$ -- 69
+preamble$ -- 1
+purify$ -- 87
+quote$ -- 0
+skip$ -- 116
+stack$ -- 0
+substring$ -- 264
+swap$ -- 21
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 60
+warning$ -- 1
+while$ -- 27
+width$ -- 0
+write$ -- 135
+(There was 1 warning)

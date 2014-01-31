@@ -1,0 +1,52 @@
+%% \VignetteIndexEntry{Bioconductor LaTeX Style}
+
+\documentclass{article}
+
+\RequirePackage{/home/muhammad/R/x86_64-pc-linux-gnu-library/3.0/BiocStyle/sty/Bioconductor}\newcommand{\exitem}[3]{\item \texttt{\textbackslash#1\{#2\}} #3 \csname#1\endcsname{#2}.}
+
+\title{A probabilistic dynamical model for quantitative inference of the regulatory mechanism of transcription}
+\author{Guido Sanguinetti, Magnus Rattray and Neil D. Lawrence}
+%%\author{Muhammad A. Rahman}
+
+\usepackage{Sweave}
+\begin{document}
+\input{chipDyno_testFig-concordance}
+
+\maketitle
+
+\begin{abstract}
+Quantitative estimation of the regulatory relationship between transcription factors and genes is a fundamental stepping stone when trying to develop models of cellular processes. This task, however, is difficult for a number of reasons: transcription factors` expression levels are often low and noisy, and many transcription factors are post-transcriptionally regulated. It is therefore useful to infer the activity of the transcription factors from the expression levels of their target genes.
+\end{abstract}
+
+\tableofcontents
+
+\section{Installing the \Biocpkg{chipDyno} package}
+The recommanded way to install the \Bioconductor{} package \Biocpkg{chipDyno} is to use the \Rfunction{biocLite} function available in the \Bioconductor{} website. This way of installation should ensure that all the dependencies are met.
+
+\begin{verbatim}
+    > source ("www.//bioconductor.org/chipDyno.R")
+    > biocLite("chipDyno")
+\end{verbatim}
+
+%%To determine the gene specific transcription factor activity of C. Elegans we have followd Sanguinetti's probabilistic dynamic model ~\cite{sanguinetti:01} for quantative inference.
+
+\section{Loading the package and getting help}
+The first step in any \Biocpkg{chipDyno} analysis is to load the package. This package can be loaded when the \R{} console is ready. At the \R{} console type the following command:
+
+\begin{verbatim}
+    > library("chipDyno")
+\end{verbatim}
+
+Command \Rfunction{help} can be used to get help on any function. For example, to get help on the \Rfunction{chipDynoLikeStatGrad} type the following (both of them have the similar output):
+
+\begin{verbatim}
+    > help(chipDynoLikeStatGrad)
+    > ?chipDynoLikeStatGrad
+\end{verbatim}
+
+\section{Input picture}
+
+Save the data for the further analysis.
+\begin{Schunk}
+\begin{Sinput}
+> load("OptimizedResults_chipDyno.RData")

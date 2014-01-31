@@ -1,0 +1,444 @@
+%% \VignetteIndexEntry{Bioconductor LaTeX Style}
+
+\documentclass{article}
+
+<<style, echo=FALSE, results=tex>>=
+BiocStyle::latex()
+@
+\newcommand{\exitem}[3]{\item \texttt{\textbackslash#1\{#2\}} #3 \csname#1\endcsname{#2}.}
+
+\title{A probabilistic dynamical model for quantitative inference of the regulatory mechanism of transcription}
+\author{Guido Sanguinetti, Magnus Rattray and Neil D. Lawrence}
+%%\author{Muhammad A. Rahman}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+\maketitle
+
+\begin{abstract}
+Quantitative estimation of the regulatory relationship between transcription factors and genes is a fundamental stepping stone when trying to develop models of cellular processes. This task, however, is difficult for a number of reasons: transcription factors` expression levels are often low and noisy, and many transcription factors are post-transcriptionally regulated. It is therefore useful to infer the activity of the transcription factors from the expression levels of their target genes.
+\end{abstract}
+
+\tableofcontents
+
+\section{Installing the \Biocpkg{chipDyno} package}
+The recommanded way to install the \Bioconductor{} package \Biocpkg{chipDyno} is to use the \Rfunction{biocLite} function available in the \Bioconductor{} website. This way of installation should ensure that all the dependencies are met.
+
+\begin{verbatim}
+    > source ("www.//bioconductor.org/chipDyno.R")
+    > biocLite("chipDyno")
+\end{verbatim}
+
+%%To determine the gene specific transcription factor activity of C. Elegans we have followd Sanguinetti's probabilistic dynamic model ~\cite{sanguinetti:01} for quantative inference.
+
+\section{Loading the package and getting help}
+The first step in any \Biocpkg{chipDyno} analysis is to load the package. This package can be loaded when the \R{} console is ready. At the \R{} console type the following command:
+
+\begin{verbatim}
+    > library("chipDyno")
+\end{verbatim}
+
+Command \Rfunction{help} can be used to get help on any function. For example, to get help on the \Rfunction{chipDynoLikeStatGrad} type the following (both of them have the similar output):
+
+\begin{verbatim}
+    > help(chipDynoLikeStatGrad)
+    > ?chipDynoLikeStatGrad
+\end{verbatim}
+
+\section{Input data and preparations}
+If the data is in Affymetrix CEL files then it may requered to do some preprocessing. This CEL files can be extracted using the bioconductor package \Biocpkg{puma} ~\cite{puma}. \Biocpkg{puma} usually stores the point expressione in \file{*\_exprs.csv} file and defferent levels of unicertainities in \file{*\_se.csv} files as Comma-separated values.
+
+Load the point expression levels data. Here the data was stored in comma-seperated value (csv) file.
+
+<<echo=TRUE>>=
+data_file = 
+  "/home/muhammad/Dropbox/CElegans/cluster/3exp_15dp_After_meeting/eset_cElegans_exprs.csv"
+data_file
+data_dictionary <- read.table(data_file, header = TRUE, sep = ",", quote = "", 
+                    dec = ".", , na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                    check.names = TRUE, fill = TRUE, strip.white = FALSE,  
+                    blank.lines.skip = TRUE, comment.char = "#", 
+                    allowEscapes = FALSE, flush = FALSE)
+data_dictionary[is.na(data_dictionary)] <- 0
+probeId = data_dictionary[,1]
+as.matrix(probeId[1:7],,1)
+@
+
+In our experimental data set there was 3 replication of the same experiment with 5 experimental time points with different environmental conditions. So there was (3x5=) 15 time points. We will to reorganize this datapoint maintaining the time series for different experiment. For our this example we will consider the data obtained from the second experiment.
+
+<<echo=TRUE>>=
+data = data_dictionary[,2:ncol(data_dictionary)]
+data_sample1 <- cbind(data[,10],data[,1],data[,4],data[,7],data[,13])
+data_sample2 <- cbind(data[,11],data[,2],data[,5],data[,8],data[,14])
+data_sample3 <- cbind(data[,12],data[,3],data[,6],data[,9],data[,15])
+data = data_sample2
+data_sample2[1:7, 1:5]
+@
+
+Load the the standard errors. The ~\cite{puma} package creates many files with different percentile of posterior destribution we can choose anyone based on our requirement. Here as well we are considering the second experiment
+
+<<echo=TRUE>>=
+vars_file = 
+  "/home/muhammad/Dropbox/CElegans/cluster/3exp_15dp_After_meeting/eset_cElegans_se.csv"
+
+vars_dictionary <- read.table(vars_file, header = TRUE, sep = ",", quote = "", 
+                  dec = ".", , na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                  check.names = TRUE, fill = TRUE, strip.white = FALSE, 
+                  blank.lines.skip = TRUE, comment.char = "#", 
+                  allowEscapes = FALSE, flush = FALSE)
+vars_dictionary[is.na(vars_dictionary)] <- 0
+vars = vars_dictionary[,2:ncol(vars_dictionary)]
+vars_sample1 <- cbind(vars[,10],vars[,1],vars[,4],vars[,7],vars[,13])
+vars_sample2 <- cbind(vars[,11],vars[,2],vars[,5],vars[,8],vars[,14])
+vars_sample3 <- cbind(vars[,12],vars[,3],vars[,6],vars[,9],vars[,15])
+vars = vars_sample2 # Choose the sample
+vars_sample2[1:7, 1:5]
+@
+
+Load the annotation file. From this annotation file we can find the gene names for corresponding probe Set ID. For annotation we used ~\cite{celegans:db}.
+
+<<echo=TRUE>>=
+annotation_file = "/home/muhammad/Dropbox/CElegans/annotation.txt"
+anno_dictionary <- read.table(annotation_file, header = FALSE, sep = "\t", quote = "", 
+                  dec = ".", , na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                  check.names = TRUE, fill = TRUE, strip.white = FALSE, 
+                  blank.lines.skip = TRUE, comment.char = "#", 
+                  allowEscapes = FALSE, flush = FALSE)
+probeId2 = anno_dictionary[,1]
+geneName = anno_dictionary[,2]
+probeId=as.matrix(probeId,,1) # Probe set ID from experimental data
+probeId2=as.matrix(probeId2,,1) # Probe set ID from annotation file
+geneName=as.matrix(geneName,,1)
+geneName[1:7]
+@
+
+Remove the genes which expression level data at any time point is missing-
+
+<<echo=TRUE>>=
+index=array(0, dim<-c(nrow(data),1))
+for (i in 1: nrow(data)){
+  vec <- probeId[i]==probeId2
+	index[i]=colSums(vec)
+}
+probeId=probeId[which(index!=0),];
+data=data[which(index!=0),];
+vars=vars[which(index!=0),];
+@
+
+For gene specific transcription factor activity we have consider the probablistic functional gene network Wormnet ~\cite{wormnet:01} and ~\cite{wormnet:02}. We have constructed a connectivity matrix where the columns represents the transcription factors and rows are the genes. For any element $(i,j)$ of the connectivity matrix, if any transcription factor $j$ can bind any specific gene $i$ the value will be one, zero otherwise.
+
+<<echo=TRUE>>=
+connectivity_file = 
+  "/home/muhammad/Dropbox/CElegans/Connectivity/connectivity_matHS_LC.txt"
+
+connectivity <- read.table(connectivity_file, header = FALSE, sep = ",", dec = ".", 
+                na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                check.names = TRUE, fill = TRUE, strip.white = FALSE,  
+                blank.lines.skip = TRUE, comment.char = "#", 
+                allowEscapes = FALSE, flush = FALSE)
+
+probeId3 = as.matrix(connectivity[,1],,1) # Probe ID from connectivity files
+dataChip = connectivity[,2:ncol(connectivity)]
+dataChip[is.na(dataChip)] <- 0
+@
+
+
+Collect the common gene expression data-
+<<echo=TRUE>>=
+index=array(0, dim<-c(nrow(data),1))
+
+for (i in 1: nrow(data)){
+  vec <- geneName[i]==probeId3
+	index[i]=sum(vec)
+}
+data=data[which(index!=0),];
+probeId=as.matrix(probeId[which(index!=0)]);
+geneName=as.matrix(geneName[which(index!=0)],,1);
+vars=vars[which(index!=0),];
+@
+
+Collect the common gene expression on dataChip-
+
+<<echo=TRUE>>=
+index=array(0, dim<-c(nrow(dataChip),1))
+
+for (i in 1: nrow(dataChip)){
+	vec <- probeId3[i]==geneName
+	index[i]=sum(vec)
+}
+dataChip=dataChip[which(index!=0),];
+probeId3=as.matrix(probeId3[which(index!=0)],,1);
+@
+
+Avoid the duplicate entry
+<<echo=TRUE>>=
+tempIndex= duplicated(geneName)
+index=array(0, dim<-c(length(tempIndex),1))
+
+for (i in 1 : length(tempIndex)){
+	if (tempIndex[i]=="FALSE"){
+		index[i]=1
+	}
+}
+data=data[which(index!=0),];
+probeId=as.matrix(probeId[which(index!=0)]);
+geneName=as.matrix(geneName[which(index!=0)],,1);
+vars=vars[which(index!=0),];
+
+# Rearrange the dataChip data based on data entry
+dataChipNew = list()
+geneName2 = list()
+for (i in 1 : length(geneName)){
+	id = which (geneName[i]==probeId3)
+	dataChipNew = rbind(dataChipNew,dataChip[id,])
+	geneName2 = rbind(geneName2,probeId3[id,])
+}
+
+#Create the binary matrix
+X= array(0, dim=c(nrow(dataChip),ncol(dataChip)))
+I <- c(which(dataChip>0))
+X[I] = 1
+@
+
+<<echo=TRUE>>=
+file="/home/muhammad/Dropbox/CElegans/Connectivity/wTF2.1_test.txt"
+dictionaryTF <- read.table(file, header = TRUE, sep = "\t", quote = "", dec = ".", 
+                na.strings = "NA", colClasses = NA, nrows = -1, skip = 0, 
+                check.names = TRUE, fill = TRUE, strip.white = FALSE, 
+                blank.lines.skip = TRUE, comment.char = "#", allowEscapes = FALSE, 
+                flush = FALSE)
+TransNames = as.matrix(dictionaryTF[,1],,1)
+@
+
+Remove the transcription factors (if there any!) which has no evidence to transcribe genes and update the data.
+<<echo=TRUE>>=
+fakeX = rowSums(X)
+X=X[which(fakeX!=0),]
+annotation=geneName[which(fakeX!=0),] ### geneName has been renamed.
+annotation = matrix(annotation,,1)
+data= data[which(fakeX!=0),]
+vars= vars[which(fakeX!=0),]
+@
+
+
+Remove the genes which has no evidance to be transcribed by the given transcription factors and update the connectivity matrix.
+<<echo=TRUE>>==
+effectX=colSums(X)
+TransNames=TransNames[which(effectX!=0),]
+TransNames=matrix(TransNames,,1)
+X=X[,which(effectX!=0)]
+@
+
+
+Collect the number of active genes, transcription factors and assign a variable for the mean value of the transcription factor.
+<<echo=TRUE>>=
+nGenes= nrow(data)
+npts= ncol(data)
+nTrans = ncol(X)
+muIn = mat.or.vec(nTrans,1)
+muIn = matrix(muIn,,1)
+@
+
+\section{Reduce the variables}
+The connectivity matrix is a huge sparse matrix. \Rfunction{chipReduceVariables} reduce  number of variables in chipDyno model and return the same length integer vectors specifying the row, column 
+indices of the non-zero entries and the corresponding value of the of the sparce matrix.
+<<echo=TRUE>>=
+source('/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipReduceVariables.R')
+R_C_V_nEffectGenes = chipReduceVariables(X);
+R = R_C_V_nEffectGenes[[1]]
+C = R_C_V_nEffectGenes[[2]]
+V = R_C_V_nEffectGenes[[3]]
+nEffectGenes = R_C_V_nEffectGenes[[4]]
+
+diagonal=matrix(mat.or.vec(1,nTrans),1,)
+diagonal[,]=0.5
+precs_mat=mat.or.vec(nrow(vars),ncol(vars))
+precs_mat[,]=1
+precs = precs_mat/(vars^2)
+beta=3;
+gamma=pi/4; # Initialize the degree of temporal continuity
+params=matrix(c(beta,gamma,t(muIn),0.1*t(V), diagonal),1,) # Rearran the parameters.
+@
+
+Setup the option variables for the Scaled Conjugate gradient optimization. \Rcode{Options[1]} is set to 1 to display error values; If \Rcode{Options[1]} is set to 0, then only warning messages are displayed. \Rcode{Options[2]} is a measure of the absolute precision required for the value of X at the solution.  The condition is satisfied when the absolute difference between the values of X between two successive steps is less than \Rcode{Options[2]}.  \Rcode{Options[3]} is a measure of the precision required of the objective function at the solution.  This condition is satisfied when the absolute difference between the objective function values between two successive steps is less than \Rcode{Options[3]}. Both this and the condition for \Rcode{Options[2]} must be satisfied for termination. \Rcode{Options[14]} is the maximum number of iterations; default value is 100.
+
+<<echo=TRUE>>=
+options = array(0, dim=c(1,18))
+options[1]=1;
+options[2]=0.0001
+options[3]=0.0001
+options[14]=1500 # No of iteration
+options[17]=0.1
+@
+
+
+<<echo=TRUE>>=
+#% Temporary load functions
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoise.R")
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLikeStatNoiseGrad.R")
+source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/SCGoptimNoise.R")
+@
+
+
+\section{Optimization of Likelihood}
+
+\Rcode{chipDynoLikeStat} and \Rcode{chipDynoLikeStatNoise} find out the marginal likelihood for chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+<<echo=TRUE>>=
+options[14]=1000
+# CHIPDYNOLIKESTATNOISE marginal likelihood for chipChip dynamical model
+# FORMAT chipDynoLikeStatNoise <- function(params,data,precs,X,nEffectGenes,R,C)
+# DESC compute the marginal likelihood for chipChip dynamical model
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : effectice gene name
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN likelihood : marginal likelihood
+@
+
+
+\section{Gradiant Optimization}
+
+\Rcode{chipDynoLikeStatGrad} and \Rcode{chipDynoLikeStatNoiseGrad} calculate the gradient of  chipDyno dynamical model without and with the uncertainty of the expression level respectively.
+The format of the function is-
+
+<<echo=TRUE>>=
+options[14]=5
+# FORMAT chipDynoLikeStatNoiseGrad <- function(params, data, precs, X, nEffectGenes, R, C)
+# DESC compute the gradient of chipDynoLikeStatNoise for chipChip dynamical model
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : effectice gene name
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN f : list of beta,gamma, mu, Sigma, diagonal
+@
+
+
+\section{Parameter Optimization}
+For marameter optimization we have used Scaled conjugate gradient optimization technique. This was done by Nabney et. al. for the matlab tool box Netlab. Here we have created the \Rcode{R} version of SCG optimization.
+
+<<echo=FALSE>>=
+# SCGOPTIMNOISE perform Scaled conjugate gradient optimization with noise parameter
+# CHIPDYNO toolbox
+# SCGoptimNoise.R version 0.0.1
+# FORMAT SCGoptimNoise <- SCGoptimNoise(params, options, data, precs, X, nEffectGenes, R, C)
+# DESC Optimize the gradient based on Scaled conjugate gradient described as in Netlab 
+# ARG params: concatenated vector of multiple parameters(beta, gamma, 
+# initial mean of the transcription factors, and 
+# a vector to create diagonal matrix used to reduce the sparsity of covariance)
+# ARG options : options[1] is set to 1 to display error values; If options[1] is set to 0, 
+#   then only warning messages are displayed.  If options[1] is -1, then nothing
+#  is displayed.
+#	options[2] is a measure of the absolute precision required for the
+#	value of X at the solution.  If the absolute difference between the
+#	values of X between two successive steps is less than options[2],
+#	then this condition is satisfied.
+#	options[3] is a measure of the precision required of the objective
+#	function at the solution.  If the absolute difference between the
+#	objective function values between two successive steps is less than
+#	options[3], then this condition is satisfied. Both this and the
+#	previous condition must be satisfied for termination.
+#	options[9] is set to 1 to check the user defined gradient function.
+#	options[10] returns the total number of function evaluations
+#	options[11] returns the total number of gradient evaluations.
+#	options[14] is the maximum number of iterations; default 100.
+# ARG data : point estimate of the expression level
+# ARG precs : uncertainty of the expression level
+# ARG X : connectivity measurement between genes and transcription factors
+# ARG nEffectGenes : Number of effectice genes
+# ARG R, C : same length integer vectors specifying the row and column 
+# indices of the non-zero entries of the sparce matrix
+# RETURN x : Optimized value of the parameter 'params'
+# COPYRIGHT : Ian T Nabney, 1996-2001, (the matlab version)
+# SEEALSO : SCGoptim
+# MODIFICATIONS : Muhammad A. Rahman, 2013, (the R version)
+
+params = SCGoptimNoise(params, options, data, precs, X, nEffectGenes, R, C)
+@
+Collect the optimized values of mean, degree of temporal continuity, gradient and construct the optimized sparse matrix.
+
+<<echo=TRUE>>=
+library(Matrix)
+V=params[(3+nTrans):(length(params)-nTrans)]
+preSigma <- sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans))
+diagonal = params[(length(params)-nTrans+1) :(length(params))];
+Sigma = t(preSigma)%*%preSigma + diag(diagonal*diagonal)
+
+beta = params[1]
+gamma = params[2]
+mu = params[3:(2+nTrans)]
+@
+
+Save the data for the further analysis.
+<<echo=TRUE>>=
+save.image("OptimizedResults_chipDyno2.RData")
+@
+
+
+
+<<echo=TRUE>>=
+library(Matrix)
+V=params[(3+nTrans):(length(params)-nTrans)]
+preSigma <- sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans))
+diagonal = params[(length(params)-nTrans+1) :(length(params))];
+Sigma = t(preSigma)%*%preSigma + diag(diagonal*diagonal)
+Sigma[1,7:1,7]
+beta = params[1]
+beta
+gamma = params[2]
+gamma
+mu = params[3:(2+nTrans)]
+mu
+@
+
+
+%---------------------------------------------------------
+\section{Plot mean}
+%---------------------------------------------------------
+The following figure represent the mean value of genes.
+\begin{figure}
+%<<test3, fig=TRUE, height=4, width=6>>=
+<<test3, fig=TRUE>>=
+par(mfrow=c(2,1))
+plot(mu, col="green", type="l")
+#barplot(height=sample(1:10,5), names=LETTERS[1:5], col=1:5)
+barplot(mu,  col=c("blue"))
+@
+
+\caption{Plot mean value}
+\label{Plot_mu}
+
+\end{figure}
+
+
+
+
+%---------------------------------------------------------
+\section{Session info}
+%---------------------------------------------------------
+Here is the output of \Rfunction{sessionInfo} on the system on which
+this document was compiled:
+<<sessionInfo, results=tex, print=TRUE>>=
+toLatex(sessionInfo())
+@
+
+
+%\bibliographystyle{abbrv}
+%\bibliographystyle{alpha}
+\bibliographystyle{apalike}
+
+\bibliography{bib_chipDyno}
+
+\end{document}

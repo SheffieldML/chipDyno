@@ -1,0 +1,26 @@
+\begin{thebibliography}{}
+
+\bibitem[Lee et~al., 2002]{lee:01}
+Lee, T.~I., Rinaldi, N.~J., Robert, F., Odom, D.~T., Bar-Joseph, Z., Gerber,
+  G.~K., Hannett, N.~M., Harbison, C.~T., Thompson, C.~M., Simon, I.,
+  Zeitlinger, J., Jennings, E.~G., Murray, H.~L., Gordon, D.~B., Ren, B.,
+  Wyrick, J.~J., Tagne, J.-B., Volkert, T.~L., Fraenkel, E., Gifford, D.~K.,
+  and Young, R.~A. (2002).
+\newblock Transcriptional regulatory networks in saccharomyces cerevisiae.
+\newblock {\em Science}, 298(14):799--804.
+
+\bibitem[Nabney, 2002]{nabney:01}
+Nabney, I.~T. (2002).
+\newblock Netlab: Algorithms for pattern recognition.
+\newblock {\em Springer}.
+\newblock London.
+
+\bibitem[Pearson et~al., 2009]{puma}
+Pearson, R., Liu, X., Sanguinetti, G., Milo, M., Lawrence, N., and Rattray, M.
+  (2009).
+\newblock puma: a bioconductor package for propagating uncertainty in
+  microarray analysis.
+\newblock {\em BMC Bioinformatics}.
+\newblock 10:211.
+
+\end{thebibliography}
