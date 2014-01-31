@@ -21,7 +21,8 @@
 # MODIFICATIONS : Muhammad A. Rahman, 2013
 # SEEALSO : chipDynoGeneAct, chipDynoActTransFact, chipDynoActTransFactNoise
 
-chipDynoGeneActNoise = function(data, X, Sigma, beta, precs, gamma,mu, transNames, annotation, geneName) {
+chipDynoGeneActNoise = function(data, X, Sigma, beta, precs, gamma,mu, transNames, 
+	annotation, geneName) {
 
 ## Only for test purpose
 # source("test_chipDynoGeneActNoise.R")
@@ -44,7 +45,8 @@ maxActivityError=list();
 #source("chipDynoExpectationsFastNoise.R")
 
 for (i in 1: nTransFact) {
-	expectations=chipDynoExpectationsFastNoise(data,X,Sigma,beta,precs,gamma,mu, transNames, annotation,  activeNames[i], geneName);
+	expectations=chipDynoExpectationsFastNoise(data,X,Sigma,beta,precs,gamma,mu, 
+		transNames, annotation,  activeNames[i], geneName);
 	tf = expectations[[1]]
 	tfError = expectations[[2]]
 	tfErrorDiffs = expectations[[3]]

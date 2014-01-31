@@ -38,9 +38,9 @@ TransNames = data_vars_X_annotation_TransNames[[5]]
 annotations = annotation # Both of the variavle contain the same data
 transNames = TransNames # Both of the variavle contain the same data
 
-nGenes= nrow(data)
-npts= ncol(data)
-nTrans = ncol(X)
+nGenes= nrow(data) # Number of genes will be present in our experiment
+npts= ncol(data) # Number of time points
+nTrans = ncol(X) # Number of TF will be present in our experiment
 muIn = array(0, dim <-c(nTrans,1)); 
 
 cat("Creating a sparse matrix for gene vs TF connectivity  ...\n");
@@ -64,7 +64,7 @@ options = array(0, dim <- c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]= 3  # No of iteration
+options[14]= 20000  # No of iteration
 options[17]=0.1
 
 source("chipDynoLikeStatNoise.R")
@@ -88,4 +88,4 @@ mu = params[3:(2+nTrans)]
 # plot(mu,type="l",col="#22AAC6")
 # plot(mu,type="l",col="red")
 
-save.image("ResultsTu_test.RData")
+save.image("ResultsTu_20000Ita.RData")

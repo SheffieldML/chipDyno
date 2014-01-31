@@ -1,4 +1,4 @@
-# CHIPDYNOEXPECTATIONSFASTNOISE computes posterior expectations TFA
+# CHIPDYNOEXPECTATIONSFASTNOISE computes posterior expectation of TFA for a given gene
 # considering uncertainty of the expression level
 # CHIPDYNO toolbox
 # chipDynoExpectationsFastNoise.m version 1.4
@@ -42,8 +42,8 @@ c = class(geneName)
 v= mat.or.vec(length(annotations),1)
 
 if (c == 'character'){
-	for (i in 1: nrow(annotations)) { 
-		v[i] <- geneName==annotations[i,1]
+	for (i in 1: length(annotations)) { 
+		v[i] <- geneName==annotations[i]
 		}
 	x=data.matrix(X[which(v==1),])
 	data=t(data[which(v==1),])

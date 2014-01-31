@@ -55,9 +55,9 @@ TransNames_tab <- read.table(file_transNames, header = FALSE, sep = "\t", quote 
 TransNames = matrix(TransNames_tab$TN,,1)
 noOfprobe=nrow(probeName)
 redundancy=matrix(mat.or.vec(noOfprobe,1),,1)
-
-for (i in 1:noOfprobe){
-		redundancy[i,1]=1}
+redundancy[,]=1
+#for (i in 1:noOfprobe){
+#		redundancy[i,1]=1}
 
 index=matrix(mat.or.vec(nrow(dataChip),1),,1)
 

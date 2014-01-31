@@ -33,7 +33,7 @@ options = array(0, dim=c(1,18))
 options[1]=1;
 options[2]=0.0001
 options[3]=0.0001
-options[14]=1 # No of iteration
+options[14]=10000 # No of iteration
 options[17]=0.1
 
 cat("Creating a sparse matrix for gene vs TF connectivity  ...\n");
@@ -69,4 +69,4 @@ beta = params[1]
 gamma = params[2]
 mu = params[3:(2+nTrans)]
 
-save.image("ResultsSpellman_test.RData")
+save.image("ResultsSpellman_ita_10000.RData")
