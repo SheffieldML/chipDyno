@@ -342,7 +342,7 @@ Load the optimized value-
 \begin{Sinput}
 > require("Matrix")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > V=params[(3+nTrans):(length(params)-nTrans)]
 > preSigma <- as.matrix(sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans)))
 > diagonal = params[(length(params)-nTrans+1) :(length(params))];
@@ -383,7 +383,7 @@ Load the optimized value-
 \begin{Schunk}
 \begin{Sinput}
 > #rm(list=ls())
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > annotations = annotation
 > transNames=TransNames
@@ -426,20 +426,20 @@ Load the optimized value-
 > tf
 \end{Sinput}
 \begin{Soutput}
- [1] 0.6842732 1.2928971 2.4140684 2.5589165 2.5752429 2.5505454 2.1369019 1.6541770
- [9] 2.0730713 1.0057944 0.9698620 0.9217374 0.7920417 1.5490587 2.6194954 2.5186103
-[17] 2.3162395 2.6597092 2.2073021 1.7778347 1.2716619 1.2455317 1.4295381 1.0507008
-[25] 0.9321431 1.9023200 2.4522094 2.7434556 2.4750629 2.3039070 2.1068440 2.1683739
-[33] 1.6146242 1.3278398 1.2193253 0.8508893
+ [1] 0.7626810 1.3371938 2.4517332 2.5973486 2.6137437 2.5888224 2.1749048 1.6951394
+ [9] 2.1091986 1.0651819 1.0096594 0.9626544 0.8710457 1.5893280 2.6575006 2.5570126
+[17] 2.3549824 2.6979573 2.2454622 1.8153979 1.3135126 1.2849328 1.4638310 1.0960801
+[25] 1.0105326 1.9398684 2.4904246 2.7819267 2.5135438 2.3421242 2.1452290 2.2057685
+[33] 1.6532838 1.3664687 1.2549145 0.9006209
 \end{Soutput}
 \begin{Sinput}
 > tfErrors
 \end{Sinput}
 \begin{Soutput}
- [1] 3.727733 3.717664 3.715976 3.715939 3.715935 3.715940 3.716087 3.716601 3.716115
-[10] 3.720425 3.719345 3.719530 3.726181 3.716770 3.715925 3.715949 3.716008 3.715919
-[19] 3.716061 3.716406 3.717766 3.717919 3.717099 3.719184 3.723853 3.716255 3.715964
-[28] 3.715908 3.715957 3.716015 3.716106 3.716059 3.716676 3.717461 3.717833 3.721902
+ [1] 2.773261 2.760529 2.758281 2.758231 2.758226 2.758233 2.758432 2.759117 2.758469
+[10] 2.764042 2.762704 2.762955 2.770898 2.759345 2.758213 2.758245 2.758325 2.758204
+[19] 2.758397 2.758859 2.760652 2.760853 2.759780 2.762497 2.768186 2.758657 2.758265
+[28] 2.758191 2.758256 2.758334 2.758457 2.758394 2.759217 2.760254 2.760747 2.766046
 \end{Soutput}
 \end{Schunk}
 
@@ -489,8 +489,8 @@ Load the optimized value-
 \begin{Schunk}
 \begin{Sinput}
 > rm(list=ls())
-> load("ResultsSpellman_200Ita.RData")
-> #load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("ResultsSpellman_Final.RData")
+> #load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > transNames = TransNames
 > annotations = annotation
@@ -556,7 +556,7 @@ Load the optimized value-
 \begin{Schunk}
 \begin{Sinput}
 > rm(list=ls())
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > transNames = TransNames
 > annotations = annotation
@@ -601,7 +601,7 @@ Load the optimized value-
 \begin{Schunk}
 \begin{Sinput}
 > rm(list=ls())
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > #load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > i=4; TransNames[i,]
@@ -621,23 +621,23 @@ Load the optimized value-
 > expectations[[1]][1:5,1:5] # Transcription facot activity on different genes
 \end{Sinput}
 \begin{Soutput}
-           [,1]       [,2]       [,3]       [,4]       [,5]
-[1,]  1.0091035  1.4175891  1.9475555  2.1090371  2.1435868
-[2,]  3.0003668  2.8129669  2.6342091  2.8765482  2.9749977
-[3,] -0.8578099 -0.5649832 -0.7160508 -0.7109128 -0.6853118
-[4,]  0.3080097  0.3915622  0.2879910  0.2844155  0.2870976
-[5,]  2.1289532  2.1274012  2.1685124  2.1869350  2.1438690
+            [,1]      [,2]       [,3]       [,4]       [,5]
+[1,]  1.11519852 1.4685515 1.92696131 2.06662345 2.09650500
+[2,]  2.93071966 2.7465487 2.57092062 2.80903684 2.90590250
+[3,] -0.03532873 0.1613834 0.05887395 0.06218098 0.07963148
+[4,]  0.75657027 0.8134580 0.74290215 0.74045359 0.74227924
+[5,]  1.97300550 1.9733308 1.96459567 1.96068312 1.96982907
 \end{Soutput}
 \begin{Sinput}
 > expectations[[2]][1:5,1:5] # Transcription facot activity error on different genes
 \end{Sinput}
 \begin{Soutput}
          [,1]     [,2]     [,3]     [,4]     [,5]
-[1,] 3.670207 3.669784 3.669675 3.669663 3.669661
-[2,] 3.525075 3.525175 3.525346 3.525134 3.525078
-[3,] 4.601053 4.600577 4.600710 4.600684 4.600709
-[4,] 4.600519 4.600514 4.600520 4.600520 4.600520
-[5,] 4.968442 4.968441 4.968450 4.968453 4.968447
+[1,] 2.825080 2.824669 2.824563 2.824552 2.824549
+[2,] 2.537083 2.537217 2.537447 2.537162 2.537087
+[3,] 3.442080 3.441786 3.441868 3.441853 3.441868
+[4,] 3.441750 3.441747 3.441751 3.441751 3.441751
+[5,] 3.564012 3.564012 3.564012 3.564012 3.564012
 \end{Soutput}
 \begin{Sinput}
 > #expectations[[2]]
@@ -655,7 +655,7 @@ Load the optimized value-
 \begin{Schunk}
 \begin{Sinput}
 > rm(list=ls())
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > nTrans=nrow(TransNames);
 > lst=list();
@@ -667,34 +667,34 @@ Load the optimized value-
 > expectations[[1]][1:5,1:5] # Transcription Factor activity
 \end{Sinput}
 \begin{Soutput}
-         [,1]     [,2]      [,3]      [,4]     [,5]
-[1,] 1.181507 1.194267 0.9405349 0.8873723 1.002965
-[2,] 7.993588 9.051546 8.8765448 8.8233255 9.227746
-[3,] 6.273973 6.260386 5.8544201 5.9010941 6.423778
-[4,] 9.366391 8.709048 7.5041669 7.3267449 7.651604
-[5,] 4.130014 4.159660 3.7399778 4.1997017 4.597343
+         [,1]     [,2]     [,3]     [,4]     [,5]
+[1,] 3.808254 3.819266 3.580342 3.530811 3.639116
+[2,] 7.992771 9.052932 8.876395 8.822699 9.228027
+[3,] 6.278216 6.262015 5.851471 5.898305 6.425768
+[4,] 9.367163 8.709554 7.501238 7.325142 7.652420
+[5,] 5.749316 5.776974 5.347983 5.821693 6.240452
 \end{Soutput}
 \begin{Sinput}
 > expectations[[2]][1:5,1:5] # Transcription Factor activity error
 \end{Sinput}
 \begin{Soutput}
            [,1]      [,2]      [,3]      [,4]      [,5]
-[1,] 4.11673886 4.1165627 4.1182251 4.1181800 4.1188190
-[2,] 0.19176468 0.1223281 0.1336542 0.1345851 0.1191347
-[3,] 0.23710986 0.2259855 0.2924871 0.2783009 0.2350629
-[4,] 0.09052251 0.1131770 0.1928447 0.2006229 0.1855977
-[5,] 4.05516555 4.0551077 4.0559909 4.0550716 4.0547750
+[1,] 3.28911886 3.2889320 3.2907785 3.2907267 3.2914427
+[2,] 0.19198452 0.1224492 0.1338201 0.1347550 0.1192488
+[3,] 0.23749561 0.2267321 0.2941456 0.2797092 0.2359230
+[4,] 0.09053301 0.1132712 0.1933534 0.2011850 0.1860413
+[5,] 3.69168251 3.6916071 3.6926496 3.6915638 3.6912072
 \end{Soutput}
 \begin{Sinput}
 > expectations[[3]][1:5,1:5,1] # Transcription Factor activity error difference
 \end{Sinput}
 \begin{Soutput}
           [,1]      [,2]      [,3]      [,4]      [,5]
-[1,] 1.0000000 0.4468329 0.6234075 0.7537601 0.8651675
-[2,] 0.4468329 1.0000000 0.4532274 0.6226605 0.7550226
-[3,] 0.6234075 0.4532274 1.0000000 0.4597133 0.6301797
-[4,] 0.7537601 0.6226605 0.4597133 1.0000000 0.4620770
-[5,] 0.8651675 0.7550226 0.6301797 0.4620770 1.0000000
+[1,] 1.0000000 0.4844291 0.6761753 0.8177611 0.9372513
+[2,] 0.4844291 1.0000000 0.4897352 0.6755841 0.8188247
+[3,] 0.6761753 0.4897352 1.0000000 0.4951315 0.6817655
+[4,] 0.8177611 0.6755841 0.4951315 1.0000000 0.4971175
+[5,] 0.9372513 0.8188247 0.6817655 0.4971175 1.0000000
 \end{Soutput}
 \end{Schunk}
 
@@ -708,7 +708,7 @@ For a given gene we can find out the list of activators using the function \Rfun
 \begin{Schunk}
 \begin{Sinput}
 > rm(list=ls())
-> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+> load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 > source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 > geneName="YHR143W"; 
 > #geneName="AGA1"; 
@@ -724,13 +724,13 @@ For a given gene we can find out the list of activators using the function \Rfun
 > activators[[2]] # Maximum transcription factor activity
 \end{Sinput}
 \begin{Soutput}
-[1] 0.78852602 0.78235753 0.55227342 0.06221002
+[1] 0.7841517 0.7258846 0.4750492 0.1858749
 \end{Soutput}
 \begin{Sinput}
 > activators[[3]] # Maximum transcription factor activity error
 \end{Sinput}
 \begin{Soutput}
-[1] 3.715908 3.925077 4.405851 5.262743
+[1] 2.758191 3.198300 2.983093 3.743103
 \end{Soutput}
 \end{Schunk}
 

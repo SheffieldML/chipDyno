@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  31 JAN 2014 19:48
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  4 FEB 2014 12:10
 entering extended mode
  %&-line parsing enabled.
 **chipDyno.tex
@@ -530,7 +530,7 @@ amsfonts/cm/cmss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
 /cmss9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pf
 b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/sh
 are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on chipDyno.pdf (15 pages, 221569 bytes).
+Output written on chipDyno.pdf (15 pages, 221354 bytes).
 PDF statistics:
  229 PDF objects out of 1000 (max. 8388607)
  37 named destinations out of 1000 (max. 500000)

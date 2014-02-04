@@ -254,7 +254,7 @@ Load the optimized value-
 <<echo=TRUE>>=
 require("Matrix")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 V=params[(3+nTrans):(length(params)-nTrans)]
 preSigma <- as.matrix(sparseMatrix(R, C, x=V, dims = c(nEffectGenes,nTrans)))
 diagonal = params[(length(params)-nTrans+1) :(length(params))];
@@ -304,7 +304,7 @@ plot(mu, type='s', col='red', xlab= "Transcription Factors", ylab= "Mean Value")
 
 <<>>=
 #rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 annotations = annotation
 transNames=TransNames
@@ -391,7 +391,7 @@ tfErrors
 
 <<echo=FALSE>>=
 rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 transNames = TransNames
 annotations = annotation
@@ -451,8 +451,8 @@ plotErrorBar(TF[i,],TFError[i,], gnName)
 
 <<echo=TRUE>>=
 rm(list=ls())
-load("ResultsSpellman_200Ita.RData")
-#load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("ResultsSpellman_Final.RData")
+#load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 transNames = TransNames
 annotations = annotation
@@ -528,7 +528,7 @@ plotErrorBar(TF[i,],TFError[i,], gnName)
 
 <<echo=TRUE>>=
 rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 transNames = TransNames
 annotations = annotation
@@ -605,7 +605,7 @@ image((diffs[,,4]/TFErrorDiff[,,4]), col = heat.colors(50), main = "diffs/TFErro
 
 <<echo=TRUE>>=
 rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 #load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 i=4; TransNames[i,]
@@ -652,7 +652,7 @@ expectations[[2]][1:5,1:5] # Transcription facot activity error on different gen
 
 <<echo=TRUE>>=
 rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 
 nTrans=nrow(TransNames);
@@ -700,7 +700,7 @@ For a given gene we can find out the list of activators using the function \Rfun
 
 <<echo=TRUE>>=
 rm(list=ls())
-load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_New_10000Ita_Lovelace.RData")
+load("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/ResultsTu_Final.RData")
 source("/home/muhammad/Dropbox/Git/mlprojects/chipDyno/R/chipDynoLoadModules.R")
 geneName="YHR143W"; 
 #geneName="AGA1"; 
