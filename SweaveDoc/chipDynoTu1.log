@@ -1,11 +1,17 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.8.2)  31 JAN 2014 19:31
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.2.10)  18 FEB 2014 18:03
 entering extended mode
  %&-line parsing enabled.
 **chipDynoTu1.tex
 (./chipDynoTu1.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size10.clo
@@ -479,22 +485,65 @@ LaTeX Font Info:    Font shape `TS1/aett/m/sl' in size <10> not available
 (Font)              Font shape `TS1/cmtt/m/sl' tried instead on input line 359.
 
 
-<chipDynoTu1-figure1.pdf, id=106, 433.62pt x 433.62pt>
-File: chipDynoTu1-figure1.pdf Graphic file (type pdf)
 
-<use chipDynoTu1-figure1.pdf> [6] [7 <./chipDynoTu1-figure1.pdf>]
-<chipDynoTu1-figure4.pdf, id=124, 433.62pt x 433.62pt>
-File: chipDynoTu1-figure4.pdf Graphic file (type pdf)
+! LaTeX Error: File `chipDynoTu1-figure1' not found.
 
-<use chipDynoTu1-figure4.pdf> [8] [9 <./chipDynoTu1-figure4.pdf>]
-<chipDynoTu1-figure5.pdf, id=140, 433.62pt x 433.62pt>
-File: chipDynoTu1-figure5.pdf Graphic file (type pdf)
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.362 \includegraphics{chipDynoTu1-figure1}
+                                           
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
-<use chipDynoTu1-figure5.pdf>
-<chipDynoTu1-figure6.pdf, id=141, 433.62pt x 433.62pt>
-File: chipDynoTu1-figure6.pdf Graphic file (type pdf)
+[6] [7]
 
-<use chipDynoTu1-figure6.pdf> [10] [11]
+! LaTeX Error: File `chipDynoTu1-figure4' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.482 \includegraphics{chipDynoTu1-figure4}
+                                           
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[8]
+
+! LaTeX Error: File `chipDynoTu1-figure5' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.544 \includegraphics{chipDynoTu1-figure5}
+                                           
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+! LaTeX Error: File `chipDynoTu1-figure6' not found.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.588 \includegraphics{chipDynoTu1-figure6}
+                                           
+I could not locate the file with any of these extensions:
+.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+[9] [10]
 LaTeX Font Info:    Try loading font information for TS1+aess on input line 761
 .
 LaTeX Font Info:    No file TS1aess.fd. on input line 761.
@@ -504,35 +553,38 @@ LaTeX Font Warning: Font shape `TS1/aess/m/n' undefined
 (Font)              using `TS1/cmr/m/n' instead
 (Font)              for symbol `textbullet' on input line 761.
 
-(./chipDynoTu1.bbl
+[11] (./chipDynoTu1.bbl
 LaTeX Font Info:    Font shape `T1/aess/m/it' in size <10> not available
 (Font)              Font shape `T1/aess/m/sl' tried instead on input line 10.
- [12]) [13] [14 <./chipDynoTu1-figure5.pdf>] [15 <./chipDynoTu1-figure6.pdf>] (
-./chipDynoTu1.aux)
+) [12] (./chipDynoTu1.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 6631 strings out of 495061
- 97121 string characters out of 1182622
- 173175 words of memory out of 3000000
- 9608 multiletter control sequences out of 15000+50000
+ 6623 strings out of 493848
+ 96690 string characters out of 1152823
+ 174155 words of memory out of 3000000
+ 9691 multiletter control sequences out of 15000+50000
  30894 words of font info for 66 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 45i,11n,45p,549b,455s stack positions out of 5000i,500n,10000p,200000b,50000s
- </home/muhammad/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </hom
-e/muhammad/.texmf-var/fonts/pk/ljfour/jknappen/ec/tcst1000.600pk></usr/share/te
-xmf-texlive/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
-/cmss9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on chipDynoTu1.pdf (15 pages, 221553 bytes).
+ 714 hyphenation exceptions out of 8191
+ 45i,11n,45p,549b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/share/texmf
+-texlive/fonts/type1/public/amsfonts/cm/cmsltt10.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmss17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+ss9.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><
+/usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf/font
+s/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
+per/sfst1000.pfb>
+Output written on chipDynoTu1.pdf (12 pages, 170483 bytes).
 PDF statistics:
- 229 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 121 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 185 PDF objects out of 1000 (max. 8388607)
+ 34 named destinations out of 1000 (max. 500000)
+ 101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
