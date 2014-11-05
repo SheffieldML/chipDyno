@@ -1,0 +1,13 @@
+\BOOKMARK [1][]{section.1}{1 Mirroring the chipDyno repository from GitHub}{}
+\BOOKMARK [1][]{section.2}{2 Installation from .tar file}{}
+\BOOKMARK [1][]{section.3}{3 Loading the package and getting help}{}
+\BOOKMARK [1][]{section.4}{4 Input data and preparations}{}
+\BOOKMARK [1][]{section.5}{5 Reduce Variables}{}
+\BOOKMARK [1][]{section.6}{6 Likelihood Optimization}{}
+\BOOKMARK [1][]{section.7}{7 Computation of posterior expectations for a given gene and TF}{}
+\BOOKMARK [1][]{section.8}{8 Posterior expectations for a given TF : chipDynoExpectationsFastNoise}{}
+\BOOKMARK [1][]{section.9}{9 Maximum Transcription Factor Activity}{}
+\BOOKMARK [1][]{section.10}{10 TFAs with error bars :chipDynoTransFactNoise}{}
+\BOOKMARK [1][]{section.11}{11 Significantly varying TFs :chipDynoActTransFactNoise}{}
+\BOOKMARK [1][]{section.12}{12 Given Gene: lists activators in decreasing order}{}
+\BOOKMARK [1][]{section.13}{13 Session info}{}
