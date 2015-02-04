@@ -60,7 +60,9 @@ S = S[intersect].T # now an n by q matrix
 print S.shape
 
 
+
 S = S[['ACE2', 'FKH2', 'NDD1', 'SWI4', 'MCM1', 'MBP1', 'SKN7', 'YAP1', 'MSN4']]
+#S = S[['ACE2', 'FKH2', 'NDD1', 'SWI4','SKN7']]
 #S = S[['ACE2', 'FKH2', 'NDD1', 'SWI4']]
 #S = S[['ACE2']]
 #print S
@@ -89,18 +91,14 @@ Lambda=np.zeros(q*q).reshape(q,q)
 for i in range(q):
     Lambda[i,i]=Lambda1[i]
 
-
-
 Q.shape
 U.shape
 Y.shape
-
 
 # Find sigma2 by looking at variance of y_u
 Y_u = np.dot(U.T, Y)
 sigma2 = 1./(T*(n-q))*(Y_u*Y_u).sum()
 print "sigma2 found as", sigma2
-
 
 # Prepare the data for processing in GPy
 Y_q = np.dot(Q.T, Y) # project data onto the principal subspace of X 
@@ -118,7 +116,7 @@ kern1 = GPy.kern.RBF(1, active_dims=[0])*GPy.kern.Coregionalize(1,q,rank=q, acti
 kern1.rbf.lengthscale = 70
 kern1.rbf.variance.constrain_fixed()
 kern2 = GPy.kern.White(1, active_dims=[0])*GPy.kern.Coregionalize(1,q,rank=q, active_dims=[1])
-#kern1 = GPy.kern.OU(1, active_dims=[0])*GPy.kern.Coregionalize(1,q,rank=5, active_dims=[1])
+kern1 = GPy.kern.OU(1, active_dims=[0])*GPy.kern.Coregionalize(1,q,rank=5, active_dims=[1])
 #kern1 = GPy.kern.Matern32(1, active_dims=[0])*GPy.kern.Coregionalize(1,q,rank=5, active_dims=[1])
 
 
@@ -146,6 +144,7 @@ display(m)
 
 #x = np.ones((20,2))
 #x[:,0] = np.linspace(0,100,20)
+pb.figure()
 k = m.kern.K(m.X)
 import pylab as pb
 pb.imshow(k)
@@ -157,7 +156,7 @@ x = np.ones((20,2))
 x[:,0] = np.linspace(0,100,20)
 ys = m._raw_predict(m.X,full_cov=True)
 
-
+fig = pb.figure()
 import pylab as pb
 pb.imshow(ys[1])
 pb.colorbar()
@@ -167,16 +166,9 @@ m.plot(fixed_inputs=[(1, 1)],fillcol='g', linecol='g') # this would plot ACE2.
 #print m
 #pb.savefig("ACE2_OU_Wh_9TF2.png")
 
-
-
 m.plot_f(fixed_inputs=[(1, 1)],fillcol='g', linecol='g') # this would plot ACE2.
 #print m
 #pb.savefig("ACE2_OU_Wh_9TF2.png")
-
-
-m.plot(fixed_inputs=[(1, 1)],fillcol='g', linecol='g') # this would plot ACE2.
-#print m
-
 
 fig = pb.figure()
 ax = fig.add_subplot(111)
@@ -193,14 +185,12 @@ m.plot_f(fixed_inputs=[(1, 1)],fillcol='r', linecol='r',ax=ax) # this would plot
 pb.draw()
 #print m
 
-
-
 fig = pb.figure()
 ax = fig.add_subplot(111)
 m.plot_f(fixed_inputs=[(1, 0)],ax=ax) # this would plot ACE2.
-m.plot_f(fixed_inputs=[(1, 1)],fillcol='y', linecol='y',ax=ax) # this would plot ACE2.
-m.plot_f(fixed_inputs=[(1, 2)],fillcol='r', linecol='r',ax=ax) # this would plot ACE2.
-m.plot_f(fixed_inputs=[(1, 3)],fillcol='g', linecol='g',ax=ax) # this would plot ACE2.
+m.plot_f(fixed_inputs=[(1, 1)],fillcol='r', linecol='r',ax=ax) # this would plot ACE2.
+m.plot_f(fixed_inputs=[(1, 2)],fillcol='g', linecol='g',ax=ax) # this would plot ACE2.
+m.plot_f(fixed_inputs=[(1, 3)],fillcol='y', linecol='y',ax=ax) # this would plot ACE2.
 m.plot_f(fixed_inputs=[(1, 4)],fillcol='c', linecol='c',ax=ax) # this would plot ACE2.
 pb.draw()
 #print m
@@ -210,24 +200,41 @@ pb.draw()
 fig = pb.figure()
 ax = fig.add_subplot(331)
 m.plot_f(fixed_inputs=[(1, 0)],ax=ax) # this would plot ACE2.
+plt.title('FKH22')
+
 ax = fig.add_subplot(332)
-m.plot_f(fixed_inputs=[(1, 1)],fillcol='y', linecol='y',ax=ax) # this would plot ACE2.
+m.plot_f(fixed_inputs=[(1, 1)],fillcol='r', linecol='r',ax=ax) # this would plot ACE2.
+plt.title('ACE2')
+
 ax = fig.add_subplot(333)
-m.plot_f(fixed_inputs=[(1, 2)],fillcol='r', linecol='r',ax=ax) # this would plot ACE2.
+m.plot_f(fixed_inputs=[(1, 2)],fillcol='y', linecol='y',ax=ax) # this would plot ACE2.
+plt.title('NDD1')
+
 ax = fig.add_subplot(334)
 m.plot_f(fixed_inputs=[(1, 3)],fillcol='g', linecol='g',ax=ax) # this would plot ACE2.
+plt.title('SWI4')
+
 ax = fig.add_subplot(335)
 m.plot_f(fixed_inputs=[(1, 4)],fillcol='c', linecol='c',ax=ax) # this would plot ACE2.
+plt.title('MCM1')
+
 ax = fig.add_subplot(336)
 m.plot_f(fixed_inputs=[(1, 5)],fillcol='b', linecol='b',ax=ax) # this would plot ACE2.
+plt.title('MBP1')
+
 ax = fig.add_subplot(337)
 m.plot_f(fixed_inputs=[(1, 6)],fillcol='#FF8800', linecol='#FF8800',ax=ax) # this would plot ACE2.
+plt.title('SKN7')
+
 ax = fig.add_subplot(338)
 m.plot_f(fixed_inputs=[(1, 7)],fillcol='#FF0088', linecol='#FF0088',ax=ax) # this would plot ACE2.
+plt.title('YAP1')
+
 ax = fig.add_subplot(339)
 m.plot_f(fixed_inputs=[(1, 8)],fillcol='#8800FF', linecol='#8800FF',ax=ax) # this would plot ACE2.
-pb.draw()
+plt.title('MSN4')
 
+pb.draw()
 
 
 fig = pb.figure()
