@@ -1,0 +1,66 @@
+\documentclass[a4paper]{article}
+
+\usepackage{gantt}
+\usepackage{pdflscape}
+
+\begin{document}
+  \begin{landscape}
+  \begin{center}
+    \textbf{ \large {Detailed work plan for completing my thesis\\}}
+  \end{center}
+  
+  \scalebox{0.8}{
+  \begin{gantt}[xunitlength=0.5cm,fontsize=\small,titlefontsize=\small,drawledgerline=true]{19}{46}
+    \begin{ganttitle}
+      \titleelement{December}{3}
+      \titleelement{January}{5}
+      %\numtitle{2010}{1}{2012}{12}
+      \titleelement{February}{4}
+      \titleelement{March}{5}
+      \titleelement{April}{4}
+      \titleelement{May}{5}
+      \titleelement{June}{4}
+      \titleelement{July}{4}
+      \titleelement{August}{5}
+      \titleelement{September}{5}
+      \titleelement{October}{2}
+    \end{ganttitle}
+    \begin{ganttitle}
+      \numtitle{3}{1}{5}{1}
+      \numtitle{1}{1}{5}{1}
+      \numtitle{1}{1}{4}{1}
+      \numtitle{1}{1}{5}{1}
+      \numtitle{1}{1}{4}{1}
+      \numtitle{1}{1}{5}{1}
+      \numtitle{1}{1}{4}{1}
+      \numtitle{1}{1}{5}{1}
+      \numtitle{1}{1}{5}{1}
+      \numtitle{1}{1}{4}{1}
+      \numtitle{1}{1}{2}{1}
+    \end{ganttitle}
+    
+    \ganttbar[color=red]{Completion of my PhD transfer Viva}{0}{1}
+    \ganttbar[color=blue]{Completion of my GP model development}{0}{12}
+    \ganttbar[color=blue]{Running my mode on baseline (Spellmann Data)}{1}{7}
+    \ganttbar[color=blue]{Running GP model on C. Elegans dataset}{8}{4}
+    %\ganttcon{12}{3}{11}{6}
+    %\ganttcon{8}{4}{11}{6}
+    %\ganttcon{12}{5}{11}{6}
+    \ganttbar[pattern=crosshatch,color=blue]{Writing draft of first paper on GP model}{10}{4}
+    \ganttbar[pattern=crosshatch,color=blue]{Tidying up the R based chipdyno tools}{10}{4}
+    \ganttbar[pattern=crosshatch,color=blue]{Submission of chipdyno tools for publication}{12}{4}
+    \ganttbar[color=green]{Hierarchical clustering analysis of C. Elegans data}{13}{9}
+    \ganttbar[color=green]{Writing the chapter of Hierarchical clustering}{18}{8}
+    \ganttbar[color=red]{Extend the GP model for MND gene expression analysis}{23}{9}
+    %\ganttbarcon[color=red]{Hierarchical clustering analysis of C. Elegans data}{20}{8}
+    \ganttbar[color=red]{Writing the chapter on  MND gene expression analysis}{29}{8}
+    \ganttbar[pattern=crosshatch,color=red]{Writing draft of second paper for publication}{34}{5}
+    \ganttbar[color=magenta]{Proof-reading}{13}{24}
+    \ganttbar[pattern=crosshatch,color=cyan]{Review of papers}{0}{36}
+    \ganttbar[color =  yellow]{Continuation of editing}{13}{25}
+    \ganttbar[color=red]{Final proof-reading}{38}{6}
+    \ganttbar[pattern=crosshatch,color=red]{Submission of Thesis}{45}{1}
+  \end{gantt}
+  }
+  \end{landscape}
+\end{document}

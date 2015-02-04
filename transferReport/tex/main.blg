@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99c (TeX Live 2009/Debian)
+The top-level auxiliary file: main.aux
+The style file: apalike.bst
+Database file #1: Bibliography.bib
+Warning--empty journal in Palikaras:2013
+Warning--there's a number but no volume in Palikaras:2013
+Warning--empty publisher in Rasmussen_and_Williams:2006
+Warning--there's a number but no volume in Watson:1953
+Warning--empty publisher in Wiener:1949
+Warning--empty journal in WormNet
+Warning--there's a number but no volume in Xie:2005
+You've used 60 entries,
+            1935 wiz_defined-function locations,
+            870 strings with 14863 characters,
+and the built_in function-call counts, 24117 in all, are:
+= -- 2233
+> -- 1172
+< -- 39
++ -- 425
+- -- 403
+* -- 2142
+:= -- 4302
+add.period$ -- 179
+call.type$ -- 60
+change.case$ -- 488
+chr.to.int$ -- 60
+cite$ -- 67
+duplicate$ -- 850
+empty$ -- 1602
+format.name$ -- 495
+if$ -- 4643
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 72
+newline$ -- 301
+num.names$ -- 182
+pop$ -- 423
+preamble$ -- 1
+purify$ -- 499
+quote$ -- 0
+skip$ -- 653
+stack$ -- 0
+substring$ -- 1475
+swap$ -- 77
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 336
+warning$ -- 7
+while$ -- 162
+width$ -- 0
+write$ -- 765
+(There were 7 warnings)

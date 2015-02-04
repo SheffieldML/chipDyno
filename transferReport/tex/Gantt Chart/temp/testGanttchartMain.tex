@@ -1,0 +1,61 @@
+\documentclass[a4paper,landscape]{article}
+\usepackage{pgfgantt}
+
+\begin{document}
+
+\begin{figure}[ftbp]
+%\begin{raggedright}
+
+\begin{ganttchart}[y unit title=0.6cm,
+y unit chart=0.6cm,
+vgrid,hgrid, 
+title label anchor/.style={below=-1.6ex},
+title left shift=.05,
+title right shift=-.05,
+title height=1,
+bar/.style={fill=gray!60},
+incomplete/.style={fill=white},
+progress label text={},
+bar height=0.7,
+group right shift=0,
+group top shift=.6,
+group height=.3,
+group peaks={}{}{.2}]{25}
+%labels
+\gantttitle{Month}{25} \\
+\gantttitle{December}{3} 
+\gantttitle{January}{5} 
+\gantttitle{February}{4} 
+\gantttitle{March}{5} 
+\gantttitle{April}{4} 
+\gantttitle{May}{4} \\
+\ganttbar{Completion of my PhD transfer Viva}{1}{2} \\
+\ganttbar{Completion of my GP model development}{3}{8} \\
+\ganttbar{Running my mode on baseline (Spellmann Data)}{9}{10} \\
+\ganttbar{Running GP model on C. Elegans dataset}{11}{15} \\
+\ganttbar[progress=33]{Extend model using coregionalization }{20}{22} \\
+\ganttbar{Hierarchical clustering analysis of C. Elegans data}{18}{19} \\
+\ganttbar{Writing the chapter on  coregionalization model}{16}{18} \\
+\ganttbar{Writing the chapter of Hierarchical clustering}{16}{18} \\
+\ganttbar{Proof-reading}{16}{18} \\
+\ganttbar{review of papers}{6}{18} \\
+\ganttbar{continuation of editing}{10}{18} \\
+\ganttbar{Final proof-reading}{16}{18} \\
+\ganttbar[progress=0]{Submission of Thesis}{21}{24}
+
+%relations 
+\ganttlink{elem0}{elem1} 
+\ganttlink{elem0}{elem3} 
+\ganttlink{elem1}{elem2} 
+\ganttlink{elem3}{elem4} 
+\ganttlink{elem1}{elem5} 
+\ganttlink{elem3}{elem5} 
+\ganttlink{elem2}{elem6} 
+\ganttlink{elem8}{elem10} 
+\ganttlink{elem6}{elem12} 
+\end{ganttchart}
+%\end{raggedright}
+\caption{Gantt Chart}
+\end{figure}
+
+\end{document}

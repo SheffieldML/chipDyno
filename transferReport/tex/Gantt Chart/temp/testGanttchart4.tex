@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{pgfgantt}
+
+\begin{document}
+
+%\begin{figure}[ftbp]
+\begin{figure}
+\begin{center}
+
+\begin{ganttchart}[y unit title=0.4cm,
+y unit chart=0.5cm,
+vgrid,hgrid, 
+title label anchor/.style={below=-1.6ex},
+title left shift=.05,
+title right shift=-.05,
+title height=1,
+bar/.style={fill=gray!50},
+incomplete/.style={fill=white},
+progress label text={},
+bar height=0.7,
+group right shift=0,
+group top shift=.6,
+group height=.3,
+group peaks={}{}{.2}]{24}
+%labels
+\gantttitle{Week}{24} \\
+\gantttitle{Monday}{4} 
+\gantttitle{Tuesday}{4} 
+\gantttitle{Wednesday}{4} 
+\gantttitle{Thursday}{4} 
+\gantttitle{Friday}{4} 
+\gantttitle{Saturday}{4} \\
+%tasks
+%%%%%%%%%%%
+Completion of my PhD transfer Viva
+Completion of my Gaussian Process model development
+Running my mode on baseline (Spellmann Data)
+Running GP model on C. Elegans dataset
+Extend model using coregionalization 
+Hierarchical clustering analysis of C. Elegans data
+Writing the chapter on  coregionalization model
+Writing the chapter of Hierarchical clustering
+Proof-reading, review of papers and continuation of editing
+Final proof-reading
+Submission of Thesis
+
+%%%%%%%%%%%
+\ganttbar{first task  first task}{1}{2} \\
+\ganttbar{task 2}{3}{8} \\
+\ganttbar{task 3}{9}{10} \\
+\ganttbar{task 4}{11}{15} \\
+\ganttbar[progress=33]{task 5}{20}{22} \\
+\ganttbar{task 6}{18}{19} \\
+\ganttbar{task 7}{16}{18} \\
+\ganttbar[progress=0]{task 8}{21}{24}
+
+%relations 
+\ganttlink{elem0}{elem1} 
+\ganttlink{elem0}{elem3} 
+\ganttlink{elem1}{elem2} 
+\ganttlink{elem3}{elem4} 
+\ganttlink{elem1}{elem5} 
+\ganttlink{elem3}{elem5} 
+\ganttlink{elem2}{elem6} 
+\ganttlink{elem3}{elem6} 
+\ganttlink{elem5}{elem7} 
+\end{ganttchart}
+\end{center}
+\caption{Gantt Chart}
+\end{figure}
+
+\end{document}

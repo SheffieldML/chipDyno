@@ -1,0 +1,76 @@
+% Chapter 7
+
+\chapter{Prediction} % Main chapter title
+
+\label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 7. \emph{Test}} % This is for the header on each page - perhaps a shortened title
+
+\clearpage
+
+\section{Making prediction}
+Using Kronecker product we can rewrite the equaition [sec:5.3] as:
+\begin{equation} \label{eq:predicYq}
+  \mathbf{y_q}  \sim \mathcal{N} \left( \mathbf{0}, 
+    \mathbf{K}_{t,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} +
+    \sigma^2\mathbf{I}\right)
+\end{equation}
+Standard properties of multivariate Gaussian distributions tells us can split eguation \ref{predicYq} into
+\begin{equation} \label{eq:gEp}
+  \mathbf{y_q} = \mathbf{g} + \boldsymbol{\epsilon}
+\end{equation}
+where $\mathbf{g}$ and $\boldsymbol{\epsilon}$ are also Gaussian distributions and can be represented by:
+\begin{equation}\label{eq:g}
+  \mathbf{g} \sim \mathcal{N} \left( \mathbf{0}, 
+    \mathbf{K}_{t,t} \otimes 
+    \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} \right)
+\end{equation}
+\begin{equation}\label{eq:Epsi}
+  \boldsymbol{\epsilon} \sim \mathcal{N} \left(\mathbf{0},\sigma^2\mathbf{I}\right)
+\end{equation}
+Now we can represent the matrix $\mathbf{F}$ of transcription factor activity as:
+\begin{equation}\label{eq:F}
+  \mathbf{F} = \mathbf{I} \otimes \mathbf{V} \Lambda^{-1} \mathbf{g}
+\end{equation}
+\begin{equation}\label{eq:Sigma}
+  \boldsymbol{\Sigma} = \mathbf{W}\mathbf{W}^T + \mathbf{K}_{t,t}diag\left(\mathbf{K}_{t,t}\right)
+\end{equation}
+\begin{equation} \label{eq:predictionF}
+  \mathbf{F}  \sim \mathcal{N} \left( \mathbf{0},\mathbf{K}_{t,t} \otimes \boldsymbol{\Sigma}\right)
+\end{equation}
+Now we can find the conditional distribution of $g$ for given $y_q$ by:
+\begin{equation}\label{eq:gGivenYq}
+ p\left(\mathbf{g} \middle| \mathbf{y}_q\right) \sim 
+    \mathcal{N} \left( \boldsymbol{\mu}_g, \mathbf{C}_g\right)
+\end{equation}
+with a mean given by:
+\begin{equation} \label{eq:prediction_MuG}
+  \boldsymbol{\mu}_g = 
+    \left[ \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda}  \right] 
+    \left[ \mathbf{K}_{t,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} + \sigma^2 \mathbf{I} \right]^{-1}\mathbf{y}_q
+\end{equation}
+and the covariance given by:
+\begin{equation} \label{eq:prediction_Cg}
+  \boldsymbol{C}_g = 
+    \left[ \mathbf{K}_{t_\star,t_\star} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda}  \right] - \\
+    \left[ \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda}  
+    \left[ \mathbf{K}_{t,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} + \sigma^2 \mathbf{I} \right]^{-1} 
+    \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} \right]
+\end{equation}
+
+The mean of the conditional distribution of Equation \ref{eq:predictionTFA} is:
+\begin{equation} \label{eq:prediction_MuF}
+  \boldsymbol{\mu}_F = 
+    \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda}
+    \left[ \mathbf{K}_{t,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} + \sigma^2 \mathbf{I} \right]^{-1}\mathbf{y}_q
+\end{equation}
+
+and the covariance of the conditional distribution of Equation \ref{eq:predictionTFA} given by:
+\begin{equation} \label{eq:prediction_CF}
+  \boldsymbol{C}_F = 
+    \mathbf{K}_{t_\star,t_\star} \otimes \boldsymbol{\Sigma} -
+    \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Sigma}\mathbf{V} \boldsymbol{\Lambda}
+    \left[ \mathbf{K}_{t,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma} \mathbf{V} \boldsymbol{\Lambda} + \sigma^2 \mathbf{I} \right]^{-1} 
+    \left[ \mathbf{K}_{t_\star,t} \otimes \boldsymbol{\Lambda} \mathbf{V}^T\boldsymbol{\Sigma}\right]
+\end{equation}
+

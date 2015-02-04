@@ -1,0 +1,355 @@
+\begin{thebibliography}{}
+
+\bibitem[Abramowitz and Stegun, 1965]{Abramowitz:1965}
+Abramowitz, M. and Stegun, I.~A. (1965).
+\newblock {\em Handbook of Mathematical Functions}.
+\newblock Dover, New York.
+
+\bibitem[Alon, 2006]{Alon:2006}
+Alon, U. (2006).
+\newblock An introduction to systems biology: design principles of biological
+  circuits.
+\newblock {\em CRC Press}.
+
+\bibitem[Alter and Golub, 2004]{Alter:2004}
+Alter, O. and Golub, G.~H. (2004).
+\newblock Integrative analysis of genome-scale data by using pseudoinverse
+  projection predicts novel correlation between dna replication and rna
+  transcription.
+\newblock {\em Proceedings of the National Academy of Sciences USA},
+  101(47):16577--16582.
+
+\bibitem[Alvarez et~al., 2012]{Alvarez:2012}
+Alvarez, M.~A., Rosasco, L., and Lawrence, N.~D. (2012).
+\newblock Kernels for vector-valued functions: A review.
+\newblock {\em Foundations and Trends in Machine Learning}, 4(3).
+
+\bibitem[Bishop, 1995]{Bishop:1995}
+Bishop, C.~M. (1995).
+\newblock {\em Neural Networks for Pattern Recognition}.
+\newblock Oxford University Press.
+
+\bibitem[Bishop, 2006]{Bishop:2006}
+Bishop, C.~M. (2006).
+\newblock {\em Pattern Recognition and Machine Learning}.
+\newblock Springer-Verlag New York.
+
+\bibitem[Boulesteix and Strimmer, 2005]{Boulesteix:2005}
+Boulesteix, A.-L. and Strimmer, K. (2005).
+\newblock Predicting transcription factor activities from combined analysis of
+  microarray and chip data: a partial least squares approach.
+\newblock {\em Theoretical Biology and Medical Modelling}, 2(23).
+
+\bibitem[Brenner, 1974]{Brenner:1974}
+Brenner, S. (1974).
+\newblock The genetics of caenorhabditis elegans.
+\newblock {\em Genetics}, 77:71--94.
+
+\bibitem[Brivanlou and Darnell, 2002]{Brivanlou:2002}
+Brivanlou, A.~H. and Darnell, J.~E. (2002).
+\newblock Transcription signal transduction and the control of gene expression.
+\newblock {\em Science}, 295(5556):819--818.
+
+\bibitem[Byerly et~al., 1976]{Byerly:1976}
+Byerly, L., Cassada, R., and Russell, R. (1976).
+\newblock The life cycle of the nematode caenorhabditis elegans. i. wild-type
+  growth and reproduction.
+\newblock {\em Dev Biol}, 51(1):23--33.
+
+\bibitem[Castaneda et~al., 2012]{Castaneda:2012}
+Castaneda, L.~B., Arunachalam, V., and Dharmaraja, S. (2012).
+\newblock {\em Introduction to Probability and Stochastic Processes with
+  Applications}.
+\newblock Wiley.
+
+\bibitem[Cossins et~al., 2007]{Cossins:2007}
+Cossins, A.~R., Murray, P., Hayward, S. A.~L., Govan, G.~G., and Gracey, A.~Y.
+  (2007).
+\newblock An explicit test of the phospholipid saturation hypothesis of
+  acquired cold tolerance in caenorhabditis elegans.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  104(13):5489--5494.
+
+\bibitem[Friedman et~al., 2000]{Friedman:2000}
+Friedman, N., Linial, M., Nachman, I., and Pe'er, D. (2000).
+\newblock Using bayesian networks to analyze expression data.
+\newblock {\em J. Comput. Biol.}, 7(3/4):601--620.
+
+\bibitem[Gao et~al., 2004]{Gao:2004}
+Gao, F., Foat, B.~C., and Bussemaker, H.~J. (2004).
+\newblock Defining transcriptional networks through integrative modeling of
+  mrna expression and transcription factor binding data.
+\newblock {\em BMC Bioinformatics}, 5(31).
+
+\bibitem[Gerstein et~al., 2010]{Gerstein:2010}
+Gerstein, M.~B., Lu, Z.~J., Nostrand, E. L.~V., and Cheng, C. (2010).
+\newblock Integrative analysis of the caenorhabditis elegans genome by the
+  modencode project.
+\newblock {\em Science}, 330.
+
+\bibitem[Harbison et~al., 2004]{Harbison:2004}
+Harbison, C.~T., Gordon, D.~B., Lee, T.~I., Rinaldi, N.~J., Macisaac, K.~D.,
+  Danford, T.~W., Hannett, N.~M., Tagne, J.-B., Reynolds, D.~B., Yoo1, J.,
+  Jennings, E.~G., Zeitlinger, J., Pokholok, D.~K., Kellis, M., Rolfe, P.~A.,
+  Takusagawa, K.~T., Lander, E.~S., Gifford, D.~K., Fraenkel, E., and Young,
+  R.~A. (2004).
+\newblock Transcriptional regulatory code of a eukaryotic genome.
+\newblock {\em Nature}, 431(7004):99--104.
+
+\bibitem[Hensman et~al., 2013]{Hensman:2013}
+Hensman, J., Lawrence, N.~D., and Rattray, M. (2013).
+\newblock Hierarchical bayesian modelling of gene expression time series across
+  irregularly sampled replicates and clusters.
+\newblock {\em BMC Bioinformatics}, 14(252).
+
+\bibitem[Ingalls, 2012]{Ingalls:2012}
+Ingalls, B.~P. (2012).
+\newblock {\em Mathematical Modelling in Systems Biology: An Introduction}.
+\newblock MIT Press.
+
+\bibitem[Inmaculada et~al., 2007]{Inmaculada:2007}
+Inmaculada, B.~M., Philippe, V., Fabien, C., Laurent, J., and Albertha, W.
+  (2007).
+\newblock Edgedb: a transcription factor-dna interaction database for the
+  analysis of c. elegans differential gene expression.
+\newblock {\em BMC Genomics}, 8(1):21.
+
+\bibitem[Kalaitzis and Lawrence, 2011]{Kalaitzis:2011}
+Kalaitzis, A.~A. and Lawrence, N.~D. (2011).
+\newblock A simple approach to ranking differentially expressed gene expression
+  time courses through gaussian process regression.
+\newblock {\em BMC Bioinformatics}, 12(180).
+
+\bibitem[Karin, 1990]{karin:1990}
+Karin, M. (1990).
+\newblock Too many transcription factors: positive and negative interactions.
+\newblock {\em New Biol.}, 2(2):126--131.
+
+\bibitem[Kitano, 2000]{Kitano:2000}
+Kitano, H. (2000).
+\newblock Perspectives on systems biology.
+\newblock {\em New Gen. Comput.}, 18(3):199--216.
+
+\bibitem[Kitano, 2002]{Kitano:2002}
+Kitano, H. (2002).
+\newblock {\em Systems Biology: Toward System-level Understanding of Biological
+  Systems}.
+\newblock MIT Press.
+
+\bibitem[Kolmogorov, 1941]{Kolmogorov:1941}
+Kolmogorov, A.~N. (1941).
+\newblock Interpolation und extrapolation von station\"aren zuf\"alligen
+  folgen.
+\newblock {\em Bull. Acad. Sci. (Nauk) U.R.S.S. Ser. Math.}, 5:3--14.
+
+\bibitem[Latchman, 1997]{Latchman:1997}
+Latchman, D.~S. (1997).
+\newblock Transcription factors: an overview.
+\newblock {\em Int. J. Biochem. Cell Biol.}, 29(12):1305--1312.
+
+\bibitem[Lee et~al., 2007]{Lee:2007}
+Lee, I., Lehner, B., Crombie, C., Wang, W., Fraser, A.~G., and Marcotte, E.~M.
+  (2007).
+\newblock A single network comprising the majority of genes accurately predicts
+  the phenotypic effects of gene perturbation in c. elegans.
+\newblock {\em Nature Genetics}, 40:181--188.
+
+\bibitem[Lee et~al., 2002]{Lee:2002}
+Lee, T.~I., Rinaldi, N.~J., Robert, F., Odom, D.~T., Bar-Joseph, Z., Gerber,
+  G.~K., Hannett, N.~M., Harbison, C.~T., Thompson, C.~M., Simon, I.,
+  Zeitlinger, J., Jennings, E.~G., Murray, H.~L., Gordon, D.~B., Ren, B.,
+  Wyrick, J.~J., Tagne, J.-B., Volkert, T.~L., Fraenkel, E., Gifford, D.~K.,
+  and Young, R.~A. (2002).
+\newblock Transcriptional regulatory networks in saccharomyces cerevisiae.
+\newblock {\em Science}, 298(5594):799--804.
+
+\bibitem[Lee and Young, 2000]{Lee:2000}
+Lee, T.~I. and Young, R.~A. (2000).
+\newblock Transcription of eukaryotic protein-coding genes.
+\newblock {\em Annu. Rev. Genet.}, 34:77--137.
+
+\bibitem[Liao et~al., 2003]{Liao:2003}
+Liao, J.~C., Boscolo, R., Yang, Y.-L., Tran, L.~M., Sabatti, C., and
+  Roychowdhury, V.~P. (2003).
+\newblock Network component analysis: Reconstruction of regulatory signals in
+  biological systems.
+\newblock {\em PNAS}, 100(26).
+
+\bibitem[MacKay, 2003]{MacKay:2003}
+MacKay, D. J.~C. (2003).
+\newblock {\em Information Theory, Inference, and Learning Algorithms}.
+\newblock Cambridge University Press.
+
+\bibitem[Matheron, 1973]{Matheron:1973}
+Matheron, G. (1973).
+\newblock The intrinsic random functions and their applications.
+\newblock {\em Advances in Applied Probability}, 5:439--468.
+
+\bibitem[Mitchell and Tjian, 1989]{Mitchell:1989}
+Mitchell, P.~J. and Tjian, R. (1989).
+\newblock Transcriptional regulation in mammalian cells by sequence-specific
+  dna binding proteins.
+\newblock {\em Science}, 245(4916):371--378.
+
+\bibitem[Nachman et~al., 2004]{Nachman:2004}
+Nachman, I., Regev, A., and Friedman, N. (2004).
+\newblock Inferring quantitative models of regulatory networks from expression
+  data.
+\newblock {\em Bioinformatics}, 20(1).
+
+\bibitem[Nardo et~al., 2013]{Nardo:2013}
+Nardo, G., Iennaco, R., Fusi, N., Heath, P.~R., Marino, M., Trolese, M.~C.,
+  Ferraiuolo, L., Lawrence, N., Shaw, P.~J., and Bendotti, C. (2013).
+\newblock Transcriptomic indices of fast and slow disease progression in two
+  mouse models of amyotrophic lateral sclerosis.
+\newblock {\em Brain A journal of Neurology}, 136(11).
+
+\bibitem[Neal, 1996]{Neal:1996}
+Neal, R.~M. (1996).
+\newblock {\em Bayesian Learning for Neural Networks}.
+\newblock Lecture Notes in Statistics No. 118, New York: Springer-Verlag.
+
+\bibitem[Nikolov and Burley, 1997]{Nikolov:1997}
+Nikolov, D.~B. and Burley, S.~K. (1997).
+\newblock Rna polymerase ii transcription initiation: A structural view.
+\newblock {\em Proc. Natl. Acad. Sci. U.S.A.}, 94(1):15--22.
+
+\bibitem[O'Hagan, 1978]{O'Hagan:1978}
+O'Hagan, A. (1978).
+\newblock Curve fitting and optimal design for prediction.
+\newblock {\em Journal of the Royal Statistical Society B}, 40(1):1--42.
+
+\bibitem[Ong et~al., 2002]{Ong:2002}
+Ong, I.~M., Glasner, J.~D., and Page, D. (2002).
+\newblock Modelling regulatory pathways in e. coli from time series expression
+  profiles.
+\newblock {\em Oxford Univ Press}, 18(1):S241--S248.
+
+\bibitem[Palikaras and Tavernarakis, 2013]{Palikaras:2013}
+Palikaras, K. and Tavernarakis, N. (2013).
+\newblock Caenorhabditis elegans (nematode).
+\newblock (1):404--408.
+
+\bibitem[Papoulis, 1991]{Papoulis:1991}
+Papoulis, A. (1991).
+\newblock {\em {Probability, Random Variables and Stochastic Processes}}.
+\newblock McGraw-Hill Companies, 3rd edition.
+
+\bibitem[Pearson et~al., 2009]{puma}
+Pearson, R.~D., Liu, X., Sanguinetti, G., Milo, M., Lawrence, N.~D., and
+  Rattray, M. (2009).
+\newblock puma: a bioconductor package for propagating uncertainty in
+  microarray analysis.
+\newblock {\em BMC Bioinformatics}, 10(211).
+
+\bibitem[Peviani et~al., 2010]{Peviani:2010}
+Peviani, M., Caron, I., Pizzasegola, C., Gensano, F., Tortarolo, M., and
+  Bendotti, C. (2010).
+\newblock Unraveling the complexity of amyotrophic lateral sclerosis: recent
+  advances from the transgenic mutant sod1 mice.
+\newblock {\em CNS Neurol Disord Drug Targets}, 9(4):491--503.
+
+\bibitem[Ptashne and Gann, 1997]{Ptashne:1997}
+Ptashne, M. and Gann, A. (1997).
+\newblock Transcriptional activation by recruitment.
+\newblock {\em Nature}, 386:569--577.
+
+\bibitem[Rasmussen and Williams, 2006]{Rasmussen_and_Williams:2006}
+Rasmussen, C.~E. and Williams, C.~K. (2006).
+\newblock {\em Gaussian Processes for Machine Learning}.
+
+\bibitem[Roeder, 1996]{Roeder:1996}
+Roeder, R.~G. (1996).
+\newblock The role of general initiation factors in transcription by rna
+  polymerase ii".
+\newblock {\em Trends Biochem. Sci.}, 21(9):327--335.
+
+\bibitem[Sanguinetti et~al., 2006]{Sanguinetti:2006}
+Sanguinetti, G., Rattray, M., and Lawrence1, N.~D. (2006).
+\newblock A probabilistic dynamical model for quantitative inference of the
+  regulatory mechanism of transcription.
+\newblock {\em Bioinformatics, Oxford University Press}, 22(14):1753--1759.
+
+\bibitem[Shaye and Greenwald, 2011]{Daniel:2011}
+Shaye, D.~D. and Greenwald, I. (2011).
+\newblock Ortholist: A compendium of c. elegans genes with human orthologs.
+\newblock {\em PLoS ONE}, 9(1).
+
+\bibitem[Spellman et~al., 1998]{Spellman:1998}
+Spellman, P.~T., Sherlock, G., Zhang, M.~Q., Iyer, V.~R., Anders, K., Eisen,
+  M.~B., Brown, P.~O., Botstein, D., and Futcher, B. (1998).
+\newblock Comprehensive identification of cell cycle–regulated genes of the
+  yeast saccharomyces cerevisiae by microarray hybridization.
+\newblock {\em Molecular Biology of the Cell}, 9(12):3273--3297.
+
+\bibitem[Stegle et~al., 2011]{Stegle:2011}
+Stegle, O., Lippert, C., Mooij, J.~M., Lawrence, N.~D., and Borgwardt, K.~M.
+  (2011).
+\newblock Efficient inference in matrix-variate gaussian models with
+  \textbackslash iid observation noise.
+\newblock In Shawe-Taylor, J., Zemel, R., Bartlett, P., Pereira, F., and
+  Weinberger, K., editors, {\em Advances in Neural Information Processing
+  Systems 24}, pages 630--638. Curran Associates, Inc.
+
+\bibitem[Sulston and Horvitz, 1977]{Sulston:1977}
+Sulston, J.~E. and Horvitz, H. (1977).
+\newblock Post-embryonic cell lineage of the nematode, caenorhabditis elegans.
+\newblock {\em Developmental Biology}, 56(1):110--156.
+
+\bibitem[Sulston et~al., 1980]{Sulston:1980}
+Sulston, J.~E., Schierenberg, E., j.~G.~White, and Thomson, J.~N. (1980).
+\newblock The embryonic cell lineage of the nematode caenorhabditis elegans.
+\newblock {\em Developmental Biology}, 100(1):64--119.
+
+\bibitem[Tu et~al., 2005]{Tu:2005}
+Tu, B.~P., Kudlicki, A., Rowicka, M., and McKnight, S.~L. (2005).
+\newblock Logic of the yeast metabolic cycle: Temporal compartmentalization of
+  cellular processes.
+\newblock {\em Science}, 310(5751):1152--1158.
+
+\bibitem[Uhlenbeck and Ornstein, 1930]{Ornstein_Uhlenbeck:1930}
+Uhlenbeck, G.~E. and Ornstein, L.~S. (1930).
+\newblock On the theory of the brownian motion.
+\newblock {\em Phys. Rev.}, 36:823--841.
+
+\bibitem[Wackernagel, 2003]{Wackernagel:2003}
+Wackernagel, H. (2003).
+\newblock {\em Multivariate Geostatistics An Introduction with Applications}.
+\newblock Springer Science and Business Media.
+
+\bibitem[Watson and Crick, 1953]{Watson:1953}
+Watson, J.~D. and Crick, F.~H. (1953).
+\newblock Molecular structure of nucleic acids: A structure for deoxyribose
+  nucleic acid.
+\newblock {\em Nature}, (171):737–738.
+
+\bibitem[Wiener, 1949]{Wiener:1949}
+Wiener, N. (1949).
+\newblock {\em Extrapolation, Interpolation and Smoothing of Stationary Time
+  Series.}
+
+\bibitem[Williams and Rasmussen, 1996]{Williams_and_Rasmussen:1996}
+Williams, C. K.~I. and Rasmussen, C.~E. (1996).
+\newblock Gaussian processes for regression.
+\newblock {\em Advances in Neural Information Processing Systems 8, MIT Press},
+  pages 1--7.
+
+\bibitem[Wood, 1988]{Wood:1988}
+Wood, W.~B. (1988).
+\newblock The nematode c. elegans.
+\newblock {\em Cold Spring Harbor Laboratory Press, New York}, pages 1--16.
+
+\bibitem[WormNet, 2014]{WormNet}
+WormNet (2014).
+\newblock Wormnet.
+\newblock \url{http://www.functionalnet.org/wormnet/about.html} [Online;
+  accessed 30-Nov-2014].
+
+\bibitem[Xie et~al., 2005]{Xie:2005}
+Xie, X., Lu, J., Kulbokas, E.~J., Golub, T.~R., Mootha, V., Lindblad-Toh, K.,
+  Lander, E.~S., and Kellis, M. (2005).
+\newblock Systematic discovery of regulatory motifs in human promoters and 3'
+  utrs by comparison of several mammals.
+\newblock {\em Nature}, (434):338--345.
+
+\end{thebibliography}

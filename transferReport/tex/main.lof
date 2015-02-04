@@ -1,0 +1,30 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces A \IeC {\textquoteleft }cartoon\IeC {\textquoteright } model of protein protein interaction. Two different molecular species A and B bind to form a complex molecular. The newly formed complex hinder the rate at which molecules of species C are transformed to species D.\relax }}{3}{figure.caption.11}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Anatomy of an adult}}{6}{figure.caption.14}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces DNA Transcription\relax }}{7}{figure.caption.16}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Transcription Process: DNA Transcribed in mRNA\relax }}{8}{figure.caption.17}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Anatomy of an adult}}{9}{figure.caption.18}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Gene Expression Data: Affymetrix Micro Array (Image courtesy Wikipedia. \url {http://en.wikipedia.org/wiki/DNA_microarray})\relax }}{11}{figure.caption.23}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gene Expression Data: Affymetrix Micro Array\relax }}{12}{figure.caption.24}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Principal component analysis of time series data }}{18}{figure.caption.39}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Gene Specific transcription factor activity of ZK370.2}}{21}{figure.caption.43}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Gene Specific transcription factor activity of T20B12.8.3}}{22}{figure.caption.44}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Clustering of TF}}{24}{figure.caption.49}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Pearson's correlation between different ranking scores}}{26}{figure.caption.53}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Exponentiated Quadratic kernel and sample functions}}{31}{figure.caption.69}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Rational Quadratic kernel and random sample functions}}{32}{figure.caption.72}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces The Mat{\'e}rn32 kernel and random sample functions}}{33}{figure.caption.75}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces The OU kernel and random sample functions}}{34}{figure.caption.80}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Representation of some basic kernels }}{35}{figure.caption.83}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Overall representation of covariances between training and test data}}{36}{figure.caption.88}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Simple example of regression using Gaussian process}}{37}{figure.caption.93}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Variation of activities of Transcription factors with RBF+white kernels}}{46}{figure.caption.134}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Transcription factor activity of ACE2}}{46}{figure.caption.135}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Kernel of Intrinsic Coregionalization model $\textbf {K}_f$ considering 6 Transcription factors where covariance matrix $\boldsymbol {\MathChar "7006 }$ was constructed using Ornstein-Uhlenbeck kernel and White kernel in additive form}}{47}{figure.caption.137}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Transcription factor activity of different TF using Ornstein-Uhlenbeck kernel and White kernel}}{48}{figure.caption.138}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

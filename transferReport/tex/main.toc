@@ -1,0 +1,63 @@
+\contentsline {chapter}{Abstract}{i}{dummy.1}
+\vspace {1em}
+\contentsline {chapter}{Contents}{ii}{dummy.2}
+\contentsline {chapter}{List of Figures}{iv}{dummy.4}
+\contentsline {chapter}{List of Tables}{v}{dummy.6}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.8}
+\contentsline {section}{\numberline {1.1}System Biology}{1}{section.9}
+\contentsline {section}{\numberline {1.2}Dynamic Mathematical model: what and why in System biology?}{3}{section.10}
+\contentsline {section}{\numberline {1.3}The Systeome Project}{4}{section.12}
+\contentsline {section}{\numberline {1.4}\textit {Caenorhabditis elegans}}{5}{section.13}
+\contentsline {section}{\numberline {1.5}Transcription}{6}{section.15}
+\contentsline {section}{\numberline {1.6}Transcription Factor}{8}{section.19}
+\contentsline {section}{\numberline {1.7}Key Research Questions}{9}{section.20}
+\contentsline {chapter}{\numberline {2}Dynamic Modelling of TFAs}{10}{chapter.21}
+\contentsline {section}{\numberline {2.1}Gene Expression Data for Genomics }{11}{section.22}
+\contentsline {section}{\numberline {2.2}Connectivity Information}{13}{section.25}
+\contentsline {section}{\numberline {2.3}Different models of TFAs}{13}{section.26}
+\contentsline {section}{\numberline {2.4}Our Goal}{14}{section.27}
+\contentsline {chapter}{\numberline {3}Probabilistic Dynamic Modelling}{16}{chapter.28}
+\contentsline {section}{\numberline {3.1}Probabilistic Modelling}{16}{section.29}
+\contentsline {section}{\numberline {3.2}Datasets}{17}{section.37}
+\contentsline {subsection}{\numberline {3.2.1}Time series data}{18}{subsection.38}
+\contentsline {subsection}{\numberline {3.2.2}Transcription Factors}{19}{subsection.40}
+\contentsline {subsection}{\numberline {3.2.3}Connectivity Information}{19}{subsection.41}
+\contentsline {section}{\numberline {3.3}Result Analysis}{20}{section.42}
+\contentsline {subsection}{\numberline {3.3.1}Gene with multiple regulators}{22}{subsection.45}
+\contentsline {subsection}{\numberline {3.3.2}Different clusters and corresponding active TF}{23}{subsection.47}
+\contentsline {section}{\numberline {3.4}Ranking Differentially expressed gene expressions}{24}{section.52}
+\contentsline {chapter}{\numberline {4}Gaussian Process Regression}{27}{chapter.54}
+\contentsline {section}{\numberline {4.1}Brief History of Gaussian Process}{27}{section.55}
+\contentsline {section}{\numberline {4.2}The Regression Problem}{28}{section.56}
+\contentsline {section}{\numberline {4.3}Gaussian Process definition}{29}{section.61}
+\contentsline {section}{\numberline {4.4}GP: Covariances}{30}{section.66}
+\contentsline {subsection}{\numberline {4.4.1}Exponentiated Quadratic covariance function}{30}{subsection.67}
+\contentsline {subsection}{\numberline {4.4.2}Rational Quadratic covariance function}{31}{subsection.70}
+\contentsline {subsection}{\numberline {4.4.3}The Mat{\'e}rn covariance function}{32}{subsection.73}
+\contentsline {subsection}{\numberline {4.4.4}The Ornstein-Uhlenbeck Process}{33}{subsection.79}
+\contentsline {section}{\numberline {4.5}Gaussian Process Regression}{34}{section.84}
+\contentsline {subsection}{\numberline {4.5.1}Making prediction}{36}{subsection.89}
+\contentsline {subsection}{\numberline {4.5.2}Hyperparameter Learning}{37}{subsection.94}
+\contentsline {section}{\numberline {4.6}Toward the GP model of TFA}{38}{section.97}
+\contentsline {chapter}{\numberline {5}Gaussian Process Model of Gene Expressions}{41}{chapter.112}
+\contentsline {section}{\numberline {5.1}Model for Transcription Factor Activities}{42}{section.113}
+\contentsline {section}{\numberline {5.2}Relation to Gene Expressions}{42}{section.115}
+\contentsline {section}{\numberline {5.3}Gaussian Process Model of Gene Expression}{43}{section.118}
+\contentsline {section}{\numberline {5.4}The Main Computational Trick}{43}{section.122}
+\contentsline {subsection}{\numberline {5.4.1}Rotating the Basis of a Multivariate Gaussian}{43}{subsection.123}
+\contentsline {subsection}{\numberline {5.4.2}A Kronecker Rotation}{44}{subsection.126}
+\contentsline {section}{\numberline {5.5}Making prediction}{47}{section.139}
+\contentsline {chapter}{\numberline {6}Conclusion and Future work}{50}{chapter.152}
+\contentsline {section}{\numberline {6.1}Future Work}{51}{section.153}
+\vspace {2em}
+\contentsline {chapter}{\numberline {A}Summery of DDP Progress}{53}{appendix.154}
+\contentsline {section}{\numberline {A.1}Posters Presentation and talks}{53}{section.155}
+\contentsline {subsection}{\numberline {A.1.1}Posters}{53}{subsection.156}
+\contentsline {subsection}{\numberline {A.1.2}Workshop Notebook}{53}{subsection.157}
+\contentsline {subsection}{\numberline {A.1.3}Talks}{53}{subsection.158}
+\contentsline {section}{\numberline {A.2}Participation in Conference, Workshop and Summer schools}{54}{section.159}
+\contentsline {section}{\numberline {A.3}Demonstration}{55}{section.160}
+\contentsline {section}{\numberline {A.4}Participation in DDP Courses}{55}{section.161}
+\contentsline {section}{\numberline {A.5}Other activities related to DDP}{56}{section.162}
+\vspace {2em}
+\contentsline {chapter}{Bibliography}{57}{dummy.163}

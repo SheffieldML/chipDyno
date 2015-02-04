@@ -1,0 +1,287 @@
+% Chapter 1
+
+\chapter{Introduction} % Main chapter title
+
+\label{Chapter1} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 1. \emph{Introduction}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+
+\section{System Biology}
+The prime goal of Biology is to get the insight of various principle and detail of biological systems. More than 
+six decade ago, Watson and Crick discover the structure of DNA (\cite{Watson:1953}) and radically changed the way of 
+study and development of biology and biological systems. They explained the biological phenomena with the help of
+molecular basis. This new concept help to explain different aspect of biology like heredity, different disease,
+various evolutionary aspects as well as development with more firm theoretical ground. Since then, biology became
+a framework of knowledge governed by some basic and fundamental laws of physics.
+
+Due to the enormous advancement of molecular biology, at present we have in-depth knowledge of elementary processes 
+like evolution, heredity, disease, development etc. These mechanisms also includes other biological features like 
+replication, transcription, translation, and so on. Accomplishment of symbolic DNA sequencing helped to reveal
+large number of genes and their transcriptional products. DNA sequences for many organisms like \textit{Mycoplasma,
+Plasmodium falciparum, Saccharomyces cerevisiae, \textit{Caenorhabditis elegans}, Drosophila melanogaster, Homo sapiens}
+and many more have been fully identified. Due to the advancement of different methods gene expression profile are 
+available at the mRNA level. Even measurement of protein level and their different subsequent actions are also making
+progress. 
+
+Undoubtedly understanding at the molecular level will accelerate to understand the biological systems but these
+knowledge isn't sufficient to understand biological systems as systems. Genes and protein are few components of a 
+whole system. It is necessary to understand what constitute the system, but even only this knowledge is not sufficient to
+understand the complete system. System biology is a new field of biology to acquire understanding up to system level
+of biological system (\cite{Kitano:2000}). 
+
+The extent of the area of system biology is very broad and various technique may be may be required for each individual 
+research target. Very often it demands combined effort from multiple discipline research area like molecular biology, 
+high-precision measurement technology, mathematics, computer science, control theory and other engineering and 
+scientific field. \cite{Kitano:2002} mentioned the main four key areas to carried out the research: $(1)$ genomics
+and other molecular biology research, $(2)$ various technology for comprehensive and high-precision measurements,
+$(3)$ computational studies, such as bioinformatics, modelling and simulation, software tools, and 
+$(4)$ analysis of the dynamics of the systems. This clearly depicts requirement of multi-disciplinary research effort
+to get the knowledge of biological systems as systems. The abstract concept of system yet more than a collection 
+of multi-disciplinary research components. To obtain the proper insight of system beside the detail description of
+the components it is also essential to know what happens during the period or processes when any stimuli and/or 
+disruptions take place.
+
+Identification of the system structure is the primary requirement to understand biological system. Some of the key 
+structure might be different regulatory relationship of genes and interactions with protein that shows the metabolism
+pathway and signal transduction, physical structure of chromatin, cells, organisms and other components. Though it is 
+very critical to monitor biological processes in bulk using high-throughput DNA micro-array, real-time polymerase 
+chain reaction (RT-PCR), protein chips and other methods thereafter methods to identify genes and metabolism network
+have to be established. Once a system structure is established up to a certain degree, it is required to find out
+the behaviour. To understand the behaviour properly a number of analysis method can be used. For example, if we want
+to know the sensitivity of a specified behaviour against some external perturbations, and its time to return its
+normal state since the stimuli take place. This type of analysis provides the system level characteristics as well as
+uncover important insights of medical treatments by revealing cell response to certain chemical affinities. 
+
+To apply the knowledge obtained from system structure and behaviour understanding, further research is required to 
+control the state of the biological systems. All these phases leads toward the establishment of technologies those
+allow us to design biological system which can provide cures for different diseases. Even some futuristic example
+could be organ cloning technique for the treatment of diseases what require organ transplants or building 
+biological materials for engineering specially robotics having self-sustaining and self-repairing capabilities.
+
+\section{Dynamic Mathematical model: what and why in System biology?}
+Any models are abstractions of reality. Models mostly designed to focus of specific aspects of the objects for
+certain kind of study. usually other aspects are abstracted away. Biologists almost regularly making use of tangible
+'real world' models. Some of them are very simple like molecular ball-and-stick, again some of them are complex
+such as animal disease model or model organisms. They also use 'conceptual models'. These conceptual models
+usually take the form of verbal descriptions of the system and communicate by diagrams. These diagrams are
+usually constructed with a set of components and the ways they interact with each other. While representing 
+knowledge of cellular or different other processes, these interaction diagrams, or 'cartoon' models may play a 
+central role (\cite{Ingalls:2012}).
+
+\begin{figure}[b]
+	\centering
+		\includegraphics[scale=.45]{diagrams/ProtienProtien.PNG}
+		\rule{35em}{0.5pt}
+	\caption{A ‘cartoon’ model of protein protein interaction. Two different molecular species A and B bind to
+		 form a complex molecular. The newly formed complex hinder the rate at which molecules of species 
+		 C are transformed to species D.}
+	\label{fig:Protein protein interaction}
+\end{figure}
+
+A major drawback of these cartoon models is that while considering system behaviour they could be significantly 
+ambiguous. It even more, if there is any interaction network related with feedback. Complexity increases even
+further when the number of components and their corresponding interactions in the network grows. Sometimes it
+become very difficult to get the intuitive understanding of the system behaviour. But a mathematical model or
+description of the same model can eliminate uncertainty of the model behaviour. The mathematical model will 
+consider the quantitative representation of individual interaction of the cartoon model. 
+In Figure \ref{fig:Protein protein interaction} species A and B bind to form a new complex. 
+The newly formed complex hinder the rate at which molecules of species C are transformed to species D.
+A numerical description of the process is required to quantify the interaction. 
+Though for simple cases only equilibrium condition is enough, but in many other cases binding and 
+unbinding rates might be also required. The cartoon model or traditional knowledge cannot provide a quantitative
+description rather a qualitative explanation of the molecular interaction. But a well studied mechanisms with
+sufficient data might be capable to show the quantitative characteristics. The interaction diagram with
+related quantitative data can be used to develop a dynamic mathematical model. This kind of model consists
+a number of equations that describe the systems behaviour over time. This behaviour is termed as ``system's dynamic 
+behaviour''. These models are usually \textit{mechanistic}, as they explain the mechanisms of molecular interaction
+with some laws of physics and chemistry as well as mathematics. Any of the part of the mechanistic model actually
+represent the real observed system. Any change in the mechanistic model's component will also mimic to the real
+system. So, model simulation (\textit{in silico} experiments) can be used to predict system behaviour. Some numerical
+software built with different programming language are used for this simulation purposes. 
+
+As mathematical model is a hypothesis, so the outcome or result of the model hypothesis are also hypothesis.
+Though the real cellular behaviour definitively cannot predict by simulation, but they can be invaluable for 
+further experimental design by showing the promising paths for further investigation, or by showing the 
+inconsistencies between the real laboratory observations and our understanding about the model or system.
+
+\section{The Systeome Project}
+"Systeome" is an collection of system profile for all genetic variations and environmental stimuli response. 
+A system profile consists of a set of information about the properties of the system
+including structure, behaviour, analysis of result such as bifurcation diagram or phase portfolio. The structure
+of the system should include structure of gene and metabolic networks and its physical structure, associated constants,
+and their properties (\cite{Kitano:2002}).
+
+Systeome is not just a simple cascade map rather it assumes different active and dynamic solutions, simulations as
+well as profiling of various system status. The Systeome project might be established with dealing all aspects for
+profiling the Systeome of yeast, \textit{C. elegans, Drosophila,} mouse and finally human.
+The primary goal of the Human Systeome project is defined as-
+``To complete a detailed and comprehensive simulation model of the human cell at an estimated error margin of 
+20 percent by the year 2020, and to finish identifying the system profile for all genetic variations, 
+drug responses, and environmental stimuli by the year 2030''(\cite{Kitano:2002}).
+
+This is a highly ambitious project, and requires several milestones. Some pilot projects will lead toward the final
+goal. Initial pilot projects are using yeast for the simplicity of structure and subsequent behaviour.
+\textit{C.elegans} have comparatively complex system structure and so is their behaviour. Beside such pilot projects
+concurrently the Human Systeome project shall be commenced.
+
+The futuristic impact of this project will be very wide spread as well as far-reaching. These will be the baseline
+and standard asset for any further biological research to provide fundamental diagnostics and prediction for a variety
+of medical practice. This Systeome project involves many other major engineering projects for developing the 
+measurements, as well as software platform.
+
+\section{\textit{Caenorhabditis elegans}}
+\textit{Caenorhabditis elegans} is a nonparasitic, soil dwelling, small nematode worm. \textit{C. elegans} and 
+other \textit{Caenorhabditis} species are found through all over the world. It can easily colonize 
+mostly in the rotting materials with other microorganism. 
+\textit{C. elegans} is easy to maintain in the petri dishes at the laboratory. At $25\,^{\circ}{\rm C}$
+\textit{C. elegans} completeits life cycle in just 2.5 days from fertilized embryos to egg-laying 
+adult through 4 larval stages. Its typical life span is 2-3 weeks. In 1965, Sydney Brenner 
+introduced \textit{Caenorhabditis elegans} as a model organism to study the behaviour and development 
+of animal (\cite{Brenner:1974}).
+
+\textit{C. elegans} is a relatively new addition as a model organism but its biological characteristics 
+and property already been studied to an extraordinary level. The anatomical characteristics and 
+detail development of this nematode was facilitated by its simple body plan. Its an eukaryote and
+it shares cellular and molecular structures and control pathways with higher organism. \textit{C. elegans}
+is multicellular, an adult wild type  consist of 959 somatic cells and among these 302 are neurons
+(\cite{Sulston:1977, Palikaras:2013}). Its developmental process like embryogenesis, morphogenesis 
+goes through a complex process to growth to an adult. Yet monitoring of the cellular process 
+and recording of cell division pattern is comparatively easier as its body is transparent. 
+C Elegan's complete cell lineage at the electron microscopy level has been completed. 
+Its already been established and this cell lineage is remarkably invariant between animal to
+animal (\cite{Brenner:1974, Byerly:1976, Sulston:1980, Wood:1988}).
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=8cm,keepaspectratio]{diagrams/introfig1lr.jpg}
+		%\includegraphics[width=10cm,height=3cm,keepaspectratio]{diagrams/introfig5.jpg}
+		%\includegraphics{diagrams/Electron.pdf}
+		\rule{35em}{0.5pt}
+	\caption[Anatomy of an adult]{Anatomy of an adult hermaphrodite(\textit{C.elegans}). 
+	A. DIC image of an adult hermaphrodite, left lateral side. Scale bar 0.1 mm. 
+	B. Schematic drawing of anatomical structures, left lateral side 
+	%(Courtesy of WormAtlas \href{http://www.wormatlas.org/hermaphrodite/introduction/IMAGES/introfig1leg.htm}{here}).}
+	(Courtesy of WormAtlas \url{http://www.wormatlas.org/hermaphrodite/introduction/IMAGES/introfig1leg.htm}).}
+	\label{fig:anatomy}
+\end{figure}
+
+To elucidate pathways and processes relevant to human biology 
+and disease C. Elegans is using as a vital model. There are between $\sim20,250$ to $\sim21,700$ 
+predicted protein-coding genes in \textit{C. elegans} (\cite{Gerstein:2010}).
+Using four different orthology-prediction methods \cite{Daniel:2011} assayed four methods 
+to compile a list of \textit{C. elegans} orthologs of human genes. 
+A  list of 7,663 unique protein-coding genes were resulted in that list and this
+represents $\sim38\%$ of the 20,250 protein-coding genes predicted in \textit{C. elegans}. When human genes 
+introduced into \textit{C. elegans} human genes replaced their homologs. On the contrary, many \textit{C. elegans}
+genes can function with great deal of similarity to human like mammalian genes. So, 
+the biological insight acquire from \textit{C. elegans} may be directly applicable to more 
+complex organism like human.
+
+\section{Transcription}
+
+All the process in the body take places through some proteins. So, cells needs protein continuously. 
+On the consequences, protein are required to be manufactured at every moment in the body. Inside cell 
+protein is manufactured from the DNA. When any cells in the body is in need of protein, a special signal 
+is sent to the DNA using hormones. Then proteins reside in DNA start to manufacture based on the 
+received codes. The way that the enzymes finds the information required for protein construction is 
+extremely complicated.
+
+DNA (Deoxyribonucleic acid) transcription is a process that involves the transcribing of 
+genetic information from DNA to a complementary RNA (Ribonucleic acid). Protein is produced 
+from the copy of DNA by the transcription process. This production of proteins and enzymes 
+are controlled by the coding of cellular activity. Even the conversion of DNA to proteins 
+is not straight forward. An RNA polymerase read the sequence of DNA, which produce an 
+complementary RNA. DNA consists of four nucleotide bases named adenine (A), guanine (G), 
+cytosine (C) and thymine (T) that are paired together (A-T and C-G) to give DNA its double 
+helical shape. The major steps to the process of DNA transcription are :
+
+
+\begin{figure}[tb]
+	\centering
+		\includegraphics[width=0.7\textwidth,keepaspectratio]{diagrams/Transcription.png}
+		%\includegraphics[width=\textwidth,keepaspectratio]{diagrams/Transcription.png}
+		\rule{35em}{0.5pt}
+	\caption{DNA Transcription}
+	\label{fig:transcription}
+	%\caption[Anatomy of an adult]{DNA Transcribed in mRNA and mRNA Translated in to Protein
+	%(Courtesy of WormAtlas \href{http://www.wormatlas.org/hermaphrodite/introduction/IMAGES/introfig1leg.htm}{here}).}
+	%(Courtesy of Perason Education \url{http://www.????.htm}).}
+	%\label{fig:DNAtoProtein}
+\end{figure}
+
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[scale=.6]{diagrams/transcriptionProcess.PNG}
+		%\includegraphics[width=\textwidth,keepaspectratio]{diagrams/Transcription.png}
+		\rule{35em}{0.5pt}
+	\caption{Transcription Process: DNA Transcribed in mRNA}
+	\label{fig:transcriptionProcess}
+	%\caption[Anatomy of an adult]{DNA Transcribed in mRNA and mRNA Translated in to Protein
+	%(Courtesy of WormAtlas \href{http://www.wormatlas.org/hermaphrodite/introduction/IMAGES/introfig1leg.htm}{here}).}
+	%(Courtesy of Perason Education \url{http://www.????.htm}).}
+	%\label{fig:DNAtoProtein}
+\end{figure}
+
+
+\textbf{RNA polymerase binds to DNA:} In order to initiate the DNA transcription RNA polymerase and 
+sigma factor form a holoenzyme. Transcription process starts at the promoter region of a 
+double-stranded DNA. Sigma factor can recognize the DNA and its promoter region. 
+
+\textbf{Elongation:} A sequence specific DNA binding factors called transcription factors then unwind 
+the DNA strand. Elongation of the transcript then continues by the RNA polymerase and a 
+sequence of chain is opened up. A messenger RNA (mRNA) is formed when RNA polymerase transcribe 
+into a single stranded RNA polymer from a single strand of DNA.
+
+\textbf{Termination:} RNA polymerase moves along the DNA unwinding its double helical form until it 
+reaches the terminator sequence. At that point, RNA polymerase detaches from the DNA and 
+releases the mRNA polymer. In this way DNA double helix is opened, transcribed and reclosed 
+with minimum stress on the DNA molecule. At any certain time many RNA polymerase can transcribe 
+a single DNA sequence, which can manufacture a large quantity of protein at once. 
+
+\begin{figure}[]
+	\centering
+		\includegraphics[width=\textwidth,keepaspectratio]{diagrams/MappingEnvironmentalSignal.eps}
+		\rule{35em}{0.5pt}
+	\caption[The mapping between environmental signal, transcription factor 
+	inside the cell the genes that they regulate]{The mapping between environmental signal, transcription factor 
+	inside the cell the genes that they regulate.}
+	\label{fig:MappingEnvironmentalSignal}
+\end{figure}
+
+\section{Transcription Factor}
+A transcription factor is a protein that binds to DNA sequences and controls the flow of genetic 
+information coding from DNA to mRNA (\cite{karin:1990, Latchman:1997}). Transcription 
+factors can both promote or block the transcription process and act as an activator 
+or repressor respectively (\cite{Lee:2000, Nikolov:1997, Roeder:1996}). 
+A transcription factors may contain one or more DNA-binding domains. These binding domains 
+attach to specific sequences of DNA adjacent to the genes that they regulate. Though 
+some other protein such as coactivators, deacetylases, chromatin remodelers, kinases, histone 
+acetylases, and methylases also play crucial roles in gene regulation but due to lack 
+of DNA-binding domains they are not classified as transcription factors 
+(\cite{Mitchell:1989, Ptashne:1997, Brivanlou:2002}). 
+Figure \ref{fig:MappingEnvironmentalSignal} describes the mapping (we can also say ``cartoon'' mapping) 
+between the environmental signal, transcription factors 
+inside the cell, and the gene that they regulate. The environmental signal activates 
+specific transcription factor proteins. After the activation the transcription factors 
+bind DNA to change the transcription rate (the rate at which mRNA is produced) of 
+specific target genes. The mRNA is then translated into protein by the process named translation
+(\cite{Alon:2006}). 
+
+\section{Key Research Questions}
+
+Key Research questions:
+\begin{itemize} 
+\item Can we develop a robust data driven dynamic system for gene specific transcription factor 
+ activities using Gaussian process over a mechanistic model?
+\item Can we step forward to find out the transcription factor activities from a unicellular 
+microorganism to multicellular eukaryote?
+\item Is it possible to build some replicate specific robust clusters of the gene expression data for \textit{C. elegans}?
+\end{itemize} 
+
+%\subsection{A (not so short) Introduction to \LaTeX{}}
+
+%----------------------------------------------------------------------------------------

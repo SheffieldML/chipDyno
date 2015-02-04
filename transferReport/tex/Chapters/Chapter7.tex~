@@ -1,0 +1,20 @@
+% Chapter 7
+
+\chapter{Intro...} % Main chapter title
+
+\label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 7. \emph{Intro...}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+
+
+%\begin{equation}
+%\begin{align*}
+%E(\mathbf{U}, \mathbf{V}) &= \sum_{i,j} s_{i,j} (y_{i,j} - \mathbf{u}_i^\top \mathbf{v}_j)^2 \\
+$\frac{\text{d}}{\text{d}v_{k,l} &= -2\sum_{i} u_{i,\ell} s_{i,k} (y_{i,k}-\mathbf{u}_i^\top \mathbf{v}_k) $
+%                  \end{align*}
+                  
+%\end{equation}
+
+For this we used the fact that $v_{k,\ell}$ is only present in the $k$ them of the sum over $i$, the other terms are zero. We then differentiate the quadratic (giving a factor of 2) and finally multiply by the gradient of $-\mathbf{u}_{i}^\top\mathbf{v}_j$ with respect to $v_{k,\ell}$ which is $-u_{i,\ell}$.

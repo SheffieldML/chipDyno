@@ -1,0 +1,20 @@
+% Chapter 7
+
+\chapter{Intro...} % Main chapter title
+
+\label{Chapter7} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 7. \emph{Intro...}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{equation}
+\begin{split}
+F = \{F_{x} \in  F_{c} &: (|S| > |C|) \\
+ &\quad \cap (\text{minPixels}  < |S| < \text{maxPixels}) \\
+ &\quad \cap (|S_{\text{conected}}| > |S| - \epsilon) \}
+\end{split}
+\end{equation}
+
+\rho

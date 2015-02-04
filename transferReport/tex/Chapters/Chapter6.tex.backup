@@ -1,0 +1,66 @@
+% Chapter 5
+
+\chapter{Conclusion and Future work} % Main chapter title
+
+\label{Chapter6} % For referencing the chapter elsewhere, use \ref{Chapter1} 
+
+\lhead{Chapter 6. \emph{Conclusion and Future work}} % This is for the header on each page - perhaps a shortened title
+
+%----------------------------------------------------------------------------------------
+We have developed a tool based on programming language \emph{R} named \emph{chipDyno} using the model of
+\cite{Sanguinetti:2006} which integrate the connectivity information between genes and transcription
+factors, and micro array data. The probabilistic nature of the model can determine the significant
+regulations in a given experimental condition.
+
+Earlier the model was developed for a unicellular microorganism (yeast) but we have successfully
+manage to determine the gene specific transcription factor activity for C Elegans, a
+multicellular eukaryote. We were also successful to filter out the quiet genes from the
+differentially expressed genes.
+
+To elucidate pathways and processes relevant to human biology 
+and disease \textit{C. elegans} is been using as a vital model. 
+Different orthology-prediction methods \cite{Daniel:2011} are using 
+to compile a list of \textit{C. elegans} orthologs of human genes. Already 
+a  list of 7,663 unique protein-coding genes were resulted in that list and this
+represents ~38\% of the 20,250 protein-coding genes predicted in \textit{C. elegans}. 
+When human genes introduced into \textit{C.Elegans} human genes replaced their homologous. 
+On the contrary, many \textit{C. elegans}
+genes can function with great deal of similarity to human like mammalian genes. So, 
+the biological insight acquire from \textit{C. elegans} may be directly applicable to more 
+complex organism like human.
+
+Lots of computational approaches on gene expression data for time series analysis are not
+well suited where time points are irregularly spaced. Even in commonly used state-space
+model time points must occur at regular intervals. On the other side gene expression
+experiments with regular samples may not be cost effective or optimal from the perspective of
+statistics. It is expected that models with irregular time points might be more informative if 
+the time points are selected considering some temporal features. Gaussian process is not 
+restricted to equally spaced time series data. Already Gaussian process regression have been 
+successfully applied to overcome this issue and analyse time series data \cite{Kalaitzis:2011}.
+So our expected model will overcome the restriction of temporal sampling of equally spaced
+time intervals. 
+%----------------------------------------------------------------------------------------
+
+\section{Future Work}
+\cite{Sanguinetti:2006} model to infer the transcription factor 
+activity is a linear- Gaussian state-space model. We believe that this linear Gaussian
+model is equivalent to Gaussian process with a specific covariance function.
+We have developed a model directly from Gaussian process to achieve the same goal.
+We are quite close to develop a valid covariance function for reconstructing transcription
+factor activities given gene expression profile and binding information between genes and
+transcription factors. Here we will introduce a computational trick using
+singular value decomposition and intrinsic coregionalization model. We believe
+this method will enable us to efficiently fit the Gaussian process in a
+reduced transcription factor activity space.
+
+Clustering of gene expression time series is another major interest of the research to get the view of
+groups of co-regulated or associated genes. It is assumed that gene involved in the same biological 
+process will be expressed with a similarity sharing underlying time series. \cite{Cossins:2007}
+did some additional cluster analysis (not published yet!) based on some phenotype properties. Again 
+it is very common to have multiple biological replicates of the gene expression time series data. 
+Just taking average of the replicates surely lead toward discarding insight. Recently \cite{Hensman:2013} used
+a hierarchy of Gaussian process to model a gene specific and replicate specific temporal covariance.
+They also used this model for clustering application. Using this Gaussian process based hierarchical
+clustering analysis of \cite{Hensman:2013} we will try to find some robust clusters for the gene
+expression data of C Elegans. Once if we can do so, it will easily lead us to find out the active
+transcription factors related with these clusters and their subsequent dynamic behaviour as well.
