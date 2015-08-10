@@ -2,7 +2,7 @@
 %****************************** Second Chapter *********************************
 %*******************************************************************************
 
-\chapter{GP Model of TFAs}
+\chapter{GP Model of TFAs}\label{ch:GP_Model_of_TFAs}
 
 \ifpdf
     \graphicspath{{Chapter4/Figs/Raster/}{Chapter4/Figs/PDF/}{Chapter4/Figs/}}
@@ -20,6 +20,14 @@ We note that the linear Gaussian model is equivalent to a Gaussian process with 
 We therefore build a model directly from the Gaussian process perspective to achieve the same effect. 
 We introduce a computational trick, based on  judicious application of singular value decomposition, 
 to enable us to efficiently fit the Gaussian process in a reduced 'TF activity' space. 
+
+% Initially to build our model we will use two datasets: the classical yeast cell cycle dataset of 
+% \cite{Spellman:1998} and the yeast metabolic cycle dataset of \cite{Tu:2005}. Both of the data 
+% sets were used to study the above mentioned models. So, these data will be a source of useful comparisons. 
+% In both cases the connectivity data will be Chip data (\cite{Lee:2002}; \cite{Harbison:2004}). 
+% Finally we will use the data set of Caenorhabditis elegans (\textit{C. elegans}) to obtain a deeper insight. 
+% \textit{C. elegans} was used to build the probabilistic functional gene network Network.
+
 
 %----------------------------------------------------------------------------------------
 

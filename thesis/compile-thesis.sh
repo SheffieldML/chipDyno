@@ -28,7 +28,37 @@ if [ $1 = $clean ]; then
 	rm -rf $filename.pdf
 	rm -rf $filename.ps
 	rm -rf $filename.dvi
-	rm -rf *#* 
+	rm -rf *#*
+
+	rm -rf Abstract/*.aux
+	rm -rf Acknowledgement/*.aux
+	rm -rf Declaration/*.aux
+	rm -rf Dedication/*.aux
+	rm -rf Appendix1/*.aux
+	rm -rf Appendix2/*.aux
+
+	rm -rf Chapter1/*.aux
+	rm -rf Chapter2/*.aux
+	rm -rf Chapter3/*.aux
+	rm -rf Chapter4/*.aux
+	rm -rf Chapter5/*.aux
+	rm -rf Chapter6/*.aux
+
+	rm -rf *.backup
+	rm -rf Abstract/*.backup
+	rm -rf Acknowledgement/*.backup
+	rm -rf Declaration/*.backup
+	rm -rf Dedication/*.backup
+	rm -rf Appendix1/*.backup
+	rm -rf Appendix2/*.backup
+
+	rm -rf Chapter1/*.backup
+	rm -rf Chapter2/*.backup
+	rm -rf Chapter3/*.backup
+	rm -rf Chapter4/*.backup
+	rm -rf Chapter5/*.backup
+	rm -rf Chapter6/*.backup
+
 	echo "Cleaning complete!"
 	exit
 else
