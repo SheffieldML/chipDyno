@@ -1,4 +1,4 @@
-\chapter{Probabilistic TFA of \textit{C. elegans}}
+\chapter{Probabilistic TFA of \textit{C. elegans}}\label{ch:Probabilistic_TFA}
 
 % **************************** Define Graphics Path **************************
 \ifpdf
@@ -76,7 +76,7 @@ In recent years most methods aim to infer a matrix of transcription factor activ
 \section{Our Goal}
 In this chapter we will build a dynamic model that extends the linear regression model of \cite{Liao:2003} and probabilistic model of \cite{Sanguinetti:2006} to model the distribution of each transcription factor acting on each gene for a multicellular eukaryote (\textit{C.elegans}). By nature this model will be a latent variable model which will be developed based on probabilistic approach. We will build a tool using programming language $R$ and it will be available on GitHub\footnote{GitHub is a Web-based repository hosting service and source code management platform.}. At Chapter:\ref{ch:GP_Model_of_TFAs} we will model the temporal changes in the gene-specific TFAs from time-series gene expression data using Gaussian process (a stochastic process whose consciousness comes from random values and where the random variables has a normal distribution and it is associated with every single point in a range of times or of space; Chapter:\ref{ch:GaussianProcessRegression} contains detail explanation). The covariance structure of the transcription factors will be shared among all genes. This approach will lead to a manageable parameter space and figure out useful information about the correlation of TFAs.
 
-\section{Probabilistic TFAs}
+\section{Probabilistic TFAs}\label{sec:Probabilistic_TFA}
 We have developed our $R$ based tools $chipDyno$ based on the probabilistic approach of \cite{Sanguinetti:2006}. First we will give a brief introduction of that approach then we will present results.
 
 The logged gene expression measurements are collected in a design matrix, $\textbf{Y} \in \mathbb{R}^{ N \times d}$ where $N$ is the number of genes and $d$ the time points or number of experiments. 
@@ -319,6 +319,8 @@ For further analysis we can present the full list.
 Figure \ref{fig:ranking_scores} shows the Pearson correlation between different ranking scores. The correlation coefficient for all three relations (between sample 1 and sample 2, sample 2 and sample 3 and
 sample 3 and sample 1) were quite high. Which indicates the similarity of differentially expressed genes and quiet genes of different samples or replication of time series data. So, if required, based on these ranking we can easily filter out some of the quiet genes and keep the other genes for further experiments.
 
+\section{Discussion}
+%TODO
 
 %\section{Convetional Approach of Clustering and related TFs}
 

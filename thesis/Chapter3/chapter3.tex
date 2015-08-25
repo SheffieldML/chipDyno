@@ -184,11 +184,10 @@ K_{\nu=1/2}(r)=	\exp \left(-\frac{r}{l} \right)
 
 \begin{figure}[t]
 	\centering
-		\includegraphics[width=\textwidth,keepaspectratio]{DifferentKernels.eps}
+		\includegraphics[width=\textwidth,keepaspectratio]{differentKernels.pdf}
 		\rule{35em}{0.5pt}
 	\caption[Representation of some basic kernels ]
-		{Representation of some basic kernels (a). Exponentiated Quadratic kernel, 
-		(b). Mat{\'e}rn52 kernel (c). Ornstein-Uhlenbeck kernel (d). Cosine kernel  }
+		{Representation of some basic kernels using the same lengthscale and variance (a). Linear kernel (b). Brownian kernel (c). Exponentiated Quadratic kernel, (d). Cosine kernel (e). Exponential kernel (f). Periodic Exponential kernel}
 	\label{fig:DifferentKernels}
 \end{figure}
 
@@ -202,8 +201,8 @@ K_{\nu=1/2}(r)=	\exp \left(-\frac{r}{l} \right)
 \end{figure}
 
 \section{Constructing Kernels}
-Figure \ref{fig:DifferentKernels} shows examples of some basic kernels- (a). Exponentiated Quadratic kernel, (b). Mat{\'e}rn52 kernel (c). Ornstein-Uhlenbeck kernel (d). Cosine kernel. These kernels are the 
-realization of Exponentiated Quadratic covariance function(Equation \ref{eq:EQ_cov}), Mat{\'e}rn52 covariance function (Equation \ref{eq:Matern52}), Ornstein-Uhlenbeck covariance function (Equation \ref{eq:OU}) and Cosine function\footnote{We have not described the Cosine covariance function here. The in detail description is available at \cite{Rasmussen_and_Williams:2006}} respectively.
+Figure \ref{fig:DifferentKernels} shows the representation of some basic kernels using the same lengthscale and variance (a). Linear kernel (b). Brownian kernel (c). Exponentiated Quadratic kernel, (d). Cosine kernel (e). Exponential kernel (f). Periodic Exponential kernel. These kernels are the 
+realization of different covariance function\footnote{We have not describe the Linear, Brownian, Exponential, Periodic Exponential and Cosine kernels here. Detail description is available at \cite{Rasmussen_and_Williams:2006} and their $Python$-based implementation is available at \cite{gpy2014}.}.
 
 There are lots of defined kernels (both stationary and non-stationary) for Gaussian processes to deal with variety of kind of structure. Yet, these kernels might not be enough to express certain kind of structures. Gaussian process facilitate to construct new kernels or customize \lq on demand\rq of the structure with the desired properties. \lq Addition\rq and \lq multiplication\rq' are two simple operations to combining kernels.
 
@@ -213,8 +212,8 @@ Assume in an univariate data is globally periodic and local structure governed b
 	\centering
 		\includegraphics[width=\textwidth,keepaspectratio]{ConstructKernels_Cos_Mat52.pdf}
 		\rule{35em}{0.5pt}
-	\caption[ConstructKernels.png ]
-		{ConstructKernels.... TODO Explain} %#TODO Explain
+	\caption[Construct kernel from two basic kernels ]
+		{Construct kernel from two basic kernels} %#TODO Explain
 	\label{fig:ConstructKernels}
 \end{figure}
 
@@ -261,10 +260,10 @@ Figure \ref{fig:Covariances_Structure} shows the overall covariance structure be
 
 \begin{figure}
 	\centering
-		\includegraphics[width=\textwidth]{regDemo.eps}
+		\includegraphics[width=0.95\textwidth]{regDemo2.pdf}
 		\rule{35em}{0.5pt}
-	\caption[Simple example of regression using Gaussian process]
-		{Simple example of regression using Gaussian process}
+	\caption[A visual representation of Gaussian process regression: Modelling a one dimensional function using Gaussian process]
+		{A visual representation of Gaussian process regression: Modelling a one dimensional function using Gaussian process. Coloured solid lines represent different samples from the process and dotted line is the mean function. The shaded area is 95\% confidence interval. (a). A Gaussian process not conditioned on any data points. Without any observations, the prior uncertainty about the underlying function is constant everywhere. (b). to (e). The posterior after conditioning on different amount of data.}
 	\label{fig:dempGPReg}
 \end{figure}
 
@@ -285,11 +284,13 @@ and the covariance of the conditional distribution of Equation \ref{eq:predictio
 		\mathbf{K_{x,x_\star}^T} \left[ \mathbf{K_{x,x}}+ \sigma^2\mathbf{I} \right]^{-1} \mathbf{K_{x,x_\star}}
 \end{equation}
 
-These results can be calculated using block matrix inverse rules. The derivation can found in appendix section (Appendix \ref{AppendixA}). Figure \ref{fig:dempGPReg} shows a simple example of regression
-using Gaussian process.
+These results can be calculated using block matrix inverse rules. The derivation can found in appendix section ({\color{red} Appendix \ref{AppendixA}}). Figure \ref{fig:dempGPReg} shows a visual representation of Gaussian process regression for a one dimensional function. Coloured solid lines represent different samples from the process and dotted line is the mean function. The shaded area is 95\% confidence interval. (a) of Figure \ref{fig:dempGPReg} represent a Gaussian process not conditioned on any data points. Without any observations, the prior uncertainty about the underlying function is constant everywhere. (b). to (e). of Figure \ref{fig:dempGPReg} shows some posterior samples after conditioning on different amount of data. 
+
+%TODO
+
 
 \subsection{Hyperparameter Learning}
-To construct the covariance function still we need to consider the hyperparameters and optimize those. The most efficient and commonly used optimization technique for hyperparameters can be done using maximum likelihood. If we consider all the hyperparameters $\alpha$, $\sigma^2$ and $l$ in to a vector $\boldsymbol{\theta}$, then we can use gradient methods to optimize $p \left(\mathbf{y}\middle|\boldsymbol{\theta}\right)$ with respect to $\boldsymbol{\theta}$. The Log likelihood is given by:
+To construct the covariance function still we need to consider the hyperparameters and optimize those. These adjustable parameters alter the distribution of the function output values obtained from a Gaussian process. The most efficient and commonly used optimization technique for hyperparameters can be done using maximum likelihood. If we consider all the hyperparameters $\alpha$, $\sigma^2$ and $l$ in to a vector $\boldsymbol{\theta}$, then we can use gradient methods to optimize $p \left(\mathbf{y}\middle|\boldsymbol{\theta}\right)$ with respect to $\boldsymbol{\theta}$. The Log likelihood is given by:
 
 \begin{equation} \label{eq:Likelihood}
  p \left(\mathbf{y}\middle|\boldsymbol{\theta}\right) =
@@ -305,7 +306,7 @@ We can have the Log maximum likelihood by:
 % TODO Andreas 15
 
 \section{Toward the GP model of TFA}
-Simo S\"arkk\"a indicated an analogical pathway \footnote{Not published yet, came through some discussions} to construct a kernel function for Gaussian process from Markovian assumption based probabilistic approach of \cite{Sanguinetti:2006}. In the earlier probabilistic approach gene specific TFAs was obtained from-
+ We are interested to develop a non-parametric model of transcription factor activity using Gaussian process. Here, we want to prove that there is an analogical pathway\footnote{We would like to acknowledge Simo S\"arkk\"a, Academy Research Fellow, Aalto University, Finland for his valuable suggestions and guidelines.} to construct a kernel function for Gaussian process model from Markovian assumption based probabilistic approach of \cite{Sanguinetti:2006}. From Chapter \ref{ch:Probabilistic_TFA} Section \ref{sec:Probabilistic_TFA} we have the probabilistic gene specific TFAs as-
 \begin{equation} \label{eq:tfa_SanG_updateCh4}
   \bold{b}_{n(t+1)} \sim \mathcal{N} (\gamma \bold{b}_{nt} + (1-\gamma)\boldsymbol{\mu},(1-\gamma^2)\bold{\Sigma})
 \end{equation}
@@ -394,4 +395,7 @@ Thus is equivalent to considering the vector process of mean-reverting $Ornstein
 \section{Gaussian Process: Pros and Cons}
 The most appealing feature of Gaussian process is expressibility. It is possible to express a very wide range of modelling assumption through a proper choice of covariance function. Given a covariance function and some observations, the posterior distribution can be predicted exactly. Modelling with Gaussian process is non-parametric and this is a rare property. The marginal likelihood of the data given a model is calculated by integrating over all hypothesis. Thus Gaussian process compare different models and improve the model selection. Integration over a wide range of hypothesis lessen over-fitting than in comparable model class. The predictive distribution of Gaussian Process is a multivariate Gaussian distribution and can be easily composed with other models.
 
-There are several issues which may make Gaussian processes sometimes difficult to use. The generic inference and learning algorithm where we need to inverse the matrix has $\mathcal{O}\left(N^3\right)$ runtime complexity. Given the computational resource available at present, the exact inference is prohibitively slow for more than a few thousands data-points. An exact inference for typical \lq Big Data\rq could be nightmare. However, this problem can be addressed by variational inference, even for the models containing millions of data points (\cite{Hensman:2013a}). Non-Gaussian predictive likelihoods and sparse approximations could be challenging while working with Gaussian process. However, Gaussian process framework GPy (\cite{gpy2014}) can automatically deal with both of the issues. 
+There are several issues which may make Gaussian processes sometimes difficult to use. The generic inference and learning algorithm where we need to inverse the matrix has $\mathcal{O}\left(N^3\right)$ runtime complexity. Given the computational resource available at present, the exact inference is prohibitively slow for more than a few thousands data-points. An exact inference for typical \lq Big Data\rq  could be nightmare. However, this problem can be addressed by variational inference, even for the models containing millions of data points (\cite{Hensman:2013a}). Non-Gaussian predictive likelihoods and sparse approximations could be challenging while working with Gaussian process. However, Gaussian process framework GPy (\cite{gpy2014}) can automatically deal with both of the issues. 
+
+\section{Discussion}
+%TODO

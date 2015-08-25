@@ -2,11 +2,17 @@
 
 \chapter{Apendix 2}
 
-% % \LaTeX.cls files can be accessed system-wide when they are placed in the
-% % <texmf>/tex/latex directory, where <texmf> is the root directory of the user’s \TeX installation. On systems that have a local texmf tree (<texmflocal>), which
-% % may be named ``texmf-local'' or ``localtexmf'', it may be advisable to install packages in <texmflocal>, rather than <texmf> as the contents of the former, unlike that of the latter, are preserved after the \LaTeX system is reinstalled and/or upgraded.
-% % 
-% % It is recommended that the user create a subdirectory <texmf>/tex/latex/CUED for all CUED related \LaTeX class and package files. On some \LaTeX systems, the directory look-up tables will need to be refreshed after making additions or deletions to the system files. For \TeX Live systems this is accomplished via executing ``texhash'' as root. MIK\TeX users can run ``initexmf -u'' to accomplish the same thing.
-% % 
-% % Users not willing or able to install the files system-wide can install them in their personal directories, but will then have to provide the path (full or relative) in addition to the filename when referring to them in \LaTeX.
+\ifpdf
+    \graphicspath{{Appendix2/Figs/Raster/}{Appendix2/Figs/PDF/}{Appendix2/Figs/}}
+\else
+    \graphicspath{{Appendix2/Figs/Vector/}{Appendix2/Figs/}}
+\fi
 
+\begin{figure}
+	\centering
+		\includegraphics[width=\textwidth,keepaspectratio]{clsCElegans11genes.png}
+		\rule{35em}{0.5pt}
+	\caption[Clustering Gene Expression dataof \textit{C.elegans}]
+		{Clustering Gene Expression data of \textit{C.elegans}}
+	\label{fig:clsCelegans}
+\end{figure}
