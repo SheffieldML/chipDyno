@@ -8,9 +8,14 @@ pb.ion()
 #%pylab inline
 
 #a = np.arange(4).reshape((2,2))
-a = np.arange(2)
+a = np.arange(4).reshape((2,2))
 b = np.arange(4).reshape((2,2))
 
+a = np.linspace(1.0, 4.0, num=9).reshape((3,3))
+b = np.linspace(1.0, 4.0, num=9).reshape((3,3))
+
+a = np.linspace(1.0, 4.0, num=4).reshape((2,2))
+b = np.linspace(1.0, 4.0, num=4).reshape((2,2))
 
 X = np.kron(a,b)
 #Y1 = np.random.multivariate_normal(np.zeros(501),ker1.K(X),1)
@@ -18,7 +23,7 @@ X = np.kron(a,b)
 #Yn = np.random.multivariate_normal(np.zeros(501),kern.K(X),1)
 
 
-fig = pb.figure(figsize=(14.,6.5))
+#fig = pb.figure(figsize=(14.,6.5))
 #fig = pb.figure()
 
 plt.subplot(1, 3, 1)

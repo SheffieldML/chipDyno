@@ -1,0 +1,56 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[utf8]{inputenc}
+
+%opening
+\title{TODO}
+\author{Arif}
+
+\begin{document}
+
+\maketitle
+
+
+\paragraph{Ch:1 Intro}
+\begin{enumerate}
+ \item Bring the brief goal at the beginning 
+ \item Affymatrix image
+\end{enumerate}
+
+\paragraph{Ch:2 Pro TFA}
+\begin{enumerate}
+ \item Update draft
+\end{enumerate}
+
+\paragraph{Ch:3 GP}
+\begin{enumerate}
+ \item Add Brownian kernel
+ \item Add Cosine kernel
+ \item GP properties: Add multiplication
+\end{enumerate}
+
+\paragraph{Ch:4 TFA GP}
+\begin{enumerate}
+ \item Update draft
+\end{enumerate}
+
+\paragraph{Ch:5 Clustering}
+\begin{enumerate}
+ \item Mitochondria
+ \item explanation of Pathway analysis
+\end{enumerate}
+
+\paragraph{Ch:6 Conclusion}
+\begin{enumerate}
+ \item Write
+\end{enumerate}
+
+% \begin{abstract}
+% \end{abstract}
+
+\paragraph{Overall}
+\begin{enumerate}
+ \item Check Figure/Equation font
+ \item Check figure explanation
+\end{enumerate}
+
+\end{document}
