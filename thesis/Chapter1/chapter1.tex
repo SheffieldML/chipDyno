@@ -187,8 +187,7 @@ The thesis is structured in the following chapters:
 This is a technical background chapter where we briefly describe Gaussian process, regression problem and regression with Gaussian process. Choosing an appropriate kernel is one of the key issue while modelling with Gaussian process. In this chapter we briefly describe about some commonly used kernels. We also mentioned about hyperparameter learning. Why and which kernel could be an appropriate choice while modelling the transcription factor activity using Gaussian process was justified at the later section of this chapter.
 
 \textbf{Chapter 4}:
-We note that the linear Gaussian model is equivalent to a Gaussian process with a particular covariance function. We therefore build a model directly from the Gaussian process perspective to achieve the same 
-effect. In this chapter we design a covariance function for reconstructing transcription factor activities given gene expression profiles and a connectivity information between genes and transcription factors. We introduce a computational trick, based on  judicious application of singular value decomposition, to enable us to efficiently fit the Gaussian process in a reduced \lq TF activity\rq space. 
+We note that the linear Gaussian model is equivalent to a Gaussian process with a particular covariance function. We therefore build a model directly from the Gaussian process perspective to achieve the same effect. In this chapter we design a covariance function for reconstructing transcription factor activities given gene expression profiles and a connectivity information between genes and transcription factors. We introduce a computational trick, based on  judicious application of singular value decomposition, to enable us to efficiently fit the Gaussian process in a reduced \lq TF activity\rq space. 
 
 \textbf{Chapter 5}:
 Amyotrophic lateral sclerosis is an irreversible neurodegenerative disorder that kills the motor neurons and results in death within 2 to 3 years from the symptom onset.  Speed of progression for different patients are heterogeneous with significant variability. Transgenic mice from different backgrounds showed consistent phenotypic differences for disease progression. We used a hierarchy of Gaussian processes to model condition-specific and gene-specific temporal covariances. In this chapter we develop a new clustering method that allows each cluster to be parametrised according to whether the behaviour of the genes across conditions is correlated or anti-correlated. By specifying correlation between such genes we gain more information within the cluster about how the genes interrelate. This chapter also includes the gene enrichment score analysis and KEGG pathway analysis that we used on our clustering analysis results for biological validation.
@@ -198,31 +197,70 @@ The final chapter concludes this thesis by summarising the achievements highligh
 
 \section{Notation, Symbols and Acronyms}
 
-%TODO
+\subsection{Acronyms}
 
-\section*{Acronyms}
-\begin{acronym}
-\acro{cDNA}{Complementary Deoxyribonucleic Acid}
-\acro{C.elegans}{Caenorhabditis elegans} 
-\acro{ChIP}{Chromatin Immunoprecipitation} 
-\acro{DIC}{Differential Interference Contrast} 
-\acro{DNA}{Deoxyribonucleic Acid} 
-\acro{EDGEdb}{C. elegans Differential Gene Expression Database} 
-\acro{GP}{Gaussian process} 
-\acro{GPLVM}{Gaussian process Latent Variable Model} 
-\acro{GPy}{a Gaussian processes framework in python} 
-\acro{KEGG}{Kyoto Encyclopedia of Genes and Genomes}
-\acro{LLS}{Log Likelihood Score} 
-\acro{LVM}{Latent Variable Model} 
-\acro{mRNA}{messenger Transfer Ribonucleic Acid} 
-\acro{PCA}{Principal Component Analysis}
-\acro{PLS}{Partial Least Square} 
-\acro{PPCA}{Probabilistic Principal Component Analysis}
-\acro{RBF}{Radial Basis Function} 
-\acro{RNA}{Ribonucleic Acid}
-\acro{RT-PCR}{Reverse Transcription Polymerase Chain Reaction}  %TODO check
-\acro{SE}{Squared Exponential} 
-\acro{SVD}{Singular Value Decomposition} 
-\acro{TF}{Transcription Factor} 
-\acro{TFA}{Transcription Factor Activity}  
-\end{acronym}
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+  %\centering
+\begin{tabular}{l | l }
+%  \begin{tabularx}{0.99\textwidth}{l | X}
+      \textbf{cDNA} & {Complementary Deoxyribonucleic Acid}\\
+      \textbf{C.elegans} & {Caenorhabditis elegans} \\
+      \textbf{ChIP} & {Chromatin Immunoprecipitation} \\
+      \textbf{DIC} & {Differential Interference Contrast}\\ 
+      \textbf{DNA} & {Deoxyribonucleic Acid} \\
+      \textbf{EDGEdb} & {C. elegans Differential Gene Expression Database} \\
+      \textbf{GP} & {Gaussian process} \\
+      \textbf{GPLVM} & {Gaussian process Latent Variable Model} \\
+      \textbf{GPy} & {a Gaussian processes framework in python} \\
+      \textbf{KEGG} & {Kyoto Encyclopedia of Genes and Genomes} \\
+      \textbf{LLS} & {Log Likelihood Score} \\
+      \textbf{LVM} & {Latent Variable Model} \\
+      \textbf{mRNA} & {messenger Transfer Ribonucleic Acid} \\
+      \textbf{PCA} & {Principal Component Analysis}\\
+      \textbf{PLS} & {Partial Least Square} \\
+      \textbf{PPCA} & {Probabilistic Principal Component Analysis}\\
+      \textbf{RBF} & {Radial Basis Function} \\
+      \textbf{RNA} & {Ribonucleic Acid}\\
+      \textbf{RT-PCR} & {Reverse Transcription Polymerase Chain Reaction} \\ %TODO check
+      \textbf{SE} & {Squared Exponential} \\
+      \textbf{SVD} & {Singular Value Decomposition} \\
+      \textbf{TF} & {Transcription Factor} \\
+      \textbf{TFA} & {Transcription Factor Activity} \\
+  %\bottomrule
+  \end{tabular}
+  %\begin{tabularx}
+  %\caption[]{}
+%  \label{table:...}
+\end{table}
+
+
+\subsection{Symbols}
+Throughout this paper, all vectors are represented with boldface lowercase symbols (e.g., x) and
+matrices with bold uppercase symbols (e.g., K) unless otherwise specified % TODO
+
+\begin{table}[!htbp]
+\renewcommand{\arraystretch}{1.3}
+  %\centering
+\begin{tabular}{l | l }
+%  \begin{tabularx}{0.99\textwidth}{l | X}
+      $\mathcal{GP}$ & Gaussian process \\
+      \textbf{x} & A vector \\
+      \textbf{x}_i & The $i^th$ element of the vector \textbf{x} \\
+      $\textbf{x}^\top$ & The transpose of the vector \textbf{x} \\
+      $\boldsymbol{\theta}$ & A set of hyperparameters \\
+      $\textbf{0}$ & A vector of zeros \\
+      diag$\left(\textbf{x}^\top\right)$ & A diagonal square matrix with the elements of the vector \textbf{x} along its main diagonal \\
+      $\textbf{A}_{ij}$ & The element from $i^th$ row and $j^th$ column of the matrix \textbf{x} \\
+      $\textbf{I}$ & The identity matrix \\ 
+      $|\textbf{A}|$ & Determinant of the matrix \textbf{A} \\
+      $\textbf{A}^{-1}$ & The inverse of the matrix \textbf{A} \\
+      $\textbf{A}^\top$ & The transpose of the matrix \textbf{A} \\     
+      $\mathcal{N}\left(\boldsymbol{\mu},\boldsymbol{\Sigma}\right)$ & A Gaussian distribution with mean $\boldsymbol{\mu}$ and covariance $\boldsymbol{\Sigma}$ \\
+      $\mathcal{N}\left(.|\boldsymbol{\mu},\boldsymbol{\Sigma}\right)$ & The probability distribution of a Gaussian random variable with mean $\boldsymbol{\mu}$ and covariance $\boldsymbol{\Sigma}$ \\         
+  %\bottomrule
+  \end{tabular}
+  %\begin{tabularx}
+  %\caption[]{}
+%  \label{table:...}
+\end{table}

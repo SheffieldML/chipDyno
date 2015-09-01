@@ -44,7 +44,7 @@ These give us the binding information between transcription factors and genes.
 In this notebook we are going to try and combine this binding information with 
 the gene expression information to infer transcription factor activities.
 
-\section{Model for Transcription Factor Activities}
+\section{Model for Transcription Factor Activities}\label{sec:Model_for_TFA}
 
 We are working with $log$ expression levels in a matrix $\mathbf{Y} \in \Re^{n\times T}$ and 
 we will assume a linear (additive) model giving the relationship between the expression level 
@@ -62,17 +62,17 @@ encoded in a covariance matrix, $\boldsymbol{\Sigma}$ which is $q\times q$ in di
 Further we assume that the log of the transcription factors' activities is temporally smooth, 
 and drawn from an underlying Gaussian process with covariance $\mathbf{K}_t$. 
 
-\textbf{ Intrinsic Coregionalization Model}: 
+\textbf{Intrinsic Coregionalization Model}: 
 We assume that the joint process across all $q$ transcription factor activities and across all time points 
 is well represented by an intrinsic model of coregionalization where the covariance is given by the 
 Kronecker product of these terms.
-\begin{equation} \label{eq:K}
+\begin{equation} \label{eq:K_intrinsic_coregionalization}
   \mathbf{K}_f = \mathbf{K}_t \otimes \boldsymbol{\Sigma}
 \end{equation}
 
 This is known as an intrinsic coregionalization model (\cite{Wackernagel:2003}). 
 \cite{Alvarez:2012} presented the machine learning orientated review of these methods. 
-The matrix $\boldsymbol{\Sigma}$ is known as the coregionalization matrix.
+The matrix $\boldsymbol{\Sigma}$ is known as the coregionalization matrix. We describe the methodology of desigingin kernel using \emph{coregionalization} at Chapter \ref{ch:Clustering_Gene_Expression_Data} in Section \ref{subSec:Kernel_Design_with_Coregionalization}.
 
 \section{Relation to Gene Expressions}
 
