@@ -11,9 +11,9 @@
     \graphicspath{{Chapter2/Figs/Vector/}{Chapter2/Figs/}}
 \fi
 
-The data – information – knowledge – wisdom (DIKW) hierarchy is one of the fundamental and widely recognized hierarchy in the information and knowledge literature. This hierarchy contextualize data, information, knowledge, and wisdom, with respect to one another to identify and describe the processes involved in the transformation of lower level entity of the hierarchy to a higher level one (\cite{Rowley:2007}). The increasing availability of very high dimensional data with diverse characteristics and growing complexity playing the vital role behind the recent advancement of machine learning techniques. Figure \ref{fig:High_dimensional_data} shows some example of high-dimensional data from different domains, types and nature.
+The data – information – knowledge – wisdom (DIKW) hierarchy is one of the fundamental and widely recognized hierarchy in the information and knowledge literature. This hierarchy contextualizes data, information, knowledge and wisdom, with respect to one another to identify and describe the processes involved in the transformation of lower level entity of the hierarchy to a higher level one (\cite{Rowley:2007}). The increasing availability of very high dimensional data, with diverse characteristics and growing complexity, play the vital role behind the recent advancement of machine learning techniques. Figure \ref{fig:High_dimensional_data} shows some example of high-dimensional data from different domains, types and nature.
  
-Data from real world likely to suffer from quality issue for various reasons. Even in the controlled environment due to several reasons acquisition errors might be included. In the noisy environment it might be even more. Dealing with these noise or added uncertainty of the data is troublesome. In a particular context within the constraints probabilistic modelling turns out to be a dominant approach with added flexibility and capability of dealing with uncertainty in many forms.
+Data from real world suffer from quality issues for various reasons. Acquisition errors are very likely to be included even in the controlled environment. Dealing with noise or added uncertainty of the data is troublesome. Within the constraints, probabilistic modelling is a dominant approach with added flexibility and capability to deal with uncertainty.
 
 \begin{figure}
 	\centering
@@ -23,79 +23,77 @@ Data from real world likely to suffer from quality issue for various reasons. Ev
 		\rule{35em}{0.5pt}
 	\caption[Examples of high dimensional data form types and nature]
 		{Examples of high dimensional data form types and nature. Left: 3D model of a 
-		protein structure. Centre: Multiple
-		samples of hand written digits from MNIST dataset. available at 
-		\url{http://yann.lecun.com/exdb/mnist/}. Right: Multiple image patch 
-		from breast cancer, liver, gastric mucosa, bone marrow connective tissue, kidney tissue for 
-		virtual microscopy (\cite{Wienert:2012}) }
+		protein structure. Centre: Multiple samples of hand written digits from MNIST dataset. available at \url{http://yann.lecun.com/exdb/mnist/}. Right: Multiple image patches from breast cancer, liver, gastric mucosa, bone marrow connective tissue, kidney tissue for virtual microscopy (\cite{Wienert:2012}) }
 	\label{fig:High_dimensional_data}
 \end{figure}
 
-\section{Latent Variable Model}
-Latent variable models (LVMs) (\cite{Bishop:1999}) explain complex relations between multiple variables by simple relations between the variables and an underlying unobservable, i.e. latent structure. Latent variable are typically included in statistical model for different statistical concepts, including representation the unobservable factors/covariates, missing data, random effects, finite mixtures, variations in hierarchical data, and clusters and many more. Figure \ref{fig:LVM Cartton} shows an analogy of latent variable model where Marionette's different movement and dynamics are observed whereas these movements are taking place or controlled by the 'control bar'. The dynamics of the control bar is usually unobserved.
+\section{Latent Variable Model}\label{sec:LVM}
+Latent variable models (LVMs) (\cite{Bishop:1999}) explain complex relations between multiple variables providing the connection between the variables and an underlying unobservable, i.e. latent structure. Latent variables are typically included in statistical models for different statistical concepts, including representation of unobservable factors/covariates, missing data, random effects, finite mixtures, variations in hierarchical data, clusters and many more. Figure \ref{fig:LVM Cartton} shows an analogy of latent variable model where marionette's different movement and dynamics are observed, whereas these movements are taking place or controlled by the puppeteer. The dynamics of the puppeteer is usually unobserved.
 
-A set of latent (or hidden, or directly not observable) variables $\textbf{X}$ that can be related to the observed variables $\textbf{Y}$ defines by a joint distribution over both. The latent space is 
+A set of latent (hidden or directly not observable) variables $\textbf{X}$ that can be related to the observed variables $\textbf{Y}$ defines by a joint distribution over both. The latent space is 
 controlled by a prior distribution $p\left(\textbf{X}\right)$ over the distribution of $\textbf{Y}$ under the assumption of a probabilistic mapping of the form
 \begin{equation} \label{eq:linear_model}
 y_{i,j} = f_j\left(\textbf{x}_{i}\right) + \epsilon_{i},
 \end{equation}
-where $\textbf{x}_i \in \mathbb{R}^q$ is the latent point associated with the $i^{th}$ observation $\textbf{y}_i \in \mathbb{R}^p$, $j$ is the index of the features of $\textbf{Y}$. Inaccuracy of
-the model  and the noise of the data is modelled by the additional noise parameter $\epsilon_{i}$. Typically it is assumed that the noise has a Gaussian distribution $\epsilon \sim \mathcal{N} \left(0,\beta^{-1}\right)$, where the term $\beta$ is the precision.
+where $i=1 \dots q$ and $j=1 \dots p$, $\textbf{x}_i \in \mathbb{R}^q$ is the latent point associated with the $i^{th}$ observation $\textbf{y}_i \in \mathbb{R}^p$, $j$ is the index of the features of $\textbf{Y}$. Inaccuracy of the model  and the noise of the data is modelled by the additional noise parameter $\epsilon_{i}$. Typically it is assumed that the noise has a Gaussian distribution $\epsilon_i \sim \mathcal{N} \left(0,\beta^{-1}\right)$, where the term $\beta$ is the precision.
 
 We can map $f$ of Equation \ref{eq:linear_model} as linear and equal to a matrix $\textbf{W}\in\mathbb{R}^{p\times q}$. Then we can rewrite the Equation \ref{eq:linear_model} as
 \begin{equation} \label{eq:linear_model_matrix}
-y_{i,j} = w_j\left(\textbf{x}_{i}\right) + \epsilon_{i},
+y_{i,j} = \textbf{w}_j\textbf{x}_{i} + \epsilon_{i},
 \end{equation}
-where $w_j$ are the rows of $\textbf{W}$. This model is known as probabilistic version of principal component analysis (PPCA) (\cite{Roweis:1998, Tipping:1999}). 
+where $\textbf{w}_j$ are the rows of $\textbf{W}$. This model recognized as probabilistic version of principal component analysis (PPCA) (\cite{Roweis:1998, Tipping:1999}). 
 
 \begin{figure}
 	\centering
 		\includegraphics[width=0.7\textwidth,keepaspectratio]{LVM_Cartoon.png}
 		\rule{35em}{0.5pt}
-	\caption[Marionette Analogy of Latent Variable Model]
-		{Marionette Analogy of Latent Variable Model: Marionette's different dynamics are observed (represented by $\textbf{Y}$). But these movements are controlled by the control bar which is unobserved (dynamics represented by $\textbf{X}$).}
-	\label{fig:LVM Cartton}
+	\caption[Marionette analogy of latent variable model]
+		{Marionette analogy of latent variable model: Marionette's different dynamics are observed (represented by $\textbf{Y}$). But these movements are controlled by the puppeteer's control bar which is unobserved (dynamics represented by $\textbf{X}$).}
+	\label{fig:LVM_Cartoon}
 \end{figure}
 
-Given the prior distribution over the latent variables has a Gaussian distribution, then the precision $\beta$ can be infinity and PCA is recovered in the limit. The conditional probability
-of the data given the latent space is:
+Given that the prior distribution over the latent variables has a Gaussian distribution, the precision $\beta$ tends to infinity, PCA is recovered in the limit. The conditional probability of the data given the latent space is
 \begin{equation} \label{eq:cond_prob_latent_space}
 p\left(\textbf{y}_i|\textbf{x}_i,\textbf{W},\beta \right) = \mathcal{N} \left(\textbf{y}_i|\textbf{W}\textbf{x}_i,\beta^{-1}\textbf{I}\right).
 \end{equation}
-If we consider data points are independent, then the marginal likelihood of the data is obtained by:
+If we consider data points are independent, then the marginal likelihood of the data is obtained by
 \begin{equation} \label{eq:marginal_likelihood_latent_space}
 p\left(\textbf{Y}|\textbf{W},\beta \right) = 
 \int \prod^{N}_{i=1} p\left(\textbf{y}_i|\textbf{x}_i,\textbf{W},\beta\right)p\left(\textbf{x}_i\right)d\textbf{x}.
 \end{equation}
-Even for finite precision $\beta$ the maximum likelihood solution for $\textbf{W}$ spans the principal sub-space of the data (\cite{Tipping:1999}). This approach is can be applicable for both 
-linear (e.g.\ \cite{Silva:2006}) and non-linear (e.g.\ GP-LVM by \cite{Lawrence:2005}) models. The classical approach while dealing with this latent variables is first they are marginalised then
-other parameters are optimized using maximum likelihood model. \cite{Lawrence:2005} used an alternative but similar approach by first marginalising the parameters and then optimized the
-latent variables.
+where $N$ is the total number of data. Even for finite precision $\beta$ the maximum likelihood solution for $\textbf{W}$ spans the principal sub-space of the data (\cite{Tipping:1999}). This approach is can be applicable for both linear (e.g.\ \cite{Silva:2006}) and non-linear (e.g.\ GP-LVM by \cite{Lawrence:2005}) models. The classical approach while dealing with these latent variables is to marginalised them. Then other parameters are optimized using maximum likelihood. \cite{Lawrence:2005} used an alternative but similar approach by first marginalising the parameters and then optimizing the latent variables.
 
 \section{Modelling of TFAs}
-In recent years most methods aim to infer a matrix of transcription factor activities (TFAs). These TFAs are sum up in a single number at a certain experimental point to find the concentration of the transcription factor and its binding affinity to its target genes. Many of the researcher used different ways or algorithm to find out these TFAs. For example, \cite{Liao:2003} developed a data decomposition technique with dimension reduction and introduced ‘network component analysis’. This method takes account of the connectivity information by imposing algebraic constraints on the factors. They argued that classical statistical methods such as principal component analysis and independent component analysis dose not consider the underlying network structure while computing low dimensional or hidden representation of a high-dimensional data sets like DNA microarray. 
+Modelling transcription factor activities can be seen as latent variable modelling. We can observe the gene expression level, but these expression level are regulated by protein coding genes that binds to a specific DNA sequence and control the production rate of mRNA. These gene expression level are analogous to the movement marionette (Figure \ref{fig:LVM_Cartoon}), but the transcription factor's activity is unobservable like the puppeteer's control bar which actually controls the gene expression level.
 
-\cite{Alter:2004} used a dimension reduction technique (SVD) to figure out TFAs and also the correlation between DNA replication initiation and RNA transcription during the yeast cell cycle. Using multivariate regression and backward variable selection to identify active transcription factors \cite{Gao:2004} targeted the same; \cite{Boulesteix:2005} used partial least squares (PLS) regression to infer the true TFAs from a combination of tRNA expression and DNA protein binding measurement. A major drawback of the above mentioned methods is that transcription factor activities do not hold any information regarding the strength of the regulators interactivity between the transcription factor and its different target genes. But it is expected that depending on the experimental conditions transcription factor activities can vary from gene to gene. Even it is also expected that different transcription factors may bind the same gene. In most of the cases, realistic information about the intervals may not be true as they were not based on fully probabilistic model. Moreover, false positives are always a problem for connectivity data, typically a large portion of Chip data suffers form it (\cite{Boulesteix:2005}). Furthermore, due to the various cellular process or changes in environmental conditions the structure of the regulatory network of the cell can change considerably. Using regression-based methods it is difficult to track these changes. \cite{Nachman:2004} build a probabilistic model, using the basic framework of dynamic Bayesian networks using discrete random variables for protein concentrations and binding affinities. Though the model was more realistic but the computational complexity for genome-wide analysis can be expensive.
+In recent years an idea that has gain a lot of interest to infer regulatory mechanism from the expression level of genes. There has been a wealth of research on microarray data. A number of methods (\cite{Alter:2004, Gao:2004, Liao:2003}) aim to infer a matrix of transcription factor activities (TFAs). These TFAs are sum up in a single number at a certain experimental point to find the concentration of the transcription factor and its binding affinity to its target genes. A variety of approaches have been proposed to infer these TFAs. For example, \cite{Liao:2003} developed a data decomposition technique with dimension reduction and introduced the concept of ‘network component analysis’. This method takes account of the connectivity information by imposing algebraic constraints on the factors. They argued that classical statistical methods such as principal component analysis and independent component analysis, do not consider the underlying network structure while computing low dimensional or hidden representation of a high-dimensional data sets like DNA microarray. 
+
+\cite{Alter:2004} used a dimension reduction technique (SVD) to figure out TFAs and also the correlation between DNA replication initiation and RNA transcription during the yeast cell cycle. Using multivariate regression and backward variable selection to identify active transcription factors \cite{Gao:2004} targeted the same; \cite{Boulesteix:2005} used partial least squares (PLS) regression to infer the true TFAs from a combination of tRNA expression and DNA protein binding measurement. A major drawback of the above mentioned methods is that transcription factor activities do not hold any information regarding the strength of the regulators interactivity between the transcription factor and its different target genes. It is expected that, depending on the experimental conditions the transcription factor activities can vary from gene to gene. It is also expected that different transcription factors may bind  to the same gene. In most cases, realistic information about the intervals may not be true as they were not based on the fully probabilistic model. Moreover, false positives are always a problem for connectivity data, typically a large portion of ChIP data suffers form it (\cite{Boulesteix:2005}). Furthermore, due to the various cellular process or changes in environmental conditions the structure of the regulatory network of the cell can change considerably. Using regression-based methods it is difficult to track these changes. \cite{Nachman:2004} build a probabilistic model, using the basic framework of dynamic Bayesian networks based on discrete random variables for protein concentrations and binding affinities. Though the model was more realistic, the computational complexity for genome-wide analysis can be expensive.
 
 \section{Our Goal}
-In this chapter we will build a dynamic model that extends the linear regression model of \cite{Liao:2003} and probabilistic model of \cite{Sanguinetti:2006} to model the distribution of each transcription factor acting on each gene for a multicellular eukaryote (\textit{C.elegans}). By nature this model will be a latent variable model which will be developed based on probabilistic approach. We will build a tool using programming language $R$ and it will be available on GitHub\footnote{GitHub is a Web-based repository hosting service and source code management platform.}. At Chapter:\ref{ch:GP_Model_of_TFAs} we will model the temporal changes in the gene-specific TFAs from time-series gene expression data using Gaussian process (a stochastic process whose consciousness comes from random values and where the random variables has a normal distribution and it is associated with every single point in a range of times or of space; Chapter:\ref{ch:GaussianProcessRegression} contains detail explanation). The covariance structure of the transcription factors will be shared among all genes. This approach will lead to a manageable parameter space and figure out useful information about the correlation of TFAs.
+In this chapter we will build a dynamical model that extends the linear regression model of \cite{Liao:2003} and probabilistic model of \cite{Sanguinetti:2006} to model the distribution of each transcription factor acting on each gene from a multicellular eukaryote (\textit{C.elegans}). By nature this model will be a latent variable model which will be developed based on probabilistic approach. Our first target is to construct an open source tool by implementing this approach in $R$ and made available by GitHub\footnote{GitHub is a Web-based repository hosting service and source code management platform.}. Then in Chapter \ref{ch:GP_Model_of_TFAs} we will generalize the approach using Gaussian process (A Gaussian process is a collection of random variables and where the random variables has a normal distribution and it is associated with every single point in a range of times or of space. In Chapter \ref{ch:GaussianProcessRegression} we introduce a formal description of Gaussian process.) to model the temporal changes from time-series gene expression data. The covariance structure of the transcription factors will be shared among all genes. This will lead to a manageable parameter space and will figure out useful information about the correlation of TFAs.
 
 \section{Probabilistic TFAs}\label{sec:Probabilistic_TFA}
-We have developed our $R$ based tools $chipDyno$ based on the probabilistic approach of \cite{Sanguinetti:2006}. First we will give a brief introduction of that approach then we will present results.
+We developed our $R$ programming language based tools $chipDyno$ using the probabilistic approach of \cite{Sanguinetti:2006}. In the following section we will briefly describe his approach.
 
 The logged gene expression measurements are collected in a design matrix, $\textbf{Y} \in \mathbb{R}^{ N \times d}$ where $N$ is the number of genes and $d$ the time points or number of experiments. 
-The connectivity measurements are collected in a binary matrix $\textbf{X} \in \mathbb{R} ^ {N \times q}$, where $q$ is the number of transcription factors; element $(i, j)$ of $\textbf{X}$ is one 
+The connectivity measurements are collected in a binary matrix $\textbf{X} \in \mathbb{R} ^ {N \times q}$, where $q$ is the number of transcription factors. We assume that $\textbf{X}_{i,j}$ is one 
 if transcription factor $j$ can bind gene $i$, zero otherwise.
 
-In \cite{Sanguinetti:2006}, TFAs are obtained by regressing the gene expressions using the connectivity information, giving the following linear model- 
+\cite{Sanguinetti:2006} used a latent variable model (as we described in Section: \ref{sec:LVM}). TFAs were obtained by regressing the gene expressions using the connectivity information, given the following linear model- 
 \begin{equation} \label{eq:linear_model_TFA}
 \textbf{y}_n = \textbf{B}_n \textbf{x}_n + \boldsymbol{\epsilon_{n}}
 \end{equation}
 Here $n = 1, . . . ,N$ indexes the gene, $\textbf{y}_n =\textbf{Y}(n,:)^{\top}$, $\textbf{x}_n=\textbf{X}(n,:)^{\top}$ and $\boldsymbol{\epsilon_{n}}$ is an error term. The matrix $\textbf{B}_n$ has $d$ rows and $q$ columns, and models the gene specific TFAs.
 
-Different TFAs for every individual gene will increase number of model parameters drastically. But through marginalization by prior distribution on the rows of $\textbf{B}_n$ these parameters can be dealt. Two plausible assumptions for selecting the prior distribution will be helpful to determine the gene specific TFAs. Firstly, $\textbf{b}_{nt}$ has the Markov property and hence gene specific TFA $\textbf{b}_{nt} $ at time $t$ depends solely on the gene specific TFA at time $(t-1)$ and the second assumption is, the prior distribution to be stationary in time.
+Different TFAs for every individual gene will increase number of model parameters drastically. This huge parameter space can be dealt through marginalization by prior distribution on the rows of $\textbf{B}_n$. Yet, 
+two physically plausible assumptions for selecting the prior distribution will be helpful to determine the gene specific TFAs. 
+\begin{itemize}
+ \item The first assumption is- $\textbf{b}_{nt}$ has the Markov property (\textcolor{red}{Explanation add in appendix and fix the ref...}) and hence gene specific TFA $\textbf{b}_{nt} $ at time $t$ depends solely on the gene specific TFA at time $(t-1)$.
+ \item The second assumption is- the prior distribution to be stationary in time.
+\end{itemize}
 
-To satisfy these conditions then there will be two limiting conditions of prior distributions- Assume all the $\textbf{b}_{nt}$ are identical, then the first limiting case will take place. So that
+In order to support these assumptions, there will be two limiting cases for prior distributions. Let's first assume all the $\textbf{b}_{nt}$ are identical for all $t$. Then the first limiting case will be
 \begin{equation} \label{eq:limit_one_a}
    \textbf{b}_{n1} \sim \mathcal{N} ( \boldsymbol{\mu},\boldsymbol{\Sigma}), 
 \end{equation}
@@ -103,18 +101,18 @@ and
 \begin{equation} \label{eq:limit_one_b}
    \textbf{b}_{n(t+1)} \sim \mathcal{N} ( \textbf{b}_{nt},\textbf{0})
 \end{equation}
-If the experimental dataset comes by replicating a condition then this model will be an appropriate model. The second limiting case appears when all the $\textbf{b}_{nt}$ are independent and identically distributed
+If the experimental dataset comes by replicating a condition then this model will be an appropriate one. The second limiting case appears when all the $\textbf{b}_{nt}$ are independent and identically distributed (iid),
 \begin{equation} \label{eq:limit_two}
-   \textbf{b}_{nt}\sim \mathcal{N} ( \boldsymbol{\mu},\boldsymbol{\Sigma})
+   \textbf{b}_{nt}\sim \mathcal{N} ( \boldsymbol{\mu},\boldsymbol{\Sigma}).
 \end{equation}
 This is the case when experimental dataset comes from independent samples drawn without any temporal order.
 
-\cite{Sanguinetti:2006}  expected a realistic model of time series data to be somewhere in between this two extremes (Equation:\ref{eq:limit_one_a}, Equation:\ref{eq:limit_one_b} and Equation:\ref{eq:limit_two})
+\cite{Sanguinetti:2006} expected a realistic model of time series data to be somewhere in between this two extremes (Equation \ref{eq:limit_one_a}, Equation \ref{eq:limit_one_b} and Equation \ref{eq:limit_two})
 \begin{equation} \label{eq:tfa_SanG_update}
   \textbf{b}_{n(t+1)} \sim \mathcal{N} (\gamma \textbf{b}_{nt} + (1-\gamma)\boldsymbol{\mu},(1-\gamma^2)\boldsymbol{\Sigma})
 \end{equation}
 for $ t= 1, ... , (d-1)$ and $ \textbf{b}_{n1} \sim \mathcal{N} ( \boldsymbol{\mu},\boldsymbol{\Sigma})$
-where $\gamma$ is a parameter measuring the degree of temporal continuity of the TFAs. If genes are independent for given TFA then the likelihood function is given by
+where $\gamma$ is a parameter measuring the degree of temporal continuity of the TFAs. If genes are independent for a given TFA then the likelihood function is given by
 \begin{equation} \label{eq:likelihood_fnc}
   p\left(\textbf{Y}|\textbf{B,X}\right)= \prod_{n \mathop = 1}^{N} p\left(\textbf{y}_n|\textbf{B}_n,\textbf{x}_n\right).
 \end{equation}
@@ -122,7 +120,7 @@ Considering Gaussian noise $\boldsymbol{\epsilon}_n \sim \mathcal{N} \left(0,\bo
 \begin{equation} \label{eq:likelihood_fnc_SingleGene}
   p\left(\textbf{y}_n|\textbf{B}_n,\textbf{x}_n\right)= \mathcal{N} \left(\textbf{y}_n|\textbf{B}_n \textbf{x}_n, \boldsymbol{\sigma}^2\textbf{I} \right).
 \end{equation}
-Factorizing the likelihood along the experiments with the assumption of spherical Gaussian noise distribution we can rewrite the Equation \ref{eq:likelihood_fnc} as
+Factorizing the likelihood along the experiments with the assumption of spherical Gaussian noise distribution, we can rewrite the Equation \ref{eq:likelihood_fnc} as
 \begin{equation} \label{eq:likelihood_factorize}
   p\left(\textbf{Y}|\textbf{B},\textbf{X}\right)= 
      \prod_{t \mathop = 1}^{d} \prod_{n \mathop = 1}^{N} p\left(\textbf{y}_{nt}|\textbf{b}_{nt},\textbf{x}_n\right)
@@ -131,86 +129,141 @@ where
 \begin{equation} \label{eq:likelihood_fnc_allGene}
   p\left(\textbf{y}_{nt}|\textbf{b}_{nt},\textbf{x}_n\right)= \mathcal{N} \left(\textbf{y}_{nt}|\textbf{b}^\top_{nt}\textbf{x}_n,\sigma^2 \right).
 \end{equation}
-Using the classical approach of latent variable model analysis a marginal likelihood for the observations can be obtained by
+Using the classical approach of latent variable model analysis, a marginal likelihood for the observations can be obtained by
 
 \begin{equation} \label{eq:marginal_likelihood_tfa}
 \begin{aligned}
-p\left(\textbf{y}_n|\sigma,\Sigma,\boldsymbol{\mu},\gamma,\textbf{x}_n\right) = &
-\int \prod^{d}_{t=1} d\textbf{b}_{nt}\mathcal{N} \left(\textbf{y}_{nt}|\textbf{b}^\top_{nt}\textbf{x}_n, \sigma^2 \right)\\
+p\left(\textbf{y}_n|\sigma,\boldsymbol{\Sigma},\boldsymbol{\mu},\gamma,\textbf{x}_n\right) = &
+\int \prod^{d}_{t=1} \mathcal{N} \left(\textbf{y}_{nt}|\textbf{b}^\top_{nt}\textbf{x}_n, \sigma^2 \right)\\
 & \times \left( \prod^{d}_{t=2} p\left(\textbf{b}_{nt}|\textbf{b}_{n(t-1)}\right) \right)
-\mathcal{N} \left(\textbf{b}_{n1}|\boldsymbol{\mu}\Sigma \right).
+\mathcal{N} \left(\textbf{b}_{n1}|\boldsymbol{\mu},\boldsymbol{\Sigma} \right)\text{d}\textbf{b}_{nt}.
 \end{aligned}
 \end{equation}
 
-TFAs can be estimated as a posteriori using Bayes’s Theorem. The detail explanation is available at \cite{Sanguinetti:2006}.
-% \begin{equation} \label{eq:Bayes_Theorem}
-%   p\left(\textbf{b}_n|\textbf{Y}\right)= \frac {p\left(\textbf{Y|b}_n\right) p\left(\textbf{b}_n\right)}{p\left(\textbf{Y}\right)}
-% \end{equation}
+TFAs can be estimated a posteriori using Bayes’s theorem,
+\begin{equation} \label{eq:est_TFA}
+ p\left(\left[\textbf{b}^\top_{n1}, \textbf{b}^\top_{n2}, \dots, \textbf{b}^\top_{nd} \right]^\top| \sigma,\boldsymbol{\Sigma},\boldsymbol{\mu},\gamma,\textbf{X},\textbf{Y}\right)= \mathcal{N}\left(\bar{\textbf{b}}_n, \boldsymbol{\Sigma}_{\textbf{b}_n} \right)
+\end{equation}
+where the posterior covariance is given by
+\begin{equation} \label{eq:post_Cov_TFA}
+\boldsymbol{\Sigma}_{\textbf{b}_n} = 
+ \begin{pmatrix}
+  A_1 & B & 0 & 0 \\
+  B & A & \dots & 0 \\
+  0 & B & \dots & B  \\
+  0 & 0 & \dots & A_d
+ \end{pmatrix}^{-1}
+\end{equation}
+where
+\begin{equation*}
+ A_1 = A_d = \sigma^{-2}\textbf{x}_n\textbf{x}^\top_n+\left(1-\gamma^2\right)^{-1}\boldsymbol{\Sigma}^{-1}
+\end{equation*}
+\begin{equation*}
+ A = \sigma^{-2}\textbf{x}_n\textbf{x}^\top_n+\left(1+\gamma^2\right)\left(1-\gamma^2\right)^{-1}\boldsymbol{\Sigma}^{-1}
+\end{equation*}
+\begin{equation*}
+ B =-\gamma\left(1-\gamma^2\right)^{-1}\boldsymbol{\Sigma}^{-1},
+\end{equation*}
+and posterior mean is given by
+\begin{equation} \label{eq:post_mean_TFA}
+\bar{\textbf{b}}_n = \boldsymbol{\Sigma}_{\textbf{b}_n}
+ \begin{pmatrix}
+  \sigma^{-2}y_1\textbf{x}+\frac{1}{1+\gamma} \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu} \\
+  \sigma^{-2}y_2\textbf{x}+\frac{1-\gamma}{1+\gamma} \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu} \\
+  \vdots\\
+  \sigma^{-2}y_d\textbf{x}+\frac{1}{1+\gamma} \boldsymbol{\Sigma}^{-1}\boldsymbol{\mu}
+ \end{pmatrix}.
+\end{equation}
+The detail explanation of this model is available at \cite{Sanguinetti:2006}.
 
-%----------------------------------------------------------
-%----------------------------------------------------------------------------------------
 \section{Datasets}
-\cite{Sanguinetti:2006} has done their experiments on yeast's cell cycle data of \cite{Spellman:1998} which is a unicellular microorganism. One of our research key question was can we step forward to find out the transcription factor activities from a unicellular microorganism to multicellular eukaryote. \textit{C. elegans} is a established multicellular eukaryotic model organism (Chapter:\ref{ch:Introduction} contains some introductory information about this model organism). To find out the TFA of \textit{C. elegans} basically we had to work with three type of datasets. $i).$ Gene expression time series data $ii).$ Transcription Factors $iii).$ Connectivity information between genes and transcription factors.
+\cite{Sanguinetti:2006} did their experiments on yeast's cell cycle data of \cite{Spellman:1998} which is a unicellular microorganism. Our first research question is ``can we step forward to find out the transcription factor activities from a unicellular microorganism to a multicellular eukaryote?''. 
+
+In 1965, Sydney Brenner introduced \textit{C. elegans} as a model organism to study the behaviour and development of animal (\cite{Brenner:1974}). It is an eukaryote and it shares cellular and molecular structures and control pathways with higher organisms. To elucidate pathways and processes relevant to human biology and disease \textit{C. elegans} used as a vital model. We provided introductory information about this model organism Chapter \ref{ch:Introduction}. To find out the TFAs of \textit{C. elegans} we had to work with three type of datasets
+\begin{enumerate}
+ \item Gene expression time series data 
+ \item A list of transcription factors 
+ \item Connectivity information between genes and transcription factors.
+\end{enumerate}
 
 \subsection{Gene Expression Time series data}
-The gene expression Affymetrix single colour GeneChip data\footnote{We would like to acknowledge Professor Andrew Cossins, Institute of Integrative Biology, University of Liverpool, UK for providing us the data set with valuable information and also for the permission for further analysis of the data.} on point estimate of expression level came without estimates of uncertainty level. To extract this data we used Bioconductor\footnote{The Bioconductor project is an open source software framework to assist biologists and statisticians working in bioinformatics} package \textit{puma} (\cite{puma}). The experiments were done at five different stages (i.e.\ our experimental dataset will have five time points). Apart from the temperature rest of the environmental conditions were same with the target of consistent result. The experimental data was collected within one day of its adulthood at the temperature $20\,^{\circ}\mathrm{C}$. With the target to measure the gene response to chill exposure the temperature was reduced to $5\,^{\circ}\mathrm{C}$ and samples were collected after one hour, then after 24 hour (1 day), then after 72 hours (3 days). For final experiments the temperature was brought back to $20\,^{\circ}\mathrm{C}$
-and samples were collected within one day  of rise of temperature. All the experiments were repeated two more times which provide us 3 independent replicates of similar experiments. Figure \ref{fig:PCA_time_series} shows the PCA analysis of the time series data.
+The gene expression Affymetrix single colour GeneChip data\footnote{We would like to acknowledge Professor Andrew Cossins, Institute of Integrative Biology, University of Liverpool, UK for providing us the data set with valuable information and also for the permission for further analysis of the data.} on point estimate of expression level is the source of our gene expression time series data. To extract this data we used a Bioconductor\footnote{The Bioconductor project is an open source software framework to assist biologists and statisticians working in bioinformatics} package \textit{puma} (\cite{puma}). \textit{puma} can extract the gene expression level with estimates of uncertainty. In the wet laboratory the experiments were done at five different stages (i.e.\ our gene expression time series dataset will have five time points). The main goal of the experiments in the wet laboratory were to investigate the chilling effect and identify the cold tolerance phenotype of \textit{C. elegans}. We used the gene response to chill exposure as gene expressions. Figure \ref{fig:Temp_Settings} shows the temperature and time settings. In the experimental setup, all the environmental conditions apart from the temperature were same with the target of consistent result. The first experimental data was collected within one day of \textit{C. elegans}'s adulthood at the temperature $20\,^{\circ}\mathrm{C}$. To measure the gene response to chill exposure the temperature was reduced to $5\,^{\circ}\mathrm{C}$ and second experimental data were collected after one hour of the reduction of the temperature. Third experimental data were collected after 24 hours (1 day) of the temperature reduction.  Fourth experimental data were collected after 72 hours (3 days) of the temperature reduction. After the fourth data collection the temperature was brought back to  $20\,^{\circ}\mathrm{C}$. The fifth or final experimental data were collected after one day of the rise of the temperature. In the wet lab the full experiment were repeated twice maintaining the similar setup. So, three independent replicates of the  experiments were available. 
+\begin{figure}
+	\centering
+		\includegraphics[width=0.7\textwidth,keepaspectratio]{Temp_Setting.pdf}
+		\rule{35em}{0.5pt}
+	\caption[Temperature and time settings for the gene response to chill exposure experiments]
+		{Temperature and time settings for the gene response to chill exposure experiments:  \lq Pre1d \rq- The first experimental data within one day of \textit{C. elegans}'s adulthood at the temperature $20\,^{\circ}\mathrm{C}$. \lq 1h \rq- second experimental data were collected after one hour of the reduction of the temperature to $5\,^{\circ}\mathrm{C}$. \lq 1d \rq- Third experimental data were collected after 24 hours of the temperature reduction to $5\,^{\circ}\mathrm{C}$. \lq 3d \rq- Fourth experimental data were collected after 72 hours of the temperature reduction. \lq Post1d \rq- The fifth experimental data were collected after one day of the rise of the temperature to $20\,^{\circ}\mathrm{C}$.}
+	\label{fig:Temp_Settings}
+\end{figure}
 
-
+Figure \ref{fig:PCA_time_series} shows the PCA analysis of the gene expression time series data. The $puma$ PCA incorporates the uncertainty of the point expressions and the standard PCA does not include any uncertainty of the point expressions. Both of figures have a very similar representations. This means that the uncertainty of the point expressions does not have a significant effect on point expressions. As the added uncertainty does change the standard PCA a lot, we can say the quality of the data is very high.
 \begin{figure}
 	\centering
 		\includegraphics[width=0.7\textwidth,keepaspectratio]{PCA2.eps}
 		\rule{35em}{0.5pt}
-	\caption[Principal component analysis of time series data ]
-		{Principal component analysis of gene expression time series data}
+	\caption[Principal component analysis of gene expression time series data ]
+		{Principal component analysis of gene expression time series data. Figure in the left shows the $puma$ PCA which incorporates the uncertainty of the point  expressions. Figure in the right shows the standard PCA which does not include any uncertainty of the point  expressions. It appears from these two figures that both of them have a very similar representation. This means that the uncertainty of the point expressions does not have a significant effect on point expressions, it also proves higher quality of the data}
 	\label{fig:PCA_time_series}
 \end{figure}
 
 \subsection{Transcription Factors}
-From different data sources we found different number/list of transcription factors for \textit{C. elegans}. \cite{Inmaculada:2007} build a database named \textit{C. elegans} differential gene expression database (EDGEdb) which contains the sequence information about 934 predicted transcription factors and their DNA binding domains. Initially we took these 934 transcription factors for our baseline experimental setup but we also kept the opening to deal with any number of transcription factor depending on the requirement/ update of the sequence information of transcription factors.
+From different data sources, we found different number/list of transcription factors for \textit{C. elegans}. \cite{Inmaculada:2007} build a database named \textit{C. elegans} differential gene expression database (EDGEdb), which contains the sequence information about 934 predicted transcription factors and their DNA binding domains. Initially we took these 934 transcription factors for our baseline experimental setup, but tool $chipDyno$ can deal with any number of transcription factors depending on the requirement/update of the sequence information of transcription factors.
 
 \subsection{Connectivity Information}
-Network motifs are the simplest units of transcriptional regulatory network's architecture. Particular regulatory mechanism such as positive and/or negative feedback loop can be well studied by these network motifs. Based on size and nature network motifs can grow in numbers and complexity. Autoregulation, multicomponent loop, single input, multiple inputs, feedforward, regulators chain are some of the simplest and well known network motifs. Figure:\ref{fig:networkMotif} shows their representation. \cite{Xie:2005} used motif conservation information for higher organisms like human, dog, rat and mouse. For promoter analysis they considered a number of network motif (also known as transcription factor binding sites) and also some new motifs. These type of data termed as connectivity data by \cite{Liao:2003} and provide information about whether a certain transcription factor can bind the promoter region of a gene or not.
+Network motifs are the simplest units of transcriptional regulatory network's architecture. Particular regulatory mechanism such as positive and/or negative feedback loop can be well studied by these network motifs. Based on size and nature network motifs can grow in numbers and complexity. Autoregulation, multicomponent loop, single input, multiple inputs, feedforward and regulators chain are some of the simplest and well known network motifs. Figure. \ref{fig:networkMotif} shows their representation. \cite{Xie:2005} used motif conservation information for higher organisms like human, dog, rat and mouse. For promoter analysis they considered a number of network motif (also known as transcription factor binding sites) and also some new motifs. These type of data, termed as connectivity data by \cite{Liao:2003}, provide information about whether a certain transcription factor can bind the promoter region of a gene or not.
 
 \begin{figure}
 	\centering
 		\includegraphics[width=0.95\textwidth,keepaspectratio]{NetworkMotif.pdf}
 		\rule{35em}{0.5pt}
 	\caption[Basic examples of network motif]
-		{Some basic examples of network motif: (a). autoregulation, (b). multi-component loop, (c). single input motifs, (d). regulators chain, (e). multiple inputs, (f). feedforward motifs. Here green ovals represents regulators and orange rectangles represents gene promoters. Solid lines represent binding of a regulator to a promoter while dashed arrow represents gene encoding regulators binding their respective regulators.}
+		{Some basic examples of network motif: (a) autoregulation, (b) multi-component loop, (c) single input motifs, (d) regulators chain, (e) multiple inputs and (f) feedforward motifs. Here green ovals represents regulators and orange rectangles represents gene promoters. Solid lines represent binding of a regulator to a promoter while dashed arrow represents gene encoding regulators binding their respective regulators.}
 	\label{fig:networkMotif}
 \end{figure}
 
-\cite{WormNet} is a gene network of protein-encoding genes for \textit{C. elegans} based on probabilistic function and modified Bayesian integration. They have considered 15,139 genes and 999,367 linkages between genes associated with a log-likelihood score (LLS). These measured scores represents a true functional linkage between a pair of genes (\cite{Lee:2007}). The linkage between two genes were measured based on the following evidence codes-
-\begin{itemize}
- \item CE-CC: 	Co-citation of worm gene
- \item CE-CX: 	Co-expression among worm genes
- \item CE-GN: 	Gene neighbourhoods of bacterial and archaeal orthologs of worm genes
- \item CE-GT: 	Worm genetic interactions
- \item CE-LC: 	Literature curated worm protein physical interactions
- \item CE-PG: 	Co-inheritance of bacterial and archaeal orthologs of worm genes
- \item CE-YH: 	High-throughput yeast 2-hybrid assays among worm genes
- \item DM-PI: 	Fly protein physical interactions
- \item HS-CC: 	Co-citation of human genes
- \item HS-CX: 	Co-expression among human genes
- \item HS-DC: 	Co-occurrence of domains among human proteins
- \item HS-LC: 	Literature curated human protein physical interactions
- \item HS-MS: 	human protein complexes from affinity purification/mass spectrometry
- \item HS-YH: 	High-throughput yeast 2-hybrid assays among human genes
- \item SC-CC: 	Co-citation of yeast genes
- \item SC-CX: 	Co-expression among yeast genes
- \item SC-DC: 	Co-occurrence of domains among yeast proteins
- \item SC-GT: 	Yeast genetic interactions
- \item SC-LC: 	Literature curated yeast protein physical interactions
- \item SC-MS: 	Yeast protein complexes from affinity purification/mass spectrometry
- \item SC-TS: 	Yeast protein interactions inferred from tertiary structures of complexes
-\end{itemize}
+\cite{WormNet} is a gene network of protein-encoding genes for \textit{C. elegans} based on probabilistic function and modified Bayesian integration. They have considered 15,139 genes and 999,367 linkages between genes associated with a log-likelihood score (LLS). These measured scores represents a true functional linkage between a pair of genes (\cite{Lee:2007}). The linkage between two genes were measured based on the evidence codes shown in Table. \ref{table:gene_linkage}.
 
-We have constructed the connectivity matrix between genes and associated transcription factors from the gene to gene linkage and log-likelihood scores. We choose co-expression among worm genes (CE-CX), high-throughput yeast 2-hybrid assays among worm genes (CE-YH), literature curated human protein physical interactions (HS-LC) and high-throughput yeast 2-hybrid assays among human genes (HS-YH) to start our experiments. But if needed we can consider any of the evidence to reconstruct the connectivity matrix. From the gene list we have picked the protein-coding genes (i.e. transcription factors) and later 
-binarized it. If there is an associated LLS value between a gene and a transcription factor we set the value '1' and '0' otherwise.
+\begin{table}[!htbp]
+    {\renewcommand{\arraystretch}{1.5}
+    \begin{tabularx}{0.99\textwidth}{ l X }
+    %\begin{tabulary}{ l l }
+    \toprule
+	\textbf{Gene1 - Gene2} & \textbf{Evidence for interaction}  \\
+    \midrule
+	CE-CC & Co-citation of worm gene \\
+	CE-CX & Co-expression among worm genes \\
+	CE-GN & Gene neighbourhoods of bacterial and archaeal orthologs of worm genes \\
+	CE-GT & Worm genetic interactions \\
+	CE-LC & Literature curated worm protein physical interactions \\
+	CE-PG & Co-inheritance of bacterial and archaeal orthologs of worm genes \\
+	CE-YH & High-throughput yeast 2-hybrid assays among worm genes \\
+	DM-PI & Fly protein physical interactions \\
+	HS-CC & Co-citation of human genes \\
+	HS-CX & Co-expression among human genes \\
+	HS-DC & Co-occurrence of domains among human proteins \\
+	HS-LC & Literature curated human protein physical interactions \\
+	HS-MS & human protein complexes from affinity purification/mass spectrometry \\
+	HS-YH & High-throughput yeast 2-hybrid assays among human genes \\
+	SC-CC & Co-citation of yeast genes \\
+	SC-CX & Co-expression among yeast genes \\
+	SC-DC & Co-occurrence of domains among yeast proteins \\
+	SC-GT & Yeast genetic interactions \\
+	SC-LC & Literature curated yeast protein physical interactions \\
+	SC-MS & Yeast protein complexes from affinity purification/mass spectrometry \\
+	SC-TS & Yeast protein interactions inferred from tertiary structures of complexes \\
+    \bottomrule
+    \end{tabularx}
+    %     \end{tabular}
+	  \caption[Gene linkage evidence code]
+	  {Gene linkage evidence code from \cite{WormNet}.
+	  \label{table:gene_linkage}}}
+\end{table}
+
+We have constructed the connectivity matrix between genes and associated transcription factors from the gene to gene linkage and log-likelihood scores. We choose co-expression among worm genes (CE-CX), high-throughput yeast 2-hybrid assays among worm genes (CE-YH), literature curated human protein physical interactions (HS-LC) and high-throughput yeast 2-hybrid assays among human genes (HS-YH) to start our experiments. But if needed we can consider any of the evidence to reconstruct the connectivity matrix. From the gene list we have picked the protein-coding genes (i.e. transcription factors) and later binarized it. If there is an associated LLS value between a gene and a transcription factor, we set the value \lq 1\rq and \lq 0\rq otherwise.
 
 \section{Result Analysis}
-We have developed a $R$ based tool $chipDyno$ for the identification of quantitative prediction of regulatory activities of the gene specific TFA through posterior estimation. The \textit{ChipDyno User Guide} \footnote{\textit{ChipDyno User Guide} is available at GitHub} explains different functionality of this tool and working pathway. There is no established benchmarks or baseline, nor a known ground truth to which to compare to our results of gene specific TFA for \textit{C. elegans}.
+We have developed $R$ programming language based implementation of the $ChipDyno$ algorithm to identify the quantitative prediction of regulatory activities of the gene specific TFA through posterior estimation. The \textit{ChipDyno User Guide} \footnote{\textit{ChipDyno User Guide} is available at GitHub} explains different functionality of this tool and working pathway. There is no established benchmarks or baseline, nor a known ground truth to compare with our results of gene specific TFA for \textit{C. elegans}.
 
 \begin{figure}
 	\centering
@@ -221,7 +274,7 @@ We have developed a $R$ based tool $chipDyno$ for the identification of quantita
 	\label{fig:TFA_of_of_ZK370.2}
 \end{figure}
 
-According to \cite{WormNet} the number of gene of \textit{C. elegans} is 15,139 and \cite{Inmaculada:2007} presented 934 transcription factors. All the network motif, i.e. autoregulation, multi-component loop, feedforward loop, single input, multi-input motif, regulator chain were visible for transcription factor activity. So it was a mammoth task to choose all the transcription factors and show their activity. Rather we choose some random transcription factor and tried to find out its activity on different genes.
+According to \cite{WormNet} the number of genes of \textit{C. elegans} is 15,139 and \cite{Inmaculada:2007} presented 934 transcription factors. All the network motif, i.e. autoregulation, multi-component loop, feedforward loop, single input, multi-input motif and regulator chain were visible for transcription factor activity. So it was a mammoth task to choose all the transcription factors and show their activity. Rather we chose some random transcription factor and tried to find out its activity on different genes.
 
 \begin{figure}
 	\centering
@@ -232,14 +285,10 @@ According to \cite{WormNet} the number of gene of \textit{C. elegans} is 15,139 
 	\label{fig:TFA_of_of_T20B12_8_3}
 \end{figure}
 
-As a random sample we choose transcription factor ZK370.2 and find its activity on different genes. Figure \ref{fig:TFA_of_of_ZK370.2} shows that transcription factor ZK370.2 can regulate C37C3.2, Y105E8B.3, Y45F10B.3, C34F11.3, F26E4.6 and T24G10.2. In the dataset we had three replication of same experimental setup and its outcome. We performed our \textit{in-silico} experiments for individual replications and collected the results. Later we visualize all the outcome together by plots (some examples are Figure:\ref{fig:TFA_of_of_T20B12_8_3}, Figure:\ref{fig:TFA_of_of_ZK370.2}). From our experimental result we can say that the dynamics for some of the gene specific regulations (i.e. F26E4.6 and T24G10.2) are very flat and not that much informative but for some genes TFAs varies notably over time (i.e. C37C3.2 and Y45F10B.3). These are the genes which are regulated significantly by this transcription factor. For some cases (e.g\ gene C34F11.3) the error bar is quite high. These are the examples of bindings where there regulation is not that much significant or false positive could be an issue here. The magnitude of TFA also differs from one to another. We picked another random transcription factor T20B12.8.3. Figure \ref{fig:TFA_of_of_T20B12_8_3} shows its activity on different genes.
-
-%TODO \subsection{PCA} ???
+As a random sample, we chose transcription factor ZK370.2 and find its activity on different genes. Figure \ref{fig:TFA_of_of_ZK370.2} shows that transcription factor ZK370.2 can regulate C37C3.2, Y105E8B.3, Y45F10B.3, C34F11.3, F26E4.6 and T24G10.2. In the dataset we had three replication of same experimental setup and its outcome. We performed our \textit{in-silico} experiments for individual replicates and collected the results. Later we presented all the outcome together by plots (some examples are Figure:\ref{fig:TFA_of_of_T20B12_8_3}, Figure \ref{fig:TFA_of_of_ZK370.2}). From our experimental result we can say that the dynamics for some of the gene specific regulations (\i.e. F26E4.6 and T24G10.2) are very flat and not that much informative, but for some genes TFAs varies notably over time (i.e. C37C3.2 and Y45F10B.3). These are the genes which are regulated significantly by this transcription factor. For some cases (e.g\ gene C34F11.3) the error bar is quite high. These are the examples of bindings where the regulation is insignificant or false positive. The magnitude of TFA also differs from one to another. We picked another random transcription factor T20B12.8.3. Figure \ref{fig:TFA_of_of_T20B12_8_3} shows its activity on different genes.
 
 \subsection{Gene with multiple regulators}
-For the case of multi input motif a single gene could be regulated by multiple transcription factors. Our developed tool can determine the posteriori of the relative weight for the different transcription
-factors regulating the genes. Table \ref{table:Genes_regulated_by_multiple_TF} shows some examples. Gene C44B12.5 can be regulated by transcription factor Y116A8C.35 and F33A8.3. While gene
-Y105E8B.3 is regulated by T20B12.8, F33A8.3, Y116A8C.35, F11A10.2 and C16A3.7. Though for some cases the expression level is quite low and noise margin is significantly high (examples of binding with insignificant regulation) but we can rank these genes using the ranking method of \cite{Kalaitzis:2011}.
+For the case of multi input motif, a single gene could be regulated by multiple transcription factors. Our developed tool can determine a posteriori the relative weight for the different transcription factors regulating the genes. Table \ref{table:Genes_regulated_by_multiple_TF} shows some examples. Such as, ene C44B12.5 can be regulated by transcription factor Y116A8C.35 and F33A8.3. While gene Y105E8B.3 is regulated by T20B12.8, F33A8.3, Y116A8C.35, F11A10.2 and C16A3.7. The significance level can be determined by using the posteriori variance. Though for some cases the expression level is quite low and noise margin is significantly high (examples of binding with insignificant regulation) but by ranking the transcription factors according to the maximum gene specific TFA. We can also rank these genes using the ranking method proposed by \cite{Kalaitzis:2011} to rank the differentially expressed gene expressions.
 
 \begin{table}
 	\centering
@@ -267,7 +316,7 @@ Y105E8B.3 is regulated by T20B12.8, F33A8.3, Y116A8C.35, F11A10.2 and C16A3.7. T
 \end{table}
 
 \subsection{Different clusters and related active TF}
-Clustering of genes is used to identify set of genes with similar behaviour (i.e.\ similar expression level or pattern) over a set of experiments (\cite{Eisen:1998}). Clusters provide an intuitive way to visualize the data and also help to facilitate the functional annotation of the not yet characterized genes. If an uncharacterised gene belongs to a cluster then the unknown gene could possibly have similar function and may dominated by genes of same function \cite{Pe'er:2003}. \cite{Cossins:2007} performed some cluster analysis of the genes based on different phenotype and its subsequent activities of the cell properties. They constructed the basic clusters with the following phenotype properties:
+Clustering of genes is used to identify set of genes with similar behaviour (i.e.\ similar expression level or pattern) over a set of experiments (\cite{Eisen:1998}). Clusters provide an intuitive way to visualize the data and also help to facilitate the functional annotation of the not yet characterized genes. If an uncharacterised gene belongs to a cluster, then it could possibly have similar function and may dominated by genes of same function (\cite{Pe'er:2003}). \cite{Cossins:2007} performed some cluster analysis of genes based on different phenotypes. They constructed the basic clusters with the following phenotype properties
 
 \begin{figure}
 	\centering
@@ -278,16 +327,15 @@ Clustering of genes is used to identify set of genes with similar behaviour (i.e
 	\label{fig:Clustering_TF}
 \end{figure}
 
-\textbf{Cluster 1 - Chill upregulated} basically related with cell morphogenesis, cell growth, regulation of cell size, electron transport regulation of cell growth, generation of precursor metabolites and energy, anatomical structure morphogenesis, cellular metabolic process, proteolysis, etc.
+\textbf{Cluster 1 - Chill upregulated:} basically related with cell morphogenesis, cell growth, regulation of cell size, electron transport regulation of cell growth, generation of precursor metabolites and energy, anatomical structure morphogenesis, cellular metabolic process, proteolysis, etc.
 
-\textbf{Cluster 2 - Chill late upregulated} related with chromosome organization and biogenesis, DNA packaging, chromatin architecture chromatin modification, negative regulation of developmental process, 
-chromatin remodelling, regulation of developmental process, DNA metabolic process larval development (sensu Nematoda), organelle organization and biogenesis, post-embryonic development etc.
+\textbf{Cluster 2 - Chill late upregulated:} related with chromosome organization and biogenesis, DNA packaging, chromatin architecture chromatin modification, negative regulation of developmental process, chromatin remodelling, regulation of developmental process, DNA metabolic process larval development (sensu Nematoda), organelle organization and biogenesis, post-embryonic development etc.
 
-\textbf{Cluster 3 - Chill downregulated genes} related with amino acid and derivative metabolic process, carboxylic acid metabolic process, organic acid metabolic process, fatty acid metabolic process,
-amino acid metabolic process, monocarboxylic acid metabolic process, etc.  Rest of the genes were placed in the group 'Others'. 
+\textbf{Cluster 3 - Chill downregulated genes:} related with amino acid and derivative metabolic process, carboxylic acid metabolic process, organic acid metabolic process, fatty acid metabolic process, amino acid metabolic process, monocarboxylic acid metabolic process, etc.  
 
-Figure \ref{fig:Clustering_TF} shows heat map generated from DNA microarray data to reflect the gene expression values at different temperature and their basic clusters \cite{Cossins:2007}. Based on the above clusters we also investigate about the transcription factors active in different clusters. Table \ref{table:Active_TF_diff_clusters} shows the numbers active transcription factor for each clusters.
-For further analysis we can present the full list.
+Rest of the genes were placed in the group \lq others\rq. 
+
+Figure \ref{fig:Clustering_TF} shows the heat map generated from DNA microarray data to reflect the gene expression values at different temperature and their basic clusters (\cite{Cossins:2007}). Based on the above clusters, we also investigate about the transcription factors active in different clusters. Table \ref{table:Active_TF_diff_clusters} shows the number of active transcription factors for each clusters. For further analysis we can present the full list.
 
 \begin{table}
 	\centering
@@ -307,7 +355,7 @@ For further analysis we can present the full list.
 \end{table}
 
 \section{Ranking Differentially expressed gene expressions}
-\cite{Kalaitzis:2011} analysed the time series gene expression and filter the quiet or inactive genes from the differentially expressed genes. They have developed the model considering the temporal nature of data using Gaussian process. We have used this model to rank our time series gene expression and ranked the differentially expressed gene expressions. We ranked the three replicates of our data separately and later determine the Pearson correlation between ranking score of different samples.
+\cite{Kalaitzis:2011} analysed time series of gene expressions and filtered the quiet or inactive genes from the differentially expressed genes. They have developed their model considering the temporal nature of data using Gaussian processes. We have used their model to rank our time series gene expressions and ranked them accordingly. We ranked the three replicates of our data separately and later determine the Pearson correlation between ranking score of different samples.
 
 \begin{figure}
 	\centering
@@ -320,10 +368,12 @@ For further analysis we can present the full list.
 	\label{fig:ranking_scores}
 \end{figure}
 
-Figure \ref{fig:ranking_scores} shows the Pearson correlation between different ranking scores. The correlation coefficient for all three relations (between sample 1 and sample 2, sample 2 and sample 3 and
-sample 3 and sample 1) were quite high. Which indicates the similarity of differentially expressed genes and quiet genes of different samples or replication of time series data. So, if required, based on these ranking we can easily filter out some of the quiet genes and keep the other genes for further experiments.
+Figure \ref{fig:ranking_scores} shows the Pearson correlation between different ranking scores. The correlation coefficient for all three relations (between sample 1 and sample 2, sample 2 and sample 3 and sample 3 and sample 1) were quite high. This indicates the similarity of differentially expressed genes and quiet genes of different samples or replication of time series data. So, if required, based on these ranking we can easily filter out some of the quiet genes and keep the other genes for further experiments.
 
 \section{Discussion}
+In this chapter, at the beginning we have defined the latent variable model. Then we described the probabilistic model of \cite{Sanguinetti:2006} as the basis of our tool $chipDyno$. Our tool can infer the gene specific transcription factor activity as a form of latent variable modelling. Earlier our gene expressions were collected as the gene response to chill exposure for \textit{C. elegans}. We constructed our connectivity information between genes and transcription factors from the evidence of gene to gene interaction to model the TFAs. Earlier the dynamics of TFAs were obtained for a unicellular microorganism (yeast), but our tool is capable to determine transcription factor activities for a multicellular eukaryote (\textit{C.elegans}).
+The probabilistic dynamical model for quantitative inference of TFA, that we described in this chapter will be used as our basis for the coming chapters. We will introduce Gaussian process at Chapter \ref{ch:GaussianProcessRegression}. In Chapter \ref{ch:GP_Model_of_TFAs} we will devise a mechanism to overcome the limitations of this mechanistic model using Gaussian process.
+
 %TODO
 
 %\section{Convetional Approach of Clustering and related TFs}

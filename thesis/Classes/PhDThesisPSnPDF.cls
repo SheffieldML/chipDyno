@@ -934,7 +934,7 @@ wish to left align your text}
 \begin{singlespace}
 \begin{center}
 % Title
-{\Huge \bfseries{\@title} \par}
+{\LARGE \bfseries{\@title} \par} %\Huge
 \ifthenelse{\equal{\@subtitle}{}}{
 % subtitle is not defined
 }{

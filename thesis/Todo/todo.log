@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.23)  28 AUG 2015 14:08
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2014.12.23)  3 SEP 2015 16:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -261,14 +261,14 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 10.
 
-Overfull \hbox (54.77866pt too wide) in paragraph at lines 26--27
+Overfull \hbox (54.77866pt too wide) in paragraph at lines 27--28
 []\OT1/cmr/m/n/10 Add Brow-n-ian ker-nel : http://www.biostat.umn.edu/ baolin/t
 eaching/probmods/ipm-
  []
 
 [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./todo.aux) ) 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./todo.aux) ) 
 Here is how much of TeX's memory you used:
  432 strings out of 493308
  4244 string characters out of 6140091
@@ -277,14 +277,14 @@ Here is how much of TeX's memory you used:
  6983 words of font info for 25 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  23i,6n,19p,162b,187s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on todo.pdf (1 page, 54417 bytes).
+</usr/sh
+are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmr17.pfb>
+Output written on todo.pdf (2 pages, 56441 bytes).
 PDF statistics:
- 22 PDF objects out of 1000 (max. 8388607)
+ 25 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

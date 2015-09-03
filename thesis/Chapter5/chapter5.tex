@@ -159,6 +159,16 @@ $\textbf {\^{Y}}_n= {\left[Y_{n,1}^\top,Y_{n,2}^\top, ... Y_{n,S}^\top\right]}^\
 \end{equation}
 While designing different kernels $\textbf{k}$ we have used \emph{coregionalization} model. 
 
+\begin{figure}
+	\centering
+		\includegraphics[width=\textwidth,keepaspectratio]{clsCElegans11genes_2.png}
+		\rule{35em}{0.5pt}
+	\caption[Clustering Gene Expression dataof \textit{C.elegans}]
+		{Clustering Gene Expression data of \textit{C.elegans}} % TODO
+	\label{fig:clsCelegans}
+\end{figure}
+
+
 \subsection{Kernel Design with Coregionalization}\label{subSec:Kernel_Design_with_Coregionalization}
 Gaussian process models have been used already to capture structure in the data arising from temporal correlation. Our innovation is to realise that there is actually additional correlation structure relating to the genetic background of the organism (in our case, the mice strains) and the status as control/experiment (in our case the presence or absence of the SOD1 mutation). By acknowledging such structure in the covariance matrix we can increase the power of our method. Standard approaches force each of these conditions to be fully independent. Our model allows the correlation structure to be learned.
 \begin{figure}
