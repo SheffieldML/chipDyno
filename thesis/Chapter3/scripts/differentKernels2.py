@@ -59,7 +59,7 @@ plt.subplot(2, 3, 5)
 K = ker_Exp.K(X,X)
 plt.imshow(K)
 plt.colorbar()
-plt.xlabel('(e). Exponential Kernel')
+plt.xlabel('(e). Ornstein-Uhlenbeck Kernel')
 
 plt.subplot(2, 3, 6)
 #kern = ker1 + ker2

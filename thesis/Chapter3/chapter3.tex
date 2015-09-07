@@ -37,9 +37,9 @@ Although using plain and simple statistics regression problem can be solved, to 
 
 We assume the outputs considered at the training level from a underlying mapping function $f(\textbf{x})$ may contain noise. The objective of the regression problem is to construct $f(\textbf{x})$ from the data $\mathcal{D}$. This task is ill-defined and dealing with noisy data is even harder as reasoning of the uncertainty is required. Hence, a single estimate of $f(\textbf{x})$ clearly could be misleading, rather a probability distribution over likely functions could be much more appealing. A regression model based on Gaussian process is a fully probabilistic Bayesian model, and definitely will serve for our purpose. In contrast with other regression models, here we will get the opportunity to choose the best estimate of $f(\textbf{x})$. If we consider a probability distribution on functions $p(f)$ as the Bayesian prior for regression, then Bayesian inference can be used to make predictions for given data 
 \begin{equation} \label{eq:2.1}
-p\left(f|\mathcal{D}\right)= \frac{\overbrace{p\left(\mathcal{D}|f\right)}^{\text{likelihood}}\overbrace{p\left(f\right)}^{\text {prior}}}{\underbrace{p\left(\mathcal{D}\right)}_{\text {marginal likelihood}}} 
+\overbrace{p\left(f|\mathcal{D}\right)}^{posterior}= \frac{\overbrace{p\left(\mathcal{D}|f\right)}^{\text{likelihood}}\overbrace{p\left(f\right)}^{\text {prior}}}{\underbrace{p\left(\mathcal{D}\right)}_{\text {marginal likelihood}}} 
 \end{equation}
-where $p\left(f\right)$ is a Gaussian process prior, $p\left(\mathcal{D}|f\right)$ likelihood, $p\left(\mathcal{D}\right)$ is the marginal likelihood and $p\left(f|\mathcal{D}\right)$ is a posterior process over functions.
+where $p\left(f\right)$ is a Gaussian process prior, $p\left(\mathcal{D}|f\right)$ likelihood, $p\left(\mathcal{D}\right)$ is the marginal likelihood and $p\left(f|\mathcal{D}\right)$ is a posterior process over functions. Chapter \ref{ch:Probabilistic_TFA} Sec. \ref{sec:Bayesian_model} showed how marginalization and conditioning is related with Bayesian analysis
 
 
 % TODO The dynamic activity of transcription factors can be viewed as a regression task.
@@ -107,10 +107,10 @@ K_{EQ}(r)= a^2 \exp \left(-\frac{r^2}{2l^2}\right),
 where $r=\lVert \textbf{x}-\textbf{x}\textprime \rVert$. Here $\lVert \textbf{x}-\textbf{x}\textprime \rVert$ is invariant to translation and rotation. So, the exponentiated quadratic covariance is stationary, as well as isotropic. Here the parameter for output variance $a$ and lengthscale parameter $l$ govern the property of sample functions and are commonly known as hyperparameters. Parameter $a$ determines the typical amplitude, i.e. average distance of the function away from the mean. $l$ controls the lengthscale, i.e. the length of the wiggles of the function. 
 \begin{figure}[t]
 	\centering
-		\includegraphics[width=14cm,keepaspectratio]{SE_cov.eps}
+		\includegraphics[width=12cm,keepaspectratio]{SE_cov.eps}
 		\rule{35em}{0.5pt}
-	\caption[Exponentiated quadratic kernel and sample functions]
-		{Exponentiated quadratic kernel and sample functions}
+	\caption[Exponentiated quadratic kernels and sample functions]
+		{Exponentiated quadratic kernels (a) and random sample functions (b) for different hyperparameter settings shown in the top left}
 	\label{fig:Exponentiated_Quadratic_covariance}
 \end{figure}
 Figure \ref{fig:Exponentiated_Quadratic_covariance}$(a)$ represents the kernel and Figure \ref{fig:Exponentiated_Quadratic_covariance}$(b)$ shows random sample functions drawn from the Gaussian process using exponentiated quadratic covariance with different lengthscales and amplitude hyperparameters. The random function was generated for a given input range by drawing a sample from the multivariate Gaussian using Eq. \ref{eq:2.2} with zero mean. The smoothness of the sample function depends on the Eq. \ref{eq:EQ_cov}. Function variable located closer in the input space are highly correlated, whereas function variable located at distance are loosely correlated or even uncorrelated. Exponentiated quadratic covariance might be too smooth to perform any realistic regression task. Depending on the basic nature of the function other covariance functions could also be interesting.
@@ -118,10 +118,10 @@ Figure \ref{fig:Exponentiated_Quadratic_covariance}$(a)$ represents the kernel a
 \subsection{Rational Quadratic Covariance Function}
 \begin{figure}
 	\centering
-		\includegraphics[width=14cm,keepaspectratio]{RQ_edit_cov.eps}
+		\includegraphics[width=12cm,keepaspectratio]{RQ_edit_cov.eps}
 		\rule{35em}{0.5pt}
-	\caption[Rational quadratic kernel and random sample functions]
-		{Rational quadratic kernel and random sample functions}
+	\caption[Rational quadratic kernels and random sample functions]
+		{Rational quadratic kernels (a) and random sample functions (b) for different hyperparameter settings shown in the top left}
 	\label{fig:Rational_Quadratic_covariance}
 \end{figure}
 The rational quadratic covariance function is equivalent to adding together multiple exponentiated quadratic covariance functions having different lengthscale. Gaussian process prior kernel function expects smooth function with many lengthscale. In the Equation \ref{eq:RQ_cov} the parameter $\alpha$ can control the relative weights for lengthscale variations. Exponentiated quadratic covariance function can be viewed as a special case of rational quadratic covariance function. If $\alpha \to \infty$, then both rational quadratic and exponentiated quadratic functions become identical\footnote{The limit of a rational quadratic is exponentiated quadratic: $$\lim_{\alpha \to \infty} \left(1+\frac{x^2}{2\alpha}\right)^{-\alpha}=\exp\left(\-\frac{x^2}{2} \right).$$}.
@@ -131,10 +131,10 @@ K_{RQ}(r)= a^2 \left(1+ \frac{r^2}{2 \alpha l^2}\right)^{-\alpha}
 where $r=\lVert \textbf{x}-\textbf{x}\textprime \rVert$. Figure \ref{fig:Rational_Quadratic_covariance} (a) shows the kernels and (b) shows three different random sample functions drawn with different setting of hyperparameters $a$ and $l$.
 \begin{figure}[t]
 	\centering
-		\includegraphics[width=14cm,keepaspectratio]{Mat32_cov.eps}
+		\includegraphics[width=12cm,keepaspectratio]{Mat32_cov.eps}
 		\rule{35em}{0.5pt}
-	\caption[The Mat{\'e}rn32 kernel and random sample functions]
-		{The Mat{\'e}rn32 kernel and random sample functions}
+	\caption[The Mat{\'e}rn32 kernels and random sample functions]
+		{The Mat{\'e}rn32 kernels (a) and random sample functions (b) for different hyperparameter settings shown in the top left}
 	\label{fig:Matern32_covariance}
 \end{figure}
 
@@ -165,25 +165,56 @@ K_{\nu=5/2}(r)= \left(1+ \frac{\sqrt{5}r}{l} + \frac{5r^2}{3l^2} \right)
 \subsection{The Ornstein-Uhlenbeck Process}
 \begin{figure}[t]
 	\centering
-		\includegraphics[width=14cm,keepaspectratio]{OU_cov.eps}
+		\includegraphics[width=12cm,keepaspectratio]{OU_cov.eps}
 		\rule{35em}{0.5pt}
-	\caption[The OU kernel and random sample functions]
-		{The OU kernel and random sample functions}
+	\caption[The OU kernels and random sample functions]
+		{The OU kernels (a) and random sample functions (b) for different hyperparameter settings shown in the top left}
 	\label{fig:OU_covariance}
 \end{figure}
 The Ornstein-Uhlenbeck process (\cite{Ornstein_Uhlenbeck:1930}) is a special case of Mat{\'e}rn class covariance functions. The Ornstein-Uhlenbeck (OU) process was developed as a mathematical model of the velocity of a particle moving with Brownian motion.
 
-The OU process can be found setting up $\nu=1/2$ and expressed as Equation \ref{eq:OU}. Figure \ref{fig:OU_covariance}$(a)$ shows the kernel and Figure \ref{fig:OU_covariance}$(b)$ shows the sample functions form the OU process having the exactly same amplitude parameter $a$ and lengthscale parameter $l$.  
+The Ornstein-Uhlenbeck process can be found setting up $\nu=1/2$ and expressed as Equation \ref{eq:OU}. Figure \ref{fig:OU_covariance}$(a)$ shows the kernel and Figure \ref{fig:OU_covariance}$(b)$ shows the sample functions form the OU process having the exactly same amplitude parameter $a$ and lengthscale parameter $l$.  
 \begin{equation} \label{eq:OU}
 K_{\nu=1/2}(r)=	\exp \left(-\frac{r}{l} \right)
 \end{equation}
+
+%http://dan.iel.fm/george/current/user/kernels/#combining-kernels
+\subsection{Cosine Kernel}
+Perhaps the cosine random processes on $\mathbb{R}$ is one of the most  basic and widely used smooth stochastic processes. This periodic stationary process is defined as
+\begin{equation} \label{eq:cosine_fnc}
+f\left(x\right) \triangleq \xi\text{cos}\lambda x+ \xi\textprime \text{sin}\lambda x  
+\end{equation}
+where $\lambda$ is a positive constant, $\xi$ and $\xi\textprime$ are equidistributed and uncorrelated random variables. Using the basic trigonometry Eq. \ref{eq:cosine_fnc} can be written as
+\begin{equation} \label{eq:cosine_fnc2}
+f\left(x\right) = R \text{cos}\left(\lambda\left(x-\psi\right)\right) 
+\end{equation}
+where $R^2=\xi^2+\left(\xi^\textprime\right)^2\eqslantgtr 0$ and $\psi=\text{arctan}\left(\frac{\xi}{\xi\textprime}\right) \in \left(-\pi,\pi \right)$. Let's $\mathbb{E}\left[\xi\right]=0$, then the covariance function is given by
+\begin{equation*} \label{eq:cosine_cov}
+\begin{align}
+K_{\text{Cos}}\left(x,x\textprime\right) 
+    &= \mathbb{E}\left[f\left(x\right)f\left(x\textprime\right)\right]\\
+    &= \mathbb{E}\left[f\left(\xi\text{cos}\lambda x+ \xi\textprime \text{sin}\lambda x\right)\left(f\left(\xi\text{cos}\lambda x\textprime+ \xi\textprime \text{sin}\lambda x\textprime\right)\right)\right]\\
+    &= \mathbb{E}\left[\left(\xi\textprime\right)^2\right]\text{cos}\left(\lambda\left(x-x\textprime\right)\right)\\
+\end{align}
+\end{equation*}
+where we considered  $\xi$ and $\xi\textprime$ are equidistributed and uncorrelated. The cosine kernel is a stationary kernel regardless of the distribution of $\xi$. Figure \ref{fig:cosine_covariance} shows the representation of kernels and sample functions with different hyperparameter settings.
+
+\begin{figure}[t]
+	\centering
+		\includegraphics[width=12cm,keepaspectratio]{cosine.pdf}
+		\rule{35em}{0.5pt}
+	\caption[The Cosine kernels and random sample functions]
+		{The Cosine kernels (a) and random sample functions (b) for different hyperparameter settings shown in the top left}
+	\label{fig:cosine_covariance}
+\end{figure}
+
 
 \begin{figure}[t]
 	\centering
 		\includegraphics[width=\textwidth,keepaspectratio]{differentKernels.pdf}
 		\rule{35em}{0.5pt}
 	\caption[Representation of some basic kernels ]
-		{Representation of some basic kernels using the same lengthscale and variance (a). Linear kernel (b). Brownian kernel (c). Exponentiated Quadratic kernel, (d). Cosine kernel (e). Exponential kernel (f). Periodic Exponential kernel}
+		{Representation of some basic kernels using the same lengthscale and variance (a) Linear kernel (b) Brownian kernel (c) Exponentiated Quadratic kernel (d) Cosine kernel (e) Ornstein-Uhlenbeck kernel and (f) Periodic Exponential kernel}
 	\label{fig:DifferentKernels}
 \end{figure}
 
@@ -197,19 +228,20 @@ K_{\nu=1/2}(r)=	\exp \left(-\frac{r}{l} \right)
 \end{figure}
 
 \section{Constructing Kernels}
-Figure \ref{fig:DifferentKernels} shows the representation of some basic kernels using the same lengthscale and variance (a). Linear kernel (b). Brownian kernel (c). Exponentiated Quadratic kernel, (d). Cosine kernel (e). Exponential kernel (f). Periodic Exponential kernel. These kernels are the realization of different covariance function\footnote{We have not describe the Linear, Brownian, Exponential, Periodic Exponential and Cosine kernels here. Detail description is available at \cite{Rasmussen_and_Williams:2006} and their $Python$-based implementation is available at \cite{gpy2014}.}.
 
-There are lots of defined kernels (both stationary and non-stationary) for Gaussian processes to deal with variety of structures. Yet, these kernels might not be enough to express certain kind of structures. Gaussian process facilitate to construct new kernels or customize \lq on demand \rq of the structure with the desired properties. \lq Addition \rq and \lq multiplication \rq are two simple operations to combining kernels.
+Modelling kernel is the central step in Gaussian process modelling. A number of \lq built in \rq kernels (both stationary and non-stationary) are available for Gaussian process, yet we may need to model a complicated structure which is not expressed very well by any known kernel. To model such s structure, we may built our own 'customized kernel' with the requirement of the structure or, desired properties. Addition of two Gaussian variables is a Gaussian. Again, scaling a Gaussian also leads to a Gaussian. There two basic mathematical properties helps to develop a range of kernels from a very simple to complex one.{ \color{red} Appendix..   } shows the addition and multiplication properties of Gaussian processes. 
 
-Assume an univariate data is globally periodic and local structure governed by some random motion (Brownian motion). There are multiple choices to deal with the global structure and one of the possible solutions could be a Cosine kernel for global structure and a Brownian kernel for local structure in an additive form. Addition of two positive semi-definite kernels together always results another positive semi-definite kernel. Figure \ref{fig:ConstructKernels_BR_Cos} shows the sample functions and representation of the newly constructed kernel.
+Figure \ref{fig:DifferentKernels} shows the representation of some basic kernels using the same lengthscale and variance (a). Linear kernel (b). Brownian kernel (c). Exponentiated Quadratic kernel, (d). Cosine kernel (e). Exponential kernel (f). Periodic Exponential kernel. These kernels are the realization of different covariance function\footnote{We have not describe the Linear, Brownian and Periodic Exponential kernels here. Detail description is available at \cite{Rasmussen_and_Williams:2006} and their $Python$-based implementation is available at \cite{gpy2014}.}. These kernels (including other) facilitate to construct new kernels or customize \lq on demand \rq of the structure with the desired properties. 
+
+Assume an univariate data is globally periodic and local structure governed by some random motion (Brownian motion). There are multiple choices to deal with the global structure and one of the possible solutions could be a Cosine kernel for global structure and a Brownian kernel for local structure in an additive form. Addition of two positive semi-definite kernels together always results another positive semi-definite kernel. Figure \ref{fig:ConstructKernels_BR_Cos} shows the sample functions and representation of the newly constructed kernel. Figure \ref{fig:ConstructKernels2} shows another example where we used a combination of Cosine kernel and Mat{\'e}rn kernel.
 
 \begin{figure}[t]
 	\centering
 		\includegraphics[width=\textwidth,keepaspectratio]{ConstructKernels_Cos_Mat52.pdf}
 		\rule{35em}{0.5pt}
-	\caption[Construction of a new kernel from two basic kernels]
-		{Construction of a new kernel from two basic kernels} %#TODO Explain
-	\label{fig:ConstructKernels}
+	\caption[Construction of a new kernel using Cosine kernel and Mat{\'e}rn kernel]
+		{Construction of a new kernel using Cosine kernel and Mat{\'e}rn kernel. (top-left) sample taken using Cosine kernel, (top-middle) sample taken using Mat{\'e}rn kernel, (top-right) sample taken using newly constructed kernel by adding two kernels, (bottom-left) Cosine kernel, (bottom-middle) Mat{\'e}rn kernel, (bottom-right) newly constructed kernel} %#TODO Explain
+	\label{fig:ConstructKernels2}
 \end{figure}
 
 \section{Gaussian Process Regression}
@@ -254,7 +286,7 @@ Figure \ref{fig:Covariances_Structure} shows the overall covariance structure be
 
 \begin{figure}
 	\centering
-		\includegraphics[width=0.95\textwidth]{regDemo2.pdf}
+		\includegraphics[width=0.85\textwidth]{regDemo2.pdf}
 		\rule{35em}{0.5pt}
 	\caption[A visual representation of Gaussian process regression: Modelling a one dimensional function using Gaussian process]
 		{A visual representation of Gaussian process regression: Modelling a one dimensional function using Gaussian process. Coloured solid lines represent different samples from the process and dotted line is the mean function. The shaded area is 95\% confidence interval. (a). A Gaussian process not conditioned on any data points. Without any observations, the prior uncertainty about the underlying function is constant everywhere. (b). to (e). The posterior after conditioning on different amount of data.}
@@ -389,4 +421,4 @@ The most appealing feature of Gaussian process is expressibility. It is possible
 There are several issues which may make Gaussian processes sometimes difficult to use. The generic inference and learning algorithm where we need to inverse the matrix has $\mathcal{O}\left(N^3\right)$ runtime complexity. Given the computational resource available at present, the exact inference is prohibitively slow for more than a few thousands data-points. An exact inference for typical \lq Big data\rq  could be nightmare. However, this problem can be addressed by variational inference, even for models containing millions of data points (\cite{Hensman:2013a}). Non-Gaussian predictive likelihoods and sparse approximations could be challenging while working with Gaussian process. However, Gaussian process framework GPy (\cite{gpy2014}) can automatically deal with the last two issues. 
 
 \section{Discussion}
-%TODO
+In this chapter we briefly describe Gaussian process, regression problem and regression with Gaussian process. The choice of the covariance function is a central step in modelling with a Gaussian process. Our main goal of this thesis is to develop covariance functions suitable for transcription factor activity analysis and clustering gene expressions. In this chapter we briefly describe about some commonly used kernels. We also mentioned about hyperparameter learning. Finally we justified the rationale behind choosing the Ornstein-Uhlenbeck kernel to model the transcription factor activity using Gaussian process. At the next chapter we will develop a Gaussian process model to infer the transcription factor activity.

@@ -63,6 +63,42 @@ p\left(\textbf{Y}|\textbf{W},\beta \right) =
 \end{equation}
 where $N$ is the total number of data. Even for finite precision $\beta$ the maximum likelihood solution for $\textbf{W}$ spans the principal sub-space of the data (\cite{Tipping:1999}). This approach is can be applicable for both linear (e.g.\ \cite{Silva:2006}) and non-linear (e.g.\ GP-LVM by \cite{Lawrence:2005}) models. The classical approach while dealing with these latent variables is to marginalised them. Then other parameters are optimized using maximum likelihood. \cite{Lawrence:2005} used an alternative but similar approach by first marginalising the parameters and then optimizing the latent variables.
 
+\section{Bayesian Modelling}\label{sec:Bayesian_model}
+Many facets of Bayesian modelling are widely used in machine learning for various kind of problem solutions. Bayesian models are very much dependent of two elementary probability operations. One is \lq conditioning \rq and another is \lq marginalization \rq. Bayes' formula has a \lq double use \rq of the joint probability density as the product of conditional and marginal densities. Let's $\textbf{m}_1$ and $\textbf{m}_2$ be two continuous variables and their normalized probability density is $p\left(\textbf{m}_1,\textbf{m}_2\right)$. By definition, the marginal probability density for $\textbf{m}_1$ is obtained by integrating $\textbf{m}_2$ out, we have
+\begin{equation}\label{eq:marginal_m1}
+ p\left(\textbf{m}_1\right) =\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_2
+\end{equation}
+and the marginal probability density for $\textbf{m}_2$ is obtained by integrating $\textbf{m}_1$ out
+\begin{equation}\label{eq:marginal_m2}
+ p\left(\textbf{m}_2\right) =\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_1.
+\end{equation}
+The conditional probability of $\textbf{m}_1$ for given $\textbf{m}_2$ is
+\begin{equation}\label{eq:cond_m1}
+ p\left(\textbf{m}_1|\textbf{m}_2\right) =\frac{p\left(\textbf{m}_1,\textbf{m}_2\right)}{\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_1} = \frac{p\left(\textbf{m}_1,\textbf{m}_2\right)}{p\left(\textbf{m}_2\right)}
+\end{equation}
+and the conditional probability of $\textbf{m}_2$ for given $\textbf{m}_1$ is
+\begin{equation}\label{eq:cond_m2}
+ p\left(\textbf{m}_2|\textbf{m}_1\right) =\frac{p\left(\textbf{m}_1,\textbf{m}_2\right)}{\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_2} = \frac{p\left(\textbf{m}_1,\textbf{m}_2\right)}{p\left(\textbf{m}_1\right)}.
+\end{equation}
+From Eq. \ref{eq:cond_m1} we have
+\begin{equation}\label{eq:cond_m2m1}
+ p\left(\textbf{m}_1,\textbf{m}_2\right) = p\left(\textbf{m}_1|\textbf{m}_2\right)p\left(\textbf{m}_2\right)
+\end{equation}
+and From Eq. \ref{eq:cond_m2} we have
+\begin{equation}\label{eq:cond_m1m2}
+ p\left(\textbf{m}_1,\textbf{m}_2\right) = p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right).
+\end{equation}
+Now from Eq. \ref{eq:cond_m2m1} and Eq. \ref{eq:cond_m1m2} we can write
+\begin{equation}\label{eq:cond_m1m2joint}
+ p\left(\textbf{m}_1|\textbf{m}_2\right)p\left(\textbf{m}_2\right) = p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right).
+\end{equation}
+then Bayes' rule can be obtained by
+\begin{equation}\label{eq:bayes_rule}
+ p\left(\textbf{m}_1|\textbf{m}_2\right)= \frac{p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right)}{p\left(\textbf{m}_2\right)} = \frac{p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right)}{\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_1}.
+\end{equation}
+where the unconditioned $p\left(\textbf{m}_1\right)$ is called the \lq prior\rq to get the idea even before the observation of $\textbf{m}_2$. The conditional density $p\left(\textbf{m}_2|\textbf{m}_1\right)$ is the \lq likelihood\rq, $p\left(\textbf{m}_2\right)$ is the \lq marginal likelihood\rq and the conditioned density $p\left(\textbf{m}_1|\textbf{m}_2\right)$ is the \lq posterior\rq. The \lq marginal likelihood\rq $p\left(\textbf{m}_2\right)$ is independent of $\textbf{m}_1$ and used as a normalizing constant. 
+
+
 \section{Modelling of TFAs}
 Modelling transcription factor activities can be seen as latent variable modelling. We can observe the gene expression level, but these expression level are regulated by protein coding genes that binds to a specific DNA sequence and control the production rate of mRNA. These gene expression level are analogous to the movement marionette (Figure \ref{fig:LVM_Cartoon}), but the transcription factor's activity is unobservable like the puppeteer's control bar which actually controls the gene expression level.
 
@@ -187,7 +223,7 @@ In 1965, Sydney Brenner introduced \textit{C. elegans} as a model organism to st
 \end{enumerate}
 
 \subsection{Gene Expression Time series data}\label{sec:Cele_gene_exp_data}
-The gene expression Affymetrix single colour GeneChip data\footnote{We would like to acknowledge Professor Andrew Cossins, Institute of Integrative Biology, University of Liverpool, UK for providing us the data set with valuable information and also for the permission for further analysis of the data.} on point estimate of expression level is the source of our gene expression time series data. To extract this data we used a Bioconductor\footnote{The Bioconductor project is an open source software framework to assist biologists and statisticians working in bioinformatics} package \textit{puma} (\cite{puma}). \textit{puma} can extract the gene expression level with estimates of uncertainty. In the wet laboratory the experiments were done at five different stages (i.e.\ our gene expression time series dataset will have five time points). The main goal of the experiments in the wet laboratory were to investigate the chilling effect and identify the cold tolerance phenotype of \textit{C. elegans}. We used the gene response to chill exposure as gene expressions. Figure \ref{fig:Temp_Settings} shows the temperature and time settings. In the experimental setup, all the environmental conditions apart from the temperature were same with the target of consistent result. The first experimental data was collected within one day of \textit{C. elegans}'s adulthood at the temperature $20\,^{\circ}\mathrm{C}$. To measure the gene response to chill exposure the temperature was reduced to $5\,^{\circ}\mathrm{C}$ and second experimental data were collected after one hour of the reduction of the temperature. Third experimental data were collected after 24 hours (1 day) of the temperature reduction.  Fourth experimental data were collected after 72 hours (3 days) of the temperature reduction. After the fourth data collection the temperature was brought back to  $20\,^{\circ}\mathrm{C}$. The fifth or final experimental data were collected after one day of the rise of the temperature. In the wet lab the full experiment were repeated twice maintaining the similar setup. So, three independent replicates of the  experiments were available. 
+The gene expression Affymetrix single colour GeneChip data\footnote{We would like to acknowledge Professor Andrew Cossins, Institute of Integrative Biology, University of Liverpool, UK for providing us the data set with valuable information and also for the permission for further analysis of the data.} on point estimate of expression level is the source of our gene expression time series data.
 \begin{figure}
 	\centering
 		\includegraphics[width=0.7\textwidth,keepaspectratio]{Temp_Setting.pdf}
@@ -196,8 +232,8 @@ The gene expression Affymetrix single colour GeneChip data\footnote{We would lik
 		{Temperature and time settings for the gene response to chill exposure experiments:  \lq Pre1d \rq- The first experimental data within one day of \textit{C. elegans}'s adulthood at the temperature $20\,^{\circ}\mathrm{C}$. \lq 1h \rq- second experimental data were collected after one hour of the reduction of the temperature to $5\,^{\circ}\mathrm{C}$. \lq 1d \rq- Third experimental data were collected after 24 hours of the temperature reduction to $5\,^{\circ}\mathrm{C}$. \lq 3d \rq- Fourth experimental data were collected after 72 hours of the temperature reduction. \lq Post1d \rq- The fifth experimental data were collected after one day of the rise of the temperature to $20\,^{\circ}\mathrm{C}$.}
 	\label{fig:Temp_Settings}
 \end{figure}
+To extract this data we used a Bioconductor\footnote{The Bioconductor project is an open source software framework to assist biologists and statisticians working in bioinformatics} package \textit{puma} (\cite{puma}). \textit{puma} can extract the gene expression level with estimates of uncertainty. In the wet laboratory the experiments were done at five different stages (i.e.\ our gene expression time series dataset will have five time points). The main goal of the experiments in the wet laboratory were to investigate the chilling effect and identify the cold tolerance phenotype of \textit{C. elegans}. We used the gene response to chill exposure as gene expressions. Figure \ref{fig:Temp_Settings} shows the temperature and time settings. In the experimental setup, all the environmental conditions apart from the temperature were same with the target of consistent result. The first experimental data was collected within one day of \textit{C. elegans}'s adulthood at the temperature $20\,^{\circ}\mathrm{C}$. To measure the gene response to chill exposure the temperature was reduced to $5\,^{\circ}\mathrm{C}$ and second experimental data were collected after one hour of the reduction of the temperature. Third experimental data were collected after 24 hours (1 day) of the temperature reduction.  Fourth experimental data were collected after 72 hours (3 days) of the temperature reduction. After the fourth data collection the temperature was brought back to  $20\,^{\circ}\mathrm{C}$. The fifth or final experimental data were collected after one day of the rise of the temperature. In the wet lab the full experiment were repeated twice maintaining the similar setup. So, three independent replicates of the  experiments were available. 
 
-Figure \ref{fig:PCA_time_series} shows the PCA analysis of the gene expression time series data. The $puma$ PCA incorporates the uncertainty of the point expressions and the standard PCA does not include any uncertainty of the point expressions. Both of figures have a very similar representations. This means that the uncertainty of the point expressions does not have a significant effect on point expressions. As the added uncertainty does change the standard PCA a lot, we can say the quality of the data is very high.
 \begin{figure}
 	\centering
 		\includegraphics[width=0.7\textwidth,keepaspectratio]{PCA2.eps}
@@ -206,6 +242,8 @@ Figure \ref{fig:PCA_time_series} shows the PCA analysis of the gene expression t
 		{Principal component analysis of gene expression time series data. Figure in the left shows the $puma$ PCA which incorporates the uncertainty of the point  expressions. Figure in the right shows the standard PCA which does not include any uncertainty of the point  expressions. It appears from these two figures that both of them have a very similar representation. This means that the uncertainty of the point expressions does not have a significant effect on point expressions, it also proves higher quality of the data}
 	\label{fig:PCA_time_series}
 \end{figure}
+Figure \ref{fig:PCA_time_series} shows the PCA analysis of the gene expression time series data. The $puma$ PCA incorporates the uncertainty of the point expressions and the standard PCA does not include any uncertainty of the point expressions. Both of figures have a very similar representations. This means that the uncertainty of the point expressions does not have a significant effect on point expressions. As the added uncertainty does change the standard PCA a lot, we can say the quality of the data is very high.
+
 
 \subsection{Transcription Factors}
 From different data sources, we found different number/list of transcription factors for \textit{C. elegans}. \cite{Inmaculada:2007} build a database named \textit{C. elegans} differential gene expression database (EDGEdb), which contains the sequence information about 934 predicted transcription factors and their DNA binding domains. Initially we took these 934 transcription factors for our baseline experimental setup, but tool $chipDyno$ can deal with any number of transcription factors depending on the requirement/update of the sequence information of transcription factors.
