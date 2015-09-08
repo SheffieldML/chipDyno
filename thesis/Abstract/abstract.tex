@@ -1,41 +1,10 @@
 % ************************** Thesis Abstract *****************************
 % Use `abstract' as an option in the document class to print only the titlepage and the abstract.
 \begin{abstract}
-In molecular biology and genetics, a transcription factor is a protein that binds to specific DNA
-sequences and controls the flow of genetic information from DNA to mRNA. To develop models of 
-cellular processes, quantitative estimation of the regulatory relationship between 
-transcription factors and genes is a basic requirement. But quantitative estimation is complex 
-due to some reasons. Many of the transcription factors' activity and their own transcription 
-level are post transcriptionally modified; very often the levels of the transcription factors' 
-expressions are low and also contain noise. So, from the expression levels of their target 
-genes it is useful to infer the activity of the transcription factors. Here we develop a 
-Gaussian process based regression to infer the exact TFAs from a 
-combination of mRNA expression level and DNA protein binding measurement.
+In the field of machine learning, Gaussian process models are widely used families of stochastic processes for modelling data observed over time, or space and time or space. Gaussian processes models are nonparametric, meaning that models are developed on an infinite-dimensional parameter space. The parameter space is typically chosen as the set of all possible solutions for a given learning problem. Gaussian process distributions are distribution over function. The covariances function determines the properties of sample function drawn from the distribution. Once the decision to model with a Gaussian process has been made the choice of the covariance function is a central step in modelling.
 
+In molecular biology and genetics, a transcription factor is a protein that binds to specific DNA sequences and controls the flow of genetic information from DNA to mRNA. To develop models of cellular processes, quantitative estimation of the regulatory relationship between transcription factors and genes is a basic requirement. Quantitative estimation is complex due to various reasons. Many of the transcription factors' activity and their own transcription level are post transcriptionally modified; very often the levels of the transcription factors' expressions are low and noisy. So, from the expression levels of their target genes it is useful to infer the activity of the transcription factors. Here we develop a Gaussian process based nonparametric regression model to infer the exact TFAs from a combination of mRNA expression level and DNA protein binding measurement.
 
-  Clustering of gene expression time series gives insight into which genes may be coregulated, allowing us to discern the activity of pathways in a given microarray experiment. Of particular interest is how a given group of genes varies with different conditions or genetic background.
-
-  In this paper we develop a new clustering method that allows each cluster to be parameterised according to whether the behaviour of the genes across conditions is correlated or anti-correlated. By specifying correlation between such genes we gain more information within the cluster about how the genes interrelate.
-
-Amyotrophic lateral sclerosis
-(ALS) is an irreversible neurodegenerative disorder that kills the
-motor neurons and results in death within 2 to 3 years from the
-symptom onset.  Speed of progression for different patients are
-heterogeneous with significant variability.  It is already
-reported that $SOD1^{G93A}$ transgenic mice from different backgrounds
-($129Sv$ and $C57$) showed consistent phenotypic differences for
-disease progression.  Here we used a hierarchy of Gaussian processes
- to model condition-specific and gene-specific
-temporal covariances. This study demonstrated about finding some
-significant gene expression profiles and clusters of associated or
-co-regulated gene expressions together from four groups of data
-($SOD1^{G93A}$ and $Ntg$ from $129Sv$ and $C57$ backgrounds).  Further
-gene enrichment score analysis and ontology pathway analysis of some
-specified clusters for a particular group may lead toward identifying
-features underlying the differential speed of disease progression. Our
-study shows the effectiveness of sharing information between
-replicates and different model conditions when modelling gene
-expression time series.
-
+Clustering of gene expression time series gives insight into which genes may be coregulated, allowing us to discern the activity of pathways in a given microarray experiment. Of particular interest is how a given group of genes varies with different conditions or genetic background. In this dissertation we developed a new clustering method that allows each cluster to be parametrised according to the behaviour of the genes across conditions whether they are correlated or anti-correlated. By specifying correlation between such genes we gain more information within the cluster about how the genes interrelate. Our study shows the effectiveness of sharing information between replicates and different model conditions when modelling gene expression time series.
 
 \end{abstract}

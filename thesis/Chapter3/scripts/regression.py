@@ -30,7 +30,7 @@ support = gp_1D_X_range(-8., 8.1, .1)
 #
 #figure()
 #plt.figure(figsize=(18,18))
-fig = pb.figure(figsize=(10,18))
+fig = pb.figure(figsize=(9,17))
 ax = fig.add_subplot(511)
 gp = GaussianProcess([], [], kernel)
 gp_plot_samples_from(gp, support, num_samples=30)

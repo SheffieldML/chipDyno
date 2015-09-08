@@ -92,11 +92,11 @@ Now from Eq. \ref{eq:cond_m2m1} and Eq. \ref{eq:cond_m1m2} we can write
 \begin{equation}\label{eq:cond_m1m2joint}
  p\left(\textbf{m}_1|\textbf{m}_2\right)p\left(\textbf{m}_2\right) = p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right).
 \end{equation}
-then Bayes' rule can be obtained by
+Then Bayes' rule can be obtained by
 \begin{equation}\label{eq:bayes_rule}
  p\left(\textbf{m}_1|\textbf{m}_2\right)= \frac{p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right)}{p\left(\textbf{m}_2\right)} = \frac{p\left(\textbf{m}_2|\textbf{m}_1\right)p\left(\textbf{m}_1\right)}{\int p\left(\textbf{m}_1,\textbf{m}_2\right) \text{d}\textbf{m}_1}.
 \end{equation}
-where the unconditioned $p\left(\textbf{m}_1\right)$ is called the \lq prior\rq to get the idea even before the observation of $\textbf{m}_2$. The conditional density $p\left(\textbf{m}_2|\textbf{m}_1\right)$ is the \lq likelihood\rq, $p\left(\textbf{m}_2\right)$ is the \lq marginal likelihood\rq and the conditioned density $p\left(\textbf{m}_1|\textbf{m}_2\right)$ is the \lq posterior\rq. The \lq marginal likelihood\rq $p\left(\textbf{m}_2\right)$ is independent of $\textbf{m}_1$ and used as a normalizing constant. 
+where the unconditioned $p\left(\textbf{m}_1\right)$ is called the \emph{prior} to get the idea even before the observation of $\textbf{m}_2$. The conditional density $p\left(\textbf{m}_2|\textbf{m}_1\right)$ is the \emph{likelihood}, $p\left(\textbf{m}_2\right)$ is the \emph{ marginal likelihood} and the conditioned density $p\left(\textbf{m}_1|\textbf{m}_2\right)$ is the \emph{ posterior}. The \emph{marginal likelihood} $p\left(\textbf{m}_2\right)$ is independent of $\textbf{m}_1$ and used as a normalizing constant. 
 
 
 \section{Modelling of TFAs}
@@ -176,7 +176,7 @@ p\left(\textbf{y}_n|\sigma,\boldsymbol{\Sigma},\boldsymbol{\mu},\gamma,\textbf{x
 \end{aligned}
 \end{equation}
 
-TFAs can be estimated a posteriori using Bayes’s theorem,
+TFAs can be estimated a posteriori using Bayes’ theorem (we briefly described about Bayesian modelling using marginalization and conditioning of probability density in Sec. \ref{sec:Bayesian_model})
 \begin{equation} \label{eq:est_TFA}
  p\left(\left[\textbf{b}^\top_{n1}, \textbf{b}^\top_{n2}, \dots, \textbf{b}^\top_{nd} \right]^\top| \sigma,\boldsymbol{\Sigma},\boldsymbol{\mu},\gamma,\textbf{X},\textbf{Y}\right)= \mathcal{N}\left(\bar{\textbf{b}}_n, \boldsymbol{\Sigma}_{\textbf{b}_n} \right)
 \end{equation}
@@ -373,9 +373,7 @@ Clustering of genes is used to identify set of genes with similar behaviour (i.e
 
 Rest of the genes were placed in the group \lq others\rq. 
 
-Figure \ref{fig:Clustering_TF} shows the heat map generated from DNA microarray data to reflect the gene expression values at different temperature and their basic clusters (\cite{Cossins:2007}). Based on the above clusters, we also investigate about the transcription factors active in different clusters. Table \ref{table:Active_TF_diff_clusters} shows the number of active transcription factors for each clusters. For further analysis we can present the full list.
-
-\begin{table}
+\begin{table}[!htbp]
 	\centering
   \begin{tabular}{l l }
     \toprule
@@ -392,9 +390,12 @@ Figure \ref{fig:Clustering_TF} shows the heat map generated from DNA microarray 
   \label{table:Active_TF_diff_clusters}
 \end{table}
 
+Figure \ref{fig:Clustering_TF} shows the heat map generated from DNA microarray data to reflect the gene expression values at different temperature and their basic clusters (\cite{Cossins:2007}). Based on the above clusters, we also investigate about the transcription factors active in different clusters. Table \ref{table:Active_TF_diff_clusters} shows the number of active transcription factors for each clusters. For further analysis we can present the full list.
+
+
+
 \section{Ranking Differentially expressed gene expressions}
 \cite{Kalaitzis:2011} analysed time series of gene expressions and filtered the quiet or inactive genes from the differentially expressed genes. They have developed their model considering the temporal nature of data using Gaussian processes. We have used their model to rank our time series gene expressions and ranked them accordingly. We ranked the three replicates of our data separately and later determine the Pearson correlation between ranking score of different samples.
-
 \begin{figure}
 	\centering
 		\includegraphics[width=0.63\textwidth,keepaspectratio]{rs12.png}
