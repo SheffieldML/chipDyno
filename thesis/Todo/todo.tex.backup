@@ -19,13 +19,14 @@
 \paragraph{Ch:2 Pro TFA}
 \begin{enumerate}
  \item Update draft
+ \item Markov property in appendix 
 \end{enumerate}
 
 \paragraph{Ch:3 GP}
 \begin{enumerate}
- \item Add Brownian kernel
- \item Add Cosine kernel
- \item GP properties: Add multiplication
+ \item Add Brownian kernel : http://www.biostat.umn.edu/~baolin/teaching/probmods/ipm-ch10.html
+ \item Add Cosine kernel % Done
+ \item GP properties: Add multiplication % Done
 \end{enumerate}
 
 \paragraph{Ch:4 TFA GP}
@@ -37,6 +38,8 @@
 \begin{enumerate}
  \item Mitochondria
  \item explanation of Pathway analysis
+ \item include description of table and figure
+ \item describe Figure C.elegans
 \end{enumerate}
 
 \paragraph{Ch:6 Conclusion}
@@ -44,13 +47,27 @@
  \item Write
 \end{enumerate}
 
-% \begin{abstract}
-% \end{abstract}
+\paragraph{Appendix}
+\begin{enumerate}
+ \item SVD % DONE
+ \item PCA
+ \item GP property - Dei 10/166  Gir04.pdf 127  %Done
+ \item Markov property in appendix for Chapter 2 % DONE
+ \item http://www.robots.ox.ac.uk/~mebden/reports/GPtutorial.pdf
+ \item ThesisMalte\_[0].pdf %DONE
+\end{enumerate}
+
+
 
 \paragraph{Overall}
 \begin{enumerate}
+ \item Acknowledgement %Done
  \item Check Figure/Equation font
- \item Check figure explanation
+ \item Check Figure explanation
+ \item Notation as  %Done %http://www.doc.ic.ac.uk/~mpd37/theses/2014_msc_junwei-ng.pdf
+ \item UCL-b2 Cholesky decompositions %Done
+ \item Bayesian parametric modelling Gir04.pdf 24 % DONE
+ 
 \end{enumerate}
 
 \end{document}
