@@ -10,7 +10,8 @@
     \graphicspath{{Chapter6/Figs/Vector/}{Chapter6/Figs/}}
 \fi
 
-The final chapter of this thesis aim to summarise the key ideas and main contributions of the previous chapters and consider possible direction of  future work.
+Over the last few decades Machine Learning has become one of the central component of information technology, though mostly hidden part of our life. The increasing availability of very high dimensional data, with diverse characteristics and growing complexity, there is good reason to believe that smart data analysis has became a necessary ingredient for technological progress and achieve the wisdom. Machine learning is a joint field of artificial intelligence and modern statistics, mostly focused on the design and development of models, algorithms and techniques to extract information automatically from data. Data modelling with Gaussian process is the state-of-the-art technique in the wider community, and in practice turned to multidisciplinary. Our main focus of this thesis was to achieve few goals by building Gaussian process models on transcriptome data and analyse their behaviour. Here, the final chapter of this thesis aim to summarise the key ideas and main contributions of the previous chapters and consider possible direction of future work.
+
 
 \section{Summary of the specific Contributions}
 \textbf{Chapter 2:} We have reimplemented the tool \emph{chipDyno} using \emph{R} programming language with the aim to make it public through a open source platform via GitHub. We constructed our connectivity information between genes and transcription factors from the evidence of gene to gene interaction to model the TFAs. Earlier the dynamics of TFAs were obtained for a unicellular microorganism (yeast), our tool modelled transcription factor activities for a multicellular eukaryote (\textit{C.elegans}). The probabilistic dynamical model for quantitative inference of TFA, that we described in this chapter used as the basis for the  Chapter \ref{ch:GaussianProcessRegression} and Chapter \ref{ch:GP_Model_of_TFAs}.
@@ -22,59 +23,21 @@ The final chapter of this thesis aim to summarise the key ideas and main contrib
 \textbf{Chapter 5:} We have performed genome-wide analysis to cluster genes systematically and analyse the rationale behind the variation in the speed of propagation for ALS. Our particular innovation was to include the condition and genetic background of the organisms within the underlying functional component of our clusters. This ensured that the underlying expressions behaved similarly were more likely to be clustered together. We used a widely acceptable gene ontology and functional annotation tool to validate our clusters and their characteristics obtained from our model. Gene expression time series characteristics curve and enrichment scores analyse helped us to narrow down our search and lead toward finding the lists of genes or clusters which could be involved in the speed of disease propagation. Our pathway analysis found evidence of genes which are known to be involved in the disease process. The special covariance function we have developed for clustering considering models condition, genetic background, replicates and disease states with coregionalization could be useful to investigate other biological activity where clustering is required. 
 
 \section{Future Work}
-\textbf{Bridge between TFA and clustering:} ?
+Here we are going to set some possible directions of future work
+
+\textbf{Bridge between TFA and clustering:} In Chapter \ref{ch:Probabilistic_TFA}, we developed a model to analyse a latent variable (transcription factor) and determined their dynamic behaviour using the gene expression time series data. In Chapter  \ref{ch:Clustering_Gene_Expression_Data}, we developed another model to cluster  gene expressions considering genetic background, model conditions and replicates. We aim to build a model \lq as a whole \rq, which will model the dynamics of latent factor (transcription factor) considering various genetic backgrounds, conditions and replicates and hence cluster the gene expressions based on both of the latent factors and shared information.
+
+\textbf{Validation of clustered genes:} Differential Multi Information (DMI) (\cite{Gambardella:2015}) value indicates the level of differential co-expression of the gene set among the two classes. Each gene set is associated to a DMI value, computed as the absolute difference of the R{\'e}nyi mutual information (RMI) (\cite{Renyi:1960}) among diseases and among controls. An high DMI value means that the same genes are co-expressed (and thus co-regulated) in a different manner between the conditions. The gene set is for this reason addressed as ``differentially co-expressed'', and considered relevant for the analysed disease. On the contrary, if a gene set has a low DMI value, it means that the co-expression of the genes in the two biological conditions is almost the same, thus the gene set is not relevant for the analysed disease since different biological conditions do not seem to affect the co-expression of that particular gene set. One of our future plan is to validate the cluster of genes by building a model with using DMI and RMI, and calculate the associativity.
 
 
-\textbf{Validation of clustered genes:} Differential Multi Information (DMI) value indicates the level of differential co-expression of the gene set among the two classes. Each gene set is associated to a DMI value, computed as the absolute difference of the Renyi mutual information (RMI) among diseases and among controls. An high DMI value means that the same genes are co-expressed (and thus co-regulated) in a different manner between the conditions. The gene set is for this reason addressed as “differentially co-expressed”, and considered relevant for the analysed disease. On the contrary, if a gene set has a low DMI value, it means that the co-expression of the genes in the two biological conditions is almost the same, thus the gene set is not relevant for the analysed disease since different biological conditions do not seem to affect the co-expression of that particular gene set. One of our future plan is to validate the cluster of genes by building a model with using DMI and RMI, and calculate the associativity.
+\textbf{Big Data:} 
+In Chapter \ref{ch:GaussianProcessRegression} we addressed data with higher number of features might be an issue while modelling with Gaussian process. On the other side, due to advancement of data acquisition techniques, every day the amount of data increasing tremendously. These data are well know by a fancy term \emph{Big Data}. Knowledge extraction and interpretation of \emph{Big Data} is a new challenge, which also triggered the demand of special algorithms or models. The generic inference and learning algorithms in Gaussian processes where we need to inverse the matrix has $\mathcal{O}\left(N^3\right)$ runtime complexity and $\mathcal{O}\left(N^2\right)$ memory complexity. However, an increasing number of machine learning research (\cite{Hensman:2013a, Dai:2014}) has focused to overcome these problems even with $N>10^6$ data size. Our clustering algorithm (we described in Chapter \ref{ch:Clustering_Gene_Expression_Data}) targets multiple model conditions where data size may grow geometrically. We aim to extend our clustering model presented in this thesis (Chapter \ref{ch:Clustering_Gene_Expression_Data}), which will able to handle the \emph{Big Data}.  
+
 
 \textbf{Deep learning:} ?
 
-
-\textbf{Big Data:} ?
-
+\textbf{EP:} ?
 
 \textbf{Application:} ?
 
-% \cite{Sanguinetti:2006} model to infer the transcription factor 
-% activity is a linear- Gaussian state-space model. We believe that this linear Gaussian
-% model is equivalent to Gaussian process with a specific covariance function.
-% We have developed a model directly from Gaussian process to achieve the same goal.
-% We are quite close to develop a valid covariance function for reconstructing transcription
-% factor activities given gene expression profile and binding information between genes and
-% transcription factors. Here we will introduce a computational trick using
-% singular value decomposition and intrinsic coregionalization model. We believe
-% this method will enable us to efficiently fit the Gaussian process in a
-% reduced transcription factor activity space.
-% 
-% Amyotrophic lateral sclerosis (ALS), also known as ``Lou Gehrig's Disease'' or motor neurone disease 
-% (MND), is an irreversible progressive neurodegenerative adult onset that affects motor neurons 
-% in the brain and the spinal cord. Muscle denervation spreads over neuromuscular system and 
-% leads toward death by failure of the respiratory system with in few years of system 
-% onset (\cite{Peviani:2010}). 
-% This lethal invariable disorder has median survival of less than 5 years, only 20\% 
-% of the affected people can survive more than 5 years and 10\% of the patients 
-% can survive more than 10 years. Mutation in the Cu/Zn superoxide dismutase (SOD1) gene 
-% is responsible for around 20\% of the familial motor neurone disease \cite{Nardo:2013}. 
-% Transgenic mice can express human SOD1 mutation and nicely replicates different 
-% histopathological and clinical features of motor neurone disease. Mimic of these murine models 
-% of different clinical phenotypes observed from human MND patients are widely using by the 
-% researchers to determine the disease progression. But we didn't found any evidence of gene expression 
-% analysis that attempt to analyse motor neuron disease considering the genetic background on 
-% different phenotype of this murine disease. So gene expression analysis for different murine models 
-% could reveal interesting information. 
-% \cite{Nardo:2013} used two mouse models to analyse fast and slow disease progression of ALS.
-% We will use our Gaussian process based model to infer the 
-% transcription factor activity on gene expression data obtained from different murine models and 
-% try to find out some fascinating insights.
-% 
-% Clustering of gene expression time series is another major interest of the research to get the view of
-% groups of co-regulated or associated genes. It is assumed that gene involved in the same biological 
-% process will be expressed with a similarity sharing underlying time series. \cite{Cossins:2007}
-% did some additional cluster analysis (not published yet!) based on some phenotype properties. Again 
-% it is very common to have multiple biological replicates of the gene expression time series data. 
-% Just taking average of the replicates surely lead toward discarding insight. Recently \cite{Hensman:2013} used
-% a hierarchy of Gaussian process to model a gene specific and replicate specific temporal covariance.
-% They also used this model for clustering application. Using this Gaussian process based hierarchical
-% clustering analysis of \cite{Hensman:2013} we will try to find some robust clusters for the gene
-% expression data of \textit{C. elegans}. Once if we can do so, it will easily lead us to find out the active
-% transcription factors related with these clusters and their subsequent dynamic behaviour as well.
+

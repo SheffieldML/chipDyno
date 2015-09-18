@@ -1,5 +1,5 @@
 % ******************************* Thesis Appendix A ****************************
-\chapter{Mathematical Background} 
+\chapter{Mathematical Background} \label{Appendix_A}
 
 \section{Gaussian Identities}
 This appendix aims to make the thesis self contained with a very short reference to the basic mathematical identities we used in this document. 
@@ -144,7 +144,7 @@ The singular value decomposition is a matrix factorization technique of a real o
 where $\textbf{U}$ is an orthonormal matrix (i.e.\ $\textbf{U}^\top\textbf{U}=\textbf{I}$) with $\left|m\times n\right|$ dimensions,  $\boldsymbol{\Lambda}$ is the diagonal matrix containing the eigenvalues of $\textbf{S}$ with $\left|n\times n\right|$ dimensions and $\textbf{V}$ is another orthonormal matrix (i.e.\ $\textbf{V}^\top\textbf{V}=\textbf{I}$) with $\left|n\times n\right|$ dimensions. When applied to a positive semi-definite matrix, the singular value decomposition is equivalent to the \emph{eigendecomposition}.
 %ref https://www.utdallas.edu/~herve/Abdi-SVD2007-pretty.pdf
 
-\section{Markov Property}
+\section{Markov Property}\label{app_Markov_Property}
 Let's  $\{ X(t), t \geq 0 \}$ be a stochastic time continuous process with non-negative integer values. This process is termed as a discrete Markov process if for every $n\geq 0$, time points  $0 \leq t_{0} < t_{1} < \cdot\cdot\cdot < t_{n} < t_{n+1}$ and states $i_0, i_1,..., i_{n+1}$ it holds that 
 \begin{equation}\label{eq:markovProp}
 \begin{split}

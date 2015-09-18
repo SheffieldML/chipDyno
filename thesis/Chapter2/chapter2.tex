@@ -125,7 +125,7 @@ Here $n = 1, . . . ,N$ indexes the gene, $\textbf{y}_n =\textbf{Y}(n,:)^{\top}$,
 Different TFAs for every individual gene will increase number of model parameters drastically. This huge parameter space can be dealt through marginalization by prior distribution on the rows of $\textbf{B}_n$. Yet, 
 two physically plausible assumptions for selecting the prior distribution will be helpful to determine the gene specific TFAs. 
 \begin{itemize}
- \item The first assumption is- $\textbf{b}_{nt}$ has the Markov property (\textcolor{red}{Explanation add in appendix and fix the ref...}) and hence gene specific TFA $\textbf{b}_{nt} $ at time $t$ depends solely on the gene specific TFA at time $(t-1)$.
+ \item The first assumption is- $\textbf{b}_{nt}$ has the Markov property (Appendix \ref{Appendix_A}, Sec. \ref{app_Markov_Property}) and hence gene specific TFA $\textbf{b}_{nt} $ at time $t$ depends solely on the gene specific TFA at time $(t-1)$.
  \item The second assumption is- the prior distribution to be stationary in time.
 \end{itemize}
 

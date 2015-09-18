@@ -330,7 +330,7 @@ We can have the Log maximum likelihood by:
 % TODO Andreas 15
 
 \section{Toward the GP model of TFA}\label{Sec:Toward_TFA}
- We are interested to develop a non-parametric model of transcription factor activity using Gaussian process. Here, we want to prove that there is an analogical pathway\footnote{We would like to acknowledge Simo S\"arkk\"a, Academy Research Fellow, Aalto University, Finland for his valuable suggestions and guidelines.} to construct a kernel function for Gaussian process model from Markovian assumption ({\color{red} Appendix \ref{AppendixA}}) based probabilistic approach of \cite{Sanguinetti:2006}. From Chapter \ref{ch:Probabilistic_TFA} Section \ref{sec:Probabilistic_TFA} we have the probabilistic gene specific TFAs as
+ We are interested to develop a non-parametric model of transcription factor activity using Gaussian process. Here, we want to prove that there is an analogical pathway\footnote{We would like to acknowledge Simo S\"arkk\"a, Academy Research Fellow, Aalto University, Finland for his valuable suggestions and guidelines.} to construct a kernel function for Gaussian process model from Markovian assumption (Appendix \ref{Appendix_A}, Sec. \ref{app_Markov_Property}) based probabilistic approach of \cite{Sanguinetti:2006}. From Chapter \ref{ch:Probabilistic_TFA} Section \ref{sec:Probabilistic_TFA} we have the probabilistic gene specific TFAs as
 \begin{equation} \label{eq:tfa_SanG_updateCh4}
   \bold{b}_{n(t+1)} \sim \mathcal{N} (\gamma \bold{b}_{nt} + (1-\gamma)\boldsymbol{\mu},(1-\gamma^2)\bold{\Sigma})
 \end{equation}

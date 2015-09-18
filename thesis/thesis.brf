@@ -110,12 +110,12 @@
 \backcite {gpy2014}{{60}{3.8}{section.3.8}}
 \backcite {Sanguinetti:2006}{{61}{4}{chapter.4}}
 \backcite {Spellman:1998}{{61}{4}{chapter.4}}
-\backcite {Spellman:1998}{{61}{4}{chapter.4}}
 \backcite {Lee:2002}{{61}{4}{chapter.4}}
 \backcite {Wackernagel:2003}{{62}{4.1}{equation.4.1.1}}
 \backcite {Alvarez:2012}{{62}{4.1}{equation.4.1.1}}
 \backcite {Stegle:2011}{{64}{4.4.2}{subsection.4.4.2}}
-\backcite {Sanguinetti:2006}{{65}{4.4.2}{equation.4.4.15}}
+\backcite {Sanguinetti:2006}{{65}{4.4.2}{figure.caption.38}}
+\backcite {Spellman:1998}{{67}{4.6}{section.4.6}}
 \backcite {gpy2014}{{71}{5}{chapter.5}}
 \backcite {Brockington:2013}{{72}{5}{chapter.5}}
 \backcite {Ferraiuolo:2011}{{72}{5}{chapter.5}}
@@ -166,3 +166,7 @@
 \backcite {Huang:2009David}{{86}{5.3}{figure.caption.53}}
 \backcite {Huang:2007}{{86}{5.3}{figure.caption.53}}
 \backcite {Brockington:2013}{{86}{5.3}{figure.caption.57}}
+\backcite {Gambardella:2015}{{95}{6.2}{section.6.2}}
+\backcite {Renyi:1960}{{95}{6.2}{section.6.2}}
+\backcite {Dai:2014}{{95}{6.2}{section.6.2}}
+\backcite {Hensman:2013a}{{95}{6.2}{section.6.2}}
