@@ -10,8 +10,15 @@
     \graphicspath{{Chapter1/Figs/Vector/}{Chapter1/Figs/}}
 \fi
 
-
 %********************************** %First Section  **************************************
+Machine learning is a joint field of artificial intelligence and modern statistics, mostly focused on the design and development of models, algorithms and techniques that allow computers to extract information automatically by some learning process from data. The structure learned from data can be described by a statistical model. Gaussian process models are well known families of stochastic processes for modelling data observed over time, space or both. Data modelling with Gaussian process is the state-of-the-art technique in the wider community, from robotics (\cite{Deisenroth:2014}) to genomics (\cite{Topa:2015}), from astronomy (\cite{Rajpaul:2015}) to  meteorology (\cite{Chen:2014}).  Gaussian processes models are non-parametric, which means the models are developed on an infinite-dimensional parameter space. For a particular learning problem, the parameter space is typically learnt as the set of possible solutions. There are different ways to learn functions. Probabilistic inference is one of the elegant and widely accepted way among them. In the field of machine learning regression is a supervised learning problem, while clustering is an unsupervised learning problem. Regression task is related with making predictions of a continuous output variable at any desired input location, given an input-output training set. Clustering task group a set of observations into subsets (also known as clusters) so that observations in the same cluster shows similarity in some specific sense. Here we set two generic goals for this thesis
+
+\textbf{Generic goal 1}: We will develop a tool to analyse transcription factor activities. This tool will target the gene expression time series data which is sampled across continuous time. %\textcolor{red} {different stages}
+
+\textbf{Generic goal 2}: Our second goal is to develop an approach for gene expression clustering that handles structure in the experimental condition as part of the cluster analysis.
+
+Our main focus of this thesis is to achieve these goals by building Gaussian process models from transcriptomic data.
+
 \section{System Biology}
 The prime goal of Biology is to get the insight of various principles and details of biological systems. More than six decades ago, Watson and Crick discovered the structure of DNA (\cite{Watson:1953}) and radically changed the way of study and development of biology and biological systems. They explained the biological phenomena with the help of molecular basis. This new concept helps to explain different aspects of biology like heredity, different diseases, various evolutionary aspects as well as development with more firm theoretical ground. Since then, biology became a framework of knowledge governed by some basic and fundamental laws of physics.
 
@@ -60,7 +67,7 @@ Gene expression is the process where information contained in the gene is used t
 
 \begin{figure}[htbp!]
 	\centering
-	\includegraphics[width=.6\textwidth,keepaspectratio]{Affymetrix-microarray}
+	\includegraphics[width=.7\textwidth,keepaspectratio]{Affymetrix-microarray}
 		\rule{35em}{0.5pt}
 	\caption[Affymetrix Micro Array]{Gene Expression Data are extracted from Affymetrix Micro Array. Two match sticks are placed for reference purpose. Left and right images are top-view and middle one is the bottom view of the microarray. Left one contains mouse genome with 430 2.0 array, while right one contains human genome with U133 Plus 2.0 array. A special scanner (i.e.\ GeneChip Scanner) is required to scan this high-density arrays.}
 	\label{fig:Affymetrix-microarray}
@@ -147,12 +154,12 @@ Amyotrophic lateral sclerosis (ALS), also known as Lou Gehrig's disease or Motor
 Gaussian processes (GPs) are general class of models of functions. GPs are one of the most simple and widely used families of stochastic processes. As a general setting, Gaussian process of many types have been studied and incorporated in research for decades, specially for modelling dependent data observed over time, or space, or time and space together. In GPs observations in the input space are random variables from Gaussian distributions. We included the introductory concepts of Gaussian process at Chapter \ref{ch:GaussianProcessRegression}.
 %TODO
 
-\section{Main goal of the thesis}
-First we set some generic goals for this thesis-
-
-\textbf{Generic goal 1}: We will develop a tool to analyse transcription factor activities. This tool will target the gene expression time series data which is sampled across \textcolor{red} {different stages}
-
-\textbf{Generic goal 2}: Our second goal is to develop an approach for gene expression clustering that handles structure in the experimental condition as part of the cluster analysis.
+% \section{Main goal of the thesis}
+% First we set some generic goals for this thesis-
+% 
+% \textbf{Generic goal 1}: We will develop a tool to analyse transcription factor activities. This tool will target the gene expression time series data which is sampled across \textcolor{red} {different stages}
+% 
+% \textbf{Generic goal 2}: Our second goal is to develop an approach for gene expression clustering that handles structure in the experimental condition as part of the cluster analysis.
 
 % \textbf{Generic goal 1}: We aim to develop a tool (with $R$ programming language) using existing probabilistic model for transcription factor activities proposed by \cite{Sanguinetti:2006} and enhance one step further. The proposed method used unicellular microorganism (e.g.\ yeast). We aim to use a multicellular eukaryote (e.g.\ \textit{C.elegans}) where the network complexity will be higher with higher number of genes and transcription factors. We aim to build the connectivity information (from the abailable references) and analyse the transcription factor activities for \textit{C.elegans} using our tool.
 % 
@@ -192,10 +199,10 @@ Amyotrophic lateral sclerosis is an irreversible neurodegenerative disorder that
 \textbf{Chapter 6}
 The final chapter concludes this thesis by summarising the achievements highlighting its novelties. It also raises some important questions that need to be considered in the future.
 
+\clearpage
 \section{Notation, Symbols and Acronyms}
 
 \subsection{Acronyms}
-
 \begin{table}[!htbp]
 \renewcommand{\arraystretch}{1.3}
   %\centering
@@ -205,6 +212,7 @@ The final chapter concludes this thesis by summarising the achievements highligh
       \textbf{C.elegans} & {Caenorhabditis elegans} \\
       \textbf{ChIP} & {Chromatin Immunoprecipitation} \\
       \textbf{DIC} & {Differential Interference Contrast}\\ 
+      \textbf{DMI} & {Differential Multi Information}\\
       \textbf{DNA} & {Deoxyribonucleic Acid} \\
       \textbf{EDGEdb} & {C. elegans Differential Gene Expression Database} \\
       \textbf{GP} & {Gaussian process} \\
@@ -218,6 +226,7 @@ The final chapter concludes this thesis by summarising the achievements highligh
       \textbf{PLS} & {Partial Least Square} \\
       \textbf{PPCA} & {Probabilistic Principal Component Analysis}\\
       \textbf{RBF} & {Radial Basis Function} \\
+      \textbf{RMI} & {Renyi Mutual Information}\\
       \textbf{RNA} & {Ribonucleic Acid}\\
       \textbf{RT-PCR} & {Reverse Transcription Polymerase Chain Reaction} \\ %TODO check
       \textbf{SE} & {Squared Exponential} \\
@@ -231,11 +240,10 @@ The final chapter concludes this thesis by summarising the achievements highligh
 %  \label{table:...}
 \end{table}
 
-
+\clearpage
 \subsection{Symbols}
 Throughout this paper, all vectors are represented with boldface lower-case symbols (e.g., x) and
 matrices with bold upper-case symbols (e.g., K) unless otherwise specified % TODO
-
 
 \begin{table}[!htbp]
     {\renewcommand{\arraystretch}{1.5}

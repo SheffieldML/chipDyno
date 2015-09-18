@@ -9,6 +9,7 @@
 
 \maketitle
 
+I would like to dedicate this thesis to my family and my close friends \dots
 
 \paragraph{Ch:1 Intro}
 \begin{enumerate}
@@ -67,7 +68,27 @@
  \item Notation as  %Done %http://www.doc.ic.ac.uk/~mpd37/theses/2014_msc_junwei-ng.pdf
  \item UCL-b2 Cholesky decompositions %Done
  \item Bayesian parametric modelling Gir04.pdf 24 % DONE
- 
+ \item Transcriptome http://www.nature.com/scitable/definition/transcriptome-296
 \end{enumerate}
+
+
+Machine learning is a joint field of artificial intelligence and modern statistics, mostly focused on the design and development of models, algorithms and techniques that allow computers to extract information automatically by some learning process from data. The structure learned from data can be described by a statistical model. Gaussian process models are widely used families of stochastic processes for modelling data observed over time, space or both. Gaussian processes models are non-parametric, which means the models developed on an infinite-dimensional parameter space. For a particular learning problem the parameter space is typically learnt as the set of possible solutions. There are different ways to learn functions. Probabilistic inference is one of the elegant and widely accepted way among them. In the field of machine learning regression is a supervised learning problem, while clustering is an unsupervised learning problem. Regression task is related with making predictions of a continuous output variable at any desired input location, given an input-output training set. Clustering task group a set of observations into subsets (also known as clusters) so that observations in the same cluster shows similarity in some specific sense.
+Here we set 
+
+. Gaussian process distributions are distribution over functions. The covariance function determines the properties of functions samples drawn from the process. Once the decision to model with a Gaussian process has been made the choice of the covariance function is a central step in modelling
+
+
+
+
+Regression and classification are two supervised learning problems for machine learning. There are different ways to learn functions. Probabilistic inference is one of the elegant and widely accepted way among them. 
+
+In probabilistic inference a number of models (or hypotheses) are weighted based on how well their predictions match the data. This approach is appealing for two reasons. First, keeping all hypotheses that match the data helps to guard against over-fitting. Second, comparing how well a dataset is fit by different models gives a way of finding which sorts of structure are present in that data.
+
+Regression is the task of returning predictions of a continuous output variable at any input location, given a training set of input-output pairs.
+
+In this thesis we addressed two supervised machine learning problem of computational biology. The first problem is a regression task and the second one is classification.
+
+Conclusion:
+In this thesis we have examined and developed a variety of techniques to deal with two general problems in Gaussian process modelling:
 
 \end{document}
