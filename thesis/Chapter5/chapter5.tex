@@ -14,7 +14,7 @@
 %\section{Introduction}
 The dynamic behaviour or analysis of time series data in particular clusters is important for exploring and understanding gene networks. In many conventional time series models, one key requirement is data with regular intervals. Gene expression experiments data with regular intervals might be less informative or may not be optimal from a statistical perspective or even may not be cost effective for various reasons. A model designed to obtain data with regular intervals may not elicit as much information as a method designed to collect pertinent special temporal features. Again, in many cases multiple biological replicates are available when the same experiments are repeated multiple times. For these cases simply considering only one experiment or taking the mean values from different replicates may not be the best solution. Interesting information might be discarded while dealing only with one data set or with their mean values.
 
-The aim of this chapter is to specify the significantly different genes that may effect the speed of ALS progression by building a new model. We used Gaussian processes and here we introduce  \emph{coregionalization} principle while developing the kernel of the Bayesian hierarchical Gaussian process model. We believe, there might be some degree of temporal continuity between different replicates, conditions and/or genetic backgrounds. So, the kernel designed considering \emph{coregionalization} model will consider the shared information between those replicates and conditions of genetic background. We used $python$ programming language based tool $GPy$(The GPy \cite{gpy2014}), to develop our model. Later we optimized these models and compared them based on likelihood scores and select the best. %\footnote{\url{http://sheffieldml.github.io/GPy/}}
+The aim of this chapter is to specify the significantly different genes that may effect the speed of ALS progression by building a new model. We used Gaussian processes and here we introduce  \emph{coregionalization} principle while developing the kernel of the Bayesian hierarchical Gaussian process model. We believe, there might be some degree of temporal continuity between different replicates, conditions and/or genetic backgrounds. So, the kernel designed considering \emph{coregionalization} model will consider the shared information between those replicates and conditions of genetic background. We used $python$ programming language based tool $GPy$ (\cite{gpy2014}), to develop our model. Later we optimized these models and compared them based on likelihood scores and select the best. %\footnote{\url{http://sheffieldml.github.io/GPy/}}
 
 Amyotrophic lateral sclerosis (ALS) is a diverse neurodegenerative disorder with around 10\% of familial cases and the remaining sporadic. The disease is currently irreversible from onset and heterogeneous with variable severity in terms of speed of progression of the disease course. Injury and cell death of motor neurons in the brainstem, spinal cord and motor cortex are the main reasons of this relentlessly progressive disorder (\cite{Brockington:2013, Ferraiuolo:2011, Haverkamp:1995, Peviani:2010}). Among the familial ALS [fALS] 20\% is caused by mutation in the $Cu/Zn$ $Superoxide$ $Dismutase 1$ $(SOD1)$ gene. The median survival of this lethal disorder is less than 5 years, only 20\% patients live longer than 5 years and less than 10\% patients survive more than 10 years from the symptom onset (\cite{Beghi:2011, Saccon:2013}). The speed of disease progression is not clear from the biological basis. Even in fALS, affected members clearly show the clinical heterogeneity in terms of site of onset, age and progression rate of the disease. In a study, \cite{Camu:1999} reported the presence of potential gene modifiers and pathways that particularly affect the disease phenotype. Mutation in the $SOD1$ gene notably characterized the distinctive nature by intrafamilial and interfamilial variabilities in the phenotype. Many of the clinical and pathological features of human ALS can be replicated very well by transgenic mice. These murine models also mimic the human disease and show the heterogeneity in the disease progression for the clinical phenotype. These variability may be related with expression levels of mutant $SOD1$ protein or specific $SOD1$ mutations (\cite{Turner:2008}).
 
@@ -22,7 +22,7 @@ In a study \cite{Pizzasegola:2009} reported that disease progression is much fas
 
 Here in this work, we built a mathematical model to cluster gene expression time series data using hierarchical Gaussian process. Then as a part of validation we performed investigation of these clusters. We have calculated the enrichment scores (\cite{Huang:2007, Huang:2009Enrichment}) for every cluster using $DAVID$\footnote{\url{http://david.abcc.ncifcrf.gov/tools.jsp}} (Database for Annotation, Visualization and Integrated Discovery) (\cite{Huang:2009David}) and identified clusters which have very high enrichment scores.  We carried out further analysis of clusters with high enrichment score and which also demonstrated some interesting characteristics in their dynamic behaviour at the four time stages (pre-symptom, onset, symptom and end-stage) of disease course. Our functional annotation clustering and pathway analysis reveal some interesting information for a group of genes which might have some functionality for the speed of propagation of ALS particularly with reference to this specific type of mouse model. 
 
-\section{Related work}
+\section{Related Work}
 Gene expression time series data has been used extensively over the last few decades and implemented for \textit {in-silico} experiments to investigate various fundamental biological processes. Among the many processes examined, some of the notable examples are cell cycle \cite{Spellman:1998}, cell signalling \cite{Barenco:2006}, regulatory activity \cite{Sanguinetti:2006}, and developmental process \cite{Tomancak:2002}. Gaussian processes have been applied to gene expression time series widely with several aims and analyses, such as transcription factor target identification (\cite{Honkela:2010}), inference of RNA Polymerase transcription dynamics (\cite{Maina:2014}), and ranking differentially expressed time series (\cite{Kalaitzis:2011}).
 
 Hierarchical models can significantly improve the inference in the Bayesian statistical problems (\cite{Gelman:2004}) while dealing with multiple related groups of data allowing exchange of information. Inference on the whole structure of data is always preferable than partial independent structure. Estimating replicate time shifts were proposed by \cite{Liu:2010}, where they used Gaussian process regression with uncertain measurement of mRNA expression. This method require a large number of variables optimization. Previously, \cite{Ng:2006} also \cite{Medvedovic:2004} used clustering method to model replicates using hierarchical structure. Both of the model compute the replicate variance as multivariate Gaussian around some gene-specific mean.
@@ -34,111 +34,12 @@ Here we constructed a hierarchical Gaussian process (\cite{Hensman:2013}) based 
 	\centering
 		\includegraphics[width=\textwidth,keepaspectratio]{clsCElegans11genes_2.png}
 		\rule{35em}{0.5pt}
-	\caption[Clustering Gene Expression data of \textit{C.elegans}]
-		{Clustering gene expression data of \textit{C.elegans} using the method proposed by \cite{Hensman:2013}. Along $x$-axis the five time points are as described in Section \ref{sec:Cele_gene_exp_data} (shown in Figure \ref{fig:Temp_Settings}). Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean and shaded area represents 95\% confidence interval. We used top most 10,000 differentially expressed genes from the total 15,000+ genes.} % TODO
+	\caption[Clustering gene expression data of \textit{C.elegans}]
+		{Clustering gene expression data of \textit{C.elegans} using the method proposed by \cite{Hensman:2013}. Along $x$-axis the five time points are as described in Section \ref{sec:Cele_gene_exp_data} (shown in Figure \ref{fig:Temp_Settings}). Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean and shaded area represents the 95\% confidence interval. We used top most 10,000 differentially expressed genes from the total 15,000+ genes.} % TODO
 	\label{fig:clsCelegans}
 \end{figure}
 
-
-
 \section{Methodology}
-
-% % \subsection{Gaussian Process definition}
-% % A Gaussian process is a collection of random variables, any finite number of which have a 
-% % joint Gaussian distribution \cite{Rasmussen_and_Williams:2006}. It is a continuous
-% % stochastic process and defines probability distributions for functions. It can be also view
-% % as set of random variables indexed by a continuous variable: $ f(\textbf{x})$ chosen from a random
-% % function variables $ \textbf{f} = \{ f_1, f_2, f_3,..., f_N\}$, with corresponding indexed inputs
-% % $ \textbf{X} = \{ \textbf{x}_1, \textbf{x}_2, \textbf{x}_3,..., \textbf{x}_N\}$. In Gaussian processes,
-% % variables from these random functions are normally distributed and as a whole can be represented as a
-% % multivariate Gaussian distribution
-% % \begin{equation} \label{eq:2.2}
-% % p(\textbf{f}|\textbf{X})= \mathcal{N}(\boldsymbol\mu,\textbf{K}),
-% % \end{equation}
-% % where $\boldsymbol\mu$ is the mean and $\textbf{K}$ is covariance of Gaussian distribution
-% % $\mathcal{N}(\boldsymbol\mu,\textbf{K})$.
-% % The Gaussian distribution is over vectors but the Gaussian process is over functions.
-% % 
-% % If $f(\textbf{x})$ is a real process, a Gaussian process is completely defined by its mean function
-% % and covariance function given in equation \ref{eq:2.3} and equation \ref{eq:2.4} respectively.
-% % Usually, the $m(\textbf{x})$  and the covariance function $k(\textbf{x},\textbf{x\textprime})$
-% % are defined as-
-% % \begin{equation} \label{eq:2.3}
-% % m(\textbf{x})= \mathbb{E}[f(\textbf{x})],
-% % \end{equation}
-% % \begin{equation} \label{eq:2.4}
-% % k(\textbf{x},\textbf{x\textprime})= 
-% % \mathbb{E}[(f(\textbf{x})-m(\textbf{x}))(f(\textbf{x}\textprime)-m(\textbf{x}\textprime))],
-% % \end{equation}
-% % where $\mathbb{E}$ represents the expected value.
-% % We denote the Gaussian process as-
-% % \begin{equation} \label{eq:GP}
-% % f\left(\textbf{x} \right)\sim \mathcal{GP} \left(m \left(\textbf{x}\right), k \left(\textbf{x},\textbf{x\textprime}\right) \right).
-% % \end{equation}
-% % 
-% % The covariance matrix $\textbf{K}$ is constructed from the covariance function
-% % $k(\textbf{x},\textbf{x\textprime})$ and 
-% % $\textbf{K}_{ij}=k(\textbf{x}_i,\textbf{x}_j)$.
-% % 
-% % 
-% % \subsection{Gaussian Process Regression}
-% % Gaussian process regression can be done using the marginal and conditional properties of multivariate
-% % Gaussian distribution. Let's consider that we have some observations $\mathbf{f}$ of a function at observation
-% % point $\mathbf{x}$. Now we wish to predict the values of that function at observation points $\mathbf{x_\star}$,
-% % which we are representing by $\mathbf{f_\star}$. Then the joint probability of $\mathbf{f}$ and $\mathbf{f_\star}$
-% % can be obtained from
-% % \begin{equation} \label{eq:jointPro_f_f*}
-% % p \left( \begin{bmatrix} \mathbf{f} \\\mathbf{f_\star} \end{bmatrix} \right) =
-% % \mathcal{N}\left( \begin{bmatrix} \mathbf{f} \\\mathbf{f_\star} \end{bmatrix} \middle|
-% % \mathbf{0}, \begin{bmatrix} \mathbf{K_{x,x}} & \mathbf{K_{x,x_\star}} \\
-% % 			    \mathbf{K_{x_\star,x}} & \mathbf{K_{x_\star,x_\star}} \end{bmatrix} \right)
-% % \end{equation}
-% % where the covariance matrix $ \mathbf{K_{x,x}}$ has elements derived from the covariance function 
-% % $ k \left(x,x\textprime \right)$, such that the $ \left(i,j \right)^{th}$ element of $ \mathbf{K_{x,x}}$ is
-% % given by $k \left( \mathbf{x} \left[ i\right],\mathbf{x} \left[ j\right] \right) $ 
-% % The conditional property of a multivariate Gaussian is used to perform regression the. The conditional
-% % property can be represented by
-% % \begin{equation} \label{eq:condProMvG}
-% % p \left( \mathbf{f} \middle| \mathbf{f_\star} \right) =
-% % \mathcal{N}\left( \mathbf{f_\star} \middle| \mathbf{K_{x_\star,x}}  \mathbf{K^{-1}_{x,x}} \mathbf{f,} \mathbf{K_{x_\star,x_\star}} - 
-% % \mathbf{K_{x_\star,x}} \mathbf{K^{-1}_{x,x}} \mathbf{K_{x,x_\star}}\right).
-% % \end{equation}
-% % 
-% % In ideal case the observations $\mathbf{f}$ is noise free but in practice it is always corrupted with some noise.
-% % Let's consider $\mathbf{y}$ is the corrupted version of $\mathbf{f}$. If we consider this noise as Gaussian noise
-% % then we can write $p \left( \mathbf{y} \middle| \mathbf{f} \right) = \mathcal{N} \left( \mathbf{y} \middle| \mathbf{f},
-% % \sigma^2 \mathbf{I} \right) $, where $ \sigma^2 $ is the variance of the noise and $\mathbf{I}$ is the identity
-% % matrix with appropriate size and marginalise the observation $\mathbf{f}$. Then the joint probability of 
-% % $\mathbf{y}$ and $\mathbf{f_\star}$ can be represented by
-% % \begin{equation} \label{eq:jointPro_y_f*}
-% % p \left( \begin{bmatrix} \mathbf{y} \\\mathbf{f_\star} \end{bmatrix} \right) =
-% % \mathcal{N}\left( \begin{bmatrix} \mathbf{y} \\\mathbf{f_\star} \end{bmatrix} \middle|
-% % \mathbf{0}, \begin{bmatrix} \mathbf{K_{x,x}}+ \sigma^2\mathbf{I} & \mathbf{K_{x,x_\star}} \\
-% % 			    \mathbf{K_{x_\star,x}} & \mathbf{K_{x_\star,x_\star}} \end{bmatrix} \right).
-% % \end{equation}
-% % Regression with Gaussian process can be seen as a Bayesian method. From the knowledge of a $prior$ 
-% % over a function we proceed to a $posterior$ and this happens in a closed from of equation 
-% % \ref{eq:condProMvG}. 
-% % 
-% % To construct the covariance function still we need to consider the hyperparameters. 
-% % The most efficient and commonly used selection technique for hyperparameters in Gaussian process is  
-% % maximum likelihood. If we consider all the hyperparameters $\alpha$, $\sigma^2$ and 
-% % $l$ in to a vector $\boldsymbol{\theta}$, then we can use gradient methods to optimize
-% % $p \left(\mathbf{y}\middle|\boldsymbol{\theta}\right)$ with respect to $\boldsymbol{\theta}$. The log
-% % likelihood is given by
-% % \begin{equation} \label{eq:Likelihood}
-% % \begin{split}
-% %  p \left(\mathbf{y}\middle|\boldsymbol{\theta}\right) =  
-% %     - \frac{D}{2}\log2\pi & - \frac{1}{2}\times \log \left| \mathbf{K_{x,x}} + \sigma^2\mathbf{I}\right|\\
-% %     & - \frac{1}{2}\mathbf{y}^\top \left[\mathbf{K_{x,x}} + \sigma^2\mathbf{I} \right]^{-1}\mathbf{y}.
-% % \end{split}
-% % \end{equation}
-% % 
-% % The selection of the hyperparameters $\boldsymbol{\theta}$ can be done using log maximum likelihood, 
-% % which is given by
-% % \begin{equation} \label{eq:LML}
-% %  \boldsymbol{\theta}_{max} = argmax \left( p\left(\mathbf{y}\middle|\boldsymbol{\theta}\right) \right).
-% % \end{equation}
 
 \subsection{Hierarchical Gaussian Process}
 Our gene expression time series came from four different genetic background or strains and there are four biological replicates. So for every individual gene we can incorporate these in an hierarchical fashion. Let's, the vector of measurements ${\textbf y}^{i}_{nr}$ denotes gene expression of $n^{th}$ gene in the $r^{th}$ biological replicate and $i^{th}$ biological strain or condition. Measurements were made at different times and collected into the vector $\textbf{x}^{i}_{nr}$, where $n, r$ and $i$ represents the same as before. The data for the $n^{th}$ gene and $i^{th}$ strain is denoted by ${\textbf Y}^{i}_n = \{{\textbf y}^{i}_{nr}\}^{R}_{r=1}$ and ${\textbf X}^{i}_n = \{{\textbf x}^{i}_{nr}\}^{R}_{r=1}$, where $R$ is the total number of replicates. The data for the $n^{th}$ gene is represented by ${\textbf Y}_n = \{{\textbf Y}^{i}_{n}\}^{S}_{i=1}$ and ${\textbf X}_n = \{{\textbf X}^{i}_{n}\}^{S}_{i=1}$, where $S$ is the total number of strains or conditions.
@@ -175,12 +76,12 @@ Gaussian process models have been used already to capture structure in the data 
   \includegraphics[width=\textwidth]{coreExample_No.png}
   \includegraphics[width=\textwidth]{coreExample_with.png}
     \caption [Simple demonstration of  \emph{coregionalization} model] 
-    {Simple demonstration of regression using \emph{coregionalization} model with Gaussian process. Here, training data marked with black, while red represents test data. Solid line represents a posterior mean function and shaded area represents 95\% confidence interval. The independent models (top-left and top-right) do not share information across outputs. The independent models tend to return to the prior assumptions in the regions where there is no training data specific to an output. While the coregionalized model (bottom-left and bottom right) shares information across outputs. Here both outputs have associated patterns, where there is no training data the fit is better with the coregionalized model. A Jupyter Notebook demo of coregionalization using Gaussian processes is available at the GPy \cite{gpy2014}.
+    {Simple demonstration of regression using \emph{coregionalization} model with Gaussian process. Here, training data marked with black, while red represents test data. Solid line represents a posterior mean function and shaded area represents the 95\% confidence interval. The independent models (top-left and top-right) do not share information across outputs. The independent models tend to return to the prior assumptions in the regions where there is no training data specific to an output. While the coregionalized model (bottom-left and bottom right) shares information across outputs. Here both outputs have associated patterns, where there is no training data the fit is better with the coregionalized model. A Jupyter Notebook demo of coregionalization using Gaussian processes is available at \cite{gpy2014}.
   \label{fig:demoCoregionalization}}
  \end{center}
 \end{figure}
 
-Our formalism for introducing correlations across conditions and strains is the \emph{coregionalization} principle (\cite{Alvarez:2011}) that originates in geostatistics (\cite{Wackernagel:2003}). \emph{Coregionalization} matrices allow us to share the information between genetic background and replicates. In machine learning language this approach is sometimes known as \lq multi-task learning \rq (\cite{Bonilla:2007}) where each condition and strain is assumed to be a different task. However, in statistical terms it is simply a multi-variate regression or a multiple output model.
+Our formalism for introducing correlations across conditions and strains is the \emph{coregionalization} principle (\cite{Alvarez:2011}) that originates in geostatistics (\cite{Wackernagel:2003}). \emph{Coregionalization} matrices allow us to share the information between genetic background and replicates. In machine learning language this approach is sometimes known as \lq multi-task learning\rq (\cite{Bonilla:2007}) where each condition and strain is assumed to be a different task. However, in statistical terms it is simply a multi-variate regression or a multiple output model.
 
 An appropriate general model that can capture the dependencies between all the data points and conditions is known as the linear model of coregionalization (LMC) is a model where output is a linear combination of independent random functions. (A detail explanation of the \emph{coregionalization} model is available at \cite{Alvarez:2011, Alvarez:2012}). If we can consider our problem with a set of $D$ output functions for $\textbf{x}\epsilon\mathbb{R}^p$ input domain, then output function $\{ f_d\left(\textbf{x}\right)\}^D_{d=1}$ of $LMC$ can be expressed as
 \begin{equation} \label{eq:LMC}
@@ -242,7 +143,7 @@ We used the Affymetrix data from \cite{Nardo:2013}.  In this experiment spinal c
 		\includegraphics[width=\textwidth,keepaspectratio]{figure_noCore.pdf}
 		\rule{35em}{0.5pt}
 	\caption[Clustering gene expression data no coregionalization]
-		{Clustering gene expression data using the method proposed by \cite{Hensman:2013}. Along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage (all the data points together formed like solid vertical lines). Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean and shaded area represents 95\% confidence interval. We used top most 10,000 differentially expressed genes and they were clustered among 20 clusters. The number of the clusters and the genes belongs to a specific cluster was selected by the algorithm.}
+		{Clustering gene expression data using the method proposed by \cite{Hensman:2013}. Along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage (all the data points together formed like solid vertical lines). Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean and shaded area represents the 95\% confidence interval. We used top most 10,000 differentially expressed genes and they were clustered among 20 clusters. The number of the clusters and the genes belongs to a specific cluster was selected by the algorithm.}
 	\label{fig:clsNoCoregionalization}
 \end{figure}
 
@@ -253,7 +154,7 @@ We used the Affymetrix data from \cite{Nardo:2013}.  In this experiment spinal c
     %\includegraphics[width=\textwidth]{fig523.pdf}
     %\includegraphics[width=\textwidth]{new40Cluster.png}
     \caption [Clustering genes expressions using hierarchy of Gaussian processes] 
-    {Clustering genes expressions using hierarchy of Gaussian processes. Some representative clusters from the 203 clusters generated (top to bottom, left to right: cluster 1 to 7, 16 to 22, 31 to 37, 46 to 52, 61 to 67, 76 to 82 and 196 to 202). Along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage (all the data points together formed like solid vertical lines). Four different colours yellow, red, green and blue are representing four mouse strains $129Sv-SOD1, 129Sv-Ntg, C57-Ntg$ and $C57-SOD1$ respectively. Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean function and shaded area represents 95\% confidence interval.\label{fig:fewClusters}}
+    {Clustering genes expressions using hierarchy of Gaussian processes. Some representative clusters from the 203 clusters generated (top to bottom, left to right: cluster 1 to 7, 16 to 22, 31 to 37, 46 to 52, 61 to 67, 76 to 82 and 196 to 202). Along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage (all the data points together formed like solid vertical lines). Four different colours yellow, red, green and blue are representing four mouse strains $129Sv-SOD1, 129Sv-Ntg, C57-Ntg$ and $C57-SOD1$ respectively. Number at the corner indicates number of genes belong to this cluster. Solid line represents a posterior mean function and shaded area represents the 95\% confidence interval.\label{fig:fewClusters}}
  \end{center}
 \end{figure}
 
@@ -273,7 +174,7 @@ We used the Affymetrix data from \cite{Nardo:2013}.  In this experiment spinal c
 All the gene expression time series data extracted from Affymetrix data might not be differentially expressed and filtering out the requisite genes is obvious. Considering the temporal nature of data \cite{Kalaitzis:2011} analysed time series gene expressions and filter the quiet or inactive genes from the differentially expressed ones using Gaussian process.  In addition identifying genes that have a good signal-to-noise ratio (SNR) is also used to filter down the total number of genes that need further analysis. We can rank the genes by the ratio of the mean replicate-wise variance to the variance of the replicate-wise means. In our analysis we used a combination of both approaches.  First we made the initial ranking of the gene expressions (45,037 genes for our case) using method of \cite{Kalaitzis:2011} and then we use the SNR to choose 10,000 genes \footnote{10,000 is an arbitrary choice. We did the similar experiments choosing 2,000, 5,000 and 15,000 genes and found similarity in the results with minor variations.} for further analysis. The gene expression levels of each replicates were normalized to zero-mean over all the samples before the filtering.
 
 \paragraph{Cluster analysis:} 
-In the previous selection stage we choose 10,000 genes from the total of 45,037 probe sets which were more dynamically differentially expressed. We applied our own hierarchical Gaussian process cluster model on these genes and collected the results for further experiments. Figure \ref{fig:fewClusters} shows a small part of our result. For any individual graph, along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage. We have used four different colours (yellow, red, green and blue) to separate four mouse strains ($129Sv-SOD1, 129Sv-Ntg, C57-Ntg$ and $C57-SOD1$ respectively). Any individual cluster contains a number of genes which might be biologically associated or co-regulated and we mention the number of the genes belong to that cluster at the corner of the plot. In the plot a solid line represents posterior mean function and shaded area represents 95\% confidence interval. We have found a total of 203 different clusters with a variation of number of genes for any individual cluster. All the clusters were indicating different dynamic behaviour of the gene set. We found a number of clusters were attractive for further analysis but the detail analysis of every cluster is beyond the scope of this study. We included some examples in the Figure \ref{fig:fourSampleClusters}. We have limited our consideration to the clusters where the strain $129Sv-SOD1$ (yellow color in our representation) has different characteristics and focussed our consideration for further analysis.
+In the previous selection stage we choose 10,000 genes from the total of 45,037 probe sets which were more dynamically differentially expressed. We applied our own hierarchical Gaussian process cluster model on these genes and collected the results for further experiments. Figure \ref{fig:fewClusters} shows a small part of our result. For any individual graph, along $x$-axis the four time stages are pre-symptom, onset, symptom and end-stage. We have used four different colours (yellow, red, green and blue) to separate four mouse strains ($129Sv-SOD1, 129Sv-Ntg, C57-Ntg$ and $C57-SOD1$ respectively). Any individual cluster contains a number of genes which might be biologically associated or co-regulated and we mention the number of the genes belong to that cluster at the corner of the plot. In the plot a solid line represents posterior mean function and shaded area represents the 95\% confidence interval. We have found a total of 203 different clusters with a variation of number of genes for any individual cluster. All the clusters were indicating different dynamic behaviour of the gene set. We found a number of clusters were attractive for further analysis but the detail analysis of every cluster is beyond the scope of this study. We included some examples in the Figure \ref{fig:fourSampleClusters}. We have limited our consideration to the clusters where the strain $129Sv-SOD1$ (yellow color in our representation) has different characteristics and focussed our consideration for further analysis.
 \begin{figure}
 	\centering
 		%\includegraphics[width=0.7\textwidth,keepaspectratio]{barGraphNoCore10000g.png}
@@ -288,7 +189,7 @@ In the previous selection stage we choose 10,000 genes from the total of 45,037 
 \begin{figure}
  \begin{center}
  \includegraphics[width=\textwidth]{EnrichmentScoresGenes.png}
-  \caption [Enrichment scores analysis for different clusters] 
+  \caption [Enrichment scores analysis for different clusters with \emph{coregionalization}] 
   {Enrichment scores analysis. Figure at the top shows the enrichment score for different clusters where $x$-axis is the cluster number and $y$-axis shows the enrichment score of that cluster. Figure located at the middle shows the normalized score (mean enrichment score is 1.05). While the bottom figure shows the number of genes belongs to any specific cluster.
   \label{fig:EnrichmentScores}}
  \end{center}
@@ -368,30 +269,27 @@ A typical biological process is regulated with a group of genes. If we apply a h
 	  \label{table:funAnno}}
 \end{table}
 
-
 \begin{figure}
  \begin{center}
  \includegraphics[width=\textwidth]{mmu05014_cl197_Potrait.png}
-\caption {Pathway analysis: KEGG\_Pathway. \label{pathwayAnalysis}}
+\caption {KEGG pathway analysis of ALS. \label{pathwayAnalysis}}
  \end{center}
 \end{figure}
-Pathway analysis allows us to gain an insight of the underlying biology of the differentially expressed genes. Pathway analysis can reduce the complexity and increase the explanatory power where high-throughput sequencing and gene profiling are used to investigate whether a gene or a list of gene have any roles for a phenotype or a given phenomena. It is also used for the analysis of gene ontology, physical interaction networks, inference of pathways from expression and sequence data, and further comparisons. In a given condition it can identify the pathway by correlating information with a pathway knowledge base. We identified some clusters (which were deemed interesting in the cluster analysis and enrichment score analysis stages) and performed gene ontology enrichment analysis (one example is given at Table \ref{table:funAnno}) and pathway analysis on individual clusters.  We identified one of our cluster (cluster197; Figure \ref{fig:fourSampleClusters}) which was selected at the earlier stage for further analysis and has a relatively high enrichment score (2.16) is related with ALS.  In previous study \cite{Brockington:2013} reported about $SOD1$ related genes and ALS.  One of the $SOD1$ gene, $Derlin-1$ (Prob ID: 1415693_at), can accumulate with other misfolded proteins and cause the neuron death and belongs to our chosen cluster. Figure \ref{pathwayAnalysis} shows the pathway analysis that we have found for one of our cluster using tool $DAVID$.  We have also found some other genes from the same cluster are responsible for cell death and related with some other neural disorder. 
-
 \begin{figure}
  \begin{center}
  \includegraphics[width=\textwidth]{Alzheimers_mmu05010.png}
-\caption {KEGG\_Pathway analysis of Alzheimer's disease. \label{AlzheimerPathwayAnalysis}}
+\caption {KEGG pathway analysis of Alzheimer's disease. \label{AlzheimerPathwayAnalysis}}
  \end{center}
 \end{figure}
-
-
 \begin{figure}
  \begin{center}
- \includegraphics[width=\textwidth]{Parkinsons_mmu05012.png}
-\caption {KEGG\_Pathway analysis of Parkinson's disease. \label{ParkinsonPathwayAnalysis}}
+ \includegraphics[width=0.9\textwidth]{Parkinsons_mmu05012.png}
+\caption {KEGG pathway analysis of Parkinson's disease. \label{ParkinsonPathwayAnalysis}}
  \end{center}
 \end{figure}
+Pathway analysis allows us to gain an insight of the underlying biology of the differentially expressed genes. Pathway analysis can reduce the complexity and increase the explanatory power where high-throughput sequencing and gene profiling are used to investigate whether a gene or a list of gene have any roles for a phenotype or a given phenomena. It is also used for the analysis of gene ontology, physical interaction networks, inference of pathways from expression and sequence data, and further comparisons. In a given condition it can identify the pathway by correlating information with a pathway knowledge base. We identified some clusters (which were deemed interesting in the cluster analysis and enrichment score analysis stages) and performed gene ontology enrichment analysis (one example is given at Table \ref{table:funAnno}) and pathway analysis on individual clusters.  We identified one of our cluster (cluster197; Figure \ref{fig:fourSampleClusters}) which was selected at the earlier stage for further analysis and has a relatively high enrichment score (2.16) is related with ALS.  In previous study \cite{Brockington:2013} reported about $SOD1$ related genes and ALS.  One of the $SOD1$ gene, $Derlin-1$ (Prob ID: 1415693_at), can accumulate with other misfolded proteins and cause the neuron death and belongs to our chosen cluster. 
 
+The analysis carried out using the tool \emph{DAVID} looks for shared ontological terms that bind the clustered genes in a biologically meaningful manner. It also highlights pathways or cellular mechanisms that are relevant to the paradigm being investigated. For example in the cluster 197 the gene Derl1 is shown to play an important role in ALS sitting at a position between the gene known to be involved in ALS, namely SOD1, and an important pathway-that of the accumulation of misfolded proteins. Figure \ref{pathwayAnalysis} shows the pathway analysis. Interestingly some other genes from the same cluster; $Stub1$, $Fzr1$, $Gabarapl1$, $Ap3m1$ and $Fuca1$ also play a role in some aspects of protein degradation pathways. Figure \ref{AlzheimerPathwayAnalysis} shows the pathway analysis of Alzheimer's disease and Figure \ref{ParkinsonPathwayAnalysis} shows the pathway analysis of Parkinson's disease. Both of these diseases are caused by cell death and the gene $Atp5j$ is related with them. Gene $Atp5j$ is present in our cluster number 197. Further investigation might find some further association between these genes and their protein products.
 
 \section{Discussion}
 We have performed genome-wide analysis to cluster genes systematically and analyse the rationale behind the variation in the speed of propagation for ALS. Our particular innovation was to include the condition and genetic background of the organisms within the underlying functional component of our clusters. This ensured that sub-groups where the underlying expression behaved similarly were more likely to cluster together. The hierarchical Gaussian process we used considers multiple replicates. For validation we have used a widely acceptable gene ontology and functional annotation tool to validate our clusters and their characteristics obtained from our model. We found a number of clusters are highly enriched. Gene expression time series characteristics curve and enrichment scores analyse helped us to narrow down our search and lead toward finding the lists of genes or clusters which could be involved in the speed of disease propagation. Our pathway analysis found a gene which is known to be involved in the disease process. Here we started with whole genome set and ended with a single gene. This finding lead us to conclude that the model we have developed based on Gaussian process can cluster the genes successfully and they are very much informative. These clusters can be useful for further analysis.  Even the model we have developed using hierarchical Gaussian process could be useful to investigate other biological activity where clustering is required. 

@@ -18,7 +18,7 @@ Let's $\textbf{x}$ is an $d$-dimensional multivariate normal random variable, th
 \end{equation} 
 where $\boldsymbol{\mu}\in\mathbb{R}^{d}$ denotes the mean and $\boldsymbol{\Sigma}$ is a symmetric, positive covariance matrix with $\left[d\times d\right]$ dimension.
 
-\subsection{Sum of two Gaussians}
+\subsection{Sum of two Gaussians}\label{app_sum_GP}
 Sum of Gaussian variables is also Gaussian. Let's
 \begin{equation}\label{eq:Gaussian_density_i}
  x_i\sim\mathcal{N}\left(\mu_i,\sigma^{2}_i\right)
@@ -40,7 +40,7 @@ then the scaled density is distributed as
 \end{equation}
 which leads to product of Gaussians. The product of two Gaussian is also Gaussian.
 
-\subsection{Product of two Multivariate Gaussians}
+\subsection{Product of two Multivariate Gaussians} \label{app_mul_GP}
 Let's, $\textbf{x}$, $\boldsymbol{\mu}_a$ and $\boldsymbol{\mu}_b$ be the size of $\left[d\times 1 \right]$ and $\boldsymbol{\Sigma}_a$ and $\boldsymbol{\Sigma}_b$ be  $\left[d\times d \right]$ covariance matrices. The product of two multivariate Gaussian distributions is proportional to another multivariate  Gaussian distribution given by
 
 \begin{equation}\label{eq:app_products}
@@ -113,7 +113,7 @@ The probability density function integrates to one (by definition), given by
 	\int_{\mathbb{R}^d}\mathcal{N}\left(\textbf{x}|\boldsymbol{\mu},\boldsymbol{\Sigma}\right)\text{d}\textbf{x}=1
 \end{equation}
 
-\section{Matrix Analysis}
+\section{Matrix Analysis}\label{app_mat_analysis}
 Let's $\textbf{P}$ and $\textbf{Q}$ be non-singular matrices with $\left[d\times d\right]$ dimensions. The inverse of the product of two matrices can be written in terms of the individual inverses
 \begin{equation}\label{eq:indv_invVec}
 	\left(\textbf{P}\textbf{Q}\right)^{-1}=\textbf{Q}^{-1}\textbf{P}^{-1}.
@@ -136,7 +136,7 @@ The Woodbury formula, or the matrix inversion lemma  or the Shermanâ€“Morrisonâ€
 	\left(\textbf{P}+\textbf{Q}\textbf{R}^{-1}\textbf{S}\right)^{-1}=\textbf{P}^{-1}-\textbf{P}^{-1}\textbf{R}\left(\textbf{Q}+\textbf{S}\textbf{P}^{-1}\textbf{R}\right)^{-1}\textbf{S}\textbf{P}^{-1}.
 \end{equation}
 
-\section{Singular Value Decomposition}
+\section{Singular Value Decomposition}\label{app_svd}
 The singular value decomposition is a matrix factorization technique of a real or complex matrix. Let's the matrix $\textbf{S}$ is an $\left|m\times n\right|$ real matrix with $m \textgreater n$, then by singular value decomposition $\textbf{S}$ can be written as 
 \begin{equation}\label{eq:SVD}
  	\textbf{S}=\textbf{U}\boldsymbol{\Lambda}\textbf{V}^\top
@@ -163,9 +163,9 @@ Inversion of a symmetric positive definite matrix is a very common requirement w
 where $\textbf{L}$ is a triangular matrix known as Cholesky factor. Though Cholesky factor has the same order cost as matrix inversion $\mathcal{O}\left(N^3\right)$, it is cheaper in terms of constant factors.
 \begin{equation}\label{eq:Cholesky_dec}
 \begin{split}
- \textbf{y}\top\boldsymbol{\Sigma}^{-1}\textbf{y}
-    &=\textbf{y}\top\left(\textbf{L}\textbf{L}^\top\right)^{-1}\textbf{y}\\ 
-    &=\textbf{y}\top\textbf{L}^{-\top}\textbf{L}^{-1}\textbf{y}\\ 
+ \textbf{y}^\top\boldsymbol{\Sigma}^{-1}\textbf{y}
+    &=\textbf{y}^\top\left(\textbf{L}\textbf{L}^\top\right)^{-1}\textbf{y}\\ 
+    &=\textbf{y}^\top\textbf{L}^{-\top}\textbf{L}^{-1}\textbf{y}\\ 
     &=\parallel\textbf{L}^{-1}\textbf{y}\parallel^2
  \end{split}
 \end{equation}
