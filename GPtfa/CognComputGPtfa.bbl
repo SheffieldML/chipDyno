@@ -1,0 +1,196 @@
+\begin{thebibliography}{10}
+
+\bibitem{Keller:1994}
+A.~D. Keller, ``Specifying epigenetic states with autoregulatory transcription
+  factors,'' {\em Journal of Theoretical Biology}, vol.~170, pp.~175--181,
+  September 1994.
+
+\bibitem{Alberts:2002}
+B.~Alberts, A.~Johnson, J.~Lewis, M.~Raff, K.~Roberts, and P.~Walter, {\em
+  Molecular Biology of the Cell}.
+\newblock Garland Science, New York, 2002.
+
+\bibitem{Calkhoven:1996}
+C.~F. Calkhoven and G.~AB, ``Multiple steps in the regulation of
+  transcription-factor level and activity,'' {\em Journal of Biochem.},
+  vol.~317, pp.~329--342, 1996.
+
+\bibitem{Schena:1995}
+M.~Schena, D.~Shalon, R.~W. Davis, and P.~O. Brown, ``Quantitative monitoring
+  of gene expression patterns with a complementary {DNA} microarray,'' {\em
+  Science}, vol.~270, pp.~467--70, October 1995.
+
+\bibitem{Ren:2000}
+B.~Ren, F.~Robert, J.~J. Wyrick, O.~Aparicio, E.~G. Jennings, I.~Simon,
+  J.~Zeitlinger, J.~Schreiber, N.~Hannett, E.~Kanin, T.~L. Volkert, C.~J.
+  Wilson, S.~P. Bell, and R.~A. Young, ``Genome-wide location and function of
+  {DNA} binding proteins.,'' {\em Science}, vol.~290, pp.~2306--2309, 2000.
+
+\bibitem{Horak:2002}
+C.~E. Horak and M.~Snyder, ``Chip-chip: A genomic approach for identifying
+  transcription factor binding sites,'' {\em Methods in Enzymology}, vol.~350,
+  pp.~469 -- 483, 2002.
+\newblock Guide to Yeast Genetics and Molecular and Cell Biology - Part B.
+
+\bibitem{Simon:2001}
+I.~Simon, J.~Barnett, N.~Hannett, C.~T. Harbison, N.~J. Rinaldi, T.~L. Volkert,
+  J.~J. Wyrick, J.~Zeitlinger, D.~K. Gifford, T.~S. Jaakkola, and R.~A. Young,
+  ``Serial regulation of transcriptional regulators in the yeast cell cycle,''
+  {\em Cell}, vol.~106, no.~6, pp.~697 -- 708, 2001.
+
+\bibitem{Takahashi:2006}
+K.~Takahashi and S.~Yamanaka, ``Induction of pluripotent stem cells from mouse
+  embryonic and adult fibroblast cultures by defined factors,'' {\em Cell},
+  vol.~126, no.~4, pp.~663 -- 676, 2006.
+
+\bibitem{Dynlacht:1997}
+B.~D. Dynlacht, ``Regulation of transcription by proteins that control the cell
+  cycle,'' {\em Nature}, vol.~389, pp.~149--152, September 1997.
+
+\bibitem{Lee:2000}
+T.~I. Lee and R.~A. Young, ``Transcription of eukaryotic protein-coding
+  genes,'' {\em Annual Review of Genetics}, vol.~34, pp.~77--137, 2000.
+
+\bibitem{Kadonaga:2004}
+J.~T. Kadonaga, ``Regulation of {RNA} polymerase {II} transcription by
+  sequence-specific {DNA} binding factors,'' {\em Cell}, vol.~116, no.~2,
+  pp.~247 -- 257, 2004.
+
+\bibitem{Furney:2006}
+S.~J. Furney, D.~G. Higgins, C.~A. Ouzounis, and N.~L{\'o}pez-Bigas,
+  ``Structural and functional properties of genes involved in human cancer,''
+  {\em BMC Genomics}, vol.~7, no.~1, p.~3, 2006.
+
+\bibitem{Boyadjiev:2000}
+S.~Boyadjiev and E.~Jabs, ``Online mendelian inheritance in man {(OMIM)} as a
+  knowledgebase for human developmental disorders,'' {\em Clinical Genetics},
+  vol.~57, no.~4, pp.~253--266, 2000.
+
+\bibitem{Subhajyoti:2008}
+S.~De, N.~Lopez-Bigas, and S.~A. Teichmann, ``Patterns of evolutionary
+  constraints on genes in humans,'' {\em BMC Evolutionary Biology}, vol.~8,
+  no.~1, p.~275, 2008.
+
+\bibitem{Levine:2003}
+M.~Levine and R.~Tjian, ``Transcription regulation and animal diversity,'' {\em
+  Nature}, pp.~147--151, July 2003.
+
+\bibitem{Turcotte:1992}
+B.~Turcotte and L.~Guarente, ``Hap1 positive control mutants specific for one
+  of two binding sites,'' {\em Gene and Development}, vol.~6, pp.~2001--2009,
+  December 1992.
+
+\bibitem{Menke:2008}
+D.~B. Menke, C.~Guenther, and D.~M. Kingsley, ``Dual hindlimb control elements
+  in the tbx4 gene and region-specific control of bone size in vertebrate
+  limbs,'' {\em Development}, vol.~135, no.~15, pp.~2543--2553, 2008.
+
+\bibitem{Hughes:2013}
+T.~R. Hughes and C.~G. de~Boer, ``Mapping yeast transcriptional networks,''
+  {\em Genetics}, vol.~195, no.~1, pp.~9--36, 2013.
+
+\bibitem{Bishop:1999}
+C.~M. Bishop, ``Latent variable models,'' in {\em Learning in Graphical
+  Models}, pp.~371--403, MIT Press, 1999.
+
+\bibitem{Lawrence:2005}
+N.~Lawrence, ``Probabilistic non-linear principal component analysis with
+  {Gaussian} process latent variable models,'' {\em Journal of Machine Learning
+  Research}, vol.~6, pp.~1783--1816, Dec. 2005.
+
+\bibitem{Alter:2004}
+O.~Alter and G.~H. Golub, ``Integrative analysis of genome-scale data by using
+  pseudoinverse projection predicts novel correlation between {DNA} replication
+  and {RNA} transcription,'' {\em Proceedings of the National Academy of
+  Sciences USA}, vol.~101, pp.~16577--16582, November 2004.
+
+\bibitem{Gao:2004}
+F.~Gao, B.~C. Foat, and H.~J. Bussemaker, ``Defining transcriptional networks
+  through integrative modeling of {mRNA} expression and transcription factor
+  binding data,'' {\em BMC Bioinformatics}, vol.~5, March 2004.
+
+\bibitem{Liao:2003}
+J.~C. Liao, R.~Boscolo, Y.-L. Yang, L.~M. Tran, C.~Sabatti, and V.~P.
+  Roychowdhury, ``Network component analysis: Reconstruction of regulatory
+  signals in biological systems,'' {\em Proceedings of the National Academy of
+  Sciences}, vol.~100, December 2003.
+
+\bibitem{Boulesteix:2005}
+A.-L. Boulesteix and K.~Strimmer, ``Predicting transcription factor activities
+  from combined analysis of microarray and chip data: a partial least squares
+  approach,'' {\em Theoretical Biology and Medical Modelling}, vol.~2, June
+  2005.
+
+\bibitem{Nachman:2004}
+I.~Nachman, A.~Regev, and N.~Friedman, ``Inferring quantitative models of
+  regulatory networks from expression data,'' {\em Bioinformatics}, vol.~20,
+  March 2004.
+
+\bibitem{Sanguinetti:2006}
+G.~Sanguinetti, M.~Rattray, and N.~D. Lawrence, ``A probabilistic dynamical
+  model for quantitative inference of the regulatory mechanism of
+  transcription,'' {\em Bioinformatics, Oxford University Press}, vol.~22,
+  no.~14, pp.~1753--1759, 2006.
+
+\bibitem{Spellman:1998}
+P.~T. Spellman, G.~Sherlock, M.~Q. Zhang, V.~R. Iyer, K.~Anders, M.~B. Eisen,
+  P.~O. Brown, D.~Botstein, and B.~Futcher, ``Comprehensive identification of
+  cell cycle regulated genes of the yeast saccharomyces cerevisiae by
+  microarray hybridization,'' {\em Molecular Biology of the Cell}, vol.~9,
+  pp.~3273--3297, December 1998.
+
+\bibitem{Lee:2002}
+T.~I. Lee, N.~J. Rinaldi, F.~Robert, D.~T. Odom, Z.~Bar-Joseph, G.~K. Gerber,
+  N.~M. Hannett, C.~T. Harbison, C.~M. Thompson, I.~Simon, J.~Zeitlinger, E.~G.
+  Jennings, H.~L. Murray, D.~B. Gordon, B.~Ren, J.~J. Wyrick, J.-B. Tagne,
+  T.~L. Volkert, E.~Fraenkel, D.~K. Gifford, and R.~A. Young, ``Transcriptional
+  regulatory networks in saccharomyces cerevisiae,'' {\em Science}, vol.~298,
+  no.~5594, pp.~799--804, 2002.
+
+\bibitem{Rasmussen_and_Williams:2006}
+C.~E. Rasmussen and C.~K. Williams, {\em {Gaussian} Processes for Machine
+  Learning}.
+\newblock MIT Press, 2006.
+
+\bibitem{MacKay:2003}
+D.~J.~C. MacKay, {\em Information Theory, Inference, and Learning Algorithms}.
+\newblock Cambridge University Press, 2003.
+
+\bibitem{Abramowitz:1965}
+M.~Abramowitz and I.~A. Stegun, {\em Handbook of Mathematical Functions}.
+\newblock Dover, New York, 1965.
+
+\bibitem{Ornstein_Uhlenbeck:1930}
+G.~E. Uhlenbeck and L.~S. Ornstein, ``On the theory of the brownian motion,''
+  {\em Phys. Rev.}, vol.~36, pp.~823--841, 1930.
+
+\bibitem{Wackernagel:2003}
+H.~Wackernagel, {\em Multivariate Geostatistics An Introduction with
+  Applications}.
+\newblock Springer-Verlag Heidelberg New York, 2003.
+
+\bibitem{Alvarez:2012}
+M.~A. Alvarez, L.~Rosasco, and N.~D. Lawrence, ``Kernels for vector-valued
+  functions: A review,'' {\em Foundations and Trends in Machine Learning},
+  vol.~4, June 2012.
+
+\bibitem{Stegle:2011}
+O.~Stegle, C.~Lippert, J.~M. Mooij, N.~D. Lawrence, and K.~M. Borgwardt,
+  ``Efficient inference in matrix-variate {Gaussian} models with iid
+  observation noise,'' in {\em Advances in Neural Information Processing
+  Systems 24} (J.~Shawe-Taylor, R.~Zemel, P.~Bartlett, F.~Pereira, and
+  K.~Weinberger, eds.), pp.~630--638, Curran Associates, Inc., 2011.
+
+\bibitem{Rahman:2016}
+M.~A. Rahman and N.~D. Lawrence, ``A gaussian process model for inferring the
+  dynamic transcription factor activity,'' in {\em Proceedings of the 7th ACM
+  International Conference on Bioinformatics, Computational Biology, and Health
+  Informatics}, BCB '16, (New York, NY, USA), pp.~495--496, ACM, 2016.
+
+\bibitem{Muhammad:2014}
+M.~A. Rahman and N.~D. Lawrence, ``Inferring transcription factor activities by
+  combining binding information with gene expression profiles.''
+  \url{http://nbviewer.jupyter.org/github/SheffieldML/notebook/blob/master/compbio/transcriptionFactorActivities.ipynb},
+  2014.
+
+\end{thebibliography}

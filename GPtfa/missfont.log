@@ -1,0 +1,7 @@
+mktexpk --mfmode / --bdpi 600 --mag 0+510/600 --dpi 510 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+510/600 --dpi 510 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+510/600 --dpi 510 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+480/600 --dpi 480 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+480/600 --dpi 480 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+480/600 --dpi 480 ifsym10
+mktexpk --mfmode / --bdpi 600 --mag 0+480/600 --dpi 480 ifsym10
